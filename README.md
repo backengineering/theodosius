@@ -1,10 +1,4 @@
-<div align="center">
-    <div>
-        <img src="https://git.back.engineering/_xeroxz/Theodosius/raw/commit/27dd04e97b23c2afc799200292a966728992bfae/doxygen/icon.png"/>
-    </div>
-</div>
-
-# Theodosius - Jit linker, Mapper, Mutator, and Obfuscator 
+<h1 align="center">Theodosius</h1>
 
 Theodosius (Theo for short) is a jit linker created for obfuscation. The project is extremely modular in design and supports both kernel and usermode projects. 
 Theo works with static libraries rather than completely compiled binaries. This allows it to easily position, obfuscate, and scatter symbols anywhere as the project takes the place of the linker.
