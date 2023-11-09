@@ -1,0 +1,150 @@
+\hypertarget{classtheo_1_1obf_1_1jcc__rewrite__pass__t}{}\doxysection{theo\+::obf\+::jcc\+\_\+rewrite\+\_\+pass\+\_\+t Class Reference}
+\label{classtheo_1_1obf_1_1jcc__rewrite__pass__t}\index{theo::obf::jcc\_rewrite\_pass\_t@{theo::obf::jcc\_rewrite\_pass\_t}}
+
+
+jcc rewrite pass which rewrites rip relative jcc\textquotesingle{}s so that they are position independent.  
+
+
+
+
+{\ttfamily \#include \char`\"{}jcc\+\_\+rewrite\+\_\+pass.\+hpp\char`\"{}}
+
+Inheritance diagram for theo\+::obf\+::jcc\+\_\+rewrite\+\_\+pass\+\_\+t\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{d6/dc1/classtheo_1_1obf_1_1jcc__rewrite__pass__t}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classtheo_1_1obf_1_1jcc__rewrite__pass__t_a5a93eb0945025ef3caefed8c63b65b23}{run}} (\mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t}{decomp\+::symbol\+\_\+t}} $\ast$sym)
+\begin{DoxyCompactList}\small\item\em virtual method which must be implimented by the pass that inherits this class. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{classtheo_1_1obf_1_1jcc__rewrite__pass__t}{jcc\+\_\+rewrite\+\_\+pass\+\_\+t}} $\ast$ \mbox{\hyperlink{classtheo_1_1obf_1_1jcc__rewrite__pass__t_afc17278f751fe3f5868c988faffb3c92}{get}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+jcc rewrite pass which rewrites rip relative jcc\textquotesingle{}s so that they are position independent. 
+
+given the following code\+: \begin{DoxyVerb}jnz label1
+; other code goes here
+\end{DoxyVerb}
+ label1\+: ; more code here
+
+the jnz instruction will be rewritten so that the following code is generated\+: \begin{DoxyVerb}jnz br2
+\end{DoxyVerb}
+ br1\+: jmp \mbox{[}rip\mbox{]} ; address after this instruction contains the address ; of the instruction after the jcc. br2\+: jmp \mbox{[}rip\mbox{]} ; address after this instruction contains the address of where ; branch 2 is located.
+
+its important to note that other passes will encrypt (transform) the address of the next instruction. There is actually no jmp \mbox{[}rip\mbox{]} either, push/ret is used. 
+
+Definition at line \mbox{\hyperlink{jcc__rewrite__pass_8hpp_source_l00061}{61}} of file \mbox{\hyperlink{jcc__rewrite__pass_8hpp_source}{jcc\+\_\+rewrite\+\_\+pass.\+hpp}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classtheo_1_1obf_1_1jcc__rewrite__pass__t_afc17278f751fe3f5868c988faffb3c92}\label{classtheo_1_1obf_1_1jcc__rewrite__pass__t_afc17278f751fe3f5868c988faffb3c92}} 
+\index{theo::obf::jcc\_rewrite\_pass\_t@{theo::obf::jcc\_rewrite\_pass\_t}!get@{get}}
+\index{get@{get}!theo::obf::jcc\_rewrite\_pass\_t@{theo::obf::jcc\_rewrite\_pass\_t}}
+\doxysubsubsection{\texorpdfstring{get()}{get()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classtheo_1_1obf_1_1jcc__rewrite__pass__t}{jcc\+\_\+rewrite\+\_\+pass\+\_\+t}} $\ast$ theo\+::obf\+::jcc\+\_\+rewrite\+\_\+pass\+\_\+t\+::get (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{jcc__rewrite__pass_8cpp_source_l00035}{35}} of file \mbox{\hyperlink{jcc__rewrite__pass_8cpp_source}{jcc\+\_\+rewrite\+\_\+pass.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00035                                             \{}
+\DoxyCodeLine{00036   \textcolor{keyword}{static} jcc\_rewrite\_pass\_t obj;}
+\DoxyCodeLine{00037   \textcolor{keywordflow}{return} \&obj;}
+\DoxyCodeLine{00038 \}}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{main_8cpp_source_l00057}{main()}}.
+
+\mbox{\Hypertarget{classtheo_1_1obf_1_1jcc__rewrite__pass__t_a5a93eb0945025ef3caefed8c63b65b23}\label{classtheo_1_1obf_1_1jcc__rewrite__pass__t_a5a93eb0945025ef3caefed8c63b65b23}} 
+\index{theo::obf::jcc\_rewrite\_pass\_t@{theo::obf::jcc\_rewrite\_pass\_t}!run@{run}}
+\index{run@{run}!theo::obf::jcc\_rewrite\_pass\_t@{theo::obf::jcc\_rewrite\_pass\_t}}
+\doxysubsubsection{\texorpdfstring{run()}{run()}}
+{\footnotesize\ttfamily void theo\+::obf\+::jcc\+\_\+rewrite\+\_\+pass\+\_\+t\+::run (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t}{decomp\+::symbol\+\_\+t}} $\ast$}]{sym }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+virtual method which must be implimented by the pass that inherits this class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sym} & a symbol of the same type of m\+\_\+sym\+\_\+type.\\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classtheo_1_1obf_1_1pass__t_acfadc013ff0754d66a18baffdb1a61d1}{theo\+::obf\+::pass\+\_\+t}}.
+
+
+
+Definition at line \mbox{\hyperlink{jcc__rewrite__pass_8cpp_source_l00040}{40}} of file \mbox{\hyperlink{jcc__rewrite__pass_8cpp_source}{jcc\+\_\+rewrite\+\_\+pass.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00040                                                 \{}
+\DoxyCodeLine{00041   std::int32\_t disp = \{\};}
+\DoxyCodeLine{00042   xed\_decoded\_inst\_t inst;}
+\DoxyCodeLine{00043   xed\_state\_t istate\{XED\_MACHINE\_MODE\_LONG\_64, XED\_ADDRESS\_WIDTH\_64b\};}
+\DoxyCodeLine{00044   xed\_decoded\_inst\_zero\_set\_mode(\&inst, \&istate);}
+\DoxyCodeLine{00045   xed\_decode(\&inst, sym-\/>data().data(), XED\_MAX\_INSTRUCTION\_BYTES);}
+\DoxyCodeLine{00046 }
+\DoxyCodeLine{00047   \textcolor{comment}{// if the instruction is branching...}}
+\DoxyCodeLine{00048   \textcolor{keywordflow}{if} ((disp = xed\_decoded\_inst\_get\_branch\_displacement(\&inst))) \{}
+\DoxyCodeLine{00049     disp += xed\_decoded\_inst\_get\_length(\&inst);}
+\DoxyCodeLine{00050 }
+\DoxyCodeLine{00051     \textcolor{comment}{// update displacement...}}
+\DoxyCodeLine{00052     xed\_decoded\_inst\_set\_branch\_displacement(}
+\DoxyCodeLine{00053         \&inst, sym-\/>data().size() -\/ xed\_decoded\_inst\_get\_length(\&inst),}
+\DoxyCodeLine{00054         xed\_decoded\_inst\_get\_branch\_displacement\_width(\&inst));}
+\DoxyCodeLine{00055 }
+\DoxyCodeLine{00056     xed\_encoder\_request\_init\_from\_decode(\&inst);}
+\DoxyCodeLine{00057     xed\_encoder\_request\_t* req = \&inst;}
+\DoxyCodeLine{00058 }
+\DoxyCodeLine{00059     \textcolor{comment}{// update jcc in the buffer...}}
+\DoxyCodeLine{00060     std::uint32\_t len = \{\};}
+\DoxyCodeLine{00061     xed\_encode(req, sym-\/>data().data(), xed\_decoded\_inst\_get\_length(\&inst),}
+\DoxyCodeLine{00062                \&len);}
+\DoxyCodeLine{00063 }
+\DoxyCodeLine{00064     \textcolor{comment}{// create a relocation to the instruction the branch would normally go}}
+\DoxyCodeLine{00065     \textcolor{comment}{// too...}}
+\DoxyCodeLine{00066     \textcolor{keyword}{auto} offset = disp < 0 ? sym-\/>offset() -\/ std::abs(disp)}
+\DoxyCodeLine{00067                            : sym-\/>offset() + std::abs(disp);}
+\DoxyCodeLine{00068 }
+\DoxyCodeLine{00069     \textcolor{keyword}{auto} sym\_name =}
+\DoxyCodeLine{00070         std::string(}
+\DoxyCodeLine{00071             sym-\/>sym()-\/>name.to\_string(sym-\/>img()-\/>get\_strings()).data())}
+\DoxyCodeLine{00072             .append(\textcolor{stringliteral}{"{}@"{}})}
+\DoxyCodeLine{00073             .append(std::to\_string(offset));}
+\DoxyCodeLine{00074 }
+\DoxyCodeLine{00075     sym-\/>relocs().push\_back(}
+\DoxyCodeLine{00076         recomp::reloc\_t(0, \mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t_a8695d75670cc4d61d275464e9109ff06}{decomp::symbol\_t::hash}}(sym\_name), sym\_name.data()));}
+\DoxyCodeLine{00077 }
+\DoxyCodeLine{00078     \textcolor{comment}{// run next\_inst\_pass on this symbol to generate the transformations for the}}
+\DoxyCodeLine{00079     \textcolor{comment}{// relocation to the jcc branch dest instruction...}}
+\DoxyCodeLine{00080     \mbox{\hyperlink{classtheo_1_1obf_1_1next__inst__pass__t_a964e6f5291ccba0442519f2563b3a2e9}{next\_inst\_pass\_t::get}}()-\/>\mbox{\hyperlink{classtheo_1_1obf_1_1next__inst__pass__t_ae4cbba78b14c2b9da794386e4d92f40f}{run}}(sym);}
+\DoxyCodeLine{00081   \}}
+\DoxyCodeLine{00082 \};}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{symbol_8cpp_source_l00076}{theo\+::decomp\+::symbol\+\_\+t\+::data()}}, \mbox{\hyperlink{next__inst__pass_8cpp_source_l00034}{theo\+::obf\+::next\+\_\+inst\+\_\+pass\+\_\+t\+::get()}}, \mbox{\hyperlink{symbol_8cpp_source_l00088}{theo\+::decomp\+::symbol\+\_\+t\+::hash()}}, \mbox{\hyperlink{symbol_8cpp_source_l00068}{theo\+::decomp\+::symbol\+\_\+t\+::img()}}, \mbox{\hyperlink{symbol_8cpp_source_l00056}{theo\+::decomp\+::symbol\+\_\+t\+::offset()}}, \mbox{\hyperlink{symbol_8cpp_source_l00096}{theo\+::decomp\+::symbol\+\_\+t\+::relocs()}}, \mbox{\hyperlink{next__inst__pass_8cpp_source_l00038}{theo\+::obf\+::next\+\_\+inst\+\_\+pass\+\_\+t\+::run()}}, and \mbox{\hyperlink{symbol_8cpp_source_l00092}{theo\+::decomp\+::symbol\+\_\+t\+::sym()}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/obf/passes/\mbox{\hyperlink{jcc__rewrite__pass_8hpp}{jcc\+\_\+rewrite\+\_\+pass.\+hpp}}\item 
+src/obf/passes/\mbox{\hyperlink{jcc__rewrite__pass_8cpp}{jcc\+\_\+rewrite\+\_\+pass.\+cpp}}\end{DoxyCompactItemize}

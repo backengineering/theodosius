@@ -1,0 +1,169 @@
+\hypertarget{classtheo_1_1obf_1_1next__inst__pass__t}{}\doxysection{theo\+::obf\+::next\+\_\+inst\+\_\+pass\+\_\+t Class Reference}
+\label{classtheo_1_1obf_1_1next__inst__pass__t}\index{theo::obf::next\_inst\_pass\_t@{theo::obf::next\_inst\_pass\_t}}
+
+
+This pass is used to generate transformations and jmp code to change RIP to the next instruction.  
+
+
+
+
+{\ttfamily \#include \char`\"{}next\+\_\+inst\+\_\+pass.\+hpp\char`\"{}}
+
+Inheritance diagram for theo\+::obf\+::next\+\_\+inst\+\_\+pass\+\_\+t\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{d5/d08/classtheo_1_1obf_1_1next__inst__pass__t}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classtheo_1_1obf_1_1next__inst__pass__t_ae4cbba78b14c2b9da794386e4d92f40f}{run}} (\mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t}{decomp\+::symbol\+\_\+t}} $\ast$sym)
+\begin{DoxyCompactList}\small\item\em virtual method which must be implimented by the pass that inherits this class. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{classtheo_1_1obf_1_1next__inst__pass__t}{next\+\_\+inst\+\_\+pass\+\_\+t}} $\ast$ \mbox{\hyperlink{classtheo_1_1obf_1_1next__inst__pass__t_a964e6f5291ccba0442519f2563b3a2e9}{get}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This pass is used to generate transformations and jmp code to change RIP to the next instruction. 
+
+given the following code (get pml4 address from cr3)\+:
+
+get\+\_\+pml4\+: 0\+: 48 c7 c0 ff 0f 00 00 mov rax,0xfff 7\+: 48 f7 d0 not rax a\+: 0f 20 da mov rdx,cr3 d\+: 48 21 c2 and rdx,rax 10\+: b1 00 mov cl,0x0 12\+: 48 d3 e2 shl rdx,cl 15\+: 48 89 d0 mov rax,rdx 18\+: c3 ret
+
+this pass will break up each instruction so that it can be anywhere in a linear virtual address space. this pass will not work on rip relative code, however clang will not generate such code when compiled with \char`\"{}-\/mcmodel=large\char`\"{}
+
+get\+\_\+pml4@0\+: mov rax, 0x\+FFF push \mbox{[}next\+\_\+inst\+\_\+addr\+\_\+enc\mbox{]} xor \mbox{[}rsp\mbox{]}, 0x3243342 ; a random number of transformations here... ret next\+\_\+inst\+\_\+addr\+\_\+enc\+: ; encrypted address of the next instruction goes here.
+
+get\+\_\+pml4@7\+: not rax push \mbox{[}next\+\_\+inst\+\_\+addr\+\_\+enc\mbox{]} xor \mbox{[}rsp\mbox{]}, 0x93983498 ; a random number of transformations here... ret next\+\_\+inst\+\_\+addr\+\_\+enc\+: ; encrypted address of the next instruction goes here.
+
+this process is continued for each instruction in the function. the last instruction \char`\"{}ret\char`\"{} will have no code generated for it as there is no next instruction.
+
+this pass also only runs at the instruction level, theodosius internally breaks up functions inside of the \char`\"{}.\+split\char`\"{} section into individual instruction symbols. this process also creates a psuedo relocation which simply tells this pass that there needs to be a relocation to the next symbol. the offset for these psuedo relocations is zero. 
+
+Definition at line \mbox{\hyperlink{next__inst__pass_8hpp_source_l00085}{85}} of file \mbox{\hyperlink{next__inst__pass_8hpp_source}{next\+\_\+inst\+\_\+pass.\+hpp}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classtheo_1_1obf_1_1next__inst__pass__t_a964e6f5291ccba0442519f2563b3a2e9}\label{classtheo_1_1obf_1_1next__inst__pass__t_a964e6f5291ccba0442519f2563b3a2e9}} 
+\index{theo::obf::next\_inst\_pass\_t@{theo::obf::next\_inst\_pass\_t}!get@{get}}
+\index{get@{get}!theo::obf::next\_inst\_pass\_t@{theo::obf::next\_inst\_pass\_t}}
+\doxysubsubsection{\texorpdfstring{get()}{get()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classtheo_1_1obf_1_1next__inst__pass__t}{next\+\_\+inst\+\_\+pass\+\_\+t}} $\ast$ theo\+::obf\+::next\+\_\+inst\+\_\+pass\+\_\+t\+::get (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{next__inst__pass_8cpp_source_l00034}{34}} of file \mbox{\hyperlink{next__inst__pass_8cpp_source}{next\+\_\+inst\+\_\+pass.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00034                                         \{}
+\DoxyCodeLine{00035   \textcolor{keyword}{static} next\_inst\_pass\_t obj;}
+\DoxyCodeLine{00036   \textcolor{keywordflow}{return} \&obj;}
+\DoxyCodeLine{00037 \}}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{main_8cpp_source_l00057}{main()}}, and \mbox{\hyperlink{jcc__rewrite__pass_8cpp_source_l00040}{theo\+::obf\+::jcc\+\_\+rewrite\+\_\+pass\+\_\+t\+::run()}}.
+
+\mbox{\Hypertarget{classtheo_1_1obf_1_1next__inst__pass__t_ae4cbba78b14c2b9da794386e4d92f40f}\label{classtheo_1_1obf_1_1next__inst__pass__t_ae4cbba78b14c2b9da794386e4d92f40f}} 
+\index{theo::obf::next\_inst\_pass\_t@{theo::obf::next\_inst\_pass\_t}!run@{run}}
+\index{run@{run}!theo::obf::next\_inst\_pass\_t@{theo::obf::next\_inst\_pass\_t}}
+\doxysubsubsection{\texorpdfstring{run()}{run()}}
+{\footnotesize\ttfamily void theo\+::obf\+::next\+\_\+inst\+\_\+pass\+\_\+t\+::run (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t}{decomp\+::symbol\+\_\+t}} $\ast$}]{sym }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+virtual method which must be implimented by the pass that inherits this class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sym} & a symbol of the same type of m\+\_\+sym\+\_\+type.\\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classtheo_1_1obf_1_1pass__t_acfadc013ff0754d66a18baffdb1a61d1}{theo\+::obf\+::pass\+\_\+t}}.
+
+
+
+Definition at line \mbox{\hyperlink{next__inst__pass_8cpp_source_l00038}{38}} of file \mbox{\hyperlink{next__inst__pass_8cpp_source}{next\+\_\+inst\+\_\+pass.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00038                                               \{}
+\DoxyCodeLine{00039   std::optional<recomp::reloc\_t*> reloc;}
+\DoxyCodeLine{00040   \textcolor{keywordflow}{if} (!(reloc = has\_next\_inst\_reloc(sym)).has\_value())}
+\DoxyCodeLine{00041     \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00042 }
+\DoxyCodeLine{00043   xed\_decoded\_inst\_t inst = m\_tmp\_inst;}
+\DoxyCodeLine{00044   std::vector<std::uint8\_t> new\_inst\_bytes =}
+\DoxyCodeLine{00045       \mbox{\hyperlink{namespacetheo_1_1obf_1_1transform_abb618f5ff8d88963dd77e682456ef982}{transform::generate}}(\&inst, reloc.value(), 3, 6);}
+\DoxyCodeLine{00046 }
+\DoxyCodeLine{00047   \textcolor{comment}{// add a push [rip+offset] and update reloc-\/>offset()...}}
+\DoxyCodeLine{00048   \textcolor{comment}{//}}
+\DoxyCodeLine{00049   std::uint32\_t inst\_len = \{\};}
+\DoxyCodeLine{00050   std::uint8\_t inst\_buff[XED\_MAX\_INSTRUCTION\_BYTES];}
+\DoxyCodeLine{00051 }
+\DoxyCodeLine{00052   xed\_error\_enum\_t err;}
+\DoxyCodeLine{00053   xed\_encoder\_request\_t req;}
+\DoxyCodeLine{00054   xed\_state\_t istate\{XED\_MACHINE\_MODE\_LONG\_64, XED\_ADDRESS\_WIDTH\_64b\};}
+\DoxyCodeLine{00055 }
+\DoxyCodeLine{00056   xed\_encoder\_request\_zero\_set\_mode(\&req, \&istate);}
+\DoxyCodeLine{00057   xed\_encoder\_request\_set\_effective\_operand\_width(\&req, 64);}
+\DoxyCodeLine{00058   xed\_encoder\_request\_set\_iclass(\&req, XED\_ICLASS\_PUSH);}
+\DoxyCodeLine{00059 }
+\DoxyCodeLine{00060   xed\_encoder\_request\_set\_mem0(\&req);}
+\DoxyCodeLine{00061   xed\_encoder\_request\_set\_operand\_order(\&req, 0, XED\_OPERAND\_MEM0);}
+\DoxyCodeLine{00062 }
+\DoxyCodeLine{00063   xed\_encoder\_request\_set\_base0(\&req, XED\_REG\_RIP);}
+\DoxyCodeLine{00064   xed\_encoder\_request\_set\_seg0(\&req, XED\_REG\_INVALID);}
+\DoxyCodeLine{00065   xed\_encoder\_request\_set\_index(\&req, XED\_REG\_INVALID);}
+\DoxyCodeLine{00066   xed\_encoder\_request\_set\_scale(\&req, 0);}
+\DoxyCodeLine{00067 }
+\DoxyCodeLine{00068   xed\_encoder\_request\_set\_memory\_operand\_length(\&req, 8);}
+\DoxyCodeLine{00069   xed\_encoder\_request\_set\_memory\_displacement(\&req, new\_inst\_bytes.size() + 1,}
+\DoxyCodeLine{00070                                               1);}
+\DoxyCodeLine{00071 }
+\DoxyCodeLine{00072   \textcolor{keywordflow}{if} ((err = xed\_encode(\&req, inst\_buff, \textcolor{keyword}{sizeof}(inst\_buff), \&inst\_len)) !=}
+\DoxyCodeLine{00073       XED\_ERROR\_NONE) \{}
+\DoxyCodeLine{00074     spdlog::info(\textcolor{stringliteral}{"{}failed to encode instruction... reason: \{\}"{}},}
+\DoxyCodeLine{00075                  xed\_error\_enum\_t2str(err));}
+\DoxyCodeLine{00076 }
+\DoxyCodeLine{00077     assert(err == XED\_ERROR\_NONE);}
+\DoxyCodeLine{00078   \}}
+\DoxyCodeLine{00079 }
+\DoxyCodeLine{00080   new\_inst\_bytes.insert(new\_inst\_bytes.begin(), inst\_buff,}
+\DoxyCodeLine{00081                         inst\_buff + inst\_len);}
+\DoxyCodeLine{00082 }
+\DoxyCodeLine{00083   \textcolor{comment}{// put a return instruction at the end of the decrypt instructions...}}
+\DoxyCodeLine{00084   \textcolor{comment}{//}}
+\DoxyCodeLine{00085   new\_inst\_bytes.push\_back(0xC3);}
+\DoxyCodeLine{00086 }
+\DoxyCodeLine{00087   sym-\/>data().insert(sym-\/>data().end(), new\_inst\_bytes.begin(),}
+\DoxyCodeLine{00088                      new\_inst\_bytes.end());}
+\DoxyCodeLine{00089 }
+\DoxyCodeLine{00090   reloc.value()-\/>offset(sym-\/>data().size());}
+\DoxyCodeLine{00091   sym-\/>data().resize(sym-\/>data().size() + 8);}
+\DoxyCodeLine{00092 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{symbol_8cpp_source_l00076}{theo\+::decomp\+::symbol\+\_\+t\+::data()}}, and \mbox{\hyperlink{gen_8hpp_source_l00045}{theo\+::obf\+::transform\+::generate()}}.
+
+
+
+Referenced by \mbox{\hyperlink{jcc__rewrite__pass_8cpp_source_l00040}{theo\+::obf\+::jcc\+\_\+rewrite\+\_\+pass\+\_\+t\+::run()}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/obf/passes/\mbox{\hyperlink{next__inst__pass_8hpp}{next\+\_\+inst\+\_\+pass.\+hpp}}\item 
+src/obf/passes/\mbox{\hyperlink{next__inst__pass_8cpp}{next\+\_\+inst\+\_\+pass.\+cpp}}\end{DoxyCompactItemize}

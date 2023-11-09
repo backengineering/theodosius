@@ -1,0 +1,157 @@
+\hypertarget{main_8cpp_source}{}\doxysection{main.\+cpp}
+\label{main_8cpp_source}\index{examples/demo/main.cpp@{examples/demo/main.cpp}}
+\mbox{\hyperlink{main_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00001}00001 \textcolor{comment}{// Copyright (c) 2022, \_xeroxz}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00002}00002 \textcolor{comment}{// All rights reserved.}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00003}00003 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00004}00004 \textcolor{comment}{// Redistribution and use in source and binary forms, with or without}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00005}00005 \textcolor{comment}{// modification, are permitted provided that the following conditions are met:}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00006}00006 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00007}00007 \textcolor{comment}{// 1. Redistributions of source code must retain the above copyright notice,}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00008}00008 \textcolor{comment}{//    this list of conditions and the following disclaimer.}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00009}00009 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00010}00010 \textcolor{comment}{// 2. Redistributions in binary form must reproduce the above copyright notice,}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00011}00011 \textcolor{comment}{//    this list of conditions and the following disclaimer in the documentation}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00012}00012 \textcolor{comment}{//    and/or other materials provided with the distribution.}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00013}00013 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00014}00014 \textcolor{comment}{// 3. Neither the name of the copyright holder nor the names of its}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00015}00015 \textcolor{comment}{//    contributors may be used to endorse or promote products derived from}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00016}00016 \textcolor{comment}{//    this software without specific prior written permission.}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00017}00017 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00018}00018 \textcolor{comment}{// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "{}AS IS"{}}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00019}00019 \textcolor{comment}{// AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00020}00020 \textcolor{comment}{// IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00021}00021 \textcolor{comment}{// ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00022}00022 \textcolor{comment}{// LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00023}00023 \textcolor{comment}{// CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00024}00024 \textcolor{comment}{// SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00025}00025 \textcolor{comment}{// INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00026}00026 \textcolor{comment}{// CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00027}00027 \textcolor{comment}{// ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00028}00028 \textcolor{comment}{// POSSIBILITY OF SUCH DAMAGE.}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00029}00029 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00030}00030 }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00031}00031 \textcolor{preprocessor}{\#include <Windows.h>}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00032}00032 \textcolor{preprocessor}{\#include <psapi.h>}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00033}00033 }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00034}00034 \textcolor{preprocessor}{\#include <filesystem>}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00035}00035 \textcolor{preprocessor}{\#include <fstream>}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00036}00036 \textcolor{preprocessor}{\#include <iostream>}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00037}00037 }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00038}00038 \textcolor{preprocessor}{\#include <spdlog/spdlog.h>}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00039}00039 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{theo_8hpp}{theo.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00040}00040 }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00041}00041 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{engine_8hpp}{obf/engine.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00042}00042 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{jcc__rewrite__pass_8hpp}{obf/passes/jcc\_rewrite\_pass.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00043}00043 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{next__inst__pass_8hpp}{obf/passes/next\_inst\_pass.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00044}00044 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{reloc__transform__pass_8hpp}{obf/passes/reloc\_transform\_pass.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00045}00045 }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00046}00046 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{hello__world__pass_8hpp}{hello\_world\_pass.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00047}00047 }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00048}00048 \textcolor{keyword}{namespace }fs = std::filesystem;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00049}00049 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00050}00050 \textcolor{comment}{/// <summary>}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00051}00051 \textcolor{comment}{/// example usage of how to interface with theo. please refer to the source code}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00052}00052 \textcolor{comment}{/// of this function for details.}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00053}00053 \textcolor{comment}{/// </summary>}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00054}00054 \textcolor{comment}{/// <param name="{}argc"{}></param>}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00055}00055 \textcolor{comment}{/// <param name="{}argv"{}></param>}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00056}00056 \textcolor{comment}{/// <returns></returns>}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00057}\mbox{\hyperlink{main_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{00057}} \textcolor{comment}{}\textcolor{keywordtype}{int} \mbox{\hyperlink{main_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{main}}(\textcolor{keywordtype}{int} argc, \textcolor{keywordtype}{char}* argv[]) \{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00058}00058   \textcolor{keywordflow}{if} (argc < 2)}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00059}00059     \textcolor{keywordflow}{return} -\/1;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00060}00060 }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00061}00061   \textcolor{comment}{// read in lib file...}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00062}00062   std::ifstream f(argv[1], std::ios::binary);}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00063}00063   \textcolor{keyword}{auto} fsize = fs::file\_size(fs::path(argv[1]));}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00064}00064   std::vector<std::uint8\_t> fdata;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00065}00065   fdata.resize(fsize);}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00066}00066   f.read((\textcolor{keywordtype}{char}*)fdata.data(), fsize);}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00067}00067 }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00068}00068   LoadLibraryA(\textcolor{stringliteral}{"{}user32.dll"{}});}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00069}00069   LoadLibraryA(\textcolor{stringliteral}{"{}win32u.dll"{}});}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00070}00070 }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00071}00071   \textcolor{comment}{// declare your allocator, resolver, and copier lambda functions.}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00072}00072   \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00073}00073 }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00074}00074   \mbox{\hyperlink{namespacetheo_1_1recomp_a96995cb0c5291dce945760c3d8f55241}{theo::recomp::allocator\_t}} allocator =}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00075}00075       [\&](std::uint32\_t size,}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00076}00076           coff::section\_characteristics\_t section\_type) -\/> std::uintptr\_t \{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00077}00077     \textcolor{keywordflow}{return} \textcolor{keyword}{reinterpret\_cast<}std::uintptr\_t\textcolor{keyword}{>}(VirtualAlloc(}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00078}00078         NULL, size, MEM\_COMMIT | MEM\_RESERVE,}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00079}00079         section\_type.mem\_execute ? PAGE\_EXECUTE\_READWRITE : PAGE\_READWRITE));}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00080}00080   \};}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00081}00081 }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00082}00082   \mbox{\hyperlink{namespacetheo_1_1recomp_a604e81450773453df676c3b573651adc}{theo::recomp::copier\_t}} copier = [\&](std::uintptr\_t ptr, \textcolor{keywordtype}{void}* buff,}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00083}00083                                       std::uint32\_t size) \{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00084}00084     std::memcpy((\textcolor{keywordtype}{void}*)ptr, buff, size);}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00085}00085   \};}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00086}00086 }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00087}00087   \mbox{\hyperlink{namespacetheo_1_1recomp_a7364f8c94855a2a871a9d6e1057989f3}{theo::recomp::resolver\_t}} resolver = [\&](std::string sym) -\/> std::uintptr\_t \{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00088}00088     \textcolor{keyword}{auto} loaded\_modules = std::make\_unique<HMODULE[]>(64);}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00089}00089     std::uintptr\_t result = 0u, loaded\_module\_sz = 0u;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00090}00090     \textcolor{keywordflow}{if} (!EnumProcessModules(GetCurrentProcess(), loaded\_modules.get(), 512,}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00091}00091                             (PDWORD)\&loaded\_module\_sz))}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00092}00092       \textcolor{keywordflow}{return} \{\};}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00093}00093 }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00094}00094     \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} i = 0u; i < loaded\_module\_sz / 8u; i++) \{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00095}00095       \textcolor{keywordtype}{wchar\_t} file\_name[MAX\_PATH] = L\textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00096}00096       \textcolor{keywordflow}{if} (!GetModuleFileNameExW(GetCurrentProcess(), loaded\_modules.get()[i],}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00097}00097                                 file\_name, \_countof(file\_name)))}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00098}00098         \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00099}00099 }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00100}00100       \textcolor{keywordflow}{if} ((result = \textcolor{keyword}{reinterpret\_cast<}std::uintptr\_t\textcolor{keyword}{>}(}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00101}00101                GetProcAddress(LoadLibraryW(file\_name), sym.c\_str()))))}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00102}00102         \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00103}00103     \}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00104}00104     \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00105}00105   \};}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00106}00106 }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00107}00107   \textcolor{comment}{// init enc/dec tables only once... important that this is done before adding}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00108}00108   \textcolor{comment}{// obfuscation passes to the engine...}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00109}00109   \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00110}00110   xed\_tables\_init();}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00111}00111 }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00112}00112   \textcolor{comment}{// order matters, the order in which the pass is added is the order they}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00113}00113   \textcolor{comment}{// will be executed!}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00114}00114   \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00115}00115   \textcolor{keyword}{auto} engine = \mbox{\hyperlink{classtheo_1_1obf_1_1engine__t_a58715f5c3ade824a65e602aba570040e}{theo::obf::engine\_t::get}}();}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00116}00116 }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00117}00117   \textcolor{comment}{// add in our hello world pass here}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00118}00118   \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00119}00119   engine-\/>add\_pass(\mbox{\hyperlink{classtheo_1_1obf_1_1hello__world__pass__t_aa556436f48335fe485d96ebc44ac2293}{theo::obf::hello\_world\_pass\_t::get}}());}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00120}00120 }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00121}00121   \textcolor{comment}{// add the rest of the passes in this order. this order is important.}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00122}00122   \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00123}00123   engine-\/>add\_pass(\mbox{\hyperlink{classtheo_1_1obf_1_1reloc__transform__pass__t_a89aa46da5f721057cd8cf5189207d464}{theo::obf::reloc\_transform\_pass\_t::get}}());}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00124}00124   engine-\/>add\_pass(\mbox{\hyperlink{classtheo_1_1obf_1_1next__inst__pass__t_a964e6f5291ccba0442519f2563b3a2e9}{theo::obf::next\_inst\_pass\_t::get}}());}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00125}00125   engine-\/>add\_pass(\mbox{\hyperlink{classtheo_1_1obf_1_1jcc__rewrite__pass__t_afc17278f751fe3f5868c988faffb3c92}{theo::obf::jcc\_rewrite\_pass\_t::get}}());}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00126}00126 }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00127}00127   std::string entry\_name;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00128}00128   std::cout << \textcolor{stringliteral}{"{}enter the name of the entry point: "{}};}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00129}00129   std::cin >> entry\_name;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00130}00130 }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00131}00131   \textcolor{comment}{// create a theo object and pass in the lib, your allocator, copier, and}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00132}00132   \textcolor{comment}{// resolver functions, as well as the entry point symbol name.}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00133}00133   \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00134}00134   \mbox{\hyperlink{classtheo_1_1theo__t}{theo::theo\_t}} t(fdata, \{allocator, copier, resolver\}, entry\_name.data());}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00135}00135 }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00136}00136   \textcolor{comment}{// call the decompose method to decompose the lib into coff files and extract}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00137}00137   \textcolor{comment}{// the symbols that are used. the result of this call will be an optional}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00138}00138   \textcolor{comment}{// value containing the number of symbols extracted.}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00139}00139   \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00140}00140   \textcolor{keyword}{auto} res = t.\mbox{\hyperlink{classtheo_1_1theo__t_a66257ff5d9825483d85e58384a12760a}{decompose}}();}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00141}00141 }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00142}00142   \textcolor{keywordflow}{if} (!res.has\_value()) \{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00143}00143     spdlog::error(\textcolor{stringliteral}{"{}decomposition failed...\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00144}00144     \textcolor{keywordflow}{return} -\/1;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00145}00145   \}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00146}00146 }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00147}00147   spdlog::info(\textcolor{stringliteral}{"{}decomposed \{\} symbols..."{}}, res.value());}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00148}00148   \textcolor{keyword}{auto} entry\_pnt = t.\mbox{\hyperlink{classtheo_1_1theo__t_a39e067dd71f82b437c6a418d41e38b27}{compose}}();}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00149}00149   spdlog::info(\textcolor{stringliteral}{"{}entry point address: \{:X\}"{}}, entry\_pnt);}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00150}00150   \textcolor{keyword}{reinterpret\_cast<}\textcolor{keywordtype}{void} (*)()\textcolor{keyword}{>}(entry\_pnt)();}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00151}00151 \}}
+
+\end{DoxyCode}

@@ -1,0 +1,99 @@
+\hypertarget{classtheo_1_1obf_1_1hello__world__pass__t}{}\doxysection{theo\+::obf\+::hello\+\_\+world\+\_\+pass\+\_\+t Class Reference}
+\label{classtheo_1_1obf_1_1hello__world__pass__t}\index{theo::obf::hello\_world\_pass\_t@{theo::obf::hello\_world\_pass\_t}}
+
+
+hello world pass example of how to inherit \mbox{\hyperlink{classtheo_1_1obf_1_1pass__t}{pass\+\_\+t}}.  
+
+
+
+
+{\ttfamily \#include \char`\"{}hello\+\_\+world\+\_\+pass.\+hpp\char`\"{}}
+
+Inheritance diagram for theo\+::obf\+::hello\+\_\+world\+\_\+pass\+\_\+t\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{d5/d6a/classtheo_1_1obf_1_1hello__world__pass__t}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classtheo_1_1obf_1_1hello__world__pass__t_a0d2d95f93ac083e157b2f12a8a56f1df}{run}} (\mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t}{decomp\+::symbol\+\_\+t}} $\ast$sym)
+\begin{DoxyCompactList}\small\item\em virtual method which must be implimented by the pass that inherits this class. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{classtheo_1_1obf_1_1hello__world__pass__t}{hello\+\_\+world\+\_\+pass\+\_\+t}} $\ast$ \mbox{\hyperlink{classtheo_1_1obf_1_1hello__world__pass__t_aa556436f48335fe485d96ebc44ac2293}{get}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+hello world pass example of how to inherit \mbox{\hyperlink{classtheo_1_1obf_1_1pass__t}{pass\+\_\+t}}. 
+
+Definition at line \mbox{\hyperlink{hello__world__pass_8hpp_source_l00039}{39}} of file \mbox{\hyperlink{hello__world__pass_8hpp_source}{hello\+\_\+world\+\_\+pass.\+hpp}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classtheo_1_1obf_1_1hello__world__pass__t_aa556436f48335fe485d96ebc44ac2293}\label{classtheo_1_1obf_1_1hello__world__pass__t_aa556436f48335fe485d96ebc44ac2293}} 
+\index{theo::obf::hello\_world\_pass\_t@{theo::obf::hello\_world\_pass\_t}!get@{get}}
+\index{get@{get}!theo::obf::hello\_world\_pass\_t@{theo::obf::hello\_world\_pass\_t}}
+\doxysubsubsection{\texorpdfstring{get()}{get()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{classtheo_1_1obf_1_1hello__world__pass__t}{hello\+\_\+world\+\_\+pass\+\_\+t}} $\ast$ theo\+::obf\+::hello\+\_\+world\+\_\+pass\+\_\+t\+::get (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{hello__world__pass_8hpp_source_l00045}{45}} of file \mbox{\hyperlink{hello__world__pass_8hpp_source}{hello\+\_\+world\+\_\+pass.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00045                                    \{}
+\DoxyCodeLine{00046     \textcolor{keyword}{static} hello\_world\_pass\_t obj;}
+\DoxyCodeLine{00047     \textcolor{keywordflow}{return} \&obj;}
+\DoxyCodeLine{00048   \}}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{main_8cpp_source_l00057}{main()}}.
+
+\mbox{\Hypertarget{classtheo_1_1obf_1_1hello__world__pass__t_a0d2d95f93ac083e157b2f12a8a56f1df}\label{classtheo_1_1obf_1_1hello__world__pass__t_a0d2d95f93ac083e157b2f12a8a56f1df}} 
+\index{theo::obf::hello\_world\_pass\_t@{theo::obf::hello\_world\_pass\_t}!run@{run}}
+\index{run@{run}!theo::obf::hello\_world\_pass\_t@{theo::obf::hello\_world\_pass\_t}}
+\doxysubsubsection{\texorpdfstring{run()}{run()}}
+{\footnotesize\ttfamily void theo\+::obf\+::hello\+\_\+world\+\_\+pass\+\_\+t\+::run (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t}{decomp\+::symbol\+\_\+t}} $\ast$}]{sym }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+virtual method which must be implimented by the pass that inherits this class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sym} & a symbol of the same type of m\+\_\+sym\+\_\+type.\\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classtheo_1_1obf_1_1pass__t_acfadc013ff0754d66a18baffdb1a61d1}{theo\+::obf\+::pass\+\_\+t}}.
+
+
+
+Definition at line \mbox{\hyperlink{hello__world__pass_8hpp_source_l00050}{50}} of file \mbox{\hyperlink{hello__world__pass_8hpp_source}{hello\+\_\+world\+\_\+pass.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00050                                 \{}
+\DoxyCodeLine{00051     spdlog::info(\textcolor{stringliteral}{"{}[hello\_world\_pass\_t] symbol name: \{\}, symbol hash: \{\}"{}},}
+\DoxyCodeLine{00052                  sym-\/>name(), sym-\/>hash());}
+\DoxyCodeLine{00053   \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{symbol_8cpp_source_l00088}{theo\+::decomp\+::symbol\+\_\+t\+::hash()}}, and \mbox{\hyperlink{symbol_8cpp_source_l00052}{theo\+::decomp\+::symbol\+\_\+t\+::name()}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+examples/demo/\mbox{\hyperlink{hello__world__pass_8hpp}{hello\+\_\+world\+\_\+pass.\+hpp}}\end{DoxyCompactItemize}

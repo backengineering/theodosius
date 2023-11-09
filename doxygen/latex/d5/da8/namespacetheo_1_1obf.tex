@@ -1,0 +1,31 @@
+\hypertarget{namespacetheo_1_1obf}{}\doxysection{theo\+::obf Namespace Reference}
+\label{namespacetheo_1_1obf}\index{theo::obf@{theo::obf}}
+
+
+this is the main namespace for obfuscation related things.  
+
+
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacetheo_1_1obf_1_1transform}{transform}}
+\begin{DoxyCompactList}\small\item\em this namespace encompasses the code for transforming relocations. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classtheo_1_1obf_1_1engine__t}{engine\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em singleton obfuscation engine class. this class is responsible for keeping track of the registered passes and the order in which to execute them. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classtheo_1_1obf_1_1hello__world__pass__t}{hello\+\_\+world\+\_\+pass\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em hello world pass example of how to inherit \mbox{\hyperlink{classtheo_1_1obf_1_1pass__t}{pass\+\_\+t}}. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classtheo_1_1obf_1_1jcc__rewrite__pass__t}{jcc\+\_\+rewrite\+\_\+pass\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em jcc rewrite pass which rewrites rip relative jcc\textquotesingle{}s so that they are position independent. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classtheo_1_1obf_1_1next__inst__pass__t}{next\+\_\+inst\+\_\+pass\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em This pass is used to generate transformations and jmp code to change RIP to the next instruction. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classtheo_1_1obf_1_1pass__t}{pass\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em the \mbox{\hyperlink{classtheo_1_1obf_1_1pass__t}{pass\+\_\+t}} class is a base clase for all passes made. you must override the \mbox{\hyperlink{classtheo_1_1obf_1_1pass__t_acfadc013ff0754d66a18baffdb1a61d1}{pass\+\_\+t\+::run}} virtual function and declare the logic of your pass there. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classtheo_1_1obf_1_1reloc__transform__pass__t}{reloc\+\_\+transform\+\_\+pass\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em this pass is like the next\+\_\+inst\+\_\+pass, however, relocations are encrypted with transformations instead of the address of the next instruction. this pass only runs at the instruction level and appends transformations into the reloc\+\_\+t object of the instruction symbol. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+this is the main namespace for obfuscation related things. 

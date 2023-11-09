@@ -1,0 +1,278 @@
+\hypertarget{classtheo_1_1recomp_1_1symbol__table__t}{}\doxysection{theo\+::recomp\+::symbol\+\_\+table\+\_\+t Class Reference}
+\label{classtheo_1_1recomp_1_1symbol__table__t}\index{theo::recomp::symbol\_table\_t@{theo::recomp::symbol\_table\_t}}
+
+
+this class is a high level wrapper for a hashmap that contains \mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t}{decomp\+::symbol\+\_\+t}} values. the symbol values are references by a hashcode.  
+
+
+
+
+{\ttfamily \#include \char`\"{}symbol\+\_\+table.\+hpp\char`\"{}}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classtheo_1_1recomp_1_1symbol__table__t_ad06d4004c0cb454b1ffe7e2ae2ccedf5}{symbol\+\_\+table\+\_\+t}} ()
+\begin{DoxyCompactList}\small\item\em default constructor. does nothing. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classtheo_1_1recomp_1_1symbol__table__t_ab7dfbb8369463ce3d74ad656115cf4d5}{symbol\+\_\+table\+\_\+t}} (const std\+::vector$<$ \mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t}{decomp\+::symbol\+\_\+t}} $>$ \&\&syms)
+\begin{DoxyCompactList}\small\item\em this constructor will populate the m\+\_\+table private field with symbols. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classtheo_1_1recomp_1_1symbol__table__t_af9caf2d4d97b2498aa624c3750a7a601}{put\+\_\+symbol}} (\mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t}{decomp\+::symbol\+\_\+t}} \&sym)
+\begin{DoxyCompactList}\small\item\em add symbol to m\+\_\+table \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classtheo_1_1recomp_1_1symbol__table__t_ae7c35d9336f67d3175910c028e0b9b3e}{put\+\_\+symbols}} (std\+::vector$<$ \mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t}{decomp\+::symbol\+\_\+t}} $>$ \&syms)
+\begin{DoxyCompactList}\small\item\em add a vector of symbol to m\+\_\+table \end{DoxyCompactList}\item 
+std\+::optional$<$ \mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t}{decomp\+::symbol\+\_\+t}} $\ast$ $>$ \mbox{\hyperlink{classtheo_1_1recomp_1_1symbol__table__t_a308c0dbcc4d569467e0986b32ef30db5}{sym\+\_\+from\+\_\+hash}} (std\+::size\+\_\+t hash)
+\begin{DoxyCompactList}\small\item\em returns an optional pointer to a symbol from the symbol table given the symbols hash (hash of its name) the hash is produced by \mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t_a8695d75670cc4d61d275464e9109ff06}{theo\+::decomp\+::symbol\+\_\+t\+::hash}} \end{DoxyCompactList}\item 
+std\+::optional$<$ \mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t}{decomp\+::symbol\+\_\+t}} $\ast$ $>$ \mbox{\hyperlink{classtheo_1_1recomp_1_1symbol__table__t_abaea9fd899d87b09d60c2b815624e2d2}{sym\+\_\+from\+\_\+alloc}} (std\+::uintptr\+\_\+t allocated\+\_\+at)
+\begin{DoxyCompactList}\small\item\em returns an optional pointer to a symbol given its allocation location. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classtheo_1_1recomp_1_1symbol__table__t_a35008ba37814a94209cf979302e13e6d}{for\+\_\+each}} (std\+::function$<$ void(\mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t}{decomp\+::symbol\+\_\+t}} \&sym)$>$ fn)
+\begin{DoxyCompactList}\small\item\em this function is a wrapper function that allows you to get at each entry in the symbol table by reference. \end{DoxyCompactList}\item 
+std\+::uint32\+\_\+t \mbox{\hyperlink{classtheo_1_1recomp_1_1symbol__table__t_af57c0495a442ea86af0f9cca4521631e}{size}} ()
+\begin{DoxyCompactList}\small\item\em returns the size of the symbol table. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+this class is a high level wrapper for a hashmap that contains \mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t}{decomp\+::symbol\+\_\+t}} values. the symbol values are references by a hashcode. 
+
+Definition at line \mbox{\hyperlink{symbol__table_8hpp_source_l00045}{45}} of file \mbox{\hyperlink{symbol__table_8hpp_source}{symbol\+\_\+table.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classtheo_1_1recomp_1_1symbol__table__t_ad06d4004c0cb454b1ffe7e2ae2ccedf5}\label{classtheo_1_1recomp_1_1symbol__table__t_ad06d4004c0cb454b1ffe7e2ae2ccedf5}} 
+\index{theo::recomp::symbol\_table\_t@{theo::recomp::symbol\_table\_t}!symbol\_table\_t@{symbol\_table\_t}}
+\index{symbol\_table\_t@{symbol\_table\_t}!theo::recomp::symbol\_table\_t@{theo::recomp::symbol\_table\_t}}
+\doxysubsubsection{\texorpdfstring{symbol\_table\_t()}{symbol\_table\_t()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily theo\+::recomp\+::symbol\+\_\+table\+\_\+t\+::symbol\+\_\+table\+\_\+t (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+default constructor. does nothing. 
+
+
+
+Definition at line \mbox{\hyperlink{symbol__table_8hpp_source_l00050}{50}} of file \mbox{\hyperlink{symbol__table_8hpp_source}{symbol\+\_\+table.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00050 \{\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classtheo_1_1recomp_1_1symbol__table__t_ab7dfbb8369463ce3d74ad656115cf4d5}\label{classtheo_1_1recomp_1_1symbol__table__t_ab7dfbb8369463ce3d74ad656115cf4d5}} 
+\index{theo::recomp::symbol\_table\_t@{theo::recomp::symbol\_table\_t}!symbol\_table\_t@{symbol\_table\_t}}
+\index{symbol\_table\_t@{symbol\_table\_t}!theo::recomp::symbol\_table\_t@{theo::recomp::symbol\_table\_t}}
+\doxysubsubsection{\texorpdfstring{symbol\_table\_t()}{symbol\_table\_t()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily theo\+::recomp\+::symbol\+\_\+table\+\_\+t\+::symbol\+\_\+table\+\_\+t (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ \mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t}{decomp\+::symbol\+\_\+t}} $>$ \&\&}]{syms }\end{DoxyParamCaption})}
+
+
+
+this constructor will populate the m\+\_\+table private field with symbols. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em syms} & vector of \mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t}{decomp\+::symbol\+\_\+t}}\\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{symbol__table_8cpp_source_l00034}{34}} of file \mbox{\hyperlink{symbol__table_8cpp_source}{symbol\+\_\+table.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00034                                                                      \{}
+\DoxyCodeLine{00035   std::for\_each(syms.begin(), syms.end(), [\&](decomp::symbol\_t sym) \{}
+\DoxyCodeLine{00036     m\_table.insert(\{sym.hash(), sym\});}
+\DoxyCodeLine{00037   \});}
+\DoxyCodeLine{00038 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classtheo_1_1recomp_1_1symbol__table__t_a35008ba37814a94209cf979302e13e6d}\label{classtheo_1_1recomp_1_1symbol__table__t_a35008ba37814a94209cf979302e13e6d}} 
+\index{theo::recomp::symbol\_table\_t@{theo::recomp::symbol\_table\_t}!for\_each@{for\_each}}
+\index{for\_each@{for\_each}!theo::recomp::symbol\_table\_t@{theo::recomp::symbol\_table\_t}}
+\doxysubsubsection{\texorpdfstring{for\_each()}{for\_each()}}
+{\footnotesize\ttfamily void theo\+::recomp\+::symbol\+\_\+table\+\_\+t\+::for\+\_\+each (\begin{DoxyParamCaption}\item[{std\+::function$<$ void(\mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t}{decomp\+::symbol\+\_\+t}} \&sym)$>$}]{fn }\end{DoxyParamCaption})}
+
+
+
+this function is a wrapper function that allows you to get at each entry in the symbol table by reference. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em fn} & a callback function that will be called for each symbol\\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{symbol__table_8cpp_source_l00049}{49}} of file \mbox{\hyperlink{symbol__table_8cpp_source}{symbol\+\_\+table.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00049                                                                        \{}
+\DoxyCodeLine{00050   \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} itr = m\_table.begin(); itr != m\_table.end(); ++itr)}
+\DoxyCodeLine{00051     fn(itr-\/>second);}
+\DoxyCodeLine{00052 \}}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{recomp_8cpp_source_l00040}{theo\+::recomp\+::recomp\+\_\+t\+::allocate()}}, and \mbox{\hyperlink{theo_8cpp_source_l00056}{theo\+::theo\+\_\+t\+::compose()}}.
+
+\mbox{\Hypertarget{classtheo_1_1recomp_1_1symbol__table__t_af9caf2d4d97b2498aa624c3750a7a601}\label{classtheo_1_1recomp_1_1symbol__table__t_af9caf2d4d97b2498aa624c3750a7a601}} 
+\index{theo::recomp::symbol\_table\_t@{theo::recomp::symbol\_table\_t}!put\_symbol@{put\_symbol}}
+\index{put\_symbol@{put\_symbol}!theo::recomp::symbol\_table\_t@{theo::recomp::symbol\_table\_t}}
+\doxysubsubsection{\texorpdfstring{put\_symbol()}{put\_symbol()}}
+{\footnotesize\ttfamily void theo\+::recomp\+::symbol\+\_\+table\+\_\+t\+::put\+\_\+symbol (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t}{decomp\+::symbol\+\_\+t}} \&}]{sym }\end{DoxyParamCaption})}
+
+
+
+add symbol to m\+\_\+table 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sym} & symbol to be added.\\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{symbol__table_8cpp_source_l00040}{40}} of file \mbox{\hyperlink{symbol__table_8cpp_source}{symbol\+\_\+table.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00040                                                    \{}
+\DoxyCodeLine{00041   m\_table.insert(\{sym.hash(), sym\});}
+\DoxyCodeLine{00042 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{symbol_8cpp_source_l00088}{theo\+::decomp\+::symbol\+\_\+t\+::hash()}}.
+
+\mbox{\Hypertarget{classtheo_1_1recomp_1_1symbol__table__t_ae7c35d9336f67d3175910c028e0b9b3e}\label{classtheo_1_1recomp_1_1symbol__table__t_ae7c35d9336f67d3175910c028e0b9b3e}} 
+\index{theo::recomp::symbol\_table\_t@{theo::recomp::symbol\_table\_t}!put\_symbols@{put\_symbols}}
+\index{put\_symbols@{put\_symbols}!theo::recomp::symbol\_table\_t@{theo::recomp::symbol\_table\_t}}
+\doxysubsubsection{\texorpdfstring{put\_symbols()}{put\_symbols()}}
+{\footnotesize\ttfamily void theo\+::recomp\+::symbol\+\_\+table\+\_\+t\+::put\+\_\+symbols (\begin{DoxyParamCaption}\item[{std\+::vector$<$ \mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t}{decomp\+::symbol\+\_\+t}} $>$ \&}]{syms }\end{DoxyParamCaption})}
+
+
+
+add a vector of symbol to m\+\_\+table 
+
+
+\begin{DoxyParams}{Parameters}
+{\em syms} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{symbol__table_8cpp_source_l00044}{44}} of file \mbox{\hyperlink{symbol__table_8cpp_source}{symbol\+\_\+table.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00044                                                                 \{}
+\DoxyCodeLine{00045   std::for\_each(syms.begin(), syms.end(),}
+\DoxyCodeLine{00046                 [\&](decomp::symbol\_t sym) \{ put\_symbol(sym); \});}
+\DoxyCodeLine{00047 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classtheo_1_1recomp_1_1symbol__table__t_af57c0495a442ea86af0f9cca4521631e}\label{classtheo_1_1recomp_1_1symbol__table__t_af57c0495a442ea86af0f9cca4521631e}} 
+\index{theo::recomp::symbol\_table\_t@{theo::recomp::symbol\_table\_t}!size@{size}}
+\index{size@{size}!theo::recomp::symbol\_table\_t@{theo::recomp::symbol\_table\_t}}
+\doxysubsubsection{\texorpdfstring{size()}{size()}}
+{\footnotesize\ttfamily std\+::uint32\+\_\+t theo\+::recomp\+::symbol\+\_\+table\+\_\+t\+::size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+returns the size of the symbol table. 
+
+\begin{DoxyReturn}{Returns}
+returns the size of the symbol table.
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{symbol__table_8cpp_source_l00072}{72}} of file \mbox{\hyperlink{symbol__table_8cpp_source}{symbol\+\_\+table.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00072                                  \{}
+\DoxyCodeLine{00073   \textcolor{keywordflow}{return} m\_table.size();}
+\DoxyCodeLine{00074 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classtheo_1_1recomp_1_1symbol__table__t_abaea9fd899d87b09d60c2b815624e2d2}\label{classtheo_1_1recomp_1_1symbol__table__t_abaea9fd899d87b09d60c2b815624e2d2}} 
+\index{theo::recomp::symbol\_table\_t@{theo::recomp::symbol\_table\_t}!sym\_from\_alloc@{sym\_from\_alloc}}
+\index{sym\_from\_alloc@{sym\_from\_alloc}!theo::recomp::symbol\_table\_t@{theo::recomp::symbol\_table\_t}}
+\doxysubsubsection{\texorpdfstring{sym\_from\_alloc()}{sym\_from\_alloc()}}
+{\footnotesize\ttfamily std\+::optional$<$ \mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t}{decomp\+::symbol\+\_\+t}} $\ast$ $>$ theo\+::recomp\+::symbol\+\_\+table\+\_\+t\+::sym\+\_\+from\+\_\+alloc (\begin{DoxyParamCaption}\item[{std\+::uintptr\+\_\+t}]{allocated\+\_\+at }\end{DoxyParamCaption})}
+
+
+
+returns an optional pointer to a symbol given its allocation location. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em allocated\+\_\+at} & the address where the symbol is allocated at.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+returns an optional pointer to a \mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t}{theo\+::decomp\+::symbol\+\_\+t}}
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{symbol__table_8cpp_source_l00060}{60}} of file \mbox{\hyperlink{symbol__table_8cpp_source}{symbol\+\_\+table.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00061                                \{}
+\DoxyCodeLine{00062   \textcolor{keyword}{auto} res =}
+\DoxyCodeLine{00063       std::find\_if(m\_table.begin(), m\_table.end(),}
+\DoxyCodeLine{00064                    [\&](std::pair<const std::size\_t, decomp::symbol\_t> itr) \{}
+\DoxyCodeLine{00065                      return itr.second.allocated\_at() == allocated\_at;}
+\DoxyCodeLine{00066                    \});}
+\DoxyCodeLine{00067 }
+\DoxyCodeLine{00068   \textcolor{keywordflow}{return} res != m\_table.end() ? \&res-\/>second}
+\DoxyCodeLine{00069                               : std::optional<decomp::symbol\_t*>\{\};}
+\DoxyCodeLine{00070 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classtheo_1_1recomp_1_1symbol__table__t_a308c0dbcc4d569467e0986b32ef30db5}\label{classtheo_1_1recomp_1_1symbol__table__t_a308c0dbcc4d569467e0986b32ef30db5}} 
+\index{theo::recomp::symbol\_table\_t@{theo::recomp::symbol\_table\_t}!sym\_from\_hash@{sym\_from\_hash}}
+\index{sym\_from\_hash@{sym\_from\_hash}!theo::recomp::symbol\_table\_t@{theo::recomp::symbol\_table\_t}}
+\doxysubsubsection{\texorpdfstring{sym\_from\_hash()}{sym\_from\_hash()}}
+{\footnotesize\ttfamily std\+::optional$<$ \mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t}{decomp\+::symbol\+\_\+t}} $\ast$ $>$ theo\+::recomp\+::symbol\+\_\+table\+\_\+t\+::sym\+\_\+from\+\_\+hash (\begin{DoxyParamCaption}\item[{std\+::size\+\_\+t}]{hash }\end{DoxyParamCaption})}
+
+
+
+returns an optional pointer to a symbol from the symbol table given the symbols hash (hash of its name) the hash is produced by \mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t_a8695d75670cc4d61d275464e9109ff06}{theo\+::decomp\+::symbol\+\_\+t\+::hash}} 
+
+
+\begin{DoxyParams}{Parameters}
+{\em hash} & hashcode of the symbol to get from the symbol table...\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+returns an optional pointer to a \mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t}{theo\+::decomp\+::symbol\+\_\+t}}
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{symbol__table_8cpp_source_l00054}{54}} of file \mbox{\hyperlink{symbol__table_8cpp_source}{symbol\+\_\+table.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00055                     \{}
+\DoxyCodeLine{00056   \textcolor{keywordflow}{return} m\_table.count(hash) ? \&m\_table.at(hash)}
+\DoxyCodeLine{00057                              : std::optional<decomp::symbol\_t*>\{\};}
+\DoxyCodeLine{00058 \}}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{theo_8cpp_source_l00068}{theo\+::theo\+\_\+t\+::resolve()}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/recomp/\mbox{\hyperlink{symbol__table_8hpp}{symbol\+\_\+table.\+hpp}}\item 
+src/recomp/\mbox{\hyperlink{symbol__table_8cpp}{symbol\+\_\+table.\+cpp}}\end{DoxyCompactItemize}

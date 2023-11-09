@@ -1,0 +1,30 @@
+\hypertarget{decomp_8hpp}{}\doxysection{include/decomp/decomp.hpp File Reference}
+\label{decomp_8hpp}\index{include/decomp/decomp.hpp@{include/decomp/decomp.hpp}}
+{\ttfamily \#include $<$spdlog/spdlog.\+h$>$}\newline
+{\ttfamily \#include $<$cstdint$>$}\newline
+{\ttfamily \#include $<$linuxpe$>$}\newline
+{\ttfamily \#include $<$optional$>$}\newline
+{\ttfamily \#include $<$set$>$}\newline
+{\ttfamily \#include $<$tuple$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$decomp/routine.\+hpp$>$}\newline
+{\ttfamily \#include $<$recomp/symbol\+\_\+table.\+hpp$>$}\newline
+{\ttfamily \#include $<$coff/archive.\+hpp$>$}\newline
+{\ttfamily \#include $<$coff/image.\+hpp$>$}\newline
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classtheo_1_1decomp_1_1decomp__t}{theo\+::decomp\+::decomp\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em the main decomposition class which is responsible for breaking down lib file into coff files, and extracted used symbols from the coff files. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacetheo}{theo}}
+\begin{DoxyCompactList}\small\item\em The outer most encompassing namespace of this project. \end{DoxyCompactList}\item 
+namespace \mbox{\hyperlink{namespacetheo_1_1decomp}{theo\+::decomp}}
+\begin{DoxyCompactList}\small\item\em the namespace that contains all of the decomposition related code. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{namespacetheo_1_1decomp_abbf09e1f7eb9e42057ff9c9e8be41266}{theo\+::decomp\+::sym\+\_\+data\+\_\+t}} = std\+::tuple$<$ coff\+::image\+\_\+t $\ast$, coff\+::symbol\+\_\+t $\ast$, std\+::uint32\+\_\+t $>$
+\begin{DoxyCompactList}\small\item\em meta symbol data. consists of the coff image which contains the coff symbol, the coff symbol itself, and the size (if any) of the symbol. \end{DoxyCompactList}\end{DoxyCompactItemize}

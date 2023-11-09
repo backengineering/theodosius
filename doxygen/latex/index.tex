@@ -1,0 +1,144 @@
+\label{index_md_README}%
+\Hypertarget{index_md_README}%
+ Theodosius (Theo for short) is a jit linker created for obfuscation. The project is extremely modular in design and supports both kernel and usermode projects. Theo works with static libraries rather than completely compiled binaries. This allows it to easily position, obfuscate, and scatter symbols anywhere as the project takes the place of the linker.\hypertarget{index_autotoc_md1}{}\doxysubsection{Table Of Contents}\label{index_autotoc_md1}
+
+\begin{DoxyItemize}
+\item \href{https://githacks.org/_xeroxz/theodosius\#theodosius-jit-linker-mapper-mutator-and-obfuscator}{\texttt{ Theodosius -\/ Jit linker, Mapper, Mutator, and Obfuscator}}
+\begin{DoxyItemize}
+\item \href{https://githacks.org/_xeroxz/theodosius\#credit-and-dependencies}{\texttt{ Credit And Dependencies}}
+\item \href{https://githacks.org/_xeroxz/theodosius\#linking-dynamic-and-static}{\texttt{ Linking -\/ Dynamic And Static}}
+\begin{DoxyItemize}
+\item \href{https://githacks.org/_xeroxz/theodosius\#what-is-a-linker}{\texttt{ What Is A Linker}}
+\item \href{https://githacks.org/_xeroxz/theodosius\#object-files}{\texttt{ Object Files}}
+\item \href{https://githacks.org/_xeroxz/theodosius\#static-linking}{\texttt{ Static Linking}}
+\item \href{https://githacks.org/_xeroxz/theodosius\#dynamic-linking}{\texttt{ Dynamic Linking}}
+\end{DoxyItemize}
+\item \href{https://githacks.org/_xeroxz/theodosius\#usage-using-theodosius}{\texttt{ Usage -\/ Using Theodosius}}
+\begin{DoxyItemize}
+\item \href{https://githacks.org/_xeroxz/theodosius\#integrating-clang}{\texttt{ Integrating Clang}}
+\begin{DoxyItemize}
+\item \href{https://githacks.org/_xeroxz/theodosius\#requirements}{\texttt{ Requirements}} ~\newline
+
+\end{DoxyItemize}
+\end{DoxyItemize}
+\end{DoxyItemize}
+\item \href{https://githacks.org/_xeroxz/theodosius\#rip-relative-addressing}{\texttt{ RIP Relative Addressing}}
+\item \href{https://githacks.org/_xeroxz/theodosius\#bsd-3-clause-license}{\texttt{ License -\/ BSD 3-\/Clause}}
+\end{DoxyItemize}\hypertarget{index_autotoc_md2}{}\doxysubsection{Credit And Dependencies}\label{index_autotoc_md2}
+
+\begin{DoxyItemize}
+\item \href{https://github.com/btbd}{\texttt{ BTBD}} -\/ Huge thanks for providing suggestions and bouncing ideas back and forth.
+\begin{DoxyItemize}
+\item \href{https://github.com/btbd/smap}{\texttt{ SMAP}} -\/ scatter mapper, this project is heavily influenced by SMAP.
+\end{DoxyItemize}
+\item \href{https://github.com/intelxed/xed}{\texttt{ XED}}
+\item \href{https://github.com/gabime/spdlog}{\texttt{ spdlog}}
+\item \href{https://github.com/can1357/linux-pe}{\texttt{ linux-\/pe}}
+\item \href{https://github.com/build-cpp/cmkr}{\texttt{ cmkr}}
+\end{DoxyItemize}\hypertarget{index_autotoc_md3}{}\doxysubsection{Building}\label{index_autotoc_md3}
+Download and install cmake on your system, then execute the following command in the root dir of this project\+:
+
+
+\begin{DoxyItemize}
+\item {\ttfamily cmake -\/B build}
+\end{DoxyItemize}
+
+Then navigate into {\ttfamily dependencies/xed/} and run {\ttfamily python3 mfile.\+py}. Building XED can be tricky on windows, I suggest you use the visual studios console since it has env vars to everything needed to build XED. linux seems to build it just fine...\hypertarget{index_autotoc_md4}{}\doxysection{Linking -\/ Dynamic And Static}\label{index_autotoc_md4}
+\hypertarget{index_autotoc_md5}{}\doxysubsubsection{What Is A Linker}\label{index_autotoc_md5}
+A linker is a program which takes object files produces by a compiler and generates a final executable native to the operating system. A linker interfaces with not only object files but also static libraries, \char`\"{}lib\char`\"{} files. What is a \char`\"{}lib\char`\"{} file? Well a lib file is just an archive of obj\textquotesingle{}s. You can invision it as a zip/rar without any compression, just concatination of said object files.
+
+Theo is a jit linker, which means it will link objs together and map them into memory all at once. For usability however, instead of handling object files, Theo can parse entire lib files and extract the objects out of the lib.\hypertarget{index_autotoc_md6}{}\doxysubsubsection{Object Files}\label{index_autotoc_md6}
+If you define a c++ file called \char`\"{}main.\+cpp\char`\"{} the compiler will generate an object file by the name of \char`\"{}main.\+obj\char`\"{}. When you refer to data or code defined in another c/c++ file, the linker uses a symbol table to resolve the address of said code/data. In this situation I am the linker and I resolve all of your symbols \+:).\hypertarget{index_autotoc_md7}{}\doxysubsubsection{Static Linking}\label{index_autotoc_md7}
+Static linking is when the linker links entire routines not created by you, into your code. Say {\ttfamily memcpy} (if its not inlined), will be staticlly linked with the CRT. Static linking also allows for your code to be more independant as all the code you need you bring with you. However, with Theo, you cannot link static libraries which are not compiled with {\ttfamily mcmodel=large}. Theo supports actual static linking, in other words, using multiple static libraries at the same time.\hypertarget{index_autotoc_md8}{}\doxysubsubsection{Dynamic Linking}\label{index_autotoc_md8}
+Dynamic linking is when external symbols are resolved at runtime. This is done by imports and exports in DLL\textquotesingle{}s (dynamiclly linked libraries). Theo supports \char`\"{}dynamic linking\char`\"{}, or in better terms, linking against exported routines. You can see examples of this inside of both usermode and kernelmode examples.\hypertarget{index_autotoc_md9}{}\doxysection{Usage -\/ Using Theodosius}\label{index_autotoc_md9}
+\hypertarget{index_autotoc_md10}{}\doxysubsection{Integrating Clang}\label{index_autotoc_md10}
+For integration with visual studios please open install \href{https://marketplace.visualstudio.com/items?itemName=MarekAniola.mangh-llvm2019}{\texttt{ llvm2019}} extension, or \href{https://marketplace.visualstudio.com/items?itemName=LLVMExtensions.llvm-toolchain}{\texttt{ llvm2017}} extension. Once installed, create or open a visual studio project which you want to use with LLVM-\/\+Obfuscator and Theo. Open {\itshape {\bfseries{Properties}}} -\/-\/\texorpdfstring{$>$}{>} {\itshape {\bfseries{Configuration Properties}}} ---\texorpdfstring{$>$}{>} {\itshape {\bfseries{General}}}, then set {\itshape {\bfseries{Platform Toolset}}} to {\itshape {\bfseries{LLVM}}}.
+
+Once LLVM is selected, under the {\itshape {\bfseries{LLVM}}} tab change the clang-\/cl location to the place where you extracted \href{https://githacks.org/_xeroxz/theodosius/-/blob/cc9496ccceba3d1f0916859ddb2583be9362c908/resources/clang-cl.rar}{\texttt{ clang-\/cl.\+rar}}. Finally under {\itshape {\bfseries{Additional Compiler Options}}} (same LLVM tab), set the following\+: {\ttfamily -\/Xclang -\/std=c++1z -\/Xclang -\/mcode-\/model -\/Xclang large -\/Xclang -\/fno-\/jump-\/tables -\/mllvm -\/split -\/mllvm -\/split\+\_\+num=4 -\/mllvm -\/sub\+\_\+loop=4}.
+
+Please refer to the \href{https://github.com/obfuscator-llvm/obfuscator/wiki}{\texttt{ LLVM-\/\+Obfuscator Wiki}} for more information on commandline arguments.\hypertarget{index_autotoc_md11}{}\doxyparagraph{Requirements}\label{index_autotoc_md11}
+
+\begin{DoxyItemize}
+\item No SEH support, do not add {\ttfamily \+\_\+\+\_\+try/\+\_\+\+\_\+except} in your code.
+\item No CFG (control flow guard) support. Please disable this in C/\+C++ ---\texorpdfstring{$>$}{>} Code Generation ---\texorpdfstring{$>$}{>} Control Flow Guard
+\item No Stack Security Check Support. Please disablel this in C/\+C++ ---\texorpdfstring{$>$}{>} Code Generation ---\texorpdfstring{$>$}{>} Security Check (/\+GS-\/)
+\item Your project must be set to produce a .lib file.
+\item Your project must not link with other static libraries which are not compiled with {\ttfamily -\/Xclang -\/mcmodel-\/large}.
+\item Project must be compiled with the following flags
+\begin{DoxyItemize}
+\item {\ttfamily -\/Xclang -\/mcmodel=large}, removes RIP relative addressing besides JCC\textquotesingle{}s.
+\item {\ttfamily -\/Xclang -\/fno-\/jump-\/tables}, removes jump tables created by switch cases.
+\item {\ttfamily /\+Zc\+:thread\+Safe\+Init-\/}, static will not use TLS (thread local storage).
+\end{DoxyItemize}
+\end{DoxyItemize}\hypertarget{index_autotoc_md12}{}\doxysubsection{RIP Relative Addressing}\label{index_autotoc_md12}
+In order to allow for a routine to be scattered throughout a 64bit address space, RIP relative addressing must not be used. In order to facilitate this, a very special version of clang-\/cl is used which can use {\ttfamily mcmodel=large}. This will generate instructions which do not use RIP relative addressing when referencing symbols outside of the routine in which the instruction itself resides. The only exception to this is JCC instructions, (besides call) also known as branching instructions. Take this c++ code for an example\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{ObfuscateRoutine }
+\DoxyCodeLine{\textcolor{keyword}{extern} \textcolor{stringliteral}{"{}C"{}} \textcolor{keywordtype}{int} ModuleEntry()}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{    MessageBoxA(0, \textcolor{stringliteral}{"{}Demo"{}}, \textcolor{stringliteral}{"{}Hello From Obfuscated Routine!"{}}, 0);}
+\DoxyCodeLine{    UsermodeMutateDemo();}
+\DoxyCodeLine{    UsermodeNoObfuscation();}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+This c++ function, compiled by clang-\/cl with {\ttfamily mcmodel=large}, will generate a routine with the following instructions\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{0x00:                               ; void UsermodeNoObfuscation(void)}
+\DoxyCodeLine{0x00:                                               public ?UsermodeNoObfuscation@@YAXXZ}
+\DoxyCodeLine{0x00:                               ?UsermodeNoObfuscation@@YAXXZ proc near ; CODE XREF: ModuleEntry+42↓p}
+\DoxyCodeLine{0x00:                               var\_4           = dword ptr -\/4}
+\DoxyCodeLine{0x00: 48 83 EC 28                                   sub     rsp, 28h}
+\DoxyCodeLine{0x04: C7 44 24 24 00 00 00 00                       mov     [rsp+28h+var\_4], 0}
+\DoxyCodeLine{0x0C:                               loc\_C:}
+\DoxyCodeLine{0x0C: 83 7C 24 24 05                                cmp     [rsp+28h+var\_4], 5}
+\DoxyCodeLine{0x11: 0F 83 38 00 00 00                             jnb     loc\_4F}
+\DoxyCodeLine{0x17: 31 C0                                         xor     eax, eax}
+\DoxyCodeLine{0x19: 48 BA 28 01 00 00 00 00 00 00                 mov     rdx, offset ??\_C@\_04DKDMNOEB@Demo?\$AA@ ; "{}Demo"{}}
+\DoxyCodeLine{0x23: 49 B8 00 01 00 00 00 00 00 00                 mov     r8, offset ??\_C@\_0CD@JEJKPGNA@Hello?5... ; "{}Hello From Non-\/Obfuscated Routine!"{}}
+\DoxyCodeLine{0x2D: 48 B8 A0 01 00 00 00 00 00 00                 mov     rax, offset MessageBoxA}
+\DoxyCodeLine{0x37: 45 31 C9                                      xor     r9d, r9d        ; uType}
+\DoxyCodeLine{0x3A: 44 89 C9                                      mov     ecx, r9d        ; hWnd}
+\DoxyCodeLine{0x3D: FF D0                                         call    rax ; MessageBoxA}
+\DoxyCodeLine{0x3F: 8B 44 24 24                                   mov     eax, [rsp+28h+var\_4]}
+\DoxyCodeLine{0x43: 83 C0 01                                      add     eax, 1}
+\DoxyCodeLine{0x46: 89 44 24 24                                   mov     [rsp+28h+var\_4], eax}
+\DoxyCodeLine{0x4A: E9 BD FF FF FF                                jmp     loc\_C}
+\DoxyCodeLine{0x4F:                               loc\_4F:}
+\DoxyCodeLine{0x4F: 48 83 C4 28                                   add     rsp, 28h}
+\DoxyCodeLine{0x53: C3                                            retn}
+\DoxyCodeLine{0x53:                               ?UsermodeNoObfuscation@@YAXXZ endp}
+
+\end{DoxyCode}
+
+
+As you can see from the code above, (sorry for the terrible syntax highlighting), references to strings and calls to functions are done by first loading the address of the symbol into a register and then interfacing with the symbol.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{0x2D: 48 B8 A0 01 00 00 00 00 00 00                 mov     rax, offset MessageBoxA}
+\DoxyCodeLine{; ...}
+\DoxyCodeLine{0x3D: FF D0                                         call    rax ; MessageBoxA}
+
+\end{DoxyCode}
+
+
+Each of these instructions can be anywhere in virtual memory and it would not effect code execution one bit.\hypertarget{index_autotoc_md13}{}\doxysection{BSD 3-\/\+Clause License}\label{index_autotoc_md13}
+Copyright (c) 2022, \+\_\+xeroxz All rights reserved.
+
+Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met\+:
+
+
+\begin{DoxyEnumerate}
+\item Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+\item Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+\item Neither the name of the copyright holder nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
+\end{DoxyEnumerate}
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS \char`\"{}\+AS IS\char`\"{} AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. 

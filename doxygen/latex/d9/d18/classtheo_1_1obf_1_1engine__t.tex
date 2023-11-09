@@ -1,0 +1,123 @@
+\hypertarget{classtheo_1_1obf_1_1engine__t}{}\doxysection{theo\+::obf\+::engine\+\_\+t Class Reference}
+\label{classtheo_1_1obf_1_1engine__t}\index{theo::obf::engine\_t@{theo::obf::engine\_t}}
+
+
+singleton obfuscation engine class. this class is responsible for keeping track of the registered passes and the order in which to execute them.  
+
+
+
+
+{\ttfamily \#include \char`\"{}engine.\+hpp\char`\"{}}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classtheo_1_1obf_1_1engine__t_a8ffc963a133653fa3a0875798d0d3426}{add\+\_\+pass}} (\mbox{\hyperlink{classtheo_1_1obf_1_1pass__t}{pass\+\_\+t}} $\ast$pass)
+\begin{DoxyCompactList}\small\item\em add a pass to the engine. the order in which you call this function matters as the underlying data structure that contains the passes is a vector. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classtheo_1_1obf_1_1engine__t_a7acfdbe9c229cf1f351cec610ab193d3}{run}} (\mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t}{decomp\+::symbol\+\_\+t}} $\ast$sym)
+\begin{DoxyCompactList}\small\item\em run all the passes on the symbol. this function will only run a pass if the symbol is the same type as the pass requires. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{classtheo_1_1obf_1_1engine__t}{engine\+\_\+t}} $\ast$ \mbox{\hyperlink{classtheo_1_1obf_1_1engine__t_a58715f5c3ade824a65e602aba570040e}{get}} ()
+\begin{DoxyCompactList}\small\item\em get the singleton object of this class. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+singleton obfuscation engine class. this class is responsible for keeping track of the registered passes and the order in which to execute them. 
+
+Definition at line \mbox{\hyperlink{engine_8hpp_source_l00042}{42}} of file \mbox{\hyperlink{engine_8hpp_source}{engine.\+hpp}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classtheo_1_1obf_1_1engine__t_a8ffc963a133653fa3a0875798d0d3426}\label{classtheo_1_1obf_1_1engine__t_a8ffc963a133653fa3a0875798d0d3426}} 
+\index{theo::obf::engine\_t@{theo::obf::engine\_t}!add\_pass@{add\_pass}}
+\index{add\_pass@{add\_pass}!theo::obf::engine\_t@{theo::obf::engine\_t}}
+\doxysubsubsection{\texorpdfstring{add\_pass()}{add\_pass()}}
+{\footnotesize\ttfamily void theo\+::obf\+::engine\+\_\+t\+::add\+\_\+pass (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classtheo_1_1obf_1_1pass__t}{pass\+\_\+t}} $\ast$}]{pass }\end{DoxyParamCaption})}
+
+
+
+add a pass to the engine. the order in which you call this function matters as the underlying data structure that contains the passes is a vector. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pass} & a pointer to the pass in which to add to the engine.\\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{engine_8cpp_source_l00039}{39}} of file \mbox{\hyperlink{engine_8cpp_source}{engine.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00039                                     \{}
+\DoxyCodeLine{00040   passes.push\_back(pass);}
+\DoxyCodeLine{00041 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classtheo_1_1obf_1_1engine__t_a58715f5c3ade824a65e602aba570040e}\label{classtheo_1_1obf_1_1engine__t_a58715f5c3ade824a65e602aba570040e}} 
+\index{theo::obf::engine\_t@{theo::obf::engine\_t}!get@{get}}
+\index{get@{get}!theo::obf::engine\_t@{theo::obf::engine\_t}}
+\doxysubsubsection{\texorpdfstring{get()}{get()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classtheo_1_1obf_1_1engine__t}{engine\+\_\+t}} $\ast$ theo\+::obf\+::engine\+\_\+t\+::get (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+get the singleton object of this class. 
+
+\begin{DoxyReturn}{Returns}
+the singleton object of this class.
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{engine_8cpp_source_l00034}{34}} of file \mbox{\hyperlink{engine_8cpp_source}{engine.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00034                         \{}
+\DoxyCodeLine{00035   \textcolor{keyword}{static} engine\_t obj;}
+\DoxyCodeLine{00036   \textcolor{keywordflow}{return} \&obj;}
+\DoxyCodeLine{00037 \}}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{theo_8cpp_source_l00056}{theo\+::theo\+\_\+t\+::compose()}}, and \mbox{\hyperlink{main_8cpp_source_l00057}{main()}}.
+
+\mbox{\Hypertarget{classtheo_1_1obf_1_1engine__t_a7acfdbe9c229cf1f351cec610ab193d3}\label{classtheo_1_1obf_1_1engine__t_a7acfdbe9c229cf1f351cec610ab193d3}} 
+\index{theo::obf::engine\_t@{theo::obf::engine\_t}!run@{run}}
+\index{run@{run}!theo::obf::engine\_t@{theo::obf::engine\_t}}
+\doxysubsubsection{\texorpdfstring{run()}{run()}}
+{\footnotesize\ttfamily void theo\+::obf\+::engine\+\_\+t\+::run (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t}{decomp\+::symbol\+\_\+t}} $\ast$}]{sym }\end{DoxyParamCaption})}
+
+
+
+run all the passes on the symbol. this function will only run a pass if the symbol is the same type as the pass requires. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sym} & symbol to run all passes on.\\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{engine_8cpp_source_l00043}{43}} of file \mbox{\hyperlink{engine_8cpp_source}{engine.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00043                                       \{}
+\DoxyCodeLine{00044   std::for\_each(passes.begin(), passes.end(), [\&](pass\_t* pass) \{}
+\DoxyCodeLine{00045     if (sym-\/>type() \& pass-\/>sym\_type())}
+\DoxyCodeLine{00046       pass-\/>run(sym);}
+\DoxyCodeLine{00047   \});}
+\DoxyCodeLine{00048 \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/obf/\mbox{\hyperlink{engine_8hpp}{engine.\+hpp}}\item 
+src/obf/\mbox{\hyperlink{engine_8cpp}{engine.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,118 @@
+\hypertarget{reloc_8hpp_source}{}\doxysection{reloc.\+hpp}
+\label{reloc_8hpp_source}\index{include/recomp/reloc.hpp@{include/recomp/reloc.hpp}}
+\mbox{\hyperlink{reloc_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{reloc_8hpp_source_l00001}00001 \textcolor{comment}{// Copyright (c) 2022, \_xeroxz}}
+\DoxyCodeLine{\Hypertarget{reloc_8hpp_source_l00002}00002 \textcolor{comment}{// All rights reserved.}}
+\DoxyCodeLine{\Hypertarget{reloc_8hpp_source_l00003}00003 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{reloc_8hpp_source_l00004}00004 \textcolor{comment}{// Redistribution and use in source and binary forms, with or without}}
+\DoxyCodeLine{\Hypertarget{reloc_8hpp_source_l00005}00005 \textcolor{comment}{// modification, are permitted provided that the following conditions are met:}}
+\DoxyCodeLine{\Hypertarget{reloc_8hpp_source_l00006}00006 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{reloc_8hpp_source_l00007}00007 \textcolor{comment}{// 1. Redistributions of source code must retain the above copyright notice,}}
+\DoxyCodeLine{\Hypertarget{reloc_8hpp_source_l00008}00008 \textcolor{comment}{//    this list of conditions and the following disclaimer.}}
+\DoxyCodeLine{\Hypertarget{reloc_8hpp_source_l00009}00009 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{reloc_8hpp_source_l00010}00010 \textcolor{comment}{// 2. Redistributions in binary form must reproduce the above copyright notice,}}
+\DoxyCodeLine{\Hypertarget{reloc_8hpp_source_l00011}00011 \textcolor{comment}{//    this list of conditions and the following disclaimer in the documentation}}
+\DoxyCodeLine{\Hypertarget{reloc_8hpp_source_l00012}00012 \textcolor{comment}{//    and/or other materials provided with the distribution.}}
+\DoxyCodeLine{\Hypertarget{reloc_8hpp_source_l00013}00013 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{reloc_8hpp_source_l00014}00014 \textcolor{comment}{// 3. Neither the name of the copyright holder nor the names of its}}
+\DoxyCodeLine{\Hypertarget{reloc_8hpp_source_l00015}00015 \textcolor{comment}{//    contributors may be used to endorse or promote products derived from}}
+\DoxyCodeLine{\Hypertarget{reloc_8hpp_source_l00016}00016 \textcolor{comment}{//    this software without specific prior written permission.}}
+\DoxyCodeLine{\Hypertarget{reloc_8hpp_source_l00017}00017 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{reloc_8hpp_source_l00018}00018 \textcolor{comment}{// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "{}AS IS"{}}}
+\DoxyCodeLine{\Hypertarget{reloc_8hpp_source_l00019}00019 \textcolor{comment}{// AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE}}
+\DoxyCodeLine{\Hypertarget{reloc_8hpp_source_l00020}00020 \textcolor{comment}{// IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE}}
+\DoxyCodeLine{\Hypertarget{reloc_8hpp_source_l00021}00021 \textcolor{comment}{// ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE}}
+\DoxyCodeLine{\Hypertarget{reloc_8hpp_source_l00022}00022 \textcolor{comment}{// LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR}}
+\DoxyCodeLine{\Hypertarget{reloc_8hpp_source_l00023}00023 \textcolor{comment}{// CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF}}
+\DoxyCodeLine{\Hypertarget{reloc_8hpp_source_l00024}00024 \textcolor{comment}{// SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS}}
+\DoxyCodeLine{\Hypertarget{reloc_8hpp_source_l00025}00025 \textcolor{comment}{// INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN}}
+\DoxyCodeLine{\Hypertarget{reloc_8hpp_source_l00026}00026 \textcolor{comment}{// CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)}}
+\DoxyCodeLine{\Hypertarget{reloc_8hpp_source_l00027}00027 \textcolor{comment}{// ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE}}
+\DoxyCodeLine{\Hypertarget{reloc_8hpp_source_l00028}00028 \textcolor{comment}{// POSSIBILITY OF SUCH DAMAGE.}}
+\DoxyCodeLine{\Hypertarget{reloc_8hpp_source_l00029}00029 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{reloc_8hpp_source_l00030}00030 }
+\DoxyCodeLine{\Hypertarget{reloc_8hpp_source_l00031}00031 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{\Hypertarget{reloc_8hpp_source_l00032}00032 \textcolor{preprocessor}{\#include <cstddef>}}
+\DoxyCodeLine{\Hypertarget{reloc_8hpp_source_l00033}00033 \textcolor{preprocessor}{\#include <cstdint>}}
+\DoxyCodeLine{\Hypertarget{reloc_8hpp_source_l00034}00034 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{transform_8hpp}{obf/transform/transform.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{reloc_8hpp_source_l00035}00035 }
+\DoxyCodeLine{\Hypertarget{reloc_8hpp_source_l00036}00036 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespacetheo_1_1recomp}{theo::recomp}} \{}
+\DoxyCodeLine{\Hypertarget{reloc_8hpp_source_l00037}00037 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{reloc_8hpp_source_l00038}00038 \textcolor{comment}{/// <summary>}}
+\DoxyCodeLine{\Hypertarget{reloc_8hpp_source_l00039}00039 \textcolor{comment}{/// meta data about a relocation for a symbol}}
+\DoxyCodeLine{\Hypertarget{reloc_8hpp_source_l00040}00040 \textcolor{comment}{/// </summary>}}
+\DoxyCodeLine{\Hypertarget{reloc_8hpp_source_l00041}\mbox{\hyperlink{classtheo_1_1recomp_1_1reloc__t}{00041}} \textcolor{comment}{}\textcolor{keyword}{class }\mbox{\hyperlink{classtheo_1_1recomp_1_1reloc__t}{reloc\_t}} \{}
+\DoxyCodeLine{\Hypertarget{reloc_8hpp_source_l00042}00042  \textcolor{keyword}{public}:\textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{reloc_8hpp_source_l00043}00043 \textcolor{comment}{  /// <summary>}}
+\DoxyCodeLine{\Hypertarget{reloc_8hpp_source_l00044}00044 \textcolor{comment}{  /// explicit constructor for this class.}}
+\DoxyCodeLine{\Hypertarget{reloc_8hpp_source_l00045}00045 \textcolor{comment}{  /// </summary>}}
+\DoxyCodeLine{\Hypertarget{reloc_8hpp_source_l00046}00046 \textcolor{comment}{  /// <param name="{}offset"{}>offset into the symbol data where the relocation is}}
+\DoxyCodeLine{\Hypertarget{reloc_8hpp_source_l00047}00047 \textcolor{comment}{  /// at. all relocations are assumed to be linear virtual addresses of the}}
+\DoxyCodeLine{\Hypertarget{reloc_8hpp_source_l00048}00048 \textcolor{comment}{  /// symbol.</param>}}
+\DoxyCodeLine{\Hypertarget{reloc_8hpp_source_l00049}00049 \textcolor{comment}{  /// <param name="{}hash"{}>hash of the symbol to which the relocation is}}
+\DoxyCodeLine{\Hypertarget{reloc_8hpp_source_l00050}00050 \textcolor{comment}{  /// of.</param> <param name="{}sym\_name"{}>the name of the symbol to which the}}
+\DoxyCodeLine{\Hypertarget{reloc_8hpp_source_l00051}00051 \textcolor{comment}{  /// relocation is of.</param>}}
+\DoxyCodeLine{\Hypertarget{reloc_8hpp_source_l00052}\mbox{\hyperlink{classtheo_1_1recomp_1_1reloc__t_a7cb1cf1c58a6f3cdf7ae326d65948548}{00052}} \textcolor{comment}{}  \textcolor{keyword}{explicit} \mbox{\hyperlink{classtheo_1_1recomp_1_1reloc__t_a7cb1cf1c58a6f3cdf7ae326d65948548}{reloc\_t}}(std::uint32\_t \mbox{\hyperlink{classtheo_1_1recomp_1_1reloc__t_a537836fcea3326e4269375a1486f0323}{offset}},}
+\DoxyCodeLine{\Hypertarget{reloc_8hpp_source_l00053}00053                    std::size\_t \mbox{\hyperlink{classtheo_1_1recomp_1_1reloc__t_aa340b2c2d5d1ac7f96a1dbee39f25461}{hash}},}
+\DoxyCodeLine{\Hypertarget{reloc_8hpp_source_l00054}00054                    \textcolor{keyword}{const} std::string\&\& sym\_name)}
+\DoxyCodeLine{\Hypertarget{reloc_8hpp_source_l00055}00055       : m\_offset(\mbox{\hyperlink{classtheo_1_1recomp_1_1reloc__t_a537836fcea3326e4269375a1486f0323}{offset}}), m\_hash(\mbox{\hyperlink{classtheo_1_1recomp_1_1reloc__t_aa340b2c2d5d1ac7f96a1dbee39f25461}{hash}}), m\_sym\_name(sym\_name) \{\}}
+\DoxyCodeLine{\Hypertarget{reloc_8hpp_source_l00056}00056 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{reloc_8hpp_source_l00057}00057 \textcolor{comment}{  /// <summary>}}
+\DoxyCodeLine{\Hypertarget{reloc_8hpp_source_l00058}00058 \textcolor{comment}{  /// returns the hash of the relocation symbol.}}
+\DoxyCodeLine{\Hypertarget{reloc_8hpp_source_l00059}00059 \textcolor{comment}{  /// </summary>}}
+\DoxyCodeLine{\Hypertarget{reloc_8hpp_source_l00060}00060 \textcolor{comment}{  /// <returns>hash of the relocation symbol</returns>}}
+\DoxyCodeLine{\Hypertarget{reloc_8hpp_source_l00061}\mbox{\hyperlink{classtheo_1_1recomp_1_1reloc__t_aa340b2c2d5d1ac7f96a1dbee39f25461}{00061}} \textcolor{comment}{}  std::size\_t \mbox{\hyperlink{classtheo_1_1recomp_1_1reloc__t_aa340b2c2d5d1ac7f96a1dbee39f25461}{hash}}() \{ \textcolor{keywordflow}{return} m\_hash; \}}
+\DoxyCodeLine{\Hypertarget{reloc_8hpp_source_l00062}00062 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{reloc_8hpp_source_l00063}00063 \textcolor{comment}{  /// <summary>}}
+\DoxyCodeLine{\Hypertarget{reloc_8hpp_source_l00064}00064 \textcolor{comment}{  /// returns the name of the relocation symbol.}}
+\DoxyCodeLine{\Hypertarget{reloc_8hpp_source_l00065}00065 \textcolor{comment}{  /// </summary>}}
+\DoxyCodeLine{\Hypertarget{reloc_8hpp_source_l00066}00066 \textcolor{comment}{  /// <returns>returns the name of the relocation symbol.</returns>}}
+\DoxyCodeLine{\Hypertarget{reloc_8hpp_source_l00067}\mbox{\hyperlink{classtheo_1_1recomp_1_1reloc__t_aa181755df50bc566b164072b21788fec}{00067}} \textcolor{comment}{}  std::string \mbox{\hyperlink{classtheo_1_1recomp_1_1reloc__t_aa181755df50bc566b164072b21788fec}{name}}() \{ \textcolor{keywordflow}{return} m\_sym\_name; \}}
+\DoxyCodeLine{\Hypertarget{reloc_8hpp_source_l00068}00068 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{reloc_8hpp_source_l00069}00069 \textcolor{comment}{  /// <summary>}}
+\DoxyCodeLine{\Hypertarget{reloc_8hpp_source_l00070}00070 \textcolor{comment}{  /// returns the offset into the symbol to which the relocation will be}}
+\DoxyCodeLine{\Hypertarget{reloc_8hpp_source_l00071}00071 \textcolor{comment}{  /// applied. the offset is in bytes. zero based.}}
+\DoxyCodeLine{\Hypertarget{reloc_8hpp_source_l00072}00072 \textcolor{comment}{  /// </summary>}}
+\DoxyCodeLine{\Hypertarget{reloc_8hpp_source_l00073}00073 \textcolor{comment}{  /// <returns>returns the offset into the symbol to which the relocation will}}
+\DoxyCodeLine{\Hypertarget{reloc_8hpp_source_l00074}00074 \textcolor{comment}{  /// be applied. the offset is in bytes. zero based.</returns>}}
+\DoxyCodeLine{\Hypertarget{reloc_8hpp_source_l00075}\mbox{\hyperlink{classtheo_1_1recomp_1_1reloc__t_a537836fcea3326e4269375a1486f0323}{00075}} \textcolor{comment}{}  std::uint32\_t \mbox{\hyperlink{classtheo_1_1recomp_1_1reloc__t_a537836fcea3326e4269375a1486f0323}{offset}}() \{ \textcolor{keywordflow}{return} m\_offset; \}}
+\DoxyCodeLine{\Hypertarget{reloc_8hpp_source_l00076}00076 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{reloc_8hpp_source_l00077}00077 \textcolor{comment}{  /// <summary>}}
+\DoxyCodeLine{\Hypertarget{reloc_8hpp_source_l00078}00078 \textcolor{comment}{  /// sets the offset to which the relocation gets applied too.}}
+\DoxyCodeLine{\Hypertarget{reloc_8hpp_source_l00079}00079 \textcolor{comment}{  /// </summary>}}
+\DoxyCodeLine{\Hypertarget{reloc_8hpp_source_l00080}00080 \textcolor{comment}{  /// <param name="{}offset"{}>offset to which the relocation gets applied}}
+\DoxyCodeLine{\Hypertarget{reloc_8hpp_source_l00081}00081 \textcolor{comment}{  /// too.</param>}}
+\DoxyCodeLine{\Hypertarget{reloc_8hpp_source_l00082}\mbox{\hyperlink{classtheo_1_1recomp_1_1reloc__t_a99e65270ace1ff4f080bd4040c8a43dd}{00082}} \textcolor{comment}{}  \textcolor{keywordtype}{void} \mbox{\hyperlink{classtheo_1_1recomp_1_1reloc__t_a99e65270ace1ff4f080bd4040c8a43dd}{offset}}(std::uint32\_t \mbox{\hyperlink{classtheo_1_1recomp_1_1reloc__t_a537836fcea3326e4269375a1486f0323}{offset}}) \{ m\_offset = \mbox{\hyperlink{classtheo_1_1recomp_1_1reloc__t_a99e65270ace1ff4f080bd4040c8a43dd}{offset}}; \}}
+\DoxyCodeLine{\Hypertarget{reloc_8hpp_source_l00083}00083 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{reloc_8hpp_source_l00084}00084 \textcolor{comment}{  /// <summary>}}
+\DoxyCodeLine{\Hypertarget{reloc_8hpp_source_l00085}00085 \textcolor{comment}{  /// adds a transformation to be applied to the relocation prior to writing it}}
+\DoxyCodeLine{\Hypertarget{reloc_8hpp_source_l00086}00086 \textcolor{comment}{  /// into the symbol.}}
+\DoxyCodeLine{\Hypertarget{reloc_8hpp_source_l00087}00087 \textcolor{comment}{  /// </summary>}}
+\DoxyCodeLine{\Hypertarget{reloc_8hpp_source_l00088}00088 \textcolor{comment}{  /// <param name="{}entry"{}>a pair containing a lambda function that when executed}}
+\DoxyCodeLine{\Hypertarget{reloc_8hpp_source_l00089}00089 \textcolor{comment}{  /// transforms a relocation. the second value in the pair is a random value}}
+\DoxyCodeLine{\Hypertarget{reloc_8hpp_source_l00090}00090 \textcolor{comment}{  /// which is passed to the lambda.</param>}}
+\DoxyCodeLine{\Hypertarget{reloc_8hpp_source_l00091}\mbox{\hyperlink{classtheo_1_1recomp_1_1reloc__t_ab5214a9ff9135672e25f40406c37fb10}{00091}} \textcolor{comment}{}  \textcolor{keywordtype}{void} \mbox{\hyperlink{classtheo_1_1recomp_1_1reloc__t_ab5214a9ff9135672e25f40406c37fb10}{add\_transform}}(}
+\DoxyCodeLine{\Hypertarget{reloc_8hpp_source_l00092}00092       std::pair<obf::transform::transform\_t*, std::uint32\_t> entry) \{}
+\DoxyCodeLine{\Hypertarget{reloc_8hpp_source_l00093}00093     m\_transforms.push\_back(entry);}
+\DoxyCodeLine{\Hypertarget{reloc_8hpp_source_l00094}00094   \}}
+\DoxyCodeLine{\Hypertarget{reloc_8hpp_source_l00095}00095 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{reloc_8hpp_source_l00096}00096 \textcolor{comment}{  /// <summary>}}
+\DoxyCodeLine{\Hypertarget{reloc_8hpp_source_l00097}00097 \textcolor{comment}{  /// gets the vector of transformation.}}
+\DoxyCodeLine{\Hypertarget{reloc_8hpp_source_l00098}00098 \textcolor{comment}{  /// </summary>}}
+\DoxyCodeLine{\Hypertarget{reloc_8hpp_source_l00099}00099 \textcolor{comment}{  /// <returns>returns the vector of transformations.</returns>}}
+\DoxyCodeLine{\Hypertarget{reloc_8hpp_source_l00100}00100 \textcolor{comment}{}  std::vector<std::pair<obf::transform::transform\_t*, std::uint32\_t>>\&}
+\DoxyCodeLine{\Hypertarget{reloc_8hpp_source_l00101}\mbox{\hyperlink{classtheo_1_1recomp_1_1reloc__t_af8abfa7a4f1052308a233629faf39a78}{00101}}   \mbox{\hyperlink{classtheo_1_1recomp_1_1reloc__t_af8abfa7a4f1052308a233629faf39a78}{get\_transforms}}() \{}
+\DoxyCodeLine{\Hypertarget{reloc_8hpp_source_l00102}00102     \textcolor{keywordflow}{return} m\_transforms;}
+\DoxyCodeLine{\Hypertarget{reloc_8hpp_source_l00103}00103   \}}
+\DoxyCodeLine{\Hypertarget{reloc_8hpp_source_l00104}00104 }
+\DoxyCodeLine{\Hypertarget{reloc_8hpp_source_l00105}00105  \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{reloc_8hpp_source_l00106}00106   std::vector<std::pair<obf::transform::transform\_t*, std::uint32\_t>>}
+\DoxyCodeLine{\Hypertarget{reloc_8hpp_source_l00107}00107       m\_transforms;}
+\DoxyCodeLine{\Hypertarget{reloc_8hpp_source_l00108}00108   std::string m\_sym\_name;}
+\DoxyCodeLine{\Hypertarget{reloc_8hpp_source_l00109}00109   std::size\_t m\_hash;}
+\DoxyCodeLine{\Hypertarget{reloc_8hpp_source_l00110}00110   std::uint32\_t m\_offset;}
+\DoxyCodeLine{\Hypertarget{reloc_8hpp_source_l00111}00111 \};}
+\DoxyCodeLine{\Hypertarget{reloc_8hpp_source_l00112}00112 \}  \textcolor{comment}{// namespace theo::recomp}}
+
+\end{DoxyCode}

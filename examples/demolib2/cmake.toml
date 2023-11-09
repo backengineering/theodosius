@@ -1,0 +1,8 @@
+[project]
+name = "demolib2"
+
+[target.demolib2]
+condition = "windows"
+type = "static"
+sources = ["*.cpp"]
+compile-options = ["-Xclang -mcmodel=large"]

@@ -1,0 +1,48 @@
+\hypertarget{theo_8hpp}{}\doxysection{include/theo.hpp File Reference}
+\label{theo_8hpp}\index{include/theo.hpp@{include/theo.hpp}}
+{\ttfamily \#include $<$spdlog/spdlog.\+h$>$}\newline
+{\ttfamily \#include $<$decomp/decomp.\+hpp$>$}\newline
+{\ttfamily \#include $<$obf/engine.\+hpp$>$}\newline
+{\ttfamily \#include $<$recomp/recomp.\+hpp$>$}\newline
+{\ttfamily \#include $<$recomp/symbol\+\_\+table.\+hpp$>$}\newline
+{\ttfamily \#include $<$obf/passes/jcc\+\_\+rewrite\+\_\+pass.\+hpp$>$}\newline
+{\ttfamily \#include $<$obf/passes/next\+\_\+inst\+\_\+pass.\+hpp$>$}\newline
+{\ttfamily \#include $<$obf/passes/reloc\+\_\+transform\+\_\+pass.\+hpp$>$}\newline
+{\ttfamily \#include $<$optional$>$}\newline
+{\ttfamily \#include $<$tuple$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$xed-\/decode.\+h$>$}\newline
+{\ttfamily \#include $<$xed-\/interface.\+h$>$}\newline
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classtheo_1_1theo__t}{theo\+::theo\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em the main class which encapsulates a symbol table, decomp, and recomp objects. This class is a bridge that connects all three\+: decomp, obf, recomp. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacetheo}{theo}}
+\begin{DoxyCompactList}\small\item\em The outer most encompassing namespace of this project. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{theo_8hpp_a3925943d185a09ad9e32ed8637ccb533}{XED\+\_\+\+ENCODER}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{namespacetheo_a66efe2c63e06764fb2d9a378c688c680}{theo\+::lnk\+\_\+fns\+\_\+t}} = std\+::tuple$<$ recomp\+::allocator\+\_\+t, recomp\+::copier\+\_\+t, recomp\+::resolver\+\_\+t $>$
+\begin{DoxyCompactList}\small\item\em tuple of functions used by theo to allocate, copy, and resolve symbols. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{theo_8hpp_a3925943d185a09ad9e32ed8637ccb533}\label{theo_8hpp_a3925943d185a09ad9e32ed8637ccb533}} 
+\index{theo.hpp@{theo.hpp}!XED\_ENCODER@{XED\_ENCODER}}
+\index{XED\_ENCODER@{XED\_ENCODER}!theo.hpp@{theo.hpp}}
+\doxysubsubsection{\texorpdfstring{XED\_ENCODER}{XED\_ENCODER}}
+{\footnotesize\ttfamily \#define XED\+\_\+\+ENCODER}
+
+
+
+Definition at line \mbox{\hyperlink{theo_8hpp_source_l00046}{46}} of file \mbox{\hyperlink{theo_8hpp_source}{theo.\+hpp}}.
+

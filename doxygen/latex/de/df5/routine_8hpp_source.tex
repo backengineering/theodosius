@@ -1,0 +1,104 @@
+\hypertarget{routine_8hpp_source}{}\doxysection{routine.\+hpp}
+\label{routine_8hpp_source}\index{include/decomp/routine.hpp@{include/decomp/routine.hpp}}
+\mbox{\hyperlink{routine_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{routine_8hpp_source_l00001}00001 \textcolor{comment}{// Copyright (c) 2022, \_xeroxz}}
+\DoxyCodeLine{\Hypertarget{routine_8hpp_source_l00002}00002 \textcolor{comment}{// All rights reserved.}}
+\DoxyCodeLine{\Hypertarget{routine_8hpp_source_l00003}00003 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{routine_8hpp_source_l00004}00004 \textcolor{comment}{// Redistribution and use in source and binary forms, with or without}}
+\DoxyCodeLine{\Hypertarget{routine_8hpp_source_l00005}00005 \textcolor{comment}{// modification, are permitted provided that the following conditions are met:}}
+\DoxyCodeLine{\Hypertarget{routine_8hpp_source_l00006}00006 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{routine_8hpp_source_l00007}00007 \textcolor{comment}{// 1. Redistributions of source code must retain the above copyright notice,}}
+\DoxyCodeLine{\Hypertarget{routine_8hpp_source_l00008}00008 \textcolor{comment}{//    this list of conditions and the following disclaimer.}}
+\DoxyCodeLine{\Hypertarget{routine_8hpp_source_l00009}00009 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{routine_8hpp_source_l00010}00010 \textcolor{comment}{// 2. Redistributions in binary form must reproduce the above copyright notice,}}
+\DoxyCodeLine{\Hypertarget{routine_8hpp_source_l00011}00011 \textcolor{comment}{//    this list of conditions and the following disclaimer in the documentation}}
+\DoxyCodeLine{\Hypertarget{routine_8hpp_source_l00012}00012 \textcolor{comment}{//    and/or other materials provided with the distribution.}}
+\DoxyCodeLine{\Hypertarget{routine_8hpp_source_l00013}00013 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{routine_8hpp_source_l00014}00014 \textcolor{comment}{// 3. Neither the name of the copyright holder nor the names of its}}
+\DoxyCodeLine{\Hypertarget{routine_8hpp_source_l00015}00015 \textcolor{comment}{//    contributors may be used to endorse or promote products derived from}}
+\DoxyCodeLine{\Hypertarget{routine_8hpp_source_l00016}00016 \textcolor{comment}{//    this software without specific prior written permission.}}
+\DoxyCodeLine{\Hypertarget{routine_8hpp_source_l00017}00017 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{routine_8hpp_source_l00018}00018 \textcolor{comment}{// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "{}AS IS"{}}}
+\DoxyCodeLine{\Hypertarget{routine_8hpp_source_l00019}00019 \textcolor{comment}{// AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE}}
+\DoxyCodeLine{\Hypertarget{routine_8hpp_source_l00020}00020 \textcolor{comment}{// IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE}}
+\DoxyCodeLine{\Hypertarget{routine_8hpp_source_l00021}00021 \textcolor{comment}{// ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE}}
+\DoxyCodeLine{\Hypertarget{routine_8hpp_source_l00022}00022 \textcolor{comment}{// LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR}}
+\DoxyCodeLine{\Hypertarget{routine_8hpp_source_l00023}00023 \textcolor{comment}{// CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF}}
+\DoxyCodeLine{\Hypertarget{routine_8hpp_source_l00024}00024 \textcolor{comment}{// SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS}}
+\DoxyCodeLine{\Hypertarget{routine_8hpp_source_l00025}00025 \textcolor{comment}{// INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN}}
+\DoxyCodeLine{\Hypertarget{routine_8hpp_source_l00026}00026 \textcolor{comment}{// CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)}}
+\DoxyCodeLine{\Hypertarget{routine_8hpp_source_l00027}00027 \textcolor{comment}{// ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE}}
+\DoxyCodeLine{\Hypertarget{routine_8hpp_source_l00028}00028 \textcolor{comment}{// POSSIBILITY OF SUCH DAMAGE.}}
+\DoxyCodeLine{\Hypertarget{routine_8hpp_source_l00029}00029 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{routine_8hpp_source_l00030}00030 }
+\DoxyCodeLine{\Hypertarget{routine_8hpp_source_l00031}00031 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{\Hypertarget{routine_8hpp_source_l00032}00032 \textcolor{preprocessor}{\#include <map>}}
+\DoxyCodeLine{\Hypertarget{routine_8hpp_source_l00033}00033 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{\Hypertarget{routine_8hpp_source_l00034}00034 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{\Hypertarget{routine_8hpp_source_l00035}00035 }
+\DoxyCodeLine{\Hypertarget{routine_8hpp_source_l00036}00036 \textcolor{preprocessor}{\#include <spdlog/spdlog.h>}}
+\DoxyCodeLine{\Hypertarget{routine_8hpp_source_l00037}00037 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{symbol_8hpp}{decomp/symbol.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{routine_8hpp_source_l00038}00038 }
+\DoxyCodeLine{\Hypertarget{routine_8hpp_source_l00039}\mbox{\hyperlink{routine_8hpp_a3925943d185a09ad9e32ed8637ccb533}{00039}} \textcolor{preprocessor}{\#define XED\_ENCODER}}
+\DoxyCodeLine{\Hypertarget{routine_8hpp_source_l00040}00040 \textcolor{keyword}{extern} \textcolor{stringliteral}{"{}C"{}} \{}
+\DoxyCodeLine{\Hypertarget{routine_8hpp_source_l00041}00041 \textcolor{preprocessor}{\#include <xed-\/decode.h>}}
+\DoxyCodeLine{\Hypertarget{routine_8hpp_source_l00042}00042 \textcolor{preprocessor}{\#include <xed-\/interface.h>}}
+\DoxyCodeLine{\Hypertarget{routine_8hpp_source_l00043}00043 \}}
+\DoxyCodeLine{\Hypertarget{routine_8hpp_source_l00044}00044 }
+\DoxyCodeLine{\Hypertarget{routine_8hpp_source_l00045}\mbox{\hyperlink{routine_8hpp_aa53ab411c2949558d7cbec4648d967d1}{00045}} \textcolor{preprocessor}{\#define INSTR\_SPLIT\_SECTION\_NAME "{}.obf"{}}}
+\DoxyCodeLine{\Hypertarget{routine_8hpp_source_l00046}00046 }
+\DoxyCodeLine{\Hypertarget{routine_8hpp_source_l00047}00047 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespacetheo_1_1decomp}{theo::decomp}} \{\textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{routine_8hpp_source_l00048}00048 \textcolor{comment}{/// <summary>}}
+\DoxyCodeLine{\Hypertarget{routine_8hpp_source_l00049}00049 \textcolor{comment}{/// the routine class which is responsible for creating symbols for routines. if}}
+\DoxyCodeLine{\Hypertarget{routine_8hpp_source_l00050}00050 \textcolor{comment}{/// the routine is located inside a section with the name "{}.split"{} it will break}}
+\DoxyCodeLine{\Hypertarget{routine_8hpp_source_l00051}00051 \textcolor{comment}{/// functions into instruction symbols.}}
+\DoxyCodeLine{\Hypertarget{routine_8hpp_source_l00052}00052 \textcolor{comment}{/// </summary>}}
+\DoxyCodeLine{\Hypertarget{routine_8hpp_source_l00053}\mbox{\hyperlink{classtheo_1_1decomp_1_1routine__t}{00053}} \textcolor{comment}{}\textcolor{keyword}{class }\mbox{\hyperlink{classtheo_1_1decomp_1_1routine__t}{routine\_t}} \{}
+\DoxyCodeLine{\Hypertarget{routine_8hpp_source_l00054}00054  \textcolor{keyword}{public}:\textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{routine_8hpp_source_l00055}00055 \textcolor{comment}{  /// <summary>}}
+\DoxyCodeLine{\Hypertarget{routine_8hpp_source_l00056}00056 \textcolor{comment}{  /// the explicit constructor for routine\_t.}}
+\DoxyCodeLine{\Hypertarget{routine_8hpp_source_l00057}00057 \textcolor{comment}{  /// </summary>}}
+\DoxyCodeLine{\Hypertarget{routine_8hpp_source_l00058}00058 \textcolor{comment}{  /// <param name="{}sym"{}>the coff symbol for the routine.</param>}}
+\DoxyCodeLine{\Hypertarget{routine_8hpp_source_l00059}00059 \textcolor{comment}{  /// <param name="{}img"{}>the coff image which contains the symbol.</param>}}
+\DoxyCodeLine{\Hypertarget{routine_8hpp_source_l00060}00060 \textcolor{comment}{  /// <param name="{}scn"{}>the section header of the section that contains the}}
+\DoxyCodeLine{\Hypertarget{routine_8hpp_source_l00061}00061 \textcolor{comment}{  /// symbol.</param>}}
+\DoxyCodeLine{\Hypertarget{routine_8hpp_source_l00062}00062 \textcolor{comment}{  /// <param name="{}fn"{}>the data (bytes) of the function.</param>}}
+\DoxyCodeLine{\Hypertarget{routine_8hpp_source_l00063}00063 \textcolor{comment}{  /// <param name="{}dcmp\_type"{}>the type of decomp to do. if this is}}
+\DoxyCodeLine{\Hypertarget{routine_8hpp_source_l00064}00064 \textcolor{comment}{  /// sym\_type\_t::function then this class wont split the function up into}}
+\DoxyCodeLine{\Hypertarget{routine_8hpp_source_l00065}00065 \textcolor{comment}{  /// individual instructions.</param>}}
+\DoxyCodeLine{\Hypertarget{routine_8hpp_source_l00066}00066 \textcolor{comment}{}  \textcolor{keyword}{explicit} \mbox{\hyperlink{classtheo_1_1decomp_1_1routine__t_ab9f0693c5ec50954d953b28bebe4426b}{routine\_t}}(coff::symbol\_t* sym,}
+\DoxyCodeLine{\Hypertarget{routine_8hpp_source_l00067}00067                      coff::image\_t* img,}
+\DoxyCodeLine{\Hypertarget{routine_8hpp_source_l00068}00068                      coff::section\_header\_t* \mbox{\hyperlink{classtheo_1_1decomp_1_1routine__t_ad3a75cb97abbcd9b282772401b256f36}{scn}},}
+\DoxyCodeLine{\Hypertarget{routine_8hpp_source_l00069}00069                      std::vector<std::uint8\_t>\& fn,}
+\DoxyCodeLine{\Hypertarget{routine_8hpp_source_l00070}00070                      \mbox{\hyperlink{namespacetheo_1_1decomp_af96177687d0ad683c5897d8fa01135f9}{sym\_type\_t}} dcmp\_type);}
+\DoxyCodeLine{\Hypertarget{routine_8hpp_source_l00071}00071 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{routine_8hpp_source_l00072}00072 \textcolor{comment}{  /// <summary>}}
+\DoxyCodeLine{\Hypertarget{routine_8hpp_source_l00073}00073 \textcolor{comment}{  /// decompose the function into symbol(s).}}
+\DoxyCodeLine{\Hypertarget{routine_8hpp_source_l00074}00074 \textcolor{comment}{  /// </summary>}}
+\DoxyCodeLine{\Hypertarget{routine_8hpp_source_l00075}00075 \textcolor{comment}{  /// <returns>symbol(s) of the function.</returns>}}
+\DoxyCodeLine{\Hypertarget{routine_8hpp_source_l00076}00076 \textcolor{comment}{}  std::vector<decomp::symbol\_t> \mbox{\hyperlink{classtheo_1_1decomp_1_1routine__t_a1f790bd144badc71d6c4942cac8fc4e8}{decompose}}();}
+\DoxyCodeLine{\Hypertarget{routine_8hpp_source_l00077}00077 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{routine_8hpp_source_l00078}00078 \textcolor{comment}{  /// <summary>}}
+\DoxyCodeLine{\Hypertarget{routine_8hpp_source_l00079}00079 \textcolor{comment}{  /// gets the section header of the section in which the symbol is located in.}}
+\DoxyCodeLine{\Hypertarget{routine_8hpp_source_l00080}00080 \textcolor{comment}{  /// </summary>}}
+\DoxyCodeLine{\Hypertarget{routine_8hpp_source_l00081}00081 \textcolor{comment}{  /// <returns>the section header of the section in which the symbol is located}}
+\DoxyCodeLine{\Hypertarget{routine_8hpp_source_l00082}00082 \textcolor{comment}{  /// in.</returns>}}
+\DoxyCodeLine{\Hypertarget{routine_8hpp_source_l00083}00083 \textcolor{comment}{}  coff::section\_header\_t* \mbox{\hyperlink{classtheo_1_1decomp_1_1routine__t_ad3a75cb97abbcd9b282772401b256f36}{scn}}();}
+\DoxyCodeLine{\Hypertarget{routine_8hpp_source_l00084}00084 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{routine_8hpp_source_l00085}00085 \textcolor{comment}{  /// <summary>}}
+\DoxyCodeLine{\Hypertarget{routine_8hpp_source_l00086}00086 \textcolor{comment}{  /// gets the function bytes.}}
+\DoxyCodeLine{\Hypertarget{routine_8hpp_source_l00087}00087 \textcolor{comment}{  /// </summary>}}
+\DoxyCodeLine{\Hypertarget{routine_8hpp_source_l00088}00088 \textcolor{comment}{  /// <returns>the function bytes.</returns>}}
+\DoxyCodeLine{\Hypertarget{routine_8hpp_source_l00089}00089 \textcolor{comment}{}  std::vector<std::uint8\_t> \mbox{\hyperlink{classtheo_1_1decomp_1_1routine__t_a605a2be669a10a5a45325a5dca04401a}{data}}();}
+\DoxyCodeLine{\Hypertarget{routine_8hpp_source_l00090}00090 }
+\DoxyCodeLine{\Hypertarget{routine_8hpp_source_l00091}00091  \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{routine_8hpp_source_l00092}00092   coff::symbol\_t* m\_sym;}
+\DoxyCodeLine{\Hypertarget{routine_8hpp_source_l00093}00093   std::vector<std::uint8\_t> m\_data;}
+\DoxyCodeLine{\Hypertarget{routine_8hpp_source_l00094}00094   coff::image\_t* m\_img;}
+\DoxyCodeLine{\Hypertarget{routine_8hpp_source_l00095}00095   coff::section\_header\_t* m\_scn;}
+\DoxyCodeLine{\Hypertarget{routine_8hpp_source_l00096}00096   \mbox{\hyperlink{namespacetheo_1_1decomp_af96177687d0ad683c5897d8fa01135f9}{sym\_type\_t}} m\_dcmp\_type;}
+\DoxyCodeLine{\Hypertarget{routine_8hpp_source_l00097}00097 \};}
+\DoxyCodeLine{\Hypertarget{routine_8hpp_source_l00098}00098 \}  \textcolor{comment}{// namespace theo::decomp}}
+
+\end{DoxyCode}

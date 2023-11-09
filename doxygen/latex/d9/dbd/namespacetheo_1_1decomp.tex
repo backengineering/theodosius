@@ -1,0 +1,103 @@
+\hypertarget{namespacetheo_1_1decomp}{}\doxysection{theo\+::decomp Namespace Reference}
+\label{namespacetheo_1_1decomp}\index{theo::decomp@{theo::decomp}}
+
+
+the namespace that contains all of the decomposition related code.  
+
+
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classtheo_1_1decomp_1_1decomp__t}{decomp\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em the main decomposition class which is responsible for breaking down lib file into coff files, and extracted used symbols from the coff files. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classtheo_1_1decomp_1_1routine__t}{routine\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em the routine class which is responsible for creating symbols for routines. if the routine is located inside a section with the name \char`\"{}.\+split\char`\"{} it will break functions into instruction symbols. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t}{symbol\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t}{symbol\+\_\+t}} is an abstraction upon the coff symbol. this allows for easier manipulation of the symbol. symbols can be different things, sections, functions, and even instructions (when functions are broken down). \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{namespacetheo_1_1decomp_abbf09e1f7eb9e42057ff9c9e8be41266}{sym\+\_\+data\+\_\+t}} = std\+::tuple$<$ coff\+::image\+\_\+t $\ast$, coff\+::symbol\+\_\+t $\ast$, std\+::uint32\+\_\+t $>$
+\begin{DoxyCompactList}\small\item\em meta symbol data. consists of the coff image which contains the coff symbol, the coff symbol itself, and the size (if any) of the symbol. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{namespacetheo_1_1decomp_af96177687d0ad683c5897d8fa01135f9}{sym\+\_\+type\+\_\+t}} \{ \newline
+\mbox{\hyperlink{namespacetheo_1_1decomp_af96177687d0ad683c5897d8fa01135f9acf6baee49c2ddb7e89724231bbd75d4a}{function}} = 0b00000001
+, \mbox{\hyperlink{namespacetheo_1_1decomp_af96177687d0ad683c5897d8fa01135f9a4842f4c175b1ec87fc82ef3757d3a0e9}{instruction}} = 0b00000010
+, \mbox{\hyperlink{namespacetheo_1_1decomp_af96177687d0ad683c5897d8fa01135f9acdb885c0ea7f6b2874224487c69b8112}{data}} = 0b00000100
+, \mbox{\hyperlink{namespacetheo_1_1decomp_af96177687d0ad683c5897d8fa01135f9a46b3b57c5d47e2818b2ea10b96b43cd6}{section}} = 0b00001000
+, \newline
+\mbox{\hyperlink{namespacetheo_1_1decomp_af96177687d0ad683c5897d8fa01135f9a7d51179cde510c8a4070c51733aa9313}{all}} = section $\vert$ data $\vert$ instruction $\vert$ function
+ \}
+\begin{DoxyCompactList}\small\item\em meta symbol type. this is an abstraction upon the coff symbol storage/class type. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+the namespace that contains all of the decomposition related code. 
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{namespacetheo_1_1decomp_abbf09e1f7eb9e42057ff9c9e8be41266}\label{namespacetheo_1_1decomp_abbf09e1f7eb9e42057ff9c9e8be41266}} 
+\index{theo::decomp@{theo::decomp}!sym\_data\_t@{sym\_data\_t}}
+\index{sym\_data\_t@{sym\_data\_t}!theo::decomp@{theo::decomp}}
+\doxysubsubsection{\texorpdfstring{sym\_data\_t}{sym\_data\_t}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{namespacetheo_1_1decomp_abbf09e1f7eb9e42057ff9c9e8be41266}{theo\+::decomp\+::sym\+\_\+data\+\_\+t}} = typedef std\+::tuple$<$coff\+::image\+\_\+t$\ast$, coff\+::symbol\+\_\+t$\ast$, std\+::uint32\+\_\+t$>$}
+
+
+
+meta symbol data. consists of the coff image which contains the coff symbol, the coff symbol itself, and the size (if any) of the symbol. 
+
+
+
+Definition at line \mbox{\hyperlink{decomp_8hpp_source_l00055}{55}} of file \mbox{\hyperlink{decomp_8hpp_source}{decomp.\+hpp}}.
+
+
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{namespacetheo_1_1decomp_af96177687d0ad683c5897d8fa01135f9}\label{namespacetheo_1_1decomp_af96177687d0ad683c5897d8fa01135f9}} 
+\index{theo::decomp@{theo::decomp}!sym\_type\_t@{sym\_type\_t}}
+\index{sym\_type\_t@{sym\_type\_t}!theo::decomp@{theo::decomp}}
+\doxysubsubsection{\texorpdfstring{sym\_type\_t}{sym\_type\_t}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{namespacetheo_1_1decomp_af96177687d0ad683c5897d8fa01135f9}{theo\+::decomp\+::sym\+\_\+type\+\_\+t}}}
+
+
+
+meta symbol type. this is an abstraction upon the coff symbol storage/class type. 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{function@{function}!theo::decomp@{theo::decomp}}\index{theo::decomp@{theo::decomp}!function@{function}}}\mbox{\Hypertarget{namespacetheo_1_1decomp_af96177687d0ad683c5897d8fa01135f9acf6baee49c2ddb7e89724231bbd75d4a}\label{namespacetheo_1_1decomp_af96177687d0ad683c5897d8fa01135f9acf6baee49c2ddb7e89724231bbd75d4a}} 
+function&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{instruction@{instruction}!theo::decomp@{theo::decomp}}\index{theo::decomp@{theo::decomp}!instruction@{instruction}}}\mbox{\Hypertarget{namespacetheo_1_1decomp_af96177687d0ad683c5897d8fa01135f9a4842f4c175b1ec87fc82ef3757d3a0e9}\label{namespacetheo_1_1decomp_af96177687d0ad683c5897d8fa01135f9a4842f4c175b1ec87fc82ef3757d3a0e9}} 
+instruction&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{data@{data}!theo::decomp@{theo::decomp}}\index{theo::decomp@{theo::decomp}!data@{data}}}\mbox{\Hypertarget{namespacetheo_1_1decomp_af96177687d0ad683c5897d8fa01135f9acdb885c0ea7f6b2874224487c69b8112}\label{namespacetheo_1_1decomp_af96177687d0ad683c5897d8fa01135f9acdb885c0ea7f6b2874224487c69b8112}} 
+data&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{section@{section}!theo::decomp@{theo::decomp}}\index{theo::decomp@{theo::decomp}!section@{section}}}\mbox{\Hypertarget{namespacetheo_1_1decomp_af96177687d0ad683c5897d8fa01135f9a46b3b57c5d47e2818b2ea10b96b43cd6}\label{namespacetheo_1_1decomp_af96177687d0ad683c5897d8fa01135f9a46b3b57c5d47e2818b2ea10b96b43cd6}} 
+section&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{all@{all}!theo::decomp@{theo::decomp}}\index{theo::decomp@{theo::decomp}!all@{all}}}\mbox{\Hypertarget{namespacetheo_1_1decomp_af96177687d0ad683c5897d8fa01135f9a7d51179cde510c8a4070c51733aa9313}\label{namespacetheo_1_1decomp_af96177687d0ad683c5897d8fa01135f9a7d51179cde510c8a4070c51733aa9313}} 
+all&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line \mbox{\hyperlink{symbol_8hpp_source_l00043}{43}} of file \mbox{\hyperlink{symbol_8hpp_source}{symbol.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00043                 \{}
+\DoxyCodeLine{00044   \mbox{\hyperlink{namespacetheo_1_1decomp_af96177687d0ad683c5897d8fa01135f9acf6baee49c2ddb7e89724231bbd75d4a}{function}} = 0b00000001,}
+\DoxyCodeLine{00045   \mbox{\hyperlink{namespacetheo_1_1decomp_af96177687d0ad683c5897d8fa01135f9a4842f4c175b1ec87fc82ef3757d3a0e9}{instruction}} = 0b00000010,}
+\DoxyCodeLine{00046   \mbox{\hyperlink{namespacetheo_1_1decomp_af96177687d0ad683c5897d8fa01135f9acdb885c0ea7f6b2874224487c69b8112}{data}} = 0b00000100,}
+\DoxyCodeLine{00047   \mbox{\hyperlink{namespacetheo_1_1decomp_af96177687d0ad683c5897d8fa01135f9a46b3b57c5d47e2818b2ea10b96b43cd6}{section}} = 0b00001000,}
+\DoxyCodeLine{00048   \mbox{\hyperlink{namespacetheo_1_1decomp_af96177687d0ad683c5897d8fa01135f9a7d51179cde510c8a4070c51733aa9313}{all}} = \mbox{\hyperlink{namespacetheo_1_1decomp_af96177687d0ad683c5897d8fa01135f9a46b3b57c5d47e2818b2ea10b96b43cd6}{section}} | \mbox{\hyperlink{namespacetheo_1_1decomp_af96177687d0ad683c5897d8fa01135f9acdb885c0ea7f6b2874224487c69b8112}{data}} | \mbox{\hyperlink{namespacetheo_1_1decomp_af96177687d0ad683c5897d8fa01135f9a4842f4c175b1ec87fc82ef3757d3a0e9}{instruction}} | \mbox{\hyperlink{namespacetheo_1_1decomp_af96177687d0ad683c5897d8fa01135f9acf6baee49c2ddb7e89724231bbd75d4a}{function}}}
+\DoxyCodeLine{00049 \};}
+
+\end{DoxyCode}

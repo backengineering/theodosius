@@ -1,0 +1,81 @@
+\hypertarget{theo_8cpp_source}{}\doxysection{theo.\+cpp}
+\label{theo_8cpp_source}\index{src/theo.cpp@{src/theo.cpp}}
+\mbox{\hyperlink{theo_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{theo_8cpp_source_l00001}00001 \textcolor{comment}{// Copyright (c) 2022, \_xeroxz}}
+\DoxyCodeLine{\Hypertarget{theo_8cpp_source_l00002}00002 \textcolor{comment}{// All rights reserved.}}
+\DoxyCodeLine{\Hypertarget{theo_8cpp_source_l00003}00003 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{theo_8cpp_source_l00004}00004 \textcolor{comment}{// Redistribution and use in source and binary forms, with or without}}
+\DoxyCodeLine{\Hypertarget{theo_8cpp_source_l00005}00005 \textcolor{comment}{// modification, are permitted provided that the following conditions are met:}}
+\DoxyCodeLine{\Hypertarget{theo_8cpp_source_l00006}00006 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{theo_8cpp_source_l00007}00007 \textcolor{comment}{// 1. Redistributions of source code must retain the above copyright notice,}}
+\DoxyCodeLine{\Hypertarget{theo_8cpp_source_l00008}00008 \textcolor{comment}{//    this list of conditions and the following disclaimer.}}
+\DoxyCodeLine{\Hypertarget{theo_8cpp_source_l00009}00009 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{theo_8cpp_source_l00010}00010 \textcolor{comment}{// 2. Redistributions in binary form must reproduce the above copyright notice,}}
+\DoxyCodeLine{\Hypertarget{theo_8cpp_source_l00011}00011 \textcolor{comment}{//    this list of conditions and the following disclaimer in the documentation}}
+\DoxyCodeLine{\Hypertarget{theo_8cpp_source_l00012}00012 \textcolor{comment}{//    and/or other materials provided with the distribution.}}
+\DoxyCodeLine{\Hypertarget{theo_8cpp_source_l00013}00013 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{theo_8cpp_source_l00014}00014 \textcolor{comment}{// 3. Neither the name of the copyright holder nor the names of its}}
+\DoxyCodeLine{\Hypertarget{theo_8cpp_source_l00015}00015 \textcolor{comment}{//    contributors may be used to endorse or promote products derived from}}
+\DoxyCodeLine{\Hypertarget{theo_8cpp_source_l00016}00016 \textcolor{comment}{//    this software without specific prior written permission.}}
+\DoxyCodeLine{\Hypertarget{theo_8cpp_source_l00017}00017 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{theo_8cpp_source_l00018}00018 \textcolor{comment}{// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "{}AS IS"{}}}
+\DoxyCodeLine{\Hypertarget{theo_8cpp_source_l00019}00019 \textcolor{comment}{// AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE}}
+\DoxyCodeLine{\Hypertarget{theo_8cpp_source_l00020}00020 \textcolor{comment}{// IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE}}
+\DoxyCodeLine{\Hypertarget{theo_8cpp_source_l00021}00021 \textcolor{comment}{// ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE}}
+\DoxyCodeLine{\Hypertarget{theo_8cpp_source_l00022}00022 \textcolor{comment}{// LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR}}
+\DoxyCodeLine{\Hypertarget{theo_8cpp_source_l00023}00023 \textcolor{comment}{// CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF}}
+\DoxyCodeLine{\Hypertarget{theo_8cpp_source_l00024}00024 \textcolor{comment}{// SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS}}
+\DoxyCodeLine{\Hypertarget{theo_8cpp_source_l00025}00025 \textcolor{comment}{// INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN}}
+\DoxyCodeLine{\Hypertarget{theo_8cpp_source_l00026}00026 \textcolor{comment}{// CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)}}
+\DoxyCodeLine{\Hypertarget{theo_8cpp_source_l00027}00027 \textcolor{comment}{// ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE}}
+\DoxyCodeLine{\Hypertarget{theo_8cpp_source_l00028}00028 \textcolor{comment}{// POSSIBILITY OF SUCH DAMAGE.}}
+\DoxyCodeLine{\Hypertarget{theo_8cpp_source_l00029}00029 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{theo_8cpp_source_l00030}00030 }
+\DoxyCodeLine{\Hypertarget{theo_8cpp_source_l00031}00031 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{theo_8hpp}{theo.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{theo_8cpp_source_l00032}00032 }
+\DoxyCodeLine{\Hypertarget{theo_8cpp_source_l00033}00033 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespacetheo}{theo}} \{}
+\DoxyCodeLine{\Hypertarget{theo_8cpp_source_l00034}\mbox{\hyperlink{classtheo_1_1theo__t_a0a9ae3322261b97cf1dc47c908ef3c6d}{00034}} \mbox{\hyperlink{classtheo_1_1theo__t_a0a9ae3322261b97cf1dc47c908ef3c6d}{theo\_t::theo\_t}}(std::vector<std::uint8\_t>\& lib,}
+\DoxyCodeLine{\Hypertarget{theo_8cpp_source_l00035}00035                \mbox{\hyperlink{namespacetheo_a66efe2c63e06764fb2d9a378c688c680}{lnk\_fns\_t}} lnkr\_fns,}
+\DoxyCodeLine{\Hypertarget{theo_8cpp_source_l00036}00036                \textcolor{keyword}{const} std::string\&\& entry\_sym)}
+\DoxyCodeLine{\Hypertarget{theo_8cpp_source_l00037}00037     : m\_dcmp(lib, \&m\_sym\_tbl),}
+\DoxyCodeLine{\Hypertarget{theo_8cpp_source_l00038}00038       m\_recmp(\&m\_dcmp, \{\}, \{\}, \{\}),}
+\DoxyCodeLine{\Hypertarget{theo_8cpp_source_l00039}00039       m\_entry\_sym(entry\_sym) \{}
+\DoxyCodeLine{\Hypertarget{theo_8cpp_source_l00040}00040   m\_recmp.\mbox{\hyperlink{classtheo_1_1recomp_1_1recomp__t_a0da9a904b0057c14190218592aff0f07}{allocator}}(std::get<0>(lnkr\_fns));}
+\DoxyCodeLine{\Hypertarget{theo_8cpp_source_l00041}00041   m\_recmp.\mbox{\hyperlink{classtheo_1_1recomp_1_1recomp__t_aa6fecf752d4c5bc211e164d8496724b1}{copier}}(std::get<1>(lnkr\_fns));}
+\DoxyCodeLine{\Hypertarget{theo_8cpp_source_l00042}00042   m\_recmp.\mbox{\hyperlink{classtheo_1_1recomp_1_1recomp__t_a1be6d0cdb57565c31b138248c8b2d470}{resolver}}(std::get<2>(lnkr\_fns));}
+\DoxyCodeLine{\Hypertarget{theo_8cpp_source_l00043}00043 \}}
+\DoxyCodeLine{\Hypertarget{theo_8cpp_source_l00044}00044 }
+\DoxyCodeLine{\Hypertarget{theo_8cpp_source_l00045}\mbox{\hyperlink{classtheo_1_1theo__t_a66257ff5d9825483d85e58384a12760a}{00045}} std::optional<std::uint32\_t> \mbox{\hyperlink{classtheo_1_1theo__t_a66257ff5d9825483d85e58384a12760a}{theo\_t::decompose}}() \{}
+\DoxyCodeLine{\Hypertarget{theo_8cpp_source_l00046}00046   \textcolor{keyword}{auto} res = m\_dcmp.\mbox{\hyperlink{classtheo_1_1decomp_1_1decomp__t_ae23353a4293aa30969b6d3fa37359469}{decompose}}(m\_entry\_sym);}
+\DoxyCodeLine{\Hypertarget{theo_8cpp_source_l00047}00047   \textcolor{keywordflow}{if} (!res.has\_value()) \{}
+\DoxyCodeLine{\Hypertarget{theo_8cpp_source_l00048}00048     spdlog::error(\textcolor{stringliteral}{"{}failed to decompose...\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{theo_8cpp_source_l00049}00049     \textcolor{keywordflow}{return} \{\};}
+\DoxyCodeLine{\Hypertarget{theo_8cpp_source_l00050}00050   \}}
+\DoxyCodeLine{\Hypertarget{theo_8cpp_source_l00051}00051 }
+\DoxyCodeLine{\Hypertarget{theo_8cpp_source_l00052}00052   spdlog::info(\textcolor{stringliteral}{"{}decompose successful... \{\} symbols"{}}, res.value()-\/>size());}
+\DoxyCodeLine{\Hypertarget{theo_8cpp_source_l00053}00053   \textcolor{keywordflow}{return} res.value()-\/>size();}
+\DoxyCodeLine{\Hypertarget{theo_8cpp_source_l00054}00054 \}}
+\DoxyCodeLine{\Hypertarget{theo_8cpp_source_l00055}00055 }
+\DoxyCodeLine{\Hypertarget{theo_8cpp_source_l00056}\mbox{\hyperlink{classtheo_1_1theo__t_a39e067dd71f82b437c6a418d41e38b27}{00056}} std::uintptr\_t \mbox{\hyperlink{classtheo_1_1theo__t_a39e067dd71f82b437c6a418d41e38b27}{theo\_t::compose}}() \{}
+\DoxyCodeLine{\Hypertarget{theo_8cpp_source_l00057}00057   \textcolor{comment}{// run obfuscation engine on all symbols...}}
+\DoxyCodeLine{\Hypertarget{theo_8cpp_source_l00058}00058   \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{theo_8cpp_source_l00059}00059   \textcolor{keyword}{auto} engine = \mbox{\hyperlink{classtheo_1_1obf_1_1engine__t_a58715f5c3ade824a65e602aba570040e}{obf::engine\_t::get}}();}
+\DoxyCodeLine{\Hypertarget{theo_8cpp_source_l00060}00060   m\_sym\_tbl.\mbox{\hyperlink{classtheo_1_1recomp_1_1symbol__table__t_a35008ba37814a94209cf979302e13e6d}{for\_each}}([\&](\mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t}{decomp::symbol\_t}}\& sym) \{ engine-\/>run(\&sym); \});}
+\DoxyCodeLine{\Hypertarget{theo_8cpp_source_l00061}00061 }
+\DoxyCodeLine{\Hypertarget{theo_8cpp_source_l00062}00062   m\_recmp.\mbox{\hyperlink{classtheo_1_1recomp_1_1recomp__t_a78502665e218d3addca9b1e5e3875f39}{allocate}}();}
+\DoxyCodeLine{\Hypertarget{theo_8cpp_source_l00063}00063   m\_recmp.\mbox{\hyperlink{classtheo_1_1recomp_1_1recomp__t_a299fbede378f04991df2e39293307094}{resolve}}();}
+\DoxyCodeLine{\Hypertarget{theo_8cpp_source_l00064}00064   m\_recmp.\mbox{\hyperlink{classtheo_1_1recomp_1_1recomp__t_a080d88f122d12faf2e328c9bdd10be6e}{copy\_syms}}();}
+\DoxyCodeLine{\Hypertarget{theo_8cpp_source_l00065}00065   \textcolor{keywordflow}{return} m\_recmp.\mbox{\hyperlink{classtheo_1_1recomp_1_1recomp__t_a299fbede378f04991df2e39293307094}{resolve}}(m\_entry\_sym.data());}
+\DoxyCodeLine{\Hypertarget{theo_8cpp_source_l00066}00066 \}}
+\DoxyCodeLine{\Hypertarget{theo_8cpp_source_l00067}00067 }
+\DoxyCodeLine{\Hypertarget{theo_8cpp_source_l00068}\mbox{\hyperlink{classtheo_1_1theo__t_a97c52bda4b07a456ff1ea6f3c1cdbe24}{00068}} std::uintptr\_t \mbox{\hyperlink{classtheo_1_1theo__t_a97c52bda4b07a456ff1ea6f3c1cdbe24}{theo\_t::resolve}}(\textcolor{keyword}{const} std::string\&\& sym) \{}
+\DoxyCodeLine{\Hypertarget{theo_8cpp_source_l00069}00069   \textcolor{keyword}{auto} val = m\_sym\_tbl.\mbox{\hyperlink{classtheo_1_1recomp_1_1symbol__table__t_a308c0dbcc4d569467e0986b32ef30db5}{sym\_from\_hash}}(\mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t_a8695d75670cc4d61d275464e9109ff06}{decomp::symbol\_t::hash}}(sym));}
+\DoxyCodeLine{\Hypertarget{theo_8cpp_source_l00070}00070   \textcolor{keywordflow}{if} (!val.has\_value())}
+\DoxyCodeLine{\Hypertarget{theo_8cpp_source_l00071}00071     \textcolor{keywordflow}{return} \{\};}
+\DoxyCodeLine{\Hypertarget{theo_8cpp_source_l00072}00072 }
+\DoxyCodeLine{\Hypertarget{theo_8cpp_source_l00073}00073   \textcolor{keywordflow}{return} val.value()-\/>allocated\_at();}
+\DoxyCodeLine{\Hypertarget{theo_8cpp_source_l00074}00074 \}}
+\DoxyCodeLine{\Hypertarget{theo_8cpp_source_l00075}00075 \}  \textcolor{comment}{// namespace theo}}
+
+\end{DoxyCode}

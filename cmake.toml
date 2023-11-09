@@ -1,0 +1,14 @@
+[project]
+name = "Theodosius"
+
+[subdir.dependencies]
+[subdir.examples]
+
+[target.Theodosius]
+type = "static"
+sources = ["include/**.hpp", "src/**.cpp"]
+
+include-directories = ["include"]
+compile-features = ["cxx_std_20"]
+compile-definitions = ["NOMINMAX"]
+link-libraries = ["linux-pe", "spdlog", "xed"]

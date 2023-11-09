@@ -1,0 +1,130 @@
+\hypertarget{classtheo_1_1obf_1_1reloc__transform__pass__t}{}\doxysection{theo\+::obf\+::reloc\+\_\+transform\+\_\+pass\+\_\+t Class Reference}
+\label{classtheo_1_1obf_1_1reloc__transform__pass__t}\index{theo::obf::reloc\_transform\_pass\_t@{theo::obf::reloc\_transform\_pass\_t}}
+
+
+this pass is like the next\+\_\+inst\+\_\+pass, however, relocations are encrypted with transformations instead of the address of the next instruction. this pass only runs at the instruction level and appends transformations into the reloc\+\_\+t object of the instruction symbol.  
+
+
+
+
+{\ttfamily \#include \char`\"{}reloc\+\_\+transform\+\_\+pass.\+hpp\char`\"{}}
+
+Inheritance diagram for theo\+::obf\+::reloc\+\_\+transform\+\_\+pass\+\_\+t\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{dc/d39/classtheo_1_1obf_1_1reloc__transform__pass__t}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classtheo_1_1obf_1_1reloc__transform__pass__t_a24e122f6be18a88ea1809252ab3ec0b9}{run}} (\mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t}{decomp\+::symbol\+\_\+t}} $\ast$sym)
+\begin{DoxyCompactList}\small\item\em virtual method which must be implimented by the pass that inherits this class. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{classtheo_1_1obf_1_1reloc__transform__pass__t}{reloc\+\_\+transform\+\_\+pass\+\_\+t}} $\ast$ \mbox{\hyperlink{classtheo_1_1obf_1_1reloc__transform__pass__t_a89aa46da5f721057cd8cf5189207d464}{get}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+this pass is like the next\+\_\+inst\+\_\+pass, however, relocations are encrypted with transformations instead of the address of the next instruction. this pass only runs at the instruction level and appends transformations into the reloc\+\_\+t object of the instruction symbol. 
+
+given the following code\+: \begin{DoxyVerb}mov rax, &MessageBoxA
+\end{DoxyVerb}
+ this pass will generate a random number of transformations to encrypt the address of \char`\"{}\+Message\+Box\+A\char`\"{}. These transformations will then be applied by theodosius internally when resolving relocations. \begin{DoxyVerb}mov rax, enc_MessageBoxA
+xor rax, 0x389284324
+add rax, 0x345332567
+ror rax, 0x5353
+\end{DoxyVerb}
+ 
+
+Definition at line \mbox{\hyperlink{reloc__transform__pass_8hpp_source_l00056}{56}} of file \mbox{\hyperlink{reloc__transform__pass_8hpp_source}{reloc\+\_\+transform\+\_\+pass.\+hpp}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classtheo_1_1obf_1_1reloc__transform__pass__t_a89aa46da5f721057cd8cf5189207d464}\label{classtheo_1_1obf_1_1reloc__transform__pass__t_a89aa46da5f721057cd8cf5189207d464}} 
+\index{theo::obf::reloc\_transform\_pass\_t@{theo::obf::reloc\_transform\_pass\_t}!get@{get}}
+\index{get@{get}!theo::obf::reloc\_transform\_pass\_t@{theo::obf::reloc\_transform\_pass\_t}}
+\doxysubsubsection{\texorpdfstring{get()}{get()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classtheo_1_1obf_1_1reloc__transform__pass__t}{reloc\+\_\+transform\+\_\+pass\+\_\+t}} $\ast$ theo\+::obf\+::reloc\+\_\+transform\+\_\+pass\+\_\+t\+::get (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{reloc__transform__pass_8cpp_source_l00034}{34}} of file \mbox{\hyperlink{reloc__transform__pass_8cpp_source}{reloc\+\_\+transform\+\_\+pass.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00034                                                     \{}
+\DoxyCodeLine{00035   \textcolor{keyword}{static} reloc\_transform\_pass\_t obj;}
+\DoxyCodeLine{00036   \textcolor{keywordflow}{return} \&obj;}
+\DoxyCodeLine{00037 \}}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{main_8cpp_source_l00057}{main()}}.
+
+\mbox{\Hypertarget{classtheo_1_1obf_1_1reloc__transform__pass__t_a24e122f6be18a88ea1809252ab3ec0b9}\label{classtheo_1_1obf_1_1reloc__transform__pass__t_a24e122f6be18a88ea1809252ab3ec0b9}} 
+\index{theo::obf::reloc\_transform\_pass\_t@{theo::obf::reloc\_transform\_pass\_t}!run@{run}}
+\index{run@{run}!theo::obf::reloc\_transform\_pass\_t@{theo::obf::reloc\_transform\_pass\_t}}
+\doxysubsubsection{\texorpdfstring{run()}{run()}}
+{\footnotesize\ttfamily void theo\+::obf\+::reloc\+\_\+transform\+\_\+pass\+\_\+t\+::run (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t}{decomp\+::symbol\+\_\+t}} $\ast$}]{sym }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+virtual method which must be implimented by the pass that inherits this class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sym} & a symbol of the same type of m\+\_\+sym\+\_\+type.\\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classtheo_1_1obf_1_1pass__t_acfadc013ff0754d66a18baffdb1a61d1}{theo\+::obf\+::pass\+\_\+t}}.
+
+
+
+Definition at line \mbox{\hyperlink{reloc__transform__pass_8cpp_source_l00039}{39}} of file \mbox{\hyperlink{reloc__transform__pass_8cpp_source}{reloc\+\_\+transform\+\_\+pass.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00039                                                     \{}
+\DoxyCodeLine{00040   std::optional<recomp::reloc\_t*> reloc;}
+\DoxyCodeLine{00041   \textcolor{keywordflow}{if} (!(reloc = has\_legit\_reloc(sym)).has\_value())}
+\DoxyCodeLine{00042     \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00043 }
+\DoxyCodeLine{00044   spdlog::info(\textcolor{stringliteral}{"{}adding transformations to relocation in symbol: \{\}"{}},}
+\DoxyCodeLine{00045                sym-\/>name());}
+\DoxyCodeLine{00046 }
+\DoxyCodeLine{00047   xed\_error\_enum\_t err;}
+\DoxyCodeLine{00048   xed\_decoded\_inst\_t inst;}
+\DoxyCodeLine{00049   xed\_state\_t istate\{XED\_MACHINE\_MODE\_LONG\_64, XED\_ADDRESS\_WIDTH\_64b\};}
+\DoxyCodeLine{00050   xed\_decoded\_inst\_zero\_set\_mode(\&inst, \&istate);}
+\DoxyCodeLine{00051 }
+\DoxyCodeLine{00052   \textcolor{keywordflow}{if} ((err = xed\_decode(\&inst, sym-\/>data().data(), sym-\/>data().size())) !=}
+\DoxyCodeLine{00053       XED\_ERROR\_NONE) \{}
+\DoxyCodeLine{00054     spdlog::error(\textcolor{stringliteral}{"{}failed to decode instruction, reason: \{\} in symbol: \{\}"{}},}
+\DoxyCodeLine{00055                   xed\_error\_enum\_t2str(err), sym-\/>name());}
+\DoxyCodeLine{00056 }
+\DoxyCodeLine{00057     assert(err == XED\_ERROR\_NONE);}
+\DoxyCodeLine{00058   \}}
+\DoxyCodeLine{00059 }
+\DoxyCodeLine{00060   \textcolor{keyword}{auto} transforms\_bytes = \mbox{\hyperlink{namespacetheo_1_1obf_1_1transform_abb618f5ff8d88963dd77e682456ef982}{transform::generate}}(\&inst, reloc.value(), 3, 6);}
+\DoxyCodeLine{00061   sym-\/>data().insert(sym-\/>data().end(), transforms\_bytes.begin(),}
+\DoxyCodeLine{00062                      transforms\_bytes.end());}
+\DoxyCodeLine{00063 \};}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{symbol_8cpp_source_l00076}{theo\+::decomp\+::symbol\+\_\+t\+::data()}}, \mbox{\hyperlink{gen_8hpp_source_l00045}{theo\+::obf\+::transform\+::generate()}}, and \mbox{\hyperlink{symbol_8cpp_source_l00052}{theo\+::decomp\+::symbol\+\_\+t\+::name()}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/obf/passes/\mbox{\hyperlink{reloc__transform__pass_8hpp}{reloc\+\_\+transform\+\_\+pass.\+hpp}}\item 
+src/obf/passes/\mbox{\hyperlink{reloc__transform__pass_8cpp}{reloc\+\_\+transform\+\_\+pass.\+cpp}}\end{DoxyCompactItemize}

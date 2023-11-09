@@ -1,0 +1,109 @@
+\hypertarget{next__inst__pass_8cpp_source}{}\doxysection{next\+\_\+inst\+\_\+pass.\+cpp}
+\label{next__inst__pass_8cpp_source}\index{src/obf/passes/next\_inst\_pass.cpp@{src/obf/passes/next\_inst\_pass.cpp}}
+\mbox{\hyperlink{next__inst__pass_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8cpp_source_l00001}00001 \textcolor{comment}{// Copyright (c) 2022, \_xeroxz}}
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8cpp_source_l00002}00002 \textcolor{comment}{// All rights reserved.}}
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8cpp_source_l00003}00003 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8cpp_source_l00004}00004 \textcolor{comment}{// Redistribution and use in source and binary forms, with or without}}
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8cpp_source_l00005}00005 \textcolor{comment}{// modification, are permitted provided that the following conditions are met:}}
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8cpp_source_l00006}00006 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8cpp_source_l00007}00007 \textcolor{comment}{// 1. Redistributions of source code must retain the above copyright notice,}}
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8cpp_source_l00008}00008 \textcolor{comment}{//    this list of conditions and the following disclaimer.}}
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8cpp_source_l00009}00009 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8cpp_source_l00010}00010 \textcolor{comment}{// 2. Redistributions in binary form must reproduce the above copyright notice,}}
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8cpp_source_l00011}00011 \textcolor{comment}{//    this list of conditions and the following disclaimer in the documentation}}
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8cpp_source_l00012}00012 \textcolor{comment}{//    and/or other materials provided with the distribution.}}
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8cpp_source_l00013}00013 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8cpp_source_l00014}00014 \textcolor{comment}{// 3. Neither the name of the copyright holder nor the names of its}}
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8cpp_source_l00015}00015 \textcolor{comment}{//    contributors may be used to endorse or promote products derived from}}
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8cpp_source_l00016}00016 \textcolor{comment}{//    this software without specific prior written permission.}}
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8cpp_source_l00017}00017 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8cpp_source_l00018}00018 \textcolor{comment}{// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "{}AS IS"{}}}
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8cpp_source_l00019}00019 \textcolor{comment}{// AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE}}
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8cpp_source_l00020}00020 \textcolor{comment}{// IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE}}
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8cpp_source_l00021}00021 \textcolor{comment}{// ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE}}
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8cpp_source_l00022}00022 \textcolor{comment}{// LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR}}
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8cpp_source_l00023}00023 \textcolor{comment}{// CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF}}
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8cpp_source_l00024}00024 \textcolor{comment}{// SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS}}
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8cpp_source_l00025}00025 \textcolor{comment}{// INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN}}
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8cpp_source_l00026}00026 \textcolor{comment}{// CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)}}
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8cpp_source_l00027}00027 \textcolor{comment}{// ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE}}
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8cpp_source_l00028}00028 \textcolor{comment}{// POSSIBILITY OF SUCH DAMAGE.}}
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8cpp_source_l00029}00029 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8cpp_source_l00030}00030 }
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8cpp_source_l00031}00031 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{next__inst__pass_8hpp}{obf/passes/next\_inst\_pass.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8cpp_source_l00032}00032 }
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8cpp_source_l00033}00033 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespacetheo_1_1obf}{theo::obf}} \{}
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8cpp_source_l00034}\mbox{\hyperlink{classtheo_1_1obf_1_1next__inst__pass__t_a964e6f5291ccba0442519f2563b3a2e9}{00034}} \mbox{\hyperlink{classtheo_1_1obf_1_1next__inst__pass__t}{next\_inst\_pass\_t}}* \mbox{\hyperlink{classtheo_1_1obf_1_1next__inst__pass__t_a964e6f5291ccba0442519f2563b3a2e9}{next\_inst\_pass\_t::get}}() \{}
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8cpp_source_l00035}00035   \textcolor{keyword}{static} \mbox{\hyperlink{classtheo_1_1obf_1_1next__inst__pass__t}{next\_inst\_pass\_t}} obj;}
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8cpp_source_l00036}00036   \textcolor{keywordflow}{return} \&obj;}
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8cpp_source_l00037}00037 \}}
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8cpp_source_l00038}\mbox{\hyperlink{classtheo_1_1obf_1_1next__inst__pass__t_ae4cbba78b14c2b9da794386e4d92f40f}{00038}} \textcolor{keywordtype}{void} \mbox{\hyperlink{classtheo_1_1obf_1_1next__inst__pass__t_ae4cbba78b14c2b9da794386e4d92f40f}{next\_inst\_pass\_t::run}}(\mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t}{decomp::symbol\_t}}* sym) \{}
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8cpp_source_l00039}00039   std::optional<recomp::reloc\_t*> reloc;}
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8cpp_source_l00040}00040   \textcolor{keywordflow}{if} (!(reloc = has\_next\_inst\_reloc(sym)).has\_value())}
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8cpp_source_l00041}00041     \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8cpp_source_l00042}00042 }
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8cpp_source_l00043}00043   xed\_decoded\_inst\_t inst = m\_tmp\_inst;}
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8cpp_source_l00044}00044   std::vector<std::uint8\_t> new\_inst\_bytes =}
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8cpp_source_l00045}00045       \mbox{\hyperlink{namespacetheo_1_1obf_1_1transform_abb618f5ff8d88963dd77e682456ef982}{transform::generate}}(\&inst, reloc.value(), 3, 6);}
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8cpp_source_l00046}00046 }
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8cpp_source_l00047}00047   \textcolor{comment}{// add a push [rip+offset] and update reloc-\/>offset()...}}
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8cpp_source_l00048}00048   \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8cpp_source_l00049}00049   std::uint32\_t inst\_len = \{\};}
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8cpp_source_l00050}00050   std::uint8\_t inst\_buff[XED\_MAX\_INSTRUCTION\_BYTES];}
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8cpp_source_l00051}00051 }
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8cpp_source_l00052}00052   xed\_error\_enum\_t err;}
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8cpp_source_l00053}00053   xed\_encoder\_request\_t req;}
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8cpp_source_l00054}00054   xed\_state\_t istate\{XED\_MACHINE\_MODE\_LONG\_64, XED\_ADDRESS\_WIDTH\_64b\};}
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8cpp_source_l00055}00055 }
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8cpp_source_l00056}00056   xed\_encoder\_request\_zero\_set\_mode(\&req, \&istate);}
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8cpp_source_l00057}00057   xed\_encoder\_request\_set\_effective\_operand\_width(\&req, 64);}
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8cpp_source_l00058}00058   xed\_encoder\_request\_set\_iclass(\&req, XED\_ICLASS\_PUSH);}
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8cpp_source_l00059}00059 }
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8cpp_source_l00060}00060   xed\_encoder\_request\_set\_mem0(\&req);}
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8cpp_source_l00061}00061   xed\_encoder\_request\_set\_operand\_order(\&req, 0, XED\_OPERAND\_MEM0);}
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8cpp_source_l00062}00062 }
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8cpp_source_l00063}00063   xed\_encoder\_request\_set\_base0(\&req, XED\_REG\_RIP);}
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8cpp_source_l00064}00064   xed\_encoder\_request\_set\_seg0(\&req, XED\_REG\_INVALID);}
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8cpp_source_l00065}00065   xed\_encoder\_request\_set\_index(\&req, XED\_REG\_INVALID);}
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8cpp_source_l00066}00066   xed\_encoder\_request\_set\_scale(\&req, 0);}
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8cpp_source_l00067}00067 }
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8cpp_source_l00068}00068   xed\_encoder\_request\_set\_memory\_operand\_length(\&req, 8);}
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8cpp_source_l00069}00069   xed\_encoder\_request\_set\_memory\_displacement(\&req, new\_inst\_bytes.size() + 1,}
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8cpp_source_l00070}00070                                               1);}
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8cpp_source_l00071}00071 }
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8cpp_source_l00072}00072   \textcolor{keywordflow}{if} ((err = xed\_encode(\&req, inst\_buff, \textcolor{keyword}{sizeof}(inst\_buff), \&inst\_len)) !=}
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8cpp_source_l00073}00073       XED\_ERROR\_NONE) \{}
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8cpp_source_l00074}00074     spdlog::info(\textcolor{stringliteral}{"{}failed to encode instruction... reason: \{\}"{}},}
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8cpp_source_l00075}00075                  xed\_error\_enum\_t2str(err));}
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8cpp_source_l00076}00076 }
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8cpp_source_l00077}00077     assert(err == XED\_ERROR\_NONE);}
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8cpp_source_l00078}00078   \}}
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8cpp_source_l00079}00079 }
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8cpp_source_l00080}00080   new\_inst\_bytes.insert(new\_inst\_bytes.begin(), inst\_buff,}
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8cpp_source_l00081}00081                         inst\_buff + inst\_len);}
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8cpp_source_l00082}00082 }
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8cpp_source_l00083}00083   \textcolor{comment}{// put a return instruction at the end of the decrypt instructions...}}
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8cpp_source_l00084}00084   \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8cpp_source_l00085}00085   new\_inst\_bytes.push\_back(0xC3);}
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8cpp_source_l00086}00086 }
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8cpp_source_l00087}00087   sym-\/>\mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t_aa3ecf0b480d10bffe68812409c06d61b}{data}}().insert(sym-\/>\mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t_aa3ecf0b480d10bffe68812409c06d61b}{data}}().end(), new\_inst\_bytes.begin(),}
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8cpp_source_l00088}00088                      new\_inst\_bytes.end());}
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8cpp_source_l00089}00089 }
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8cpp_source_l00090}00090   reloc.value()-\/>offset(sym-\/>\mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t_aa3ecf0b480d10bffe68812409c06d61b}{data}}().size());}
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8cpp_source_l00091}00091   sym-\/>\mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t_aa3ecf0b480d10bffe68812409c06d61b}{data}}().resize(sym-\/>\mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t_aa3ecf0b480d10bffe68812409c06d61b}{data}}().size() + 8);}
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8cpp_source_l00092}00092 \}}
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8cpp_source_l00093}00093 }
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8cpp_source_l00094}00094 std::optional<recomp::reloc\_t*> next\_inst\_pass\_t::has\_next\_inst\_reloc(}
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8cpp_source_l00095}00095     \mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t}{decomp::symbol\_t}}* sym) \{}
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8cpp_source_l00096}00096   \textcolor{keyword}{auto} res = std::find\_if(}
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8cpp_source_l00097}00097       sym-\/>\mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t_abc158e1dc1567161f0a57ed15fc718f7}{relocs}}().begin(), sym-\/>\mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t_abc158e1dc1567161f0a57ed15fc718f7}{relocs}}().end(),}
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8cpp_source_l00098}00098       [\&](\mbox{\hyperlink{classtheo_1_1recomp_1_1reloc__t}{recomp::reloc\_t}}\& reloc) -\/> \textcolor{keywordtype}{bool} \{ return !reloc.offset(); \});}
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8cpp_source_l00099}00099 }
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8cpp_source_l00100}00100   \textcolor{keywordflow}{return} res != sym-\/>\mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t_abc158e1dc1567161f0a57ed15fc718f7}{relocs}}().end() ? \&(*res)}
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8cpp_source_l00101}00101                                     : std::optional<recomp::reloc\_t*>();}
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8cpp_source_l00102}00102 \}}
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8cpp_source_l00103}00103 \}  \textcolor{comment}{// namespace theo::obf}}
+
+\end{DoxyCode}

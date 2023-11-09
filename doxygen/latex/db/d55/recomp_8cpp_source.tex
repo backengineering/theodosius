@@ -1,0 +1,185 @@
+\hypertarget{recomp_8cpp_source}{}\doxysection{recomp.\+cpp}
+\label{recomp_8cpp_source}\index{src/recomp/recomp.cpp@{src/recomp/recomp.cpp}}
+\mbox{\hyperlink{recomp_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{recomp_8cpp_source_l00001}00001 \textcolor{comment}{// Copyright (c) 2022, \_xeroxz}}
+\DoxyCodeLine{\Hypertarget{recomp_8cpp_source_l00002}00002 \textcolor{comment}{// All rights reserved.}}
+\DoxyCodeLine{\Hypertarget{recomp_8cpp_source_l00003}00003 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{recomp_8cpp_source_l00004}00004 \textcolor{comment}{// Redistribution and use in source and binary forms, with or without}}
+\DoxyCodeLine{\Hypertarget{recomp_8cpp_source_l00005}00005 \textcolor{comment}{// modification, are permitted provided that the following conditions are met:}}
+\DoxyCodeLine{\Hypertarget{recomp_8cpp_source_l00006}00006 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{recomp_8cpp_source_l00007}00007 \textcolor{comment}{// 1. Redistributions of source code must retain the above copyright notice,}}
+\DoxyCodeLine{\Hypertarget{recomp_8cpp_source_l00008}00008 \textcolor{comment}{//    this list of conditions and the following disclaimer.}}
+\DoxyCodeLine{\Hypertarget{recomp_8cpp_source_l00009}00009 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{recomp_8cpp_source_l00010}00010 \textcolor{comment}{// 2. Redistributions in binary form must reproduce the above copyright notice,}}
+\DoxyCodeLine{\Hypertarget{recomp_8cpp_source_l00011}00011 \textcolor{comment}{//    this list of conditions and the following disclaimer in the documentation}}
+\DoxyCodeLine{\Hypertarget{recomp_8cpp_source_l00012}00012 \textcolor{comment}{//    and/or other materials provided with the distribution.}}
+\DoxyCodeLine{\Hypertarget{recomp_8cpp_source_l00013}00013 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{recomp_8cpp_source_l00014}00014 \textcolor{comment}{// 3. Neither the name of the copyright holder nor the names of its}}
+\DoxyCodeLine{\Hypertarget{recomp_8cpp_source_l00015}00015 \textcolor{comment}{//    contributors may be used to endorse or promote products derived from}}
+\DoxyCodeLine{\Hypertarget{recomp_8cpp_source_l00016}00016 \textcolor{comment}{//    this software without specific prior written permission.}}
+\DoxyCodeLine{\Hypertarget{recomp_8cpp_source_l00017}00017 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{recomp_8cpp_source_l00018}00018 \textcolor{comment}{// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "{}AS IS"{}}}
+\DoxyCodeLine{\Hypertarget{recomp_8cpp_source_l00019}00019 \textcolor{comment}{// AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE}}
+\DoxyCodeLine{\Hypertarget{recomp_8cpp_source_l00020}00020 \textcolor{comment}{// IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE}}
+\DoxyCodeLine{\Hypertarget{recomp_8cpp_source_l00021}00021 \textcolor{comment}{// ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE}}
+\DoxyCodeLine{\Hypertarget{recomp_8cpp_source_l00022}00022 \textcolor{comment}{// LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR}}
+\DoxyCodeLine{\Hypertarget{recomp_8cpp_source_l00023}00023 \textcolor{comment}{// CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF}}
+\DoxyCodeLine{\Hypertarget{recomp_8cpp_source_l00024}00024 \textcolor{comment}{// SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS}}
+\DoxyCodeLine{\Hypertarget{recomp_8cpp_source_l00025}00025 \textcolor{comment}{// INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN}}
+\DoxyCodeLine{\Hypertarget{recomp_8cpp_source_l00026}00026 \textcolor{comment}{// CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)}}
+\DoxyCodeLine{\Hypertarget{recomp_8cpp_source_l00027}00027 \textcolor{comment}{// ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE}}
+\DoxyCodeLine{\Hypertarget{recomp_8cpp_source_l00028}00028 \textcolor{comment}{// POSSIBILITY OF SUCH DAMAGE.}}
+\DoxyCodeLine{\Hypertarget{recomp_8cpp_source_l00029}00029 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{recomp_8cpp_source_l00030}00030 }
+\DoxyCodeLine{\Hypertarget{recomp_8cpp_source_l00031}00031 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{recomp_8hpp}{recomp/recomp.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{recomp_8cpp_source_l00032}00032 }
+\DoxyCodeLine{\Hypertarget{recomp_8cpp_source_l00033}00033 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespacetheo_1_1recomp}{theo::recomp}} \{}
+\DoxyCodeLine{\Hypertarget{recomp_8cpp_source_l00034}\mbox{\hyperlink{classtheo_1_1recomp_1_1recomp__t_ac5f04297153c2e445330e5cc103e8589}{00034}} \mbox{\hyperlink{classtheo_1_1recomp_1_1recomp__t_ac5f04297153c2e445330e5cc103e8589}{recomp\_t::recomp\_t}}(\mbox{\hyperlink{classtheo_1_1decomp_1_1decomp__t}{decomp::decomp\_t}}* dcmp,}
+\DoxyCodeLine{\Hypertarget{recomp_8cpp_source_l00035}00035                    \mbox{\hyperlink{namespacetheo_1_1recomp_a96995cb0c5291dce945760c3d8f55241}{allocator\_t}} alloc,}
+\DoxyCodeLine{\Hypertarget{recomp_8cpp_source_l00036}00036                    \mbox{\hyperlink{namespacetheo_1_1recomp_a604e81450773453df676c3b573651adc}{copier\_t}} copy,}
+\DoxyCodeLine{\Hypertarget{recomp_8cpp_source_l00037}00037                    \mbox{\hyperlink{namespacetheo_1_1recomp_a7364f8c94855a2a871a9d6e1057989f3}{resolver\_t}} resolve)}
+\DoxyCodeLine{\Hypertarget{recomp_8cpp_source_l00038}00038     : m\_dcmp(dcmp), m\_allocator(alloc), m\_copier(copy), m\_resolver(resolve) \{\}}
+\DoxyCodeLine{\Hypertarget{recomp_8cpp_source_l00039}00039 }
+\DoxyCodeLine{\Hypertarget{recomp_8cpp_source_l00040}\mbox{\hyperlink{classtheo_1_1recomp_1_1recomp__t_a78502665e218d3addca9b1e5e3875f39}{00040}} \textcolor{keywordtype}{void} \mbox{\hyperlink{classtheo_1_1recomp_1_1recomp__t_a78502665e218d3addca9b1e5e3875f39}{recomp\_t::allocate}}() \{}
+\DoxyCodeLine{\Hypertarget{recomp_8cpp_source_l00041}00041   \textcolor{comment}{// map code \& data/rdata/bss sections first...}}
+\DoxyCodeLine{\Hypertarget{recomp_8cpp_source_l00042}00042   \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{recomp_8cpp_source_l00043}00043   m\_dcmp-\/>\mbox{\hyperlink{classtheo_1_1decomp_1_1decomp__t_a8630f2ee0f4fb9516f5b20014e4c6120}{syms}}()-\/>\mbox{\hyperlink{classtheo_1_1recomp_1_1symbol__table__t_a35008ba37814a94209cf979302e13e6d}{for\_each}}([\&](\mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t}{theo::decomp::symbol\_t}}\& sym) \{}
+\DoxyCodeLine{\Hypertarget{recomp_8cpp_source_l00044}00044     \textcolor{keywordflow}{switch} (sym.\mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t_a16587cddd37cd45d9ec6cd25c229e8d1}{type}}()) \{}
+\DoxyCodeLine{\Hypertarget{recomp_8cpp_source_l00045}00045       case decomp::sym\_type\_t::section:}
+\DoxyCodeLine{\Hypertarget{recomp_8cpp_source_l00046}00046       case decomp::sym\_type\_t::function:}
+\DoxyCodeLine{\Hypertarget{recomp_8cpp_source_l00047}00047       case decomp::sym\_type\_t::instruction: \{}
+\DoxyCodeLine{\Hypertarget{recomp_8cpp_source_l00048}00048         sym.allocated\_at(m\_allocator(sym.size(), sym.scn()-\/>characteristics));}
+\DoxyCodeLine{\Hypertarget{recomp_8cpp_source_l00049}00049         break;}
+\DoxyCodeLine{\Hypertarget{recomp_8cpp_source_l00050}00050       \}}
+\DoxyCodeLine{\Hypertarget{recomp_8cpp_source_l00051}00051       \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{\Hypertarget{recomp_8cpp_source_l00052}00052         \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{recomp_8cpp_source_l00053}00053     \}}
+\DoxyCodeLine{\Hypertarget{recomp_8cpp_source_l00054}00054   \});}
+\DoxyCodeLine{\Hypertarget{recomp_8cpp_source_l00055}00055 }
+\DoxyCodeLine{\Hypertarget{recomp_8cpp_source_l00056}00056   \textcolor{comment}{// then map data/rdata/bss symbols to the allocated sections...}}
+\DoxyCodeLine{\Hypertarget{recomp_8cpp_source_l00057}00057   \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{recomp_8cpp_source_l00058}00058   m\_dcmp-\/>syms()-\/>for\_each([\&](\mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t}{theo::decomp::symbol\_t}}\& sym) \{}
+\DoxyCodeLine{\Hypertarget{recomp_8cpp_source_l00059}00059     \textcolor{keywordflow}{if} (sym.\mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t_a16587cddd37cd45d9ec6cd25c229e8d1}{type}}() == \mbox{\hyperlink{namespacetheo_1_1decomp_af96177687d0ad683c5897d8fa01135f9acdb885c0ea7f6b2874224487c69b8112}{decomp::sym\_type\_t::data}}) \{}
+\DoxyCodeLine{\Hypertarget{recomp_8cpp_source_l00060}00060       \textcolor{comment}{// if the symbol has a section then we will refer to the allocation made}}
+\DoxyCodeLine{\Hypertarget{recomp_8cpp_source_l00061}00061       \textcolor{comment}{// for that section...}}
+\DoxyCodeLine{\Hypertarget{recomp_8cpp_source_l00062}00062       \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{recomp_8cpp_source_l00063}00063       if (sym.scn()) \{}
+\DoxyCodeLine{\Hypertarget{recomp_8cpp_source_l00064}00064         auto scn\_sym =}
+\DoxyCodeLine{\Hypertarget{recomp_8cpp_source_l00065}00065             m\_dcmp-\/>syms()-\/>sym\_from\_hash(m\_dcmp-\/>scn\_hash\_tbl()[sym.scn()]);}
+\DoxyCodeLine{\Hypertarget{recomp_8cpp_source_l00066}00066 }
+\DoxyCodeLine{\Hypertarget{recomp_8cpp_source_l00067}00067         if (!scn\_sym.has\_value()) \{}
+\DoxyCodeLine{\Hypertarget{recomp_8cpp_source_l00068}00068           spdlog::error(\textcolor{stringliteral}{"{}failed to locate section: \{\} for symbol: \{\}"{}},}
+\DoxyCodeLine{\Hypertarget{recomp_8cpp_source_l00069}00069                         sym.scn()-\/>name.to\_string(), sym.name());}
+\DoxyCodeLine{\Hypertarget{recomp_8cpp_source_l00070}00070 }
+\DoxyCodeLine{\Hypertarget{recomp_8cpp_source_l00071}00071           assert(scn\_sym.has\_value());}
+\DoxyCodeLine{\Hypertarget{recomp_8cpp_source_l00072}00072         \}}
+\DoxyCodeLine{\Hypertarget{recomp_8cpp_source_l00073}00073 }
+\DoxyCodeLine{\Hypertarget{recomp_8cpp_source_l00074}00074         sym.allocated\_at(scn\_sym.value()-\/>allocated\_at() + sym.offset());}
+\DoxyCodeLine{\Hypertarget{recomp_8cpp_source_l00075}00075       \} \textcolor{keywordflow}{else} \{  \textcolor{comment}{// else if there is no section then we allocate based upon the}}
+\DoxyCodeLine{\Hypertarget{recomp_8cpp_source_l00076}00076                 \textcolor{comment}{// size of the symbol... this is only done for symbols that are}}
+\DoxyCodeLine{\Hypertarget{recomp_8cpp_source_l00077}00077                 \textcolor{comment}{// bss...}}
+\DoxyCodeLine{\Hypertarget{recomp_8cpp_source_l00078}00078                 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{recomp_8cpp_source_l00079}00079 }
+\DoxyCodeLine{\Hypertarget{recomp_8cpp_source_l00080}00080         \textcolor{comment}{// bss is read write...}}
+\DoxyCodeLine{\Hypertarget{recomp_8cpp_source_l00081}00081         \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{recomp_8cpp_source_l00082}00082         coff::section\_characteristics\_t prot = \{\};}
+\DoxyCodeLine{\Hypertarget{recomp_8cpp_source_l00083}00083         prot.mem\_read = \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{recomp_8cpp_source_l00084}00084         prot.mem\_write = \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{recomp_8cpp_source_l00085}00085 }
+\DoxyCodeLine{\Hypertarget{recomp_8cpp_source_l00086}00086         sym.\mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t_ae92f3e35fba82a1d16a58ad09b39fb47}{allocated\_at}}(m\_allocator(sym.\mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t_ae33f1452b01fe80f9c384241b9fe6286}{size}}(), sym.\mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t_a64d51dabe91687ed40c3942d106fd7dd}{scn}}()-\/>characteristics));}
+\DoxyCodeLine{\Hypertarget{recomp_8cpp_source_l00087}00087       \}}
+\DoxyCodeLine{\Hypertarget{recomp_8cpp_source_l00088}00088     \}}
+\DoxyCodeLine{\Hypertarget{recomp_8cpp_source_l00089}00089   \});}
+\DoxyCodeLine{\Hypertarget{recomp_8cpp_source_l00090}00090 \}}
+\DoxyCodeLine{\Hypertarget{recomp_8cpp_source_l00091}00091 }
+\DoxyCodeLine{\Hypertarget{recomp_8cpp_source_l00092}\mbox{\hyperlink{classtheo_1_1recomp_1_1recomp__t_a299fbede378f04991df2e39293307094}{00092}} \textcolor{keywordtype}{void} recomp\_t::resolve() \{}
+\DoxyCodeLine{\Hypertarget{recomp_8cpp_source_l00093}00093   \textcolor{comment}{// resolve relocations in all symbols...}}
+\DoxyCodeLine{\Hypertarget{recomp_8cpp_source_l00094}00094   \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{recomp_8cpp_source_l00095}00095   m\_dcmp-\/>syms()-\/>for\_each([\&](\mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t}{theo::decomp::symbol\_t}}\& sym) \{}
+\DoxyCodeLine{\Hypertarget{recomp_8cpp_source_l00096}00096     \textcolor{keyword}{auto}\& relocs = sym.\mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t_abc158e1dc1567161f0a57ed15fc718f7}{relocs}}();}
+\DoxyCodeLine{\Hypertarget{recomp_8cpp_source_l00097}00097     std::for\_each(relocs.begin(), relocs.end(), [\&](\mbox{\hyperlink{classtheo_1_1recomp_1_1reloc__t}{reloc\_t}}\& reloc) \{}
+\DoxyCodeLine{\Hypertarget{recomp_8cpp_source_l00098}00098       if (reloc.offset() > sym.data().size()) \{}
+\DoxyCodeLine{\Hypertarget{recomp_8cpp_source_l00099}00099         spdlog::error(}
+\DoxyCodeLine{\Hypertarget{recomp_8cpp_source_l00100}00100             \textcolor{stringliteral}{"{}invalid relocation... writing outside of symbol length... offset: "{}}}
+\DoxyCodeLine{\Hypertarget{recomp_8cpp_source_l00101}00101             \textcolor{stringliteral}{"{}\{\} sym size: \{\}"{}},}
+\DoxyCodeLine{\Hypertarget{recomp_8cpp_source_l00102}00102             sym.offset(), sym.data().size());}
+\DoxyCodeLine{\Hypertarget{recomp_8cpp_source_l00103}00103 }
+\DoxyCodeLine{\Hypertarget{recomp_8cpp_source_l00104}00104         assert(reloc.offset() > sym.data().size());}
+\DoxyCodeLine{\Hypertarget{recomp_8cpp_source_l00105}00105       \}}
+\DoxyCodeLine{\Hypertarget{recomp_8cpp_source_l00106}00106 }
+\DoxyCodeLine{\Hypertarget{recomp_8cpp_source_l00107}00107       \textcolor{comment}{// try and resolve the symbol by refering to the internal symbol table}}
+\DoxyCodeLine{\Hypertarget{recomp_8cpp_source_l00108}00108       \textcolor{comment}{// first... if there is no symbol then refer to the resolver...}}
+\DoxyCodeLine{\Hypertarget{recomp_8cpp_source_l00109}00109       \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{recomp_8cpp_source_l00110}00110       \textcolor{keyword}{auto} reloc\_sym = m\_dcmp-\/>syms()-\/>sym\_from\_hash(reloc.\mbox{\hyperlink{classtheo_1_1recomp_1_1reloc__t_aa340b2c2d5d1ac7f96a1dbee39f25461}{hash}}());}
+\DoxyCodeLine{\Hypertarget{recomp_8cpp_source_l00111}00111       \textcolor{keyword}{auto} allocated\_at = reloc\_sym.has\_value()}
+\DoxyCodeLine{\Hypertarget{recomp_8cpp_source_l00112}00112                               ? reloc\_sym.value()-\/>allocated\_at()}
+\DoxyCodeLine{\Hypertarget{recomp_8cpp_source_l00113}00113                               : m\_resolver(reloc.\mbox{\hyperlink{classtheo_1_1recomp_1_1reloc__t_aa181755df50bc566b164072b21788fec}{name}}());}
+\DoxyCodeLine{\Hypertarget{recomp_8cpp_source_l00114}00114 }
+\DoxyCodeLine{\Hypertarget{recomp_8cpp_source_l00115}00115       if (!allocated\_at) \{}
+\DoxyCodeLine{\Hypertarget{recomp_8cpp_source_l00116}00116         spdlog::error(\textcolor{stringliteral}{"{}failed to resolve reloc from symbol: \{\} to symbol: \{\}"{}},}
+\DoxyCodeLine{\Hypertarget{recomp_8cpp_source_l00117}00117                       sym.\mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t_a7c6dee036291ded334aa10d89293fc2a}{name}}(), reloc.\mbox{\hyperlink{classtheo_1_1recomp_1_1reloc__t_aa181755df50bc566b164072b21788fec}{name}}());}
+\DoxyCodeLine{\Hypertarget{recomp_8cpp_source_l00118}00118 }
+\DoxyCodeLine{\Hypertarget{recomp_8cpp_source_l00119}00119         assert(allocated\_at);}
+\DoxyCodeLine{\Hypertarget{recomp_8cpp_source_l00120}00120       \}}
+\DoxyCodeLine{\Hypertarget{recomp_8cpp_source_l00121}00121 }
+\DoxyCodeLine{\Hypertarget{recomp_8cpp_source_l00122}00122       \textcolor{keywordflow}{switch} (sym.\mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t_a16587cddd37cd45d9ec6cd25c229e8d1}{type}}()) \{}
+\DoxyCodeLine{\Hypertarget{recomp_8cpp_source_l00123}00123         \textcolor{keywordflow}{case} \mbox{\hyperlink{namespacetheo_1_1decomp_af96177687d0ad683c5897d8fa01135f9a46b3b57c5d47e2818b2ea10b96b43cd6}{decomp::sym\_type\_t::section}}: \{}
+\DoxyCodeLine{\Hypertarget{recomp_8cpp_source_l00124}00124           \textcolor{keyword}{auto} scn\_sym =}
+\DoxyCodeLine{\Hypertarget{recomp_8cpp_source_l00125}00125               m\_dcmp-\/>syms()-\/>sym\_from\_hash(m\_dcmp-\/>scn\_hash\_tbl()[sym.\mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t_a64d51dabe91687ed40c3942d106fd7dd}{scn}}()]);}
+\DoxyCodeLine{\Hypertarget{recomp_8cpp_source_l00126}00126 }
+\DoxyCodeLine{\Hypertarget{recomp_8cpp_source_l00127}00127           *\textcolor{keyword}{reinterpret\_cast<}std::uintptr\_t*\textcolor{keyword}{>}(scn\_sym.value()-\/>data().data() +}
+\DoxyCodeLine{\Hypertarget{recomp_8cpp_source_l00128}00128                                              reloc.\mbox{\hyperlink{classtheo_1_1recomp_1_1reloc__t_a537836fcea3326e4269375a1486f0323}{offset}}()) = allocated\_at;}
+\DoxyCodeLine{\Hypertarget{recomp_8cpp_source_l00129}00129           \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{recomp_8cpp_source_l00130}00130         \}}
+\DoxyCodeLine{\Hypertarget{recomp_8cpp_source_l00131}00131         \textcolor{keywordflow}{case} \mbox{\hyperlink{namespacetheo_1_1decomp_af96177687d0ad683c5897d8fa01135f9acf6baee49c2ddb7e89724231bbd75d4a}{decomp::sym\_type\_t::function}}: \{}
+\DoxyCodeLine{\Hypertarget{recomp_8cpp_source_l00132}00132           *\textcolor{keyword}{reinterpret\_cast<}std::uintptr\_t*\textcolor{keyword}{>}(sym.\mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t_aa3ecf0b480d10bffe68812409c06d61b}{data}}().data() +}
+\DoxyCodeLine{\Hypertarget{recomp_8cpp_source_l00133}00133                                              reloc.\mbox{\hyperlink{classtheo_1_1recomp_1_1reloc__t_a537836fcea3326e4269375a1486f0323}{offset}}()) = allocated\_at;}
+\DoxyCodeLine{\Hypertarget{recomp_8cpp_source_l00134}00134           \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{recomp_8cpp_source_l00135}00135         \}}
+\DoxyCodeLine{\Hypertarget{recomp_8cpp_source_l00136}00136         \textcolor{keywordflow}{case} \mbox{\hyperlink{namespacetheo_1_1decomp_af96177687d0ad683c5897d8fa01135f9a4842f4c175b1ec87fc82ef3757d3a0e9}{decomp::sym\_type\_t::instruction}}: \{}
+\DoxyCodeLine{\Hypertarget{recomp_8cpp_source_l00137}00137           \textcolor{keyword}{auto}\& transforms = reloc.\mbox{\hyperlink{classtheo_1_1recomp_1_1reloc__t_af8abfa7a4f1052308a233629faf39a78}{get\_transforms}}();}
+\DoxyCodeLine{\Hypertarget{recomp_8cpp_source_l00138}00138           std::for\_each(}
+\DoxyCodeLine{\Hypertarget{recomp_8cpp_source_l00139}00139               transforms.begin(), transforms.end(),}
+\DoxyCodeLine{\Hypertarget{recomp_8cpp_source_l00140}00140               [\&](std::pair<obf::transform::transform\_t*, std::uint32\_t>\& t) \{}
+\DoxyCodeLine{\Hypertarget{recomp_8cpp_source_l00141}00141                 allocated\_at = (*t.first)(allocated\_at, t.second);}
+\DoxyCodeLine{\Hypertarget{recomp_8cpp_source_l00142}00142               \});}
+\DoxyCodeLine{\Hypertarget{recomp_8cpp_source_l00143}00143 }
+\DoxyCodeLine{\Hypertarget{recomp_8cpp_source_l00144}00144           *\textcolor{keyword}{reinterpret\_cast<}std::uintptr\_t*\textcolor{keyword}{>}(sym.\mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t_aa3ecf0b480d10bffe68812409c06d61b}{data}}().data() +}
+\DoxyCodeLine{\Hypertarget{recomp_8cpp_source_l00145}00145                                              reloc.\mbox{\hyperlink{classtheo_1_1recomp_1_1reloc__t_a537836fcea3326e4269375a1486f0323}{offset}}()) = allocated\_at;}
+\DoxyCodeLine{\Hypertarget{recomp_8cpp_source_l00146}00146           \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{recomp_8cpp_source_l00147}00147         \}}
+\DoxyCodeLine{\Hypertarget{recomp_8cpp_source_l00148}00148         \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{\Hypertarget{recomp_8cpp_source_l00149}00149           \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{recomp_8cpp_source_l00150}00150       \}}
+\DoxyCodeLine{\Hypertarget{recomp_8cpp_source_l00151}00151     \});}
+\DoxyCodeLine{\Hypertarget{recomp_8cpp_source_l00152}00152   \});}
+\DoxyCodeLine{\Hypertarget{recomp_8cpp_source_l00153}00153 \}}
+\DoxyCodeLine{\Hypertarget{recomp_8cpp_source_l00154}00154 }
+\DoxyCodeLine{\Hypertarget{recomp_8cpp_source_l00155}\mbox{\hyperlink{classtheo_1_1recomp_1_1recomp__t_a080d88f122d12faf2e328c9bdd10be6e}{00155}} \textcolor{keywordtype}{void} recomp\_t::copy\_syms() \{}
+\DoxyCodeLine{\Hypertarget{recomp_8cpp_source_l00156}00156   \textcolor{comment}{// copy symbols into memory using the copier supplied...}}
+\DoxyCodeLine{\Hypertarget{recomp_8cpp_source_l00157}00157   \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{recomp_8cpp_source_l00158}00158   m\_dcmp-\/>syms()-\/>for\_each([\&](\mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t}{theo::decomp::symbol\_t}}\& sym) \{}
+\DoxyCodeLine{\Hypertarget{recomp_8cpp_source_l00159}00159     m\_copier(sym.\mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t_ae92f3e35fba82a1d16a58ad09b39fb47}{allocated\_at}}(), sym.\mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t_aa3ecf0b480d10bffe68812409c06d61b}{data}}().data(), sym.\mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t_aa3ecf0b480d10bffe68812409c06d61b}{data}}().size());}
+\DoxyCodeLine{\Hypertarget{recomp_8cpp_source_l00160}00160   \});}
+\DoxyCodeLine{\Hypertarget{recomp_8cpp_source_l00161}00161 \}}
+\DoxyCodeLine{\Hypertarget{recomp_8cpp_source_l00162}00162 }
+\DoxyCodeLine{\Hypertarget{recomp_8cpp_source_l00163}\mbox{\hyperlink{classtheo_1_1recomp_1_1recomp__t_a0da9a904b0057c14190218592aff0f07}{00163}} \textcolor{keywordtype}{void} recomp\_t::allocator(\mbox{\hyperlink{namespacetheo_1_1recomp_a96995cb0c5291dce945760c3d8f55241}{allocator\_t}} alloc) \{}
+\DoxyCodeLine{\Hypertarget{recomp_8cpp_source_l00164}00164   m\_allocator = alloc;}
+\DoxyCodeLine{\Hypertarget{recomp_8cpp_source_l00165}00165 \}}
+\DoxyCodeLine{\Hypertarget{recomp_8cpp_source_l00166}00166 }
+\DoxyCodeLine{\Hypertarget{recomp_8cpp_source_l00167}\mbox{\hyperlink{classtheo_1_1recomp_1_1recomp__t_aa6fecf752d4c5bc211e164d8496724b1}{00167}} \textcolor{keywordtype}{void} recomp\_t::copier(\mbox{\hyperlink{namespacetheo_1_1recomp_a604e81450773453df676c3b573651adc}{copier\_t}} copy) \{}
+\DoxyCodeLine{\Hypertarget{recomp_8cpp_source_l00168}00168   m\_copier = copy;}
+\DoxyCodeLine{\Hypertarget{recomp_8cpp_source_l00169}00169 \}}
+\DoxyCodeLine{\Hypertarget{recomp_8cpp_source_l00170}00170 }
+\DoxyCodeLine{\Hypertarget{recomp_8cpp_source_l00171}\mbox{\hyperlink{classtheo_1_1recomp_1_1recomp__t_a1be6d0cdb57565c31b138248c8b2d470}{00171}} \textcolor{keywordtype}{void} recomp\_t::resolver(\mbox{\hyperlink{namespacetheo_1_1recomp_a7364f8c94855a2a871a9d6e1057989f3}{resolver\_t}} resolve) \{}
+\DoxyCodeLine{\Hypertarget{recomp_8cpp_source_l00172}00172   m\_resolver = resolve;}
+\DoxyCodeLine{\Hypertarget{recomp_8cpp_source_l00173}00173 \}}
+\DoxyCodeLine{\Hypertarget{recomp_8cpp_source_l00174}00174 }
+\DoxyCodeLine{\Hypertarget{recomp_8cpp_source_l00175}\mbox{\hyperlink{classtheo_1_1recomp_1_1recomp__t_ae0c56f0f8af33b390e4123509523602c}{00175}} std::uintptr\_t recomp\_t::resolve(\textcolor{keyword}{const} std::string\&\& sym) \{}
+\DoxyCodeLine{\Hypertarget{recomp_8cpp_source_l00176}00176   \textcolor{keyword}{auto} res = m\_dcmp-\/>syms()-\/>sym\_from\_hash(\mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t_a8695d75670cc4d61d275464e9109ff06}{decomp::symbol\_t::hash}}(sym));}
+\DoxyCodeLine{\Hypertarget{recomp_8cpp_source_l00177}00177   \textcolor{keywordflow}{return} res.has\_value() ? res.value()-\/>allocated\_at() : 0;}
+\DoxyCodeLine{\Hypertarget{recomp_8cpp_source_l00178}00178 \}}
+\DoxyCodeLine{\Hypertarget{recomp_8cpp_source_l00179}00179 \}  \textcolor{comment}{// namespace theo::recomp}}
+
+\end{DoxyCode}

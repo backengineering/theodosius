@@ -1,0 +1,8 @@
+[project]
+name = "demolib"
+
+[target.demolib]
+condition = "windows"
+type = "static"
+sources = ["*.cpp"]
+compile-options = ["-Xclang -mcmodel=large -Xclang -fno-jump-tables /Zc:threadSafeInit-"]

@@ -1,0 +1,108 @@
+\hypertarget{next__inst__pass_8hpp_source}{}\doxysection{next\+\_\+inst\+\_\+pass.\+hpp}
+\label{next__inst__pass_8hpp_source}\index{include/obf/passes/next\_inst\_pass.hpp@{include/obf/passes/next\_inst\_pass.hpp}}
+\mbox{\hyperlink{next__inst__pass_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8hpp_source_l00001}00001 \textcolor{comment}{// Copyright (c) 2022, \_xeroxz}}
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8hpp_source_l00002}00002 \textcolor{comment}{// All rights reserved.}}
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8hpp_source_l00003}00003 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8hpp_source_l00004}00004 \textcolor{comment}{// Redistribution and use in source and binary forms, with or without}}
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8hpp_source_l00005}00005 \textcolor{comment}{// modification, are permitted provided that the following conditions are met:}}
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8hpp_source_l00006}00006 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8hpp_source_l00007}00007 \textcolor{comment}{// 1. Redistributions of source code must retain the above copyright notice,}}
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8hpp_source_l00008}00008 \textcolor{comment}{//    this list of conditions and the following disclaimer.}}
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8hpp_source_l00009}00009 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8hpp_source_l00010}00010 \textcolor{comment}{// 2. Redistributions in binary form must reproduce the above copyright notice,}}
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8hpp_source_l00011}00011 \textcolor{comment}{//    this list of conditions and the following disclaimer in the documentation}}
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8hpp_source_l00012}00012 \textcolor{comment}{//    and/or other materials provided with the distribution.}}
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8hpp_source_l00013}00013 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8hpp_source_l00014}00014 \textcolor{comment}{// 3. Neither the name of the copyright holder nor the names of its}}
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8hpp_source_l00015}00015 \textcolor{comment}{//    contributors may be used to endorse or promote products derived from}}
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8hpp_source_l00016}00016 \textcolor{comment}{//    this software without specific prior written permission.}}
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8hpp_source_l00017}00017 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8hpp_source_l00018}00018 \textcolor{comment}{// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "{}AS IS"{}}}
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8hpp_source_l00019}00019 \textcolor{comment}{// AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE}}
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8hpp_source_l00020}00020 \textcolor{comment}{// IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE}}
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8hpp_source_l00021}00021 \textcolor{comment}{// ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE}}
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8hpp_source_l00022}00022 \textcolor{comment}{// LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR}}
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8hpp_source_l00023}00023 \textcolor{comment}{// CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF}}
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8hpp_source_l00024}00024 \textcolor{comment}{// SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS}}
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8hpp_source_l00025}00025 \textcolor{comment}{// INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN}}
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8hpp_source_l00026}00026 \textcolor{comment}{// CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)}}
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8hpp_source_l00027}00027 \textcolor{comment}{// ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE}}
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8hpp_source_l00028}00028 \textcolor{comment}{// POSSIBILITY OF SUCH DAMAGE.}}
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8hpp_source_l00029}00029 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8hpp_source_l00030}00030 }
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8hpp_source_l00031}00031 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8hpp_source_l00032}00032 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{pass_8hpp}{obf/pass.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8hpp_source_l00033}00033 }
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8hpp_source_l00034}00034 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespacetheo_1_1obf}{theo::obf}} \{\textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8hpp_source_l00035}00035 \textcolor{comment}{/// <summary>}}
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8hpp_source_l00036}00036 \textcolor{comment}{/// This pass is used to generate transformations and jmp code to change RIP to}}
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8hpp_source_l00037}00037 \textcolor{comment}{/// the next instruction.}}
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8hpp_source_l00038}00038 \textcolor{comment}{///}}
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8hpp_source_l00039}00039 \textcolor{comment}{/// given the following code (get pml4 address from cr3):}}
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8hpp_source_l00040}00040 \textcolor{comment}{///}}
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8hpp_source_l00041}00041 \textcolor{comment}{/// get\_pml4:}}
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8hpp_source_l00042}00042 \textcolor{comment}{///     0:  48 c7 c0 ff 0f 00 00    mov    rax,0xfff}}
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8hpp_source_l00043}00043 \textcolor{comment}{///     7:  48 f7 d0                not    rax}}
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8hpp_source_l00044}00044 \textcolor{comment}{///     a:  0f 20 da                mov    rdx,cr3}}
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8hpp_source_l00045}00045 \textcolor{comment}{///     d:  48 21 c2                and    rdx,rax}}
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8hpp_source_l00046}00046 \textcolor{comment}{///     10: b1 00                   mov    cl,0x0}}
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8hpp_source_l00047}00047 \textcolor{comment}{///     12: 48 d3 e2                shl    rdx,cl}}
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8hpp_source_l00048}00048 \textcolor{comment}{///     15: 48 89 d0                mov    rax,rdx}}
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8hpp_source_l00049}00049 \textcolor{comment}{///     18: c3                      ret}}
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8hpp_source_l00050}00050 \textcolor{comment}{///}}
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8hpp_source_l00051}00051 \textcolor{comment}{/// this pass will break up each instruction so that it can be anywhere in a}}
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8hpp_source_l00052}00052 \textcolor{comment}{/// linear virtual address space. this pass will not work on rip relative code,}}
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8hpp_source_l00053}00053 \textcolor{comment}{/// however clang will not generate such code when compiled with}}
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8hpp_source_l00054}00054 \textcolor{comment}{/// "{}-\/mcmodel=large"{}}}
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8hpp_source_l00055}00055 \textcolor{comment}{///}}
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8hpp_source_l00056}00056 \textcolor{comment}{/// get\_pml4@0:}}
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8hpp_source_l00057}00057 \textcolor{comment}{///     mov rax, 0xFFF}}
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8hpp_source_l00058}00058 \textcolor{comment}{///     push [next\_inst\_addr\_enc]}}
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8hpp_source_l00059}00059 \textcolor{comment}{///     xor [rsp], 0x3243342}}
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8hpp_source_l00060}00060 \textcolor{comment}{///     ; a random number of transformations here...}}
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8hpp_source_l00061}00061 \textcolor{comment}{///     ret}}
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8hpp_source_l00062}00062 \textcolor{comment}{/// next\_inst\_addr\_enc:}}
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8hpp_source_l00063}00063 \textcolor{comment}{///      ; encrypted address of the next instruction goes here.}}
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8hpp_source_l00064}00064 \textcolor{comment}{///}}
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8hpp_source_l00065}00065 \textcolor{comment}{/// get\_pml4@7:}}
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8hpp_source_l00066}00066 \textcolor{comment}{///     not    rax}}
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8hpp_source_l00067}00067 \textcolor{comment}{///     push [next\_inst\_addr\_enc]}}
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8hpp_source_l00068}00068 \textcolor{comment}{///     xor [rsp], 0x93983498}}
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8hpp_source_l00069}00069 \textcolor{comment}{///     ; a random number of transformations here...}}
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8hpp_source_l00070}00070 \textcolor{comment}{///     ret}}
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8hpp_source_l00071}00071 \textcolor{comment}{/// next\_inst\_addr\_enc:}}
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8hpp_source_l00072}00072 \textcolor{comment}{///      ; encrypted address of the next instruction goes here.}}
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8hpp_source_l00073}00073 \textcolor{comment}{///}}
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8hpp_source_l00074}00074 \textcolor{comment}{/// this process is continued for each instruction in the function. the last}}
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8hpp_source_l00075}00075 \textcolor{comment}{/// instruction "{}ret"{} will have no code generated for it as there is no next}}
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8hpp_source_l00076}00076 \textcolor{comment}{/// instruction.}}
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8hpp_source_l00077}00077 \textcolor{comment}{///}}
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8hpp_source_l00078}00078 \textcolor{comment}{///}}
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8hpp_source_l00079}00079 \textcolor{comment}{/// this pass also only runs at the instruction level, theodosius internally}}
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8hpp_source_l00080}00080 \textcolor{comment}{/// breaks up functions inside of the "{}.split"{} section into individual}}
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8hpp_source_l00081}00081 \textcolor{comment}{/// instruction symbols. this process also creates a psuedo relocation which}}
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8hpp_source_l00082}00082 \textcolor{comment}{/// simply tells this pass that there needs to be a relocation to the next}}
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8hpp_source_l00083}00083 \textcolor{comment}{/// symbol. the offset for these psuedo relocations is zero.}}
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8hpp_source_l00084}00084 \textcolor{comment}{/// </summary>}}
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8hpp_source_l00085}\mbox{\hyperlink{classtheo_1_1obf_1_1next__inst__pass__t}{00085}} \textcolor{comment}{}\textcolor{keyword}{class }\mbox{\hyperlink{classtheo_1_1obf_1_1next__inst__pass__t}{next\_inst\_pass\_t}} : \textcolor{keyword}{public} \mbox{\hyperlink{classtheo_1_1obf_1_1pass__t}{pass\_t}} \{}
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8hpp_source_l00086}00086   \textcolor{keyword}{explicit} \mbox{\hyperlink{classtheo_1_1obf_1_1next__inst__pass__t}{next\_inst\_pass\_t}}() : \mbox{\hyperlink{classtheo_1_1obf_1_1pass__t_abd4ab22cc2822b968267be7f8397d611}{pass\_t}}(\mbox{\hyperlink{namespacetheo_1_1decomp_af96177687d0ad683c5897d8fa01135f9a4842f4c175b1ec87fc82ef3757d3a0e9}{decomp::sym\_type\_t::instruction}}) \{}
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8hpp_source_l00087}00087     xed\_state\_t istate\{XED\_MACHINE\_MODE\_LONG\_64, XED\_ADDRESS\_WIDTH\_64b\};}
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8hpp_source_l00088}00088     xed\_decoded\_inst\_zero\_set\_mode(\&m\_tmp\_inst, \&istate);}
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8hpp_source_l00089}00089     xed\_decode(\&m\_tmp\_inst, m\_type\_inst\_bytes, \textcolor{keyword}{sizeof}(m\_type\_inst\_bytes));}
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8hpp_source_l00090}00090   \}}
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8hpp_source_l00091}00091 }
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8hpp_source_l00092}00092  \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8hpp_source_l00093}00093   \textcolor{keyword}{static} \mbox{\hyperlink{classtheo_1_1obf_1_1next__inst__pass__t}{next\_inst\_pass\_t}}* \mbox{\hyperlink{classtheo_1_1obf_1_1next__inst__pass__t_a964e6f5291ccba0442519f2563b3a2e9}{get}}();}
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8hpp_source_l00094}00094   \textcolor{keywordtype}{void} \mbox{\hyperlink{classtheo_1_1obf_1_1next__inst__pass__t_ae4cbba78b14c2b9da794386e4d92f40f}{run}}(\mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t}{decomp::symbol\_t}}* sym);}
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8hpp_source_l00095}00095 }
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8hpp_source_l00096}00096  \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8hpp_source_l00097}00097   std::optional<recomp::reloc\_t*> has\_next\_inst\_reloc(\mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t}{decomp::symbol\_t}}*);}
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8hpp_source_l00098}00098   xed\_decoded\_inst\_t m\_tmp\_inst;}
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8hpp_source_l00099}00099   std::uint8\_t m\_type\_inst\_bytes[9] = \{0x48, 0xC7, 0x44, 0x24, 0x08,}
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8hpp_source_l00100}00100                                        0x44, 0x33, 0x22, 0x11\};}
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8hpp_source_l00101}00101 \};}
+\DoxyCodeLine{\Hypertarget{next__inst__pass_8hpp_source_l00102}00102 \}  \textcolor{comment}{// namespace theo::obf}}
+
+\end{DoxyCode}

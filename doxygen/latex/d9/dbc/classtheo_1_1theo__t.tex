@@ -1,0 +1,193 @@
+\hypertarget{classtheo_1_1theo__t}{}\doxysection{theo\+::theo\+\_\+t Class Reference}
+\label{classtheo_1_1theo__t}\index{theo::theo\_t@{theo::theo\_t}}
+
+
+the main class which encapsulates a symbol table, decomp, and recomp objects. This class is a bridge that connects all three\+: decomp, obf, recomp.  
+
+
+
+
+{\ttfamily \#include \char`\"{}theo.\+hpp\char`\"{}}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classtheo_1_1theo__t_a0a9ae3322261b97cf1dc47c908ef3c6d}{theo\+\_\+t}} (std\+::vector$<$ std\+::uint8\+\_\+t $>$ \&lib, \mbox{\hyperlink{namespacetheo_a66efe2c63e06764fb2d9a378c688c680}{lnk\+\_\+fns\+\_\+t}} lnkr\+\_\+fns, const std\+::string \&\&entry\+\_\+sym)
+\begin{DoxyCompactList}\small\item\em explicit constructor for theo class. \end{DoxyCompactList}\item 
+std\+::optional$<$ std\+::uint32\+\_\+t $>$ \mbox{\hyperlink{classtheo_1_1theo__t_a66257ff5d9825483d85e58384a12760a}{decompose}} ()
+\begin{DoxyCompactList}\small\item\em decomposes the lib file and return the number of symbols that are used. \end{DoxyCompactList}\item 
+std\+::uintptr\+\_\+t \mbox{\hyperlink{classtheo_1_1theo__t_a39e067dd71f82b437c6a418d41e38b27}{compose}} ()
+\begin{DoxyCompactList}\small\item\em compose the decomposed module. This will run obfuscation passes, the map and resolve symbols to each other. \end{DoxyCompactList}\item 
+std\+::uintptr\+\_\+t \mbox{\hyperlink{classtheo_1_1theo__t_a97c52bda4b07a456ff1ea6f3c1cdbe24}{resolve}} (const std\+::string \&\&sym)
+\begin{DoxyCompactList}\small\item\em given the name of a symbol, it returns the address of where its mapped. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+the main class which encapsulates a symbol table, decomp, and recomp objects. This class is a bridge that connects all three\+: decomp, obf, recomp. 
+
+You will create an object of this type when using theo. 
+
+Definition at line \mbox{\hyperlink{theo_8hpp_source_l00070}{70}} of file \mbox{\hyperlink{theo_8hpp_source}{theo.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classtheo_1_1theo__t_a0a9ae3322261b97cf1dc47c908ef3c6d}\label{classtheo_1_1theo__t_a0a9ae3322261b97cf1dc47c908ef3c6d}} 
+\index{theo::theo\_t@{theo::theo\_t}!theo\_t@{theo\_t}}
+\index{theo\_t@{theo\_t}!theo::theo\_t@{theo::theo\_t}}
+\doxysubsubsection{\texorpdfstring{theo\_t()}{theo\_t()}}
+{\footnotesize\ttfamily theo\+::theo\+\_\+t\+::theo\+\_\+t (\begin{DoxyParamCaption}\item[{std\+::vector$<$ std\+::uint8\+\_\+t $>$ \&}]{lib,  }\item[{\mbox{\hyperlink{namespacetheo_a66efe2c63e06764fb2d9a378c688c680}{lnk\+\_\+fns\+\_\+t}}}]{lnkr\+\_\+fns,  }\item[{const std\+::string \&\&}]{entry\+\_\+sym }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+explicit constructor for theo class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em lib} & a vector of bytes consisting of a lib\\
+\hline
+{\em lnkr\+\_\+fns} & \\
+\hline
+{\em entry\+\_\+sym} & the name of the function which will be used as the entry point\\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{theo_8cpp_source_l00034}{34}} of file \mbox{\hyperlink{theo_8cpp_source}{theo.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00037     : m\_dcmp(lib, \&m\_sym\_tbl),}
+\DoxyCodeLine{00038       m\_recmp(\&m\_dcmp, \{\}, \{\}, \{\}),}
+\DoxyCodeLine{00039       m\_entry\_sym(entry\_sym) \{}
+\DoxyCodeLine{00040   m\_recmp.\mbox{\hyperlink{classtheo_1_1recomp_1_1recomp__t_a0da9a904b0057c14190218592aff0f07}{allocator}}(std::get<0>(lnkr\_fns));}
+\DoxyCodeLine{00041   m\_recmp.\mbox{\hyperlink{classtheo_1_1recomp_1_1recomp__t_aa6fecf752d4c5bc211e164d8496724b1}{copier}}(std::get<1>(lnkr\_fns));}
+\DoxyCodeLine{00042   m\_recmp.\mbox{\hyperlink{classtheo_1_1recomp_1_1recomp__t_a1be6d0cdb57565c31b138248c8b2d470}{resolver}}(std::get<2>(lnkr\_fns));}
+\DoxyCodeLine{00043 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classtheo_1_1theo__t_a39e067dd71f82b437c6a418d41e38b27}\label{classtheo_1_1theo__t_a39e067dd71f82b437c6a418d41e38b27}} 
+\index{theo::theo\_t@{theo::theo\_t}!compose@{compose}}
+\index{compose@{compose}!theo::theo\_t@{theo::theo\_t}}
+\doxysubsubsection{\texorpdfstring{compose()}{compose()}}
+{\footnotesize\ttfamily std\+::uintptr\+\_\+t theo\+::theo\+\_\+t\+::compose (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+compose the decomposed module. This will run obfuscation passes, the map and resolve symbols to each other. 
+
+\begin{DoxyReturn}{Returns}
+returns the address of the entry point symbol
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{theo_8cpp_source_l00056}{56}} of file \mbox{\hyperlink{theo_8cpp_source}{theo.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00056                              \{}
+\DoxyCodeLine{00057   \textcolor{comment}{// run obfuscation engine on all symbols...}}
+\DoxyCodeLine{00058   \textcolor{comment}{//}}
+\DoxyCodeLine{00059   \textcolor{keyword}{auto} engine = \mbox{\hyperlink{classtheo_1_1obf_1_1engine__t_a58715f5c3ade824a65e602aba570040e}{obf::engine\_t::get}}();}
+\DoxyCodeLine{00060   m\_sym\_tbl.\mbox{\hyperlink{classtheo_1_1recomp_1_1symbol__table__t_a35008ba37814a94209cf979302e13e6d}{for\_each}}([\&](decomp::symbol\_t\& sym) \{ engine-\/>run(\&sym); \});}
+\DoxyCodeLine{00061 }
+\DoxyCodeLine{00062   m\_recmp.\mbox{\hyperlink{classtheo_1_1recomp_1_1recomp__t_a78502665e218d3addca9b1e5e3875f39}{allocate}}();}
+\DoxyCodeLine{00063   m\_recmp.\mbox{\hyperlink{classtheo_1_1recomp_1_1recomp__t_a299fbede378f04991df2e39293307094}{resolve}}();}
+\DoxyCodeLine{00064   m\_recmp.\mbox{\hyperlink{classtheo_1_1recomp_1_1recomp__t_a080d88f122d12faf2e328c9bdd10be6e}{copy\_syms}}();}
+\DoxyCodeLine{00065   \textcolor{keywordflow}{return} m\_recmp.\mbox{\hyperlink{classtheo_1_1recomp_1_1recomp__t_a299fbede378f04991df2e39293307094}{resolve}}(m\_entry\_sym.data());}
+\DoxyCodeLine{00066 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{recomp_8cpp_source_l00040}{theo\+::recomp\+::recomp\+\_\+t\+::allocate()}}, \mbox{\hyperlink{recomp_8cpp_source_l00155}{theo\+::recomp\+::recomp\+\_\+t\+::copy\+\_\+syms()}}, \mbox{\hyperlink{symbol__table_8cpp_source_l00049}{theo\+::recomp\+::symbol\+\_\+table\+\_\+t\+::for\+\_\+each()}}, \mbox{\hyperlink{engine_8cpp_source_l00034}{theo\+::obf\+::engine\+\_\+t\+::get()}}, and \mbox{\hyperlink{recomp_8cpp_source_l00092}{theo\+::recomp\+::recomp\+\_\+t\+::resolve()}}.
+
+
+
+Referenced by \mbox{\hyperlink{main_8cpp_source_l00057}{main()}}.
+
+\mbox{\Hypertarget{classtheo_1_1theo__t_a66257ff5d9825483d85e58384a12760a}\label{classtheo_1_1theo__t_a66257ff5d9825483d85e58384a12760a}} 
+\index{theo::theo\_t@{theo::theo\_t}!decompose@{decompose}}
+\index{decompose@{decompose}!theo::theo\_t@{theo::theo\_t}}
+\doxysubsubsection{\texorpdfstring{decompose()}{decompose()}}
+{\footnotesize\ttfamily std\+::optional$<$ std\+::uint32\+\_\+t $>$ theo\+::theo\+\_\+t\+::decompose (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+decomposes the lib file and return the number of symbols that are used. 
+
+\begin{DoxyReturn}{Returns}
+optional amount of symbols that are used. no value if decomposition fails.
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{theo_8cpp_source_l00045}{45}} of file \mbox{\hyperlink{theo_8cpp_source}{theo.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00045                                            \{}
+\DoxyCodeLine{00046   \textcolor{keyword}{auto} res = m\_dcmp.\mbox{\hyperlink{classtheo_1_1decomp_1_1decomp__t_ae23353a4293aa30969b6d3fa37359469}{decompose}}(m\_entry\_sym);}
+\DoxyCodeLine{00047   \textcolor{keywordflow}{if} (!res.has\_value()) \{}
+\DoxyCodeLine{00048     spdlog::error(\textcolor{stringliteral}{"{}failed to decompose...\(\backslash\)n"{}});}
+\DoxyCodeLine{00049     \textcolor{keywordflow}{return} \{\};}
+\DoxyCodeLine{00050   \}}
+\DoxyCodeLine{00051 }
+\DoxyCodeLine{00052   spdlog::info(\textcolor{stringliteral}{"{}decompose successful... \{\} symbols"{}}, res.value()-\/>size());}
+\DoxyCodeLine{00053   \textcolor{keywordflow}{return} res.value()-\/>size();}
+\DoxyCodeLine{00054 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{decomp_8cpp_source_l00037}{theo\+::decomp\+::decomp\+\_\+t\+::decompose()}}.
+
+
+
+Referenced by \mbox{\hyperlink{main_8cpp_source_l00057}{main()}}.
+
+\mbox{\Hypertarget{classtheo_1_1theo__t_a97c52bda4b07a456ff1ea6f3c1cdbe24}\label{classtheo_1_1theo__t_a97c52bda4b07a456ff1ea6f3c1cdbe24}} 
+\index{theo::theo\_t@{theo::theo\_t}!resolve@{resolve}}
+\index{resolve@{resolve}!theo::theo\_t@{theo::theo\_t}}
+\doxysubsubsection{\texorpdfstring{resolve()}{resolve()}}
+{\footnotesize\ttfamily std\+::uintptr\+\_\+t theo\+::theo\+\_\+t\+::resolve (\begin{DoxyParamCaption}\item[{const std\+::string \&\&}]{sym }\end{DoxyParamCaption})}
+
+
+
+given the name of a symbol, it returns the address of where its mapped. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sym} & the name of the symbol\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the address of the symbol
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{theo_8cpp_source_l00068}{68}} of file \mbox{\hyperlink{theo_8cpp_source}{theo.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00068                                                   \{}
+\DoxyCodeLine{00069   \textcolor{keyword}{auto} val = m\_sym\_tbl.\mbox{\hyperlink{classtheo_1_1recomp_1_1symbol__table__t_a308c0dbcc4d569467e0986b32ef30db5}{sym\_from\_hash}}(\mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t_a8695d75670cc4d61d275464e9109ff06}{decomp::symbol\_t::hash}}(sym));}
+\DoxyCodeLine{00070   \textcolor{keywordflow}{if} (!val.has\_value())}
+\DoxyCodeLine{00071     \textcolor{keywordflow}{return} \{\};}
+\DoxyCodeLine{00072 }
+\DoxyCodeLine{00073   \textcolor{keywordflow}{return} val.value()-\/>allocated\_at();}
+\DoxyCodeLine{00074 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{symbol_8cpp_source_l00088}{theo\+::decomp\+::symbol\+\_\+t\+::hash()}}, and \mbox{\hyperlink{symbol__table_8cpp_source_l00054}{theo\+::recomp\+::symbol\+\_\+table\+\_\+t\+::sym\+\_\+from\+\_\+hash()}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{theo_8hpp}{theo.\+hpp}}\item 
+src/\mbox{\hyperlink{theo_8cpp}{theo.\+cpp}}\end{DoxyCompactItemize}

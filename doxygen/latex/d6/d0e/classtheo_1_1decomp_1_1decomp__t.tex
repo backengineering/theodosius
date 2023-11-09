@@ -1,0 +1,400 @@
+\hypertarget{classtheo_1_1decomp_1_1decomp__t}{}\doxysection{theo\+::decomp\+::decomp\+\_\+t Class Reference}
+\label{classtheo_1_1decomp_1_1decomp__t}\index{theo::decomp::decomp\_t@{theo::decomp::decomp\_t}}
+
+
+the main decomposition class which is responsible for breaking down lib file into coff files, and extracted used symbols from the coff files.  
+
+
+
+
+{\ttfamily \#include \char`\"{}decomp.\+hpp\char`\"{}}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classtheo_1_1decomp_1_1decomp__t_a35cfac16bd918d576b29e04388690d68}{decomp\+\_\+t}} (std\+::vector$<$ std\+::uint8\+\_\+t $>$ \&\mbox{\hyperlink{classtheo_1_1decomp_1_1decomp__t_aa728bde8ec1c5c28ec09f86adf427ae2}{lib}}, \mbox{\hyperlink{classtheo_1_1recomp_1_1symbol__table__t}{recomp\+::symbol\+\_\+table\+\_\+t}} $\ast$\mbox{\hyperlink{classtheo_1_1decomp_1_1decomp__t_a8630f2ee0f4fb9516f5b20014e4c6120}{syms}})
+\begin{DoxyCompactList}\small\item\em the explicit constructor for \mbox{\hyperlink{classtheo_1_1decomp_1_1decomp__t}{decomp\+\_\+t}} \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{classtheo_1_1decomp_1_1routine__t}{routine\+\_\+t}} $>$ \mbox{\hyperlink{classtheo_1_1decomp_1_1decomp__t_a79c965ec0a996a936faae7f54b0e055e}{rtns}} ()
+\begin{DoxyCompactList}\small\item\em gets all of the routine objects. \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::uint8\+\_\+t $>$ \mbox{\hyperlink{classtheo_1_1decomp_1_1decomp__t_aa728bde8ec1c5c28ec09f86adf427ae2}{lib}} ()
+\begin{DoxyCompactList}\small\item\em gets a vector of bytes consisting of the lib file. \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::vector$<$ std\+::uint8\+\_\+t $>$ $>$ \mbox{\hyperlink{classtheo_1_1decomp_1_1decomp__t_a81ae70b313a9ef24ea5d8f404699baef}{objs}} ()
+\begin{DoxyCompactList}\small\item\em gets all the obj files as a vector of a vector of bytes. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classtheo_1_1recomp_1_1symbol__table__t}{recomp\+::symbol\+\_\+table\+\_\+t}} $\ast$ \mbox{\hyperlink{classtheo_1_1decomp_1_1decomp__t_a8630f2ee0f4fb9516f5b20014e4c6120}{syms}} ()
+\begin{DoxyCompactList}\small\item\em gets the symbol table. \end{DoxyCompactList}\item 
+std\+::map$<$ coff\+::section\+\_\+header\+\_\+t $\ast$, std\+::size\+\_\+t $>$ \& \mbox{\hyperlink{classtheo_1_1decomp_1_1decomp__t_a860dddc3a5d12231b685dbaa12a0db06}{scn\+\_\+hash\+\_\+tbl}} ()
+\begin{DoxyCompactList}\small\item\em gets the section hash table section header -\/-\/\texorpdfstring{$>$}{>} hash of the section header ptr. \end{DoxyCompactList}\item 
+std\+::optional$<$ \mbox{\hyperlink{classtheo_1_1recomp_1_1symbol__table__t}{recomp\+::symbol\+\_\+table\+\_\+t}} $\ast$ $>$ \mbox{\hyperlink{classtheo_1_1decomp_1_1decomp__t_ae23353a4293aa30969b6d3fa37359469}{decompose}} (std\+::string \&entry\+\_\+sym)
+\begin{DoxyCompactList}\small\item\em decomposes (extracts) the symbols used. this function determines all used symbols given the entry point. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+the main decomposition class which is responsible for breaking down lib file into coff files, and extracted used symbols from the coff files. 
+
+Definition at line \mbox{\hyperlink{decomp_8hpp_source_l00061}{61}} of file \mbox{\hyperlink{decomp_8hpp_source}{decomp.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classtheo_1_1decomp_1_1decomp__t_a35cfac16bd918d576b29e04388690d68}\label{classtheo_1_1decomp_1_1decomp__t_a35cfac16bd918d576b29e04388690d68}} 
+\index{theo::decomp::decomp\_t@{theo::decomp::decomp\_t}!decomp\_t@{decomp\_t}}
+\index{decomp\_t@{decomp\_t}!theo::decomp::decomp\_t@{theo::decomp::decomp\_t}}
+\doxysubsubsection{\texorpdfstring{decomp\_t()}{decomp\_t()}}
+{\footnotesize\ttfamily theo\+::decomp\+::decomp\+\_\+t\+::decomp\+\_\+t (\begin{DoxyParamCaption}\item[{std\+::vector$<$ std\+::uint8\+\_\+t $>$ \&}]{lib,  }\item[{\mbox{\hyperlink{classtheo_1_1recomp_1_1symbol__table__t}{recomp\+::symbol\+\_\+table\+\_\+t}} $\ast$}]{syms }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+the explicit constructor for \mbox{\hyperlink{classtheo_1_1decomp_1_1decomp__t}{decomp\+\_\+t}} 
+
+
+\begin{DoxyParams}{Parameters}
+{\em lib} & vector of bytes containing the lib file.\\
+\hline
+{\em syms} & symbol table that gets populated and managed by this class.\\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{decomp_8cpp_source_l00034}{34}} of file \mbox{\hyperlink{decomp_8cpp_source}{decomp.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00035     : m\_lib(\mbox{\hyperlink{classtheo_1_1decomp_1_1decomp__t_aa728bde8ec1c5c28ec09f86adf427ae2}{lib}}), m\_syms(\mbox{\hyperlink{classtheo_1_1decomp_1_1decomp__t_a8630f2ee0f4fb9516f5b20014e4c6120}{syms}}) \{\}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classtheo_1_1decomp_1_1decomp__t_ae23353a4293aa30969b6d3fa37359469}\label{classtheo_1_1decomp_1_1decomp__t_ae23353a4293aa30969b6d3fa37359469}} 
+\index{theo::decomp::decomp\_t@{theo::decomp::decomp\_t}!decompose@{decompose}}
+\index{decompose@{decompose}!theo::decomp::decomp\_t@{theo::decomp::decomp\_t}}
+\doxysubsubsection{\texorpdfstring{decompose()}{decompose()}}
+{\footnotesize\ttfamily std\+::optional$<$ \mbox{\hyperlink{classtheo_1_1recomp_1_1symbol__table__t}{recomp\+::symbol\+\_\+table\+\_\+t}} $\ast$ $>$ theo\+::decomp\+::decomp\+\_\+t\+::decompose (\begin{DoxyParamCaption}\item[{std\+::string \&}]{entry\+\_\+sym }\end{DoxyParamCaption})}
+
+
+
+decomposes (extracts) the symbols used. this function determines all used symbols given the entry point. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em entry\+\_\+sym} & the entry point symbol name.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+returns an optional pointer to the symbol table. no value in the optional object on failure.
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{decomp_8cpp_source_l00037}{37}} of file \mbox{\hyperlink{decomp_8cpp_source}{decomp.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00038                           \{}
+\DoxyCodeLine{00039   \textcolor{comment}{// extract obj files from the archive file...}}
+\DoxyCodeLine{00040   \textcolor{comment}{//}}
+\DoxyCodeLine{00041   ar::view<false> \mbox{\hyperlink{classtheo_1_1decomp_1_1decomp__t_aa728bde8ec1c5c28ec09f86adf427ae2}{lib}}(m\_lib.data(), m\_lib.size());}
+\DoxyCodeLine{00042   std::for\_each(}
+\DoxyCodeLine{00043       \mbox{\hyperlink{classtheo_1_1decomp_1_1decomp__t_aa728bde8ec1c5c28ec09f86adf427ae2}{lib}}.begin(), \mbox{\hyperlink{classtheo_1_1decomp_1_1decomp__t_aa728bde8ec1c5c28ec09f86adf427ae2}{lib}}.end(),}
+\DoxyCodeLine{00044       [\&](std::pair<std::string\_view, ar::entry\_t\&> itr) \{}
+\DoxyCodeLine{00045         \textcolor{comment}{// if the entry isnt the symbol table or the string table}}
+\DoxyCodeLine{00046         \textcolor{comment}{// then we know its an obj file...}}
+\DoxyCodeLine{00047         \textcolor{comment}{//}}
+\DoxyCodeLine{00048         if (!itr.second.is\_symbol\_table() \&\& !itr.second.is\_string\_table()) \{}
+\DoxyCodeLine{00049           spdlog::info(\textcolor{stringliteral}{"{}extracted obj from archive: \{\}"{}}, itr.first);}
+\DoxyCodeLine{00050           std::vector<std::uint8\_t> data(itr.second.begin(), itr.second.end());}
+\DoxyCodeLine{00051           m\_objs.push\_back(data);}
+\DoxyCodeLine{00052         \}}
+\DoxyCodeLine{00053       \});}
+\DoxyCodeLine{00054 }
+\DoxyCodeLine{00055   std::for\_each(}
+\DoxyCodeLine{00056       m\_objs.begin(), m\_objs.end(), [\&](std::vector<std::uint8\_t>\& img\_data) \{}
+\DoxyCodeLine{00057         auto img = reinterpret\_cast<coff::image\_t*>(img\_data.data());}
+\DoxyCodeLine{00058         for (auto idx = 0u; idx < img-\/>file\_header.num\_symbols; ++idx) \{}
+\DoxyCodeLine{00059           auto sym = img-\/>get\_symbol(idx);}
+\DoxyCodeLine{00060           if (sym-\/>section\_index -\/ 1 > img-\/>file\_header.num\_sections)}
+\DoxyCodeLine{00061             continue;}
+\DoxyCodeLine{00062 }
+\DoxyCodeLine{00063           auto sym\_name = symbol\_t::name(img, sym);}
+\DoxyCodeLine{00064           if (sym\_name.length()) \{}
+\DoxyCodeLine{00065             auto sym\_hash = symbol\_t::hash(sym\_name.data());}
+\DoxyCodeLine{00066             auto sym\_size =}
+\DoxyCodeLine{00067                 sym-\/>has\_section()}
+\DoxyCodeLine{00068                     ? next\_sym(img, img-\/>get\_section(sym-\/>section\_index -\/ 1),}
+\DoxyCodeLine{00069                                sym)}
+\DoxyCodeLine{00070                     : 0u;}
+\DoxyCodeLine{00071 }
+\DoxyCodeLine{00072             m\_lookup\_tbl[sym\_hash].emplace\_back(img, sym, sym\_size);}
+\DoxyCodeLine{00073           \}}
+\DoxyCodeLine{00074         \}}
+\DoxyCodeLine{00075       \});}
+\DoxyCodeLine{00076 }
+\DoxyCodeLine{00077   \textcolor{comment}{// extract used symbols from objs and create a nice little set of them so that}}
+\DoxyCodeLine{00078   \textcolor{comment}{// we can easily decompose them... no need deal with every single symbol...}}
+\DoxyCodeLine{00079   spdlog::info(\textcolor{stringliteral}{"{}extracted \{\} symbols being used..."{}},}
+\DoxyCodeLine{00080                ext\_used\_syms(entry\_sym.data()));}
+\DoxyCodeLine{00081 }
+\DoxyCodeLine{00082   \textcolor{comment}{// generate symbols, populate section hash table, for each object file}}
+\DoxyCodeLine{00083   \textcolor{comment}{// extracted from the archive file...}}
+\DoxyCodeLine{00084   \textcolor{comment}{//}}
+\DoxyCodeLine{00085   std::for\_each(m\_used\_syms.begin(), m\_used\_syms.end(), [\&](\mbox{\hyperlink{namespacetheo_1_1decomp_abbf09e1f7eb9e42057ff9c9e8be41266}{sym\_data\_t}} \mbox{\hyperlink{namespacetheo_1_1decomp_af96177687d0ad683c5897d8fa01135f9acdb885c0ea7f6b2874224487c69b8112}{data}}) \{}
+\DoxyCodeLine{00086     auto [img, sym, size] = data;}
+\DoxyCodeLine{00087 }
+\DoxyCodeLine{00088     \textcolor{comment}{// populate section hash table with sections for the img of this}}
+\DoxyCodeLine{00089     \textcolor{comment}{// symbol... only populate the hash table if its not been populated for}}
+\DoxyCodeLine{00090     \textcolor{comment}{// this obj before...}}
+\DoxyCodeLine{00091     \textcolor{comment}{//}}
+\DoxyCodeLine{00092     if (m\_processed\_objs.emplace(img).second) \{}
+\DoxyCodeLine{00093       for (auto idx = 0u; idx < img-\/>file\_header.num\_sections; ++idx) \{}
+\DoxyCodeLine{00094         auto scn = img-\/>get\_section(idx);}
+\DoxyCodeLine{00095         auto scn\_sym\_name =}
+\DoxyCodeLine{00096             std::string(scn-\/>name.to\_string(img-\/>get\_strings()))}
+\DoxyCodeLine{00097                 .append(\textcolor{stringliteral}{"{}\#"{}})}
+\DoxyCodeLine{00098                 .append(std::to\_string(idx))}
+\DoxyCodeLine{00099                 .append(\textcolor{stringliteral}{"{}!"{}})}
+\DoxyCodeLine{00100                 .append(std::to\_string(img-\/>file\_header.timedate\_stamp));}
+\DoxyCodeLine{00101 }
+\DoxyCodeLine{00102         \textcolor{comment}{// hash the name of the section + the index + the timestamp of the}}
+\DoxyCodeLine{00103         \textcolor{comment}{// obj file it is in...}}
+\DoxyCodeLine{00104         \textcolor{comment}{//}}
+\DoxyCodeLine{00105         m\_scn\_hash\_tbl.insert(\{scn, decomp::symbol\_t::hash(scn\_sym\_name)\});}
+\DoxyCodeLine{00106       \}}
+\DoxyCodeLine{00107     \}}
+\DoxyCodeLine{00108 }
+\DoxyCodeLine{00109     \textcolor{comment}{// if the symbol is a function then we are going to decompose it...}}
+\DoxyCodeLine{00110     \textcolor{comment}{// data symbols are handled after this...}}
+\DoxyCodeLine{00111     \textcolor{comment}{//}}
+\DoxyCodeLine{00112     if (sym-\/>has\_section()) \{}
+\DoxyCodeLine{00113       if (sym-\/>derived\_type == coff::derived\_type\_id::function) \{}
+\DoxyCodeLine{00114         auto scn = img-\/>get\_section(sym-\/>section\_index -\/ 1);}
+\DoxyCodeLine{00115         auto dcmp\_type =}
+\DoxyCodeLine{00116             scn-\/>name.to\_string(img-\/>get\_strings()) == INSTR\_SPLIT\_SECTION\_NAME}
+\DoxyCodeLine{00117                 ? decomp::sym\_type\_t::instruction}
+\DoxyCodeLine{00118                 : decomp::sym\_type\_t::function;}
+\DoxyCodeLine{00119 }
+\DoxyCodeLine{00120         auto fn\_size = next\_sym(img, scn, sym);}
+\DoxyCodeLine{00121         auto fn\_bgn = scn-\/>ptr\_raw\_data + reinterpret\_cast<std::uint8\_t*>(img) +}
+\DoxyCodeLine{00122                       sym-\/>value;}
+\DoxyCodeLine{00123 }
+\DoxyCodeLine{00124         std::vector<std::uint8\_t> fn(fn\_bgn, fn\_bgn + fn\_size);}
+\DoxyCodeLine{00125         decomp::routine\_t rtn(sym, img, scn, fn, dcmp\_type);}
+\DoxyCodeLine{00126 }
+\DoxyCodeLine{00127         auto syms = rtn.decompose();}
+\DoxyCodeLine{00128         m\_syms-\/>put\_symbols(syms);}
+\DoxyCodeLine{00129       \} \textcolor{keywordflow}{else} if (sym-\/>storage\_class == coff::storage\_class\_id::public\_symbol ||}
+\DoxyCodeLine{00130                  sym-\/>storage\_class == coff::storage\_class\_id::private\_symbol) \{}
+\DoxyCodeLine{00131         auto scn = img-\/>get\_section(sym-\/>section\_index -\/ 1);}
+\DoxyCodeLine{00132         auto scn\_sym = m\_syms-\/>sym\_from\_hash(m\_scn\_hash\_tbl[scn]);}
+\DoxyCodeLine{00133 }
+\DoxyCodeLine{00134         \textcolor{comment}{// if the section doesnt have a symbol then make one and put it into}}
+\DoxyCodeLine{00135         \textcolor{comment}{// the symbol table...}}
+\DoxyCodeLine{00136         \textcolor{comment}{//}}
+\DoxyCodeLine{00137         if (!scn\_sym.has\_value()) \{}
+\DoxyCodeLine{00138           auto scn\_sym\_name =}
+\DoxyCodeLine{00139               std::string(scn-\/>name.to\_string(img-\/>get\_strings()))}
+\DoxyCodeLine{00140                   .append(\textcolor{stringliteral}{"{}\#"{}})}
+\DoxyCodeLine{00141                   .append(std::to\_string(sym-\/>section\_index -\/ 1))}
+\DoxyCodeLine{00142                   .append(\textcolor{stringliteral}{"{}!"{}})}
+\DoxyCodeLine{00143                   .append(std::to\_string(img-\/>file\_header.timedate\_stamp));}
+\DoxyCodeLine{00144 }
+\DoxyCodeLine{00145           std::vector<std::uint8\_t> scn\_data(scn-\/>size\_raw\_data);}
+\DoxyCodeLine{00146           if (scn-\/>characteristics.cnt\_uninit\_data) \{}
+\DoxyCodeLine{00147             scn\_data.insert(scn\_data.begin(), scn-\/>size\_raw\_data, 0);}
+\DoxyCodeLine{00148           \} else \{}
+\DoxyCodeLine{00149             scn\_data.insert(}
+\DoxyCodeLine{00150                 scn\_data.begin(),}
+\DoxyCodeLine{00151                 reinterpret\_cast<std::uint8\_t*>(img) + scn-\/>ptr\_raw\_data,}
+\DoxyCodeLine{00152                 reinterpret\_cast<std::uint8\_t*>(img) + scn-\/>ptr\_raw\_data +}
+\DoxyCodeLine{00153                     scn-\/>size\_raw\_data);}
+\DoxyCodeLine{00154           \}}
+\DoxyCodeLine{00155 }
+\DoxyCodeLine{00156           std::vector<recomp::reloc\_t> relocs;}
+\DoxyCodeLine{00157           auto scn\_relocs = reinterpret\_cast<coff::reloc\_t*>(}
+\DoxyCodeLine{00158               scn-\/>ptr\_relocs + reinterpret\_cast<std::uint8\_t*>(img));}
+\DoxyCodeLine{00159 }
+\DoxyCodeLine{00160           for (auto idx = 0u; idx < scn-\/>num\_relocs; ++idx) \{}
+\DoxyCodeLine{00161             auto scn\_reloc = \&scn\_relocs[idx];}
+\DoxyCodeLine{00162             auto sym\_reloc = img-\/>get\_symbol(scn\_relocs[idx].symbol\_index);}
+\DoxyCodeLine{00163             auto sym\_name = symbol\_t::name(img, sym\_reloc);}
+\DoxyCodeLine{00164             auto sym\_hash = decomp::symbol\_t::hash(sym\_name.data());}
+\DoxyCodeLine{00165             relocs.push\_back(}
+\DoxyCodeLine{00166                 recomp::reloc\_t(scn\_reloc-\/>virtual\_address -\/ sym-\/>value,}
+\DoxyCodeLine{00167                                 sym\_hash, sym\_name.data()));}
+\DoxyCodeLine{00168           \}}
+\DoxyCodeLine{00169 }
+\DoxyCodeLine{00170           decomp::symbol\_t new\_scn\_sym(img, scn\_sym\_name, 0, scn\_data, scn, \{\},}
+\DoxyCodeLine{00171                                        relocs, sym\_type\_t::section);}
+\DoxyCodeLine{00172 }
+\DoxyCodeLine{00173           m\_syms-\/>put\_symbol(new\_scn\_sym);}
+\DoxyCodeLine{00174         \}}
+\DoxyCodeLine{00175 }
+\DoxyCodeLine{00176         \textcolor{comment}{// create a symbol for the data...}}
+\DoxyCodeLine{00177         \textcolor{comment}{//}}
+\DoxyCodeLine{00178         decomp::symbol\_t new\_sym(img, \mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t_a7c6dee036291ded334aa10d89293fc2a}{symbol\_t::name}}(img, sym).\mbox{\hyperlink{namespacetheo_1_1decomp_af96177687d0ad683c5897d8fa01135f9acdb885c0ea7f6b2874224487c69b8112}{data}}(),}
+\DoxyCodeLine{00179                                  sym-\/>value, \{\}, scn, sym, \{\},}
+\DoxyCodeLine{00180                                  \mbox{\hyperlink{namespacetheo_1_1decomp_af96177687d0ad683c5897d8fa01135f9acdb885c0ea7f6b2874224487c69b8112}{sym\_type\_t::data}});}
+\DoxyCodeLine{00181 }
+\DoxyCodeLine{00182         m\_syms-\/>\mbox{\hyperlink{classtheo_1_1recomp_1_1symbol__table__t_af9caf2d4d97b2498aa624c3750a7a601}{put\_symbol}}(new\_sym);}
+\DoxyCodeLine{00183       \}}
+\DoxyCodeLine{00184     \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (sym-\/>storage\_class ==}
+\DoxyCodeLine{00185                coff::storage\_class\_id::}
+\DoxyCodeLine{00186                    external\_definition) \{  \textcolor{comment}{// else if the symbol has no}}
+\DoxyCodeLine{00187                                            \textcolor{comment}{// section... these symbols}}
+\DoxyCodeLine{00188                                            \textcolor{comment}{// require the linker to allocate}}
+\DoxyCodeLine{00189                                            \textcolor{comment}{// space for them...}}
+\DoxyCodeLine{00190 }
+\DoxyCodeLine{00191       std::vector<std::uint8\_t> data(sym-\/>value, 0);}
+\DoxyCodeLine{00192       decomp::symbol\_t bss\_sym(img, symbol\_t::name(img, sym).data(), \{\}, \mbox{\hyperlink{namespacetheo_1_1decomp_af96177687d0ad683c5897d8fa01135f9acdb885c0ea7f6b2874224487c69b8112}{data}},}
+\DoxyCodeLine{00193                                \{\}, sym, \{\}, \mbox{\hyperlink{namespacetheo_1_1decomp_af96177687d0ad683c5897d8fa01135f9acdb885c0ea7f6b2874224487c69b8112}{sym\_type\_t::data}});}
+\DoxyCodeLine{00194 }
+\DoxyCodeLine{00195       m\_syms-\/>\mbox{\hyperlink{classtheo_1_1recomp_1_1symbol__table__t_af9caf2d4d97b2498aa624c3750a7a601}{put\_symbol}}(bss\_sym);}
+\DoxyCodeLine{00196     \}}
+\DoxyCodeLine{00197   \});}
+\DoxyCodeLine{00198 }
+\DoxyCodeLine{00199   \textcolor{comment}{// return the extract symbols to the caller...}}
+\DoxyCodeLine{00200   \textcolor{comment}{//}}
+\DoxyCodeLine{00201   \textcolor{keywordflow}{return} m\_syms;}
+\DoxyCodeLine{00202 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{decomp_8cpp_source_l00285}{lib()}}.
+
+
+
+Referenced by \mbox{\hyperlink{theo_8cpp_source_l00045}{theo\+::theo\+\_\+t\+::decompose()}}.
+
+\mbox{\Hypertarget{classtheo_1_1decomp_1_1decomp__t_aa728bde8ec1c5c28ec09f86adf427ae2}\label{classtheo_1_1decomp_1_1decomp__t_aa728bde8ec1c5c28ec09f86adf427ae2}} 
+\index{theo::decomp::decomp\_t@{theo::decomp::decomp\_t}!lib@{lib}}
+\index{lib@{lib}!theo::decomp::decomp\_t@{theo::decomp::decomp\_t}}
+\doxysubsubsection{\texorpdfstring{lib()}{lib()}}
+{\footnotesize\ttfamily std\+::vector$<$ std\+::uint8\+\_\+t $>$ theo\+::decomp\+::decomp\+\_\+t\+::lib (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+gets a vector of bytes consisting of the lib file. 
+
+\begin{DoxyReturn}{Returns}
+a vector of bytes consisting of the lib file.
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{decomp_8cpp_source_l00285}{285}} of file \mbox{\hyperlink{decomp_8cpp_source}{decomp.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00285                                     \{}
+\DoxyCodeLine{00286   \textcolor{keywordflow}{return} m\_lib;}
+\DoxyCodeLine{00287 \}}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{decomp_8cpp_source_l00037}{decompose()}}.
+
+\mbox{\Hypertarget{classtheo_1_1decomp_1_1decomp__t_a81ae70b313a9ef24ea5d8f404699baef}\label{classtheo_1_1decomp_1_1decomp__t_a81ae70b313a9ef24ea5d8f404699baef}} 
+\index{theo::decomp::decomp\_t@{theo::decomp::decomp\_t}!objs@{objs}}
+\index{objs@{objs}!theo::decomp::decomp\_t@{theo::decomp::decomp\_t}}
+\doxysubsubsection{\texorpdfstring{objs()}{objs()}}
+{\footnotesize\ttfamily std\+::vector$<$ std\+::vector$<$ std\+::uint8\+\_\+t $>$ $>$ theo\+::decomp\+::decomp\+\_\+t\+::objs (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+gets all the obj files as a vector of a vector of bytes. 
+
+\begin{DoxyReturn}{Returns}
+all the obj files as a vector of a vector of bytes.
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{decomp_8cpp_source_l00289}{289}} of file \mbox{\hyperlink{decomp_8cpp_source}{decomp.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00289                                                 \{}
+\DoxyCodeLine{00290   \textcolor{keywordflow}{return} m\_objs;}
+\DoxyCodeLine{00291 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classtheo_1_1decomp_1_1decomp__t_a79c965ec0a996a936faae7f54b0e055e}\label{classtheo_1_1decomp_1_1decomp__t_a79c965ec0a996a936faae7f54b0e055e}} 
+\index{theo::decomp::decomp\_t@{theo::decomp::decomp\_t}!rtns@{rtns}}
+\index{rtns@{rtns}!theo::decomp::decomp\_t@{theo::decomp::decomp\_t}}
+\doxysubsubsection{\texorpdfstring{rtns()}{rtns()}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{classtheo_1_1decomp_1_1routine__t}{routine\+\_\+t}} $>$ theo\+::decomp\+::decomp\+\_\+t\+::rtns (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+gets all of the routine objects. 
+
+\begin{DoxyReturn}{Returns}
+vector of routine objects.
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{decomp_8cpp_source_l00281}{281}} of file \mbox{\hyperlink{decomp_8cpp_source}{decomp.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00281                                     \{}
+\DoxyCodeLine{00282   \textcolor{keywordflow}{return} m\_rtns;}
+\DoxyCodeLine{00283 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classtheo_1_1decomp_1_1decomp__t_a860dddc3a5d12231b685dbaa12a0db06}\label{classtheo_1_1decomp_1_1decomp__t_a860dddc3a5d12231b685dbaa12a0db06}} 
+\index{theo::decomp::decomp\_t@{theo::decomp::decomp\_t}!scn\_hash\_tbl@{scn\_hash\_tbl}}
+\index{scn\_hash\_tbl@{scn\_hash\_tbl}!theo::decomp::decomp\_t@{theo::decomp::decomp\_t}}
+\doxysubsubsection{\texorpdfstring{scn\_hash\_tbl()}{scn\_hash\_tbl()}}
+{\footnotesize\ttfamily std\+::map$<$ coff\+::section\+\_\+header\+\_\+t $\ast$, std\+::size\+\_\+t $>$ \& theo\+::decomp\+::decomp\+\_\+t\+::scn\+\_\+hash\+\_\+tbl (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+gets the section hash table section header -\/-\/\texorpdfstring{$>$}{>} hash of the section header ptr. 
+
+\begin{DoxyReturn}{Returns}
+the section hash table section header -\/-\/\texorpdfstring{$>$}{>} hash of the section header ptr.
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{decomp_8cpp_source_l00297}{297}} of file \mbox{\hyperlink{decomp_8cpp_source}{decomp.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00297                                                                  \{}
+\DoxyCodeLine{00298   \textcolor{keywordflow}{return} m\_scn\_hash\_tbl;}
+\DoxyCodeLine{00299 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classtheo_1_1decomp_1_1decomp__t_a8630f2ee0f4fb9516f5b20014e4c6120}\label{classtheo_1_1decomp_1_1decomp__t_a8630f2ee0f4fb9516f5b20014e4c6120}} 
+\index{theo::decomp::decomp\_t@{theo::decomp::decomp\_t}!syms@{syms}}
+\index{syms@{syms}!theo::decomp::decomp\_t@{theo::decomp::decomp\_t}}
+\doxysubsubsection{\texorpdfstring{syms()}{syms()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classtheo_1_1recomp_1_1symbol__table__t}{recomp\+::symbol\+\_\+table\+\_\+t}} $\ast$ theo\+::decomp\+::decomp\+\_\+t\+::syms (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+gets the symbol table. 
+
+\begin{DoxyReturn}{Returns}
+the symbol table.
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{decomp_8cpp_source_l00293}{293}} of file \mbox{\hyperlink{decomp_8cpp_source}{decomp.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00293                                      \{}
+\DoxyCodeLine{00294   \textcolor{keywordflow}{return} m\_syms;}
+\DoxyCodeLine{00295 \}}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{recomp_8cpp_source_l00040}{theo\+::recomp\+::recomp\+\_\+t\+::allocate()}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/decomp/\mbox{\hyperlink{decomp_8hpp}{decomp.\+hpp}}\item 
+src/decomp/\mbox{\hyperlink{decomp_8cpp}{decomp.\+cpp}}\end{DoxyCompactItemize}

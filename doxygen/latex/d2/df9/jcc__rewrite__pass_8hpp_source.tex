@@ -1,0 +1,74 @@
+\hypertarget{jcc__rewrite__pass_8hpp_source}{}\doxysection{jcc\+\_\+rewrite\+\_\+pass.\+hpp}
+\label{jcc__rewrite__pass_8hpp_source}\index{include/obf/passes/jcc\_rewrite\_pass.hpp@{include/obf/passes/jcc\_rewrite\_pass.hpp}}
+\mbox{\hyperlink{jcc__rewrite__pass_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{jcc__rewrite__pass_8hpp_source_l00001}00001 \textcolor{comment}{// Copyright (c) 2022, \_xeroxz}}
+\DoxyCodeLine{\Hypertarget{jcc__rewrite__pass_8hpp_source_l00002}00002 \textcolor{comment}{// All rights reserved.}}
+\DoxyCodeLine{\Hypertarget{jcc__rewrite__pass_8hpp_source_l00003}00003 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{jcc__rewrite__pass_8hpp_source_l00004}00004 \textcolor{comment}{// Redistribution and use in source and binary forms, with or without}}
+\DoxyCodeLine{\Hypertarget{jcc__rewrite__pass_8hpp_source_l00005}00005 \textcolor{comment}{// modification, are permitted provided that the following conditions are met:}}
+\DoxyCodeLine{\Hypertarget{jcc__rewrite__pass_8hpp_source_l00006}00006 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{jcc__rewrite__pass_8hpp_source_l00007}00007 \textcolor{comment}{// 1. Redistributions of source code must retain the above copyright notice,}}
+\DoxyCodeLine{\Hypertarget{jcc__rewrite__pass_8hpp_source_l00008}00008 \textcolor{comment}{//    this list of conditions and the following disclaimer.}}
+\DoxyCodeLine{\Hypertarget{jcc__rewrite__pass_8hpp_source_l00009}00009 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{jcc__rewrite__pass_8hpp_source_l00010}00010 \textcolor{comment}{// 2. Redistributions in binary form must reproduce the above copyright notice,}}
+\DoxyCodeLine{\Hypertarget{jcc__rewrite__pass_8hpp_source_l00011}00011 \textcolor{comment}{//    this list of conditions and the following disclaimer in the documentation}}
+\DoxyCodeLine{\Hypertarget{jcc__rewrite__pass_8hpp_source_l00012}00012 \textcolor{comment}{//    and/or other materials provided with the distribution.}}
+\DoxyCodeLine{\Hypertarget{jcc__rewrite__pass_8hpp_source_l00013}00013 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{jcc__rewrite__pass_8hpp_source_l00014}00014 \textcolor{comment}{// 3. Neither the name of the copyright holder nor the names of its}}
+\DoxyCodeLine{\Hypertarget{jcc__rewrite__pass_8hpp_source_l00015}00015 \textcolor{comment}{//    contributors may be used to endorse or promote products derived from}}
+\DoxyCodeLine{\Hypertarget{jcc__rewrite__pass_8hpp_source_l00016}00016 \textcolor{comment}{//    this software without specific prior written permission.}}
+\DoxyCodeLine{\Hypertarget{jcc__rewrite__pass_8hpp_source_l00017}00017 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{jcc__rewrite__pass_8hpp_source_l00018}00018 \textcolor{comment}{// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "{}AS IS"{}}}
+\DoxyCodeLine{\Hypertarget{jcc__rewrite__pass_8hpp_source_l00019}00019 \textcolor{comment}{// AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE}}
+\DoxyCodeLine{\Hypertarget{jcc__rewrite__pass_8hpp_source_l00020}00020 \textcolor{comment}{// IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE}}
+\DoxyCodeLine{\Hypertarget{jcc__rewrite__pass_8hpp_source_l00021}00021 \textcolor{comment}{// ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE}}
+\DoxyCodeLine{\Hypertarget{jcc__rewrite__pass_8hpp_source_l00022}00022 \textcolor{comment}{// LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR}}
+\DoxyCodeLine{\Hypertarget{jcc__rewrite__pass_8hpp_source_l00023}00023 \textcolor{comment}{// CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF}}
+\DoxyCodeLine{\Hypertarget{jcc__rewrite__pass_8hpp_source_l00024}00024 \textcolor{comment}{// SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS}}
+\DoxyCodeLine{\Hypertarget{jcc__rewrite__pass_8hpp_source_l00025}00025 \textcolor{comment}{// INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN}}
+\DoxyCodeLine{\Hypertarget{jcc__rewrite__pass_8hpp_source_l00026}00026 \textcolor{comment}{// CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)}}
+\DoxyCodeLine{\Hypertarget{jcc__rewrite__pass_8hpp_source_l00027}00027 \textcolor{comment}{// ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE}}
+\DoxyCodeLine{\Hypertarget{jcc__rewrite__pass_8hpp_source_l00028}00028 \textcolor{comment}{// POSSIBILITY OF SUCH DAMAGE.}}
+\DoxyCodeLine{\Hypertarget{jcc__rewrite__pass_8hpp_source_l00029}00029 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{jcc__rewrite__pass_8hpp_source_l00030}00030 }
+\DoxyCodeLine{\Hypertarget{jcc__rewrite__pass_8hpp_source_l00031}00031 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{\Hypertarget{jcc__rewrite__pass_8hpp_source_l00032}00032 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{pass_8hpp}{obf/pass.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{jcc__rewrite__pass_8hpp_source_l00033}00033 }
+\DoxyCodeLine{\Hypertarget{jcc__rewrite__pass_8hpp_source_l00034}00034 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespacetheo_1_1obf}{theo::obf}} \{\textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{jcc__rewrite__pass_8hpp_source_l00035}00035 \textcolor{comment}{/// <summary>}}
+\DoxyCodeLine{\Hypertarget{jcc__rewrite__pass_8hpp_source_l00036}00036 \textcolor{comment}{/// jcc rewrite pass which rewrites rip relative jcc's so that they are position}}
+\DoxyCodeLine{\Hypertarget{jcc__rewrite__pass_8hpp_source_l00037}00037 \textcolor{comment}{/// independent.}}
+\DoxyCodeLine{\Hypertarget{jcc__rewrite__pass_8hpp_source_l00038}00038 \textcolor{comment}{///}}
+\DoxyCodeLine{\Hypertarget{jcc__rewrite__pass_8hpp_source_l00039}00039 \textcolor{comment}{/// given the following code:}}
+\DoxyCodeLine{\Hypertarget{jcc__rewrite__pass_8hpp_source_l00040}00040 \textcolor{comment}{///}}
+\DoxyCodeLine{\Hypertarget{jcc__rewrite__pass_8hpp_source_l00041}00041 \textcolor{comment}{///     jnz label1}}
+\DoxyCodeLine{\Hypertarget{jcc__rewrite__pass_8hpp_source_l00042}00042 \textcolor{comment}{///     ; other code goes here}}
+\DoxyCodeLine{\Hypertarget{jcc__rewrite__pass_8hpp_source_l00043}00043 \textcolor{comment}{/// label1:}}
+\DoxyCodeLine{\Hypertarget{jcc__rewrite__pass_8hpp_source_l00044}00044 \textcolor{comment}{///     ; more code here}}
+\DoxyCodeLine{\Hypertarget{jcc__rewrite__pass_8hpp_source_l00045}00045 \textcolor{comment}{///}}
+\DoxyCodeLine{\Hypertarget{jcc__rewrite__pass_8hpp_source_l00046}00046 \textcolor{comment}{/// the jnz instruction will be rewritten so that the following code is}}
+\DoxyCodeLine{\Hypertarget{jcc__rewrite__pass_8hpp_source_l00047}00047 \textcolor{comment}{/// generated:}}
+\DoxyCodeLine{\Hypertarget{jcc__rewrite__pass_8hpp_source_l00048}00048 \textcolor{comment}{///}}
+\DoxyCodeLine{\Hypertarget{jcc__rewrite__pass_8hpp_source_l00049}00049 \textcolor{comment}{///     jnz br2}}
+\DoxyCodeLine{\Hypertarget{jcc__rewrite__pass_8hpp_source_l00050}00050 \textcolor{comment}{/// br1:}}
+\DoxyCodeLine{\Hypertarget{jcc__rewrite__pass_8hpp_source_l00051}00051 \textcolor{comment}{///     jmp [rip] ; address after this instruction contains the address}}
+\DoxyCodeLine{\Hypertarget{jcc__rewrite__pass_8hpp_source_l00052}00052 \textcolor{comment}{///               ; of the instruction after the jcc.}}
+\DoxyCodeLine{\Hypertarget{jcc__rewrite__pass_8hpp_source_l00053}00053 \textcolor{comment}{/// br2:}}
+\DoxyCodeLine{\Hypertarget{jcc__rewrite__pass_8hpp_source_l00054}00054 \textcolor{comment}{///     jmp [rip] ; address after this instruction contains the address of where}}
+\DoxyCodeLine{\Hypertarget{jcc__rewrite__pass_8hpp_source_l00055}00055 \textcolor{comment}{///               ; branch 2 is located.}}
+\DoxyCodeLine{\Hypertarget{jcc__rewrite__pass_8hpp_source_l00056}00056 \textcolor{comment}{///}}
+\DoxyCodeLine{\Hypertarget{jcc__rewrite__pass_8hpp_source_l00057}00057 \textcolor{comment}{/// its important to note that other passes will encrypt (transform) the address}}
+\DoxyCodeLine{\Hypertarget{jcc__rewrite__pass_8hpp_source_l00058}00058 \textcolor{comment}{/// of the next instruction. There is actually no jmp [rip] either, push/ret is}}
+\DoxyCodeLine{\Hypertarget{jcc__rewrite__pass_8hpp_source_l00059}00059 \textcolor{comment}{/// used.}}
+\DoxyCodeLine{\Hypertarget{jcc__rewrite__pass_8hpp_source_l00060}00060 \textcolor{comment}{/// </summary>}}
+\DoxyCodeLine{\Hypertarget{jcc__rewrite__pass_8hpp_source_l00061}\mbox{\hyperlink{classtheo_1_1obf_1_1jcc__rewrite__pass__t}{00061}} \textcolor{comment}{}\textcolor{keyword}{class }\mbox{\hyperlink{classtheo_1_1obf_1_1jcc__rewrite__pass__t}{jcc\_rewrite\_pass\_t}} : \textcolor{keyword}{public} \mbox{\hyperlink{classtheo_1_1obf_1_1pass__t}{pass\_t}} \{}
+\DoxyCodeLine{\Hypertarget{jcc__rewrite__pass_8hpp_source_l00062}00062   \textcolor{keyword}{explicit} \mbox{\hyperlink{classtheo_1_1obf_1_1jcc__rewrite__pass__t}{jcc\_rewrite\_pass\_t}}() : \mbox{\hyperlink{classtheo_1_1obf_1_1pass__t_abd4ab22cc2822b968267be7f8397d611}{pass\_t}}(\mbox{\hyperlink{namespacetheo_1_1decomp_af96177687d0ad683c5897d8fa01135f9a4842f4c175b1ec87fc82ef3757d3a0e9}{decomp::sym\_type\_t::instruction}}) \{\}}
+\DoxyCodeLine{\Hypertarget{jcc__rewrite__pass_8hpp_source_l00063}00063 }
+\DoxyCodeLine{\Hypertarget{jcc__rewrite__pass_8hpp_source_l00064}00064  \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{jcc__rewrite__pass_8hpp_source_l00065}00065   \textcolor{keyword}{static} \mbox{\hyperlink{classtheo_1_1obf_1_1jcc__rewrite__pass__t}{jcc\_rewrite\_pass\_t}}* \mbox{\hyperlink{classtheo_1_1obf_1_1jcc__rewrite__pass__t_afc17278f751fe3f5868c988faffb3c92}{get}}();}
+\DoxyCodeLine{\Hypertarget{jcc__rewrite__pass_8hpp_source_l00066}00066   \textcolor{keywordtype}{void} \mbox{\hyperlink{classtheo_1_1obf_1_1jcc__rewrite__pass__t_a5a93eb0945025ef3caefed8c63b65b23}{run}}(\mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t}{decomp::symbol\_t}}* sym);}
+\DoxyCodeLine{\Hypertarget{jcc__rewrite__pass_8hpp_source_l00067}00067 \};}
+\DoxyCodeLine{\Hypertarget{jcc__rewrite__pass_8hpp_source_l00068}00068 \}  \textcolor{comment}{// namespace theo::obf}}
+
+\end{DoxyCode}

@@ -1,0 +1,542 @@
+\hypertarget{classtheo_1_1decomp_1_1symbol__t}{}\doxysection{theo\+::decomp\+::symbol\+\_\+t Class Reference}
+\label{classtheo_1_1decomp_1_1symbol__t}\index{theo::decomp::symbol\_t@{theo::decomp::symbol\_t}}
+
+
+\mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t}{symbol\+\_\+t}} is an abstraction upon the coff symbol. this allows for easier manipulation of the symbol. symbols can be different things, sections, functions, and even instructions (when functions are broken down).  
+
+
+
+
+{\ttfamily \#include \char`\"{}symbol.\+hpp\char`\"{}}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t_aa7247dcb735176b6ed9246d035e7a215}{symbol\+\_\+t}} (coff\+::image\+\_\+t $\ast$\mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t_ad97ad0395e18dcfb42017fb7753e0665}{img}}, std\+::string \mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t_a7c6dee036291ded334aa10d89293fc2a}{name}}, std\+::uintptr\+\_\+t \mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t_a79759d343ddb6a62e4149aef92e2d70b}{offset}}, std\+::vector$<$ std\+::uint8\+\_\+t $>$ \mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t_aa3ecf0b480d10bffe68812409c06d61b}{data}}, coff\+::section\+\_\+header\+\_\+t $\ast$\mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t_a64d51dabe91687ed40c3942d106fd7dd}{scn}}=\{\}, coff\+::symbol\+\_\+t $\ast$\mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t_a0e6f850f25a51609fbe5dc0a61b27bc9}{sym}}=\{\}, std\+::vector$<$ \mbox{\hyperlink{classtheo_1_1recomp_1_1reloc__t}{recomp\+::reloc\+\_\+t}} $>$ \mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t_abc158e1dc1567161f0a57ed15fc718f7}{relocs}}=\{\}, \mbox{\hyperlink{namespacetheo_1_1decomp_af96177687d0ad683c5897d8fa01135f9}{sym\+\_\+type\+\_\+t}} dcmp\+\_\+type=\{\})
+\begin{DoxyCompactList}\small\item\em the explicit constructor of this symbol. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t_a7c6dee036291ded334aa10d89293fc2a}{name}} () const
+\begin{DoxyCompactList}\small\item\em gets the name of the symbol. \end{DoxyCompactList}\item 
+std\+::uintptr\+\_\+t \mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t_a79759d343ddb6a62e4149aef92e2d70b}{offset}} () const
+\begin{DoxyCompactList}\small\item\em gets the offset into the section where the symbol is located. \end{DoxyCompactList}\item 
+std\+::uintptr\+\_\+t \mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t_ae92f3e35fba82a1d16a58ad09b39fb47}{allocated\+\_\+at}} () const
+\begin{DoxyCompactList}\small\item\em returns the address where the symbol is allocated. \end{DoxyCompactList}\item 
+std\+::uint32\+\_\+t \mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t_ae33f1452b01fe80f9c384241b9fe6286}{size}} () const
+\begin{DoxyCompactList}\small\item\em returns the size of the symbol. \end{DoxyCompactList}\item 
+coff\+::section\+\_\+header\+\_\+t $\ast$ \mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t_a64d51dabe91687ed40c3942d106fd7dd}{scn}} () const
+\begin{DoxyCompactList}\small\item\em gets the section header of the section in which the symbol is contained. \end{DoxyCompactList}\item 
+coff\+::image\+\_\+t $\ast$ \mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t_ad97ad0395e18dcfb42017fb7753e0665}{img}} () const
+\begin{DoxyCompactList}\small\item\em gets the imagine in which the symbol is located inside of. \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::uint8\+\_\+t $>$ \& \mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t_aa3ecf0b480d10bffe68812409c06d61b}{data}} ()
+\begin{DoxyCompactList}\small\item\em returns a vector by reference of bytes containing the data of the symbol. \end{DoxyCompactList}\item 
+coff\+::symbol\+\_\+t $\ast$ \mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t_a0e6f850f25a51609fbe5dc0a61b27bc9}{sym}} () const
+\begin{DoxyCompactList}\small\item\em returns a pointer to the coff symbol object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespacetheo_1_1decomp_af96177687d0ad683c5897d8fa01135f9}{sym\+\_\+type\+\_\+t}} \mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t_a16587cddd37cd45d9ec6cd25c229e8d1}{type}} () const
+\begin{DoxyCompactList}\small\item\em returns the type of the symbol. \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{classtheo_1_1recomp_1_1reloc__t}{recomp\+::reloc\+\_\+t}} $>$ \& \mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t_abc158e1dc1567161f0a57ed15fc718f7}{relocs}} ()
+\begin{DoxyCompactList}\small\item\em returns a vector of relocations. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t_a79bec0c7338f2c08739ea6547745cc3b}{allocated\+\_\+at}} (std\+::uintptr\+\_\+t allocated\+\_\+at)
+\begin{DoxyCompactList}\small\item\em set the address where the symbol is allocated at. \end{DoxyCompactList}\item 
+std\+::size\+\_\+t \mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t_a8695d75670cc4d61d275464e9109ff06}{hash}} ()
+\begin{DoxyCompactList}\small\item\em gets the hash of the symbol name. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static std\+::size\+\_\+t \mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t_a88481ad95d28f9c54c349f0e43de8970}{hash}} (const std\+::string \&\mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t_a0e6f850f25a51609fbe5dc0a61b27bc9}{sym}})
+\begin{DoxyCompactList}\small\item\em generate a hash given the name of the symbol. \end{DoxyCompactList}\item 
+static std\+::string \mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t_a2bef3a0869fee4979918405c5ed8f692}{name}} (const coff\+::image\+\_\+t $\ast$\mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t_ad97ad0395e18dcfb42017fb7753e0665}{img}}, coff\+::symbol\+\_\+t $\ast$\mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t_a0e6f850f25a51609fbe5dc0a61b27bc9}{sym}})
+\begin{DoxyCompactList}\small\item\em get the name of a symbol. this function will create a symbol name if the symbol is opaquely named. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t}{symbol\+\_\+t}} is an abstraction upon the coff symbol. this allows for easier manipulation of the symbol. symbols can be different things, sections, functions, and even instructions (when functions are broken down). 
+
+this class is used throughout theodosius and is a keystone of the project. ensure you understand how this class works and what it contains. 
+
+Definition at line \mbox{\hyperlink{symbol_8hpp_source_l00059}{59}} of file \mbox{\hyperlink{symbol_8hpp_source}{symbol.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classtheo_1_1decomp_1_1symbol__t_aa7247dcb735176b6ed9246d035e7a215}\label{classtheo_1_1decomp_1_1symbol__t_aa7247dcb735176b6ed9246d035e7a215}} 
+\index{theo::decomp::symbol\_t@{theo::decomp::symbol\_t}!symbol\_t@{symbol\_t}}
+\index{symbol\_t@{symbol\_t}!theo::decomp::symbol\_t@{theo::decomp::symbol\_t}}
+\doxysubsubsection{\texorpdfstring{symbol\_t()}{symbol\_t()}}
+{\footnotesize\ttfamily theo\+::decomp\+::symbol\+\_\+t\+::symbol\+\_\+t (\begin{DoxyParamCaption}\item[{coff\+::image\+\_\+t $\ast$}]{img,  }\item[{std\+::string}]{name,  }\item[{std\+::uintptr\+\_\+t}]{offset,  }\item[{std\+::vector$<$ std\+::uint8\+\_\+t $>$}]{data,  }\item[{coff\+::section\+\_\+header\+\_\+t $\ast$}]{scn = {\ttfamily \{\}},  }\item[{coff\+::symbol\+\_\+t $\ast$}]{sym = {\ttfamily \{\}},  }\item[{std\+::vector$<$ \mbox{\hyperlink{classtheo_1_1recomp_1_1reloc__t}{recomp\+::reloc\+\_\+t}} $>$}]{relocs = {\ttfamily \{\}},  }\item[{\mbox{\hyperlink{namespacetheo_1_1decomp_af96177687d0ad683c5897d8fa01135f9}{sym\+\_\+type\+\_\+t}}}]{dcmp\+\_\+type = {\ttfamily \{\}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+the explicit constructor of this symbol. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em img} & the image in which the symbol is located in.\\
+\hline
+{\em name} & the name of the symbol.\\
+\hline
+{\em offset} & offset into the section where this symbol is located.\\
+\hline
+{\em data} & the data of the symbol. there can be no data.\\
+\hline
+{\em scn} & the section header describing the section which contains the symbol.\\
+\hline
+{\em sym} & the coff symbol itself.\\
+\hline
+{\em relocs} & a vector of relocations this symbol has (if any).\\
+\hline
+{\em dcmp\+\_\+type} & the type of symbol\\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{symbol_8cpp_source_l00034}{34}} of file \mbox{\hyperlink{symbol_8cpp_source}{symbol.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00042     : m\_name(\mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t_a7c6dee036291ded334aa10d89293fc2a}{name}}),}
+\DoxyCodeLine{00043       m\_offset(\mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t_a79759d343ddb6a62e4149aef92e2d70b}{offset}}),}
+\DoxyCodeLine{00044       m\_data(\mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t_aa3ecf0b480d10bffe68812409c06d61b}{data}}),}
+\DoxyCodeLine{00045       m\_scn(\mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t_a64d51dabe91687ed40c3942d106fd7dd}{scn}}),}
+\DoxyCodeLine{00046       m\_relocs(\mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t_abc158e1dc1567161f0a57ed15fc718f7}{relocs}}),}
+\DoxyCodeLine{00047       m\_sym\_type(dcmp\_type),}
+\DoxyCodeLine{00048       m\_sym(\mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t_a0e6f850f25a51609fbe5dc0a61b27bc9}{sym}}),}
+\DoxyCodeLine{00049       m\_img(\mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t_ad97ad0395e18dcfb42017fb7753e0665}{img}}),}
+\DoxyCodeLine{00050       m\_allocated\_at(0) \{\}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classtheo_1_1decomp_1_1symbol__t_ae92f3e35fba82a1d16a58ad09b39fb47}\label{classtheo_1_1decomp_1_1symbol__t_ae92f3e35fba82a1d16a58ad09b39fb47}} 
+\index{theo::decomp::symbol\_t@{theo::decomp::symbol\_t}!allocated\_at@{allocated\_at}}
+\index{allocated\_at@{allocated\_at}!theo::decomp::symbol\_t@{theo::decomp::symbol\_t}}
+\doxysubsubsection{\texorpdfstring{allocated\_at()}{allocated\_at()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily std\+::uintptr\+\_\+t theo\+::decomp\+::symbol\+\_\+t\+::allocated\+\_\+at (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+returns the address where the symbol is allocated. 
+
+\begin{DoxyReturn}{Returns}
+the address where the symbol is allocated.
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{symbol_8cpp_source_l00060}{60}} of file \mbox{\hyperlink{symbol_8cpp_source}{symbol.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00060                                           \{}
+\DoxyCodeLine{00061   \textcolor{keywordflow}{return} m\_allocated\_at;}
+\DoxyCodeLine{00062 \}}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{symbol_8cpp_source_l00084}{allocated\+\_\+at()}}, and \mbox{\hyperlink{recomp_8cpp_source_l00155}{theo\+::recomp\+::recomp\+\_\+t\+::copy\+\_\+syms()}}.
+
+\mbox{\Hypertarget{classtheo_1_1decomp_1_1symbol__t_a79bec0c7338f2c08739ea6547745cc3b}\label{classtheo_1_1decomp_1_1symbol__t_a79bec0c7338f2c08739ea6547745cc3b}} 
+\index{theo::decomp::symbol\_t@{theo::decomp::symbol\_t}!allocated\_at@{allocated\_at}}
+\index{allocated\_at@{allocated\_at}!theo::decomp::symbol\_t@{theo::decomp::symbol\_t}}
+\doxysubsubsection{\texorpdfstring{allocated\_at()}{allocated\_at()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void theo\+::decomp\+::symbol\+\_\+t\+::allocated\+\_\+at (\begin{DoxyParamCaption}\item[{std\+::uintptr\+\_\+t}]{allocated\+\_\+at }\end{DoxyParamCaption})}
+
+
+
+set the address where the symbol is allocated at. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em allocated\+\_\+at} & where the symbol is allocated at.\\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{symbol_8cpp_source_l00084}{84}} of file \mbox{\hyperlink{symbol_8cpp_source}{symbol.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00084                                                      \{}
+\DoxyCodeLine{00085   m\_allocated\_at = \mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t_ae92f3e35fba82a1d16a58ad09b39fb47}{allocated\_at}};}
+\DoxyCodeLine{00086 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{symbol_8cpp_source_l00060}{allocated\+\_\+at()}}.
+
+\mbox{\Hypertarget{classtheo_1_1decomp_1_1symbol__t_aa3ecf0b480d10bffe68812409c06d61b}\label{classtheo_1_1decomp_1_1symbol__t_aa3ecf0b480d10bffe68812409c06d61b}} 
+\index{theo::decomp::symbol\_t@{theo::decomp::symbol\_t}!data@{data}}
+\index{data@{data}!theo::decomp::symbol\_t@{theo::decomp::symbol\_t}}
+\doxysubsubsection{\texorpdfstring{data()}{data()}}
+{\footnotesize\ttfamily std\+::vector$<$ std\+::uint8\+\_\+t $>$ \& theo\+::decomp\+::symbol\+\_\+t\+::data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+returns a vector by reference of bytes containing the data of the symbol. 
+
+\begin{DoxyReturn}{Returns}
+a vector by reference of bytes containing the data of the symbol.
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{symbol_8cpp_source_l00076}{76}} of file \mbox{\hyperlink{symbol_8cpp_source}{symbol.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00076                                       \{}
+\DoxyCodeLine{00077   \textcolor{keywordflow}{return} m\_data;}
+\DoxyCodeLine{00078 \}}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{recomp_8cpp_source_l00155}{theo\+::recomp\+::recomp\+\_\+t\+::copy\+\_\+syms()}}, \mbox{\hyperlink{recomp_8cpp_source_l00092}{theo\+::recomp\+::recomp\+\_\+t\+::resolve()}}, \mbox{\hyperlink{jcc__rewrite__pass_8cpp_source_l00040}{theo\+::obf\+::jcc\+\_\+rewrite\+\_\+pass\+\_\+t\+::run()}}, \mbox{\hyperlink{next__inst__pass_8cpp_source_l00038}{theo\+::obf\+::next\+\_\+inst\+\_\+pass\+\_\+t\+::run()}}, and \mbox{\hyperlink{reloc__transform__pass_8cpp_source_l00039}{theo\+::obf\+::reloc\+\_\+transform\+\_\+pass\+\_\+t\+::run()}}.
+
+\mbox{\Hypertarget{classtheo_1_1decomp_1_1symbol__t_a8695d75670cc4d61d275464e9109ff06}\label{classtheo_1_1decomp_1_1symbol__t_a8695d75670cc4d61d275464e9109ff06}} 
+\index{theo::decomp::symbol\_t@{theo::decomp::symbol\_t}!hash@{hash}}
+\index{hash@{hash}!theo::decomp::symbol\_t@{theo::decomp::symbol\_t}}
+\doxysubsubsection{\texorpdfstring{hash()}{hash()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily std\+::size\+\_\+t theo\+::decomp\+::symbol\+\_\+t\+::hash (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+gets the hash of the symbol name. 
+
+\begin{DoxyReturn}{Returns}
+the hash of the symbol name.
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{symbol_8cpp_source_l00088}{88}} of file \mbox{\hyperlink{symbol_8cpp_source}{symbol.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00088                          \{}
+\DoxyCodeLine{00089   \textcolor{keywordflow}{return} \mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t_a8695d75670cc4d61d275464e9109ff06}{hash}}(m\_name);}
+\DoxyCodeLine{00090 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{symbol_8cpp_source_l00088}{hash()}}.
+
+
+
+Referenced by \mbox{\hyperlink{routine_8cpp_source_l00041}{theo\+::decomp\+::routine\+\_\+t\+::decompose()}}, \mbox{\hyperlink{symbol_8cpp_source_l00088}{hash()}}, \mbox{\hyperlink{symbol__table_8cpp_source_l00040}{theo\+::recomp\+::symbol\+\_\+table\+\_\+t\+::put\+\_\+symbol()}}, \mbox{\hyperlink{recomp_8cpp_source_l00175}{theo\+::recomp\+::recomp\+\_\+t\+::resolve()}}, \mbox{\hyperlink{theo_8cpp_source_l00068}{theo\+::theo\+\_\+t\+::resolve()}}, \mbox{\hyperlink{hello__world__pass_8hpp_source_l00050}{theo\+::obf\+::hello\+\_\+world\+\_\+pass\+\_\+t\+::run()}}, and \mbox{\hyperlink{jcc__rewrite__pass_8cpp_source_l00040}{theo\+::obf\+::jcc\+\_\+rewrite\+\_\+pass\+\_\+t\+::run()}}.
+
+\mbox{\Hypertarget{classtheo_1_1decomp_1_1symbol__t_a88481ad95d28f9c54c349f0e43de8970}\label{classtheo_1_1decomp_1_1symbol__t_a88481ad95d28f9c54c349f0e43de8970}} 
+\index{theo::decomp::symbol\_t@{theo::decomp::symbol\_t}!hash@{hash}}
+\index{hash@{hash}!theo::decomp::symbol\_t@{theo::decomp::symbol\_t}}
+\doxysubsubsection{\texorpdfstring{hash()}{hash()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily std\+::size\+\_\+t theo\+::decomp\+::symbol\+\_\+t\+::hash (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{sym }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+generate a hash given the name of the symbol. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sym} & the symbol name to create a hash from.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the symbol name hash
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{symbol_8cpp_source_l00100}{100}} of file \mbox{\hyperlink{symbol_8cpp_source}{symbol.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00100                                              \{}
+\DoxyCodeLine{00101   \textcolor{keywordflow}{return} std::hash<std::string>\{\}(\mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t_a0e6f850f25a51609fbe5dc0a61b27bc9}{sym}});}
+\DoxyCodeLine{00102 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{symbol_8cpp_source_l00092}{sym()}}.
+
+\mbox{\Hypertarget{classtheo_1_1decomp_1_1symbol__t_ad97ad0395e18dcfb42017fb7753e0665}\label{classtheo_1_1decomp_1_1symbol__t_ad97ad0395e18dcfb42017fb7753e0665}} 
+\index{theo::decomp::symbol\_t@{theo::decomp::symbol\_t}!img@{img}}
+\index{img@{img}!theo::decomp::symbol\_t@{theo::decomp::symbol\_t}}
+\doxysubsubsection{\texorpdfstring{img()}{img()}}
+{\footnotesize\ttfamily coff\+::image\+\_\+t $\ast$ theo\+::decomp\+::symbol\+\_\+t\+::img (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+gets the imagine in which the symbol is located inside of. 
+
+\begin{DoxyReturn}{Returns}
+the imagine in which the symbol is located inside of.
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{symbol_8cpp_source_l00068}{68}} of file \mbox{\hyperlink{symbol_8cpp_source}{symbol.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00068                                  \{}
+\DoxyCodeLine{00069   \textcolor{keywordflow}{return} m\_img;}
+\DoxyCodeLine{00070 \}}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{symbol_8cpp_source_l00104}{name()}}, and \mbox{\hyperlink{jcc__rewrite__pass_8cpp_source_l00040}{theo\+::obf\+::jcc\+\_\+rewrite\+\_\+pass\+\_\+t\+::run()}}.
+
+\mbox{\Hypertarget{classtheo_1_1decomp_1_1symbol__t_a7c6dee036291ded334aa10d89293fc2a}\label{classtheo_1_1decomp_1_1symbol__t_a7c6dee036291ded334aa10d89293fc2a}} 
+\index{theo::decomp::symbol\_t@{theo::decomp::symbol\_t}!name@{name}}
+\index{name@{name}!theo::decomp::symbol\_t@{theo::decomp::symbol\_t}}
+\doxysubsubsection{\texorpdfstring{name()}{name()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily std\+::string theo\+::decomp\+::symbol\+\_\+t\+::name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+gets the name of the symbol. 
+
+\begin{DoxyReturn}{Returns}
+the name of the symbol.
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{symbol_8cpp_source_l00052}{52}} of file \mbox{\hyperlink{symbol_8cpp_source}{symbol.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00052                                \{}
+\DoxyCodeLine{00053   \textcolor{keywordflow}{return} m\_name;}
+\DoxyCodeLine{00054 \}}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{routine_8cpp_source_l00041}{theo\+::decomp\+::routine\+\_\+t\+::decompose()}}, \mbox{\hyperlink{recomp_8cpp_source_l00092}{theo\+::recomp\+::recomp\+\_\+t\+::resolve()}}, \mbox{\hyperlink{hello__world__pass_8hpp_source_l00050}{theo\+::obf\+::hello\+\_\+world\+\_\+pass\+\_\+t\+::run()}}, and \mbox{\hyperlink{reloc__transform__pass_8cpp_source_l00039}{theo\+::obf\+::reloc\+\_\+transform\+\_\+pass\+\_\+t\+::run()}}.
+
+\mbox{\Hypertarget{classtheo_1_1decomp_1_1symbol__t_a2bef3a0869fee4979918405c5ed8f692}\label{classtheo_1_1decomp_1_1symbol__t_a2bef3a0869fee4979918405c5ed8f692}} 
+\index{theo::decomp::symbol\_t@{theo::decomp::symbol\_t}!name@{name}}
+\index{name@{name}!theo::decomp::symbol\_t@{theo::decomp::symbol\_t}}
+\doxysubsubsection{\texorpdfstring{name()}{name()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily std\+::string theo\+::decomp\+::symbol\+\_\+t\+::name (\begin{DoxyParamCaption}\item[{const coff\+::image\+\_\+t $\ast$}]{img,  }\item[{coff\+::symbol\+\_\+t $\ast$}]{sym }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+get the name of a symbol. this function will create a symbol name if the symbol is opaquely named. 
+
+for example in c++ if you define something like this\+:
+
+some\+\_\+struct\+\_\+t val = \{ value\+\_\+one, value\+\_\+two \};
+
+\char`\"{}val\char`\"{} will be stored in the .data section of the coff file. however the symbol name will be opaque (the name of the symbol will be \char`\"{}.\+data\char`\"{}). this causes issues with theo since each symbol needs its own unqiue name to generate a unique symbol name hash. for symbols like this, theo will create a name for it with the following format\+:
+
+.data\+::section\+\_\+index!coff\+\_\+file\+\_\+timestamp+offset\+\_\+into\+\_\+section
+
+
+\begin{DoxyParams}{Parameters}
+{\em img} & the coff file containing the symbol.\\
+\hline
+{\em sym} & the coff symbol itself.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the name of the symbol, or a created one.
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{symbol_8cpp_source_l00104}{104}} of file \mbox{\hyperlink{symbol_8cpp_source}{symbol.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00104                                                                   \{}
+\DoxyCodeLine{00105   \textcolor{keywordflow}{if} (\mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t_a0e6f850f25a51609fbe5dc0a61b27bc9}{sym}}-\/>has\_section() \&\&}
+\DoxyCodeLine{00106       \mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t_a0e6f850f25a51609fbe5dc0a61b27bc9}{sym}}-\/>storage\_class == coff::storage\_class\_id::private\_symbol \&\&}
+\DoxyCodeLine{00107       \mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t_a0e6f850f25a51609fbe5dc0a61b27bc9}{sym}}-\/>derived\_type == coff::derived\_type\_id::none) \{}
+\DoxyCodeLine{00108     \textcolor{keyword}{auto} \mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t_a64d51dabe91687ed40c3942d106fd7dd}{scn}} = \mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t_ad97ad0395e18dcfb42017fb7753e0665}{img}}-\/>get\_section(\mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t_a0e6f850f25a51609fbe5dc0a61b27bc9}{sym}}-\/>section\_index -\/ 1);}
+\DoxyCodeLine{00109     \textcolor{keyword}{auto} res = std::string(\mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t_a64d51dabe91687ed40c3942d106fd7dd}{scn}}-\/>name.to\_string(\mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t_ad97ad0395e18dcfb42017fb7753e0665}{img}}-\/>get\_strings()).data())}
+\DoxyCodeLine{00110                    .append(\textcolor{stringliteral}{"{}\#"{}})}
+\DoxyCodeLine{00111                    .append(std::to\_string(\mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t_a0e6f850f25a51609fbe5dc0a61b27bc9}{sym}}-\/>section\_index))}
+\DoxyCodeLine{00112                    .append(\textcolor{stringliteral}{"{}!"{}})}
+\DoxyCodeLine{00113                    .append(std::to\_string(\mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t_ad97ad0395e18dcfb42017fb7753e0665}{img}}-\/>file\_header.timedate\_stamp))}
+\DoxyCodeLine{00114                    .append(\textcolor{stringliteral}{"{}+"{}})}
+\DoxyCodeLine{00115                    .append(std::to\_string(\mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t_a0e6f850f25a51609fbe5dc0a61b27bc9}{sym}}-\/>value));}
+\DoxyCodeLine{00116 }
+\DoxyCodeLine{00117     \textcolor{keywordflow}{return} res;}
+\DoxyCodeLine{00118   \}}
+\DoxyCodeLine{00119   \textcolor{keywordflow}{return} std::string(\mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t_a0e6f850f25a51609fbe5dc0a61b27bc9}{sym}}-\/>name.to\_string(\mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t_ad97ad0395e18dcfb42017fb7753e0665}{img}}-\/>get\_strings()));}
+\DoxyCodeLine{00120 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{symbol_8cpp_source_l00068}{img()}}, \mbox{\hyperlink{symbol_8cpp_source_l00064}{scn()}}, and \mbox{\hyperlink{symbol_8cpp_source_l00092}{sym()}}.
+
+\mbox{\Hypertarget{classtheo_1_1decomp_1_1symbol__t_a79759d343ddb6a62e4149aef92e2d70b}\label{classtheo_1_1decomp_1_1symbol__t_a79759d343ddb6a62e4149aef92e2d70b}} 
+\index{theo::decomp::symbol\_t@{theo::decomp::symbol\_t}!offset@{offset}}
+\index{offset@{offset}!theo::decomp::symbol\_t@{theo::decomp::symbol\_t}}
+\doxysubsubsection{\texorpdfstring{offset()}{offset()}}
+{\footnotesize\ttfamily std\+::uintptr\+\_\+t theo\+::decomp\+::symbol\+\_\+t\+::offset (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+gets the offset into the section where the symbol is located. 
+
+\begin{DoxyReturn}{Returns}
+the offset into the section where the symbol is located.
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{symbol_8cpp_source_l00056}{56}} of file \mbox{\hyperlink{symbol_8cpp_source}{symbol.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00056                                     \{}
+\DoxyCodeLine{00057   \textcolor{keywordflow}{return} m\_offset;}
+\DoxyCodeLine{00058 \}}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{jcc__rewrite__pass_8cpp_source_l00040}{theo\+::obf\+::jcc\+\_\+rewrite\+\_\+pass\+\_\+t\+::run()}}.
+
+\mbox{\Hypertarget{classtheo_1_1decomp_1_1symbol__t_abc158e1dc1567161f0a57ed15fc718f7}\label{classtheo_1_1decomp_1_1symbol__t_abc158e1dc1567161f0a57ed15fc718f7}} 
+\index{theo::decomp::symbol\_t@{theo::decomp::symbol\_t}!relocs@{relocs}}
+\index{relocs@{relocs}!theo::decomp::symbol\_t@{theo::decomp::symbol\_t}}
+\doxysubsubsection{\texorpdfstring{relocs()}{relocs()}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{classtheo_1_1recomp_1_1reloc__t}{recomp\+::reloc\+\_\+t}} $>$ \& theo\+::decomp\+::symbol\+\_\+t\+::relocs (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+returns a vector of relocations. 
+
+\begin{DoxyReturn}{Returns}
+a vector of relocations.
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{symbol_8cpp_source_l00096}{96}} of file \mbox{\hyperlink{symbol_8cpp_source}{symbol.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00096                                            \{}
+\DoxyCodeLine{00097   \textcolor{keywordflow}{return} m\_relocs;}
+\DoxyCodeLine{00098 \}}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{recomp_8cpp_source_l00092}{theo\+::recomp\+::recomp\+\_\+t\+::resolve()}}, and \mbox{\hyperlink{jcc__rewrite__pass_8cpp_source_l00040}{theo\+::obf\+::jcc\+\_\+rewrite\+\_\+pass\+\_\+t\+::run()}}.
+
+\mbox{\Hypertarget{classtheo_1_1decomp_1_1symbol__t_a64d51dabe91687ed40c3942d106fd7dd}\label{classtheo_1_1decomp_1_1symbol__t_a64d51dabe91687ed40c3942d106fd7dd}} 
+\index{theo::decomp::symbol\_t@{theo::decomp::symbol\_t}!scn@{scn}}
+\index{scn@{scn}!theo::decomp::symbol\_t@{theo::decomp::symbol\_t}}
+\doxysubsubsection{\texorpdfstring{scn()}{scn()}}
+{\footnotesize\ttfamily coff\+::section\+\_\+header\+\_\+t $\ast$ theo\+::decomp\+::symbol\+\_\+t\+::scn (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+gets the section header of the section in which the symbol is contained. 
+
+\begin{DoxyReturn}{Returns}
+the section header of the section in which the symbol is contained.
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{symbol_8cpp_source_l00064}{64}} of file \mbox{\hyperlink{symbol_8cpp_source}{symbol.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00064                                           \{}
+\DoxyCodeLine{00065   \textcolor{keywordflow}{return} m\_scn;}
+\DoxyCodeLine{00066 \}}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{symbol_8cpp_source_l00104}{name()}}, and \mbox{\hyperlink{recomp_8cpp_source_l00092}{theo\+::recomp\+::recomp\+\_\+t\+::resolve()}}.
+
+\mbox{\Hypertarget{classtheo_1_1decomp_1_1symbol__t_ae33f1452b01fe80f9c384241b9fe6286}\label{classtheo_1_1decomp_1_1symbol__t_ae33f1452b01fe80f9c384241b9fe6286}} 
+\index{theo::decomp::symbol\_t@{theo::decomp::symbol\_t}!size@{size}}
+\index{size@{size}!theo::decomp::symbol\_t@{theo::decomp::symbol\_t}}
+\doxysubsubsection{\texorpdfstring{size()}{size()}}
+{\footnotesize\ttfamily std\+::uint32\+\_\+t theo\+::decomp\+::symbol\+\_\+t\+::size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+returns the size of the symbol. 
+
+\begin{DoxyReturn}{Returns}
+the size of the symbol.
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{symbol_8cpp_source_l00072}{72}} of file \mbox{\hyperlink{symbol_8cpp_source}{symbol.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00072                                  \{}
+\DoxyCodeLine{00073   \textcolor{keywordflow}{return} m\_data.size();}
+\DoxyCodeLine{00074 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classtheo_1_1decomp_1_1symbol__t_a0e6f850f25a51609fbe5dc0a61b27bc9}\label{classtheo_1_1decomp_1_1symbol__t_a0e6f850f25a51609fbe5dc0a61b27bc9}} 
+\index{theo::decomp::symbol\_t@{theo::decomp::symbol\_t}!sym@{sym}}
+\index{sym@{sym}!theo::decomp::symbol\_t@{theo::decomp::symbol\_t}}
+\doxysubsubsection{\texorpdfstring{sym()}{sym()}}
+{\footnotesize\ttfamily coff\+::symbol\+\_\+t $\ast$ theo\+::decomp\+::symbol\+\_\+t\+::sym (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+returns a pointer to the coff symbol object. 
+
+\begin{DoxyReturn}{Returns}
+a pointer to the coff symbol object.
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{symbol_8cpp_source_l00092}{92}} of file \mbox{\hyperlink{symbol_8cpp_source}{symbol.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00092                                   \{}
+\DoxyCodeLine{00093   \textcolor{keywordflow}{return} m\_sym;}
+\DoxyCodeLine{00094 \}}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{symbol_8cpp_source_l00100}{hash()}}, \mbox{\hyperlink{symbol_8cpp_source_l00104}{name()}}, and \mbox{\hyperlink{jcc__rewrite__pass_8cpp_source_l00040}{theo\+::obf\+::jcc\+\_\+rewrite\+\_\+pass\+\_\+t\+::run()}}.
+
+\mbox{\Hypertarget{classtheo_1_1decomp_1_1symbol__t_a16587cddd37cd45d9ec6cd25c229e8d1}\label{classtheo_1_1decomp_1_1symbol__t_a16587cddd37cd45d9ec6cd25c229e8d1}} 
+\index{theo::decomp::symbol\_t@{theo::decomp::symbol\_t}!type@{type}}
+\index{type@{type}!theo::decomp::symbol\_t@{theo::decomp::symbol\_t}}
+\doxysubsubsection{\texorpdfstring{type()}{type()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacetheo_1_1decomp_af96177687d0ad683c5897d8fa01135f9}{sym\+\_\+type\+\_\+t}} theo\+::decomp\+::symbol\+\_\+t\+::type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+returns the type of the symbol. 
+
+\begin{DoxyReturn}{Returns}
+the type of the symbol.
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{symbol_8cpp_source_l00080}{80}} of file \mbox{\hyperlink{symbol_8cpp_source}{symbol.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00080                                 \{}
+\DoxyCodeLine{00081   \textcolor{keywordflow}{return} m\_sym\_type;}
+\DoxyCodeLine{00082 \}}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{recomp_8cpp_source_l00040}{theo\+::recomp\+::recomp\+\_\+t\+::allocate()}}, and \mbox{\hyperlink{recomp_8cpp_source_l00092}{theo\+::recomp\+::recomp\+\_\+t\+::resolve()}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/decomp/\mbox{\hyperlink{symbol_8hpp}{symbol.\+hpp}}\item 
+src/decomp/\mbox{\hyperlink{symbol_8cpp}{symbol.\+cpp}}\end{DoxyCompactItemize}

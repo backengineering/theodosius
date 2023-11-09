@@ -1,0 +1,14 @@
+[target.linux-pe]
+type = "interface"
+include-directories = ["linux-pe/includes/"]
+
+[subdir.spdlog]
+
+[target.xed]
+type = "interface"
+include-directories = ["xed/obj/wkit/include/xed"]
+cmake-after = """
+target_link_libraries(xed INTERFACE xed.lib)
+target_link_libraries(xed INTERFACE xed-ild.lib)
+target_link_directories(xed INTERFACE xed/obj/wkit/lib/)
+"""

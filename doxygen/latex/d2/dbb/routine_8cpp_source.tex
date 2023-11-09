@@ -1,0 +1,181 @@
+\hypertarget{routine_8cpp_source}{}\doxysection{routine.\+cpp}
+\label{routine_8cpp_source}\index{src/decomp/routine.cpp@{src/decomp/routine.cpp}}
+\mbox{\hyperlink{routine_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{routine_8cpp_source_l00001}00001 \textcolor{comment}{// Copyright (c) 2022, \_xeroxz}}
+\DoxyCodeLine{\Hypertarget{routine_8cpp_source_l00002}00002 \textcolor{comment}{// All rights reserved.}}
+\DoxyCodeLine{\Hypertarget{routine_8cpp_source_l00003}00003 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{routine_8cpp_source_l00004}00004 \textcolor{comment}{// Redistribution and use in source and binary forms, with or without}}
+\DoxyCodeLine{\Hypertarget{routine_8cpp_source_l00005}00005 \textcolor{comment}{// modification, are permitted provided that the following conditions are met:}}
+\DoxyCodeLine{\Hypertarget{routine_8cpp_source_l00006}00006 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{routine_8cpp_source_l00007}00007 \textcolor{comment}{// 1. Redistributions of source code must retain the above copyright notice,}}
+\DoxyCodeLine{\Hypertarget{routine_8cpp_source_l00008}00008 \textcolor{comment}{//    this list of conditions and the following disclaimer.}}
+\DoxyCodeLine{\Hypertarget{routine_8cpp_source_l00009}00009 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{routine_8cpp_source_l00010}00010 \textcolor{comment}{// 2. Redistributions in binary form must reproduce the above copyright notice,}}
+\DoxyCodeLine{\Hypertarget{routine_8cpp_source_l00011}00011 \textcolor{comment}{//    this list of conditions and the following disclaimer in the documentation}}
+\DoxyCodeLine{\Hypertarget{routine_8cpp_source_l00012}00012 \textcolor{comment}{//    and/or other materials provided with the distribution.}}
+\DoxyCodeLine{\Hypertarget{routine_8cpp_source_l00013}00013 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{routine_8cpp_source_l00014}00014 \textcolor{comment}{// 3. Neither the name of the copyright holder nor the names of its}}
+\DoxyCodeLine{\Hypertarget{routine_8cpp_source_l00015}00015 \textcolor{comment}{//    contributors may be used to endorse or promote products derived from}}
+\DoxyCodeLine{\Hypertarget{routine_8cpp_source_l00016}00016 \textcolor{comment}{//    this software without specific prior written permission.}}
+\DoxyCodeLine{\Hypertarget{routine_8cpp_source_l00017}00017 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{routine_8cpp_source_l00018}00018 \textcolor{comment}{// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "{}AS IS"{}}}
+\DoxyCodeLine{\Hypertarget{routine_8cpp_source_l00019}00019 \textcolor{comment}{// AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE}}
+\DoxyCodeLine{\Hypertarget{routine_8cpp_source_l00020}00020 \textcolor{comment}{// IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE}}
+\DoxyCodeLine{\Hypertarget{routine_8cpp_source_l00021}00021 \textcolor{comment}{// ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE}}
+\DoxyCodeLine{\Hypertarget{routine_8cpp_source_l00022}00022 \textcolor{comment}{// LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR}}
+\DoxyCodeLine{\Hypertarget{routine_8cpp_source_l00023}00023 \textcolor{comment}{// CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF}}
+\DoxyCodeLine{\Hypertarget{routine_8cpp_source_l00024}00024 \textcolor{comment}{// SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS}}
+\DoxyCodeLine{\Hypertarget{routine_8cpp_source_l00025}00025 \textcolor{comment}{// INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN}}
+\DoxyCodeLine{\Hypertarget{routine_8cpp_source_l00026}00026 \textcolor{comment}{// CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)}}
+\DoxyCodeLine{\Hypertarget{routine_8cpp_source_l00027}00027 \textcolor{comment}{// ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE}}
+\DoxyCodeLine{\Hypertarget{routine_8cpp_source_l00028}00028 \textcolor{comment}{// POSSIBILITY OF SUCH DAMAGE.}}
+\DoxyCodeLine{\Hypertarget{routine_8cpp_source_l00029}00029 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{routine_8cpp_source_l00030}00030 }
+\DoxyCodeLine{\Hypertarget{routine_8cpp_source_l00031}00031 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{routine_8hpp}{decomp/routine.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{routine_8cpp_source_l00032}00032 }
+\DoxyCodeLine{\Hypertarget{routine_8cpp_source_l00033}00033 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespacetheo_1_1decomp}{theo::decomp}} \{}
+\DoxyCodeLine{\Hypertarget{routine_8cpp_source_l00034}\mbox{\hyperlink{classtheo_1_1decomp_1_1routine__t_ab9f0693c5ec50954d953b28bebe4426b}{00034}} \mbox{\hyperlink{classtheo_1_1decomp_1_1routine__t_ab9f0693c5ec50954d953b28bebe4426b}{routine\_t::routine\_t}}(coff::symbol\_t* sym,}
+\DoxyCodeLine{\Hypertarget{routine_8cpp_source_l00035}00035                      coff::image\_t* img,}
+\DoxyCodeLine{\Hypertarget{routine_8cpp_source_l00036}00036                      coff::section\_header\_t* scn,}
+\DoxyCodeLine{\Hypertarget{routine_8cpp_source_l00037}00037                      std::vector<std::uint8\_t>\& fn,}
+\DoxyCodeLine{\Hypertarget{routine_8cpp_source_l00038}00038                      \mbox{\hyperlink{namespacetheo_1_1decomp_af96177687d0ad683c5897d8fa01135f9}{sym\_type\_t}} dcmp\_type)}
+\DoxyCodeLine{\Hypertarget{routine_8cpp_source_l00039}00039     : m\_img(img), m\_scn(scn), m\_data(fn), m\_dcmp\_type(dcmp\_type), m\_sym(sym) \{\}}
+\DoxyCodeLine{\Hypertarget{routine_8cpp_source_l00040}00040 }
+\DoxyCodeLine{\Hypertarget{routine_8cpp_source_l00041}\mbox{\hyperlink{classtheo_1_1decomp_1_1routine__t_a1f790bd144badc71d6c4942cac8fc4e8}{00041}} std::vector<decomp::symbol\_t> \mbox{\hyperlink{classtheo_1_1decomp_1_1routine__t_a1f790bd144badc71d6c4942cac8fc4e8}{routine\_t::decompose}}() \{}
+\DoxyCodeLine{\Hypertarget{routine_8cpp_source_l00042}00042   std::vector<decomp::symbol\_t> result;}
+\DoxyCodeLine{\Hypertarget{routine_8cpp_source_l00043}00043 }
+\DoxyCodeLine{\Hypertarget{routine_8cpp_source_l00044}00044   \textcolor{keywordflow}{switch} (m\_dcmp\_type) \{}
+\DoxyCodeLine{\Hypertarget{routine_8cpp_source_l00045}00045     \textcolor{keywordflow}{case} \mbox{\hyperlink{namespacetheo_1_1decomp_af96177687d0ad683c5897d8fa01135f9acf6baee49c2ddb7e89724231bbd75d4a}{function}}: \{}
+\DoxyCodeLine{\Hypertarget{routine_8cpp_source_l00046}00046       std::vector<recomp::reloc\_t> relocs;}
+\DoxyCodeLine{\Hypertarget{routine_8cpp_source_l00047}00047       \textcolor{keyword}{auto} scn\_relocs = \textcolor{keyword}{reinterpret\_cast<}coff::reloc\_t*\textcolor{keyword}{>}(}
+\DoxyCodeLine{\Hypertarget{routine_8cpp_source_l00048}00048           m\_scn-\/>ptr\_relocs + \textcolor{keyword}{reinterpret\_cast<}std::uint8\_t*\textcolor{keyword}{>}(m\_img));}
+\DoxyCodeLine{\Hypertarget{routine_8cpp_source_l00049}00049 }
+\DoxyCodeLine{\Hypertarget{routine_8cpp_source_l00050}00050       \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} idx = 0u; idx < m\_scn-\/>num\_relocs; ++idx) \{}
+\DoxyCodeLine{\Hypertarget{routine_8cpp_source_l00051}00051         \textcolor{keyword}{auto} scn\_reloc = \&scn\_relocs[idx];}
+\DoxyCodeLine{\Hypertarget{routine_8cpp_source_l00052}00052         \textcolor{comment}{// if the reloc is in the current function...}}
+\DoxyCodeLine{\Hypertarget{routine_8cpp_source_l00053}00053         \textcolor{keywordflow}{if} (scn\_reloc-\/>virtual\_address >= m\_sym-\/>value \&\&}
+\DoxyCodeLine{\Hypertarget{routine_8cpp_source_l00054}00054             scn\_reloc-\/>virtual\_address < m\_sym-\/>value + m\_data.size()) \{}
+\DoxyCodeLine{\Hypertarget{routine_8cpp_source_l00055}00055           \textcolor{keyword}{auto} sym\_reloc = m\_img-\/>get\_symbol(scn\_relocs[idx].symbol\_index);}
+\DoxyCodeLine{\Hypertarget{routine_8cpp_source_l00056}00056           \textcolor{keyword}{auto} sym\_name = \mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t_a7c6dee036291ded334aa10d89293fc2a}{symbol\_t::name}}(m\_img, sym\_reloc);}
+\DoxyCodeLine{\Hypertarget{routine_8cpp_source_l00057}00057           \textcolor{keyword}{auto} sym\_hash = \mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t_a8695d75670cc4d61d275464e9109ff06}{decomp::symbol\_t::hash}}(sym\_name.data());}
+\DoxyCodeLine{\Hypertarget{routine_8cpp_source_l00058}00058           relocs.push\_back(}
+\DoxyCodeLine{\Hypertarget{routine_8cpp_source_l00059}00059               \mbox{\hyperlink{classtheo_1_1recomp_1_1reloc__t}{recomp::reloc\_t}}(scn\_reloc-\/>virtual\_address -\/ m\_sym-\/>value,}
+\DoxyCodeLine{\Hypertarget{routine_8cpp_source_l00060}00060                               sym\_hash, sym\_name.data()));}
+\DoxyCodeLine{\Hypertarget{routine_8cpp_source_l00061}00061         \}}
+\DoxyCodeLine{\Hypertarget{routine_8cpp_source_l00062}00062       \}}
+\DoxyCodeLine{\Hypertarget{routine_8cpp_source_l00063}00063 }
+\DoxyCodeLine{\Hypertarget{routine_8cpp_source_l00064}00064       result.push\_back(\mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t}{decomp::symbol\_t}}(}
+\DoxyCodeLine{\Hypertarget{routine_8cpp_source_l00065}00065           m\_img, \mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t_a7c6dee036291ded334aa10d89293fc2a}{symbol\_t::name}}(m\_img, m\_sym).\mbox{\hyperlink{classtheo_1_1decomp_1_1routine__t_a605a2be669a10a5a45325a5dca04401a}{data}}(), m\_sym-\/>value, m\_data,}
+\DoxyCodeLine{\Hypertarget{routine_8cpp_source_l00066}00066           m\_scn, m\_sym, relocs, \mbox{\hyperlink{namespacetheo_1_1decomp_af96177687d0ad683c5897d8fa01135f9acf6baee49c2ddb7e89724231bbd75d4a}{sym\_type\_t::function}}));}
+\DoxyCodeLine{\Hypertarget{routine_8cpp_source_l00067}00067       \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{routine_8cpp_source_l00068}00068     \}}
+\DoxyCodeLine{\Hypertarget{routine_8cpp_source_l00069}00069     \textcolor{keywordflow}{case} \mbox{\hyperlink{namespacetheo_1_1decomp_af96177687d0ad683c5897d8fa01135f9a4842f4c175b1ec87fc82ef3757d3a0e9}{instruction}}: \{}
+\DoxyCodeLine{\Hypertarget{routine_8cpp_source_l00070}00070       std::uint32\_t offset = \{\};}
+\DoxyCodeLine{\Hypertarget{routine_8cpp_source_l00071}00071       xed\_error\_enum\_t err;}
+\DoxyCodeLine{\Hypertarget{routine_8cpp_source_l00072}00072 }
+\DoxyCodeLine{\Hypertarget{routine_8cpp_source_l00073}00073       xed\_decoded\_inst\_t instr;}
+\DoxyCodeLine{\Hypertarget{routine_8cpp_source_l00074}00074       xed\_state\_t istate\{XED\_MACHINE\_MODE\_LONG\_64, XED\_ADDRESS\_WIDTH\_64b\};}
+\DoxyCodeLine{\Hypertarget{routine_8cpp_source_l00075}00075       xed\_decoded\_inst\_zero\_set\_mode(\&instr, \&istate);}
+\DoxyCodeLine{\Hypertarget{routine_8cpp_source_l00076}00076 }
+\DoxyCodeLine{\Hypertarget{routine_8cpp_source_l00077}00077       \textcolor{comment}{// keep looping over the section, lower the number of bytes each time...}}
+\DoxyCodeLine{\Hypertarget{routine_8cpp_source_l00078}00078       \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{routine_8cpp_source_l00079}00079       \textcolor{keywordflow}{while} ((err = xed\_decode(\&instr, m\_data.data() + offset,}
+\DoxyCodeLine{\Hypertarget{routine_8cpp_source_l00080}00080                                m\_data.size() -\/ offset)) == XED\_ERROR\_NONE) \{}
+\DoxyCodeLine{\Hypertarget{routine_8cpp_source_l00081}00081         \textcolor{comment}{// symbol name is of the format: symbol@instroffset, I.E: main@11...}}
+\DoxyCodeLine{\Hypertarget{routine_8cpp_source_l00082}00082         \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{routine_8cpp_source_l00083}00083         \textcolor{keyword}{auto} new\_sym\_name = \mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t_a7c6dee036291ded334aa10d89293fc2a}{symbol\_t::name}}(m\_img, m\_sym);}
+\DoxyCodeLine{\Hypertarget{routine_8cpp_source_l00084}00084 }
+\DoxyCodeLine{\Hypertarget{routine_8cpp_source_l00085}00085         \textcolor{comment}{// first instruction doesnt need the @offset...}}
+\DoxyCodeLine{\Hypertarget{routine_8cpp_source_l00086}00086         \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{routine_8cpp_source_l00087}00087         \textcolor{keywordflow}{if} (offset)}
+\DoxyCodeLine{\Hypertarget{routine_8cpp_source_l00088}00088           new\_sym\_name.append(\textcolor{stringliteral}{"{}@"{}}).append(std::to\_string(offset));}
+\DoxyCodeLine{\Hypertarget{routine_8cpp_source_l00089}00089 }
+\DoxyCodeLine{\Hypertarget{routine_8cpp_source_l00090}00090         std::vector<recomp::reloc\_t> relocs;}
+\DoxyCodeLine{\Hypertarget{routine_8cpp_source_l00091}00091         \textcolor{keyword}{auto} scn\_relocs = \textcolor{keyword}{reinterpret\_cast<}coff::reloc\_t*\textcolor{keyword}{>}(}
+\DoxyCodeLine{\Hypertarget{routine_8cpp_source_l00092}00092             m\_scn-\/>ptr\_relocs + \textcolor{keyword}{reinterpret\_cast<}std::uint8\_t*\textcolor{keyword}{>}(m\_img));}
+\DoxyCodeLine{\Hypertarget{routine_8cpp_source_l00093}00093 }
+\DoxyCodeLine{\Hypertarget{routine_8cpp_source_l00094}00094         \textcolor{comment}{// find if this instruction has a relocation or not...}}
+\DoxyCodeLine{\Hypertarget{routine_8cpp_source_l00095}00095         \textcolor{comment}{// if so, return the reloc\_t...}}
+\DoxyCodeLine{\Hypertarget{routine_8cpp_source_l00096}00096         \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{routine_8cpp_source_l00097}00097         \textcolor{keyword}{auto} reloc = std::find\_if(}
+\DoxyCodeLine{\Hypertarget{routine_8cpp_source_l00098}00098             scn\_relocs, scn\_relocs + m\_scn-\/>num\_relocs,}
+\DoxyCodeLine{\Hypertarget{routine_8cpp_source_l00099}00099             [\&](coff::reloc\_t reloc) \{}
+\DoxyCodeLine{\Hypertarget{routine_8cpp_source_l00100}00100               return reloc.virtual\_address >= m\_sym-\/>value + offset \&\&}
+\DoxyCodeLine{\Hypertarget{routine_8cpp_source_l00101}00101                      reloc.virtual\_address <}
+\DoxyCodeLine{\Hypertarget{routine_8cpp_source_l00102}00102                          m\_sym-\/>value + offset +}
+\DoxyCodeLine{\Hypertarget{routine_8cpp_source_l00103}00103                              xed\_decoded\_inst\_get\_length(\&instr);}
+\DoxyCodeLine{\Hypertarget{routine_8cpp_source_l00104}00104             \});}
+\DoxyCodeLine{\Hypertarget{routine_8cpp_source_l00105}00105 }
+\DoxyCodeLine{\Hypertarget{routine_8cpp_source_l00106}00106         \textcolor{comment}{// if there is indeed a reloc for this instruction...}}
+\DoxyCodeLine{\Hypertarget{routine_8cpp_source_l00107}00107         \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{routine_8cpp_source_l00108}00108         \textcolor{keywordflow}{if} (reloc != scn\_relocs + m\_scn-\/>num\_relocs) \{}
+\DoxyCodeLine{\Hypertarget{routine_8cpp_source_l00109}00109           \textcolor{keyword}{auto} sym\_reloc = m\_img-\/>get\_symbol(reloc-\/>symbol\_index);}
+\DoxyCodeLine{\Hypertarget{routine_8cpp_source_l00110}00110           \textcolor{keyword}{auto} sym\_name = \mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t_a7c6dee036291ded334aa10d89293fc2a}{symbol\_t::name}}(m\_img, sym\_reloc);}
+\DoxyCodeLine{\Hypertarget{routine_8cpp_source_l00111}00111           \textcolor{keyword}{auto} sym\_hash = \mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t_a8695d75670cc4d61d275464e9109ff06}{decomp::symbol\_t::hash}}(sym\_name.data());}
+\DoxyCodeLine{\Hypertarget{routine_8cpp_source_l00112}00112           \textcolor{keyword}{auto} reloc\_offset = reloc-\/>virtual\_address -\/ m\_sym-\/>value -\/ offset;}
+\DoxyCodeLine{\Hypertarget{routine_8cpp_source_l00113}00113 }
+\DoxyCodeLine{\Hypertarget{routine_8cpp_source_l00114}00114           relocs.push\_back(}
+\DoxyCodeLine{\Hypertarget{routine_8cpp_source_l00115}00115               \mbox{\hyperlink{classtheo_1_1recomp_1_1reloc__t}{recomp::reloc\_t}}(reloc\_offset, sym\_hash, sym\_name.data()));}
+\DoxyCodeLine{\Hypertarget{routine_8cpp_source_l00116}00116         \}}
+\DoxyCodeLine{\Hypertarget{routine_8cpp_source_l00117}00117 }
+\DoxyCodeLine{\Hypertarget{routine_8cpp_source_l00118}00118         \textcolor{comment}{// add a reloc to the next instruction...}}
+\DoxyCodeLine{\Hypertarget{routine_8cpp_source_l00119}00119         \textcolor{comment}{// note that the offset is ZERO... comp\_t will understand that}}
+\DoxyCodeLine{\Hypertarget{routine_8cpp_source_l00120}00120         \textcolor{comment}{// relocs with offset ZERO means the next instructions...}}
+\DoxyCodeLine{\Hypertarget{routine_8cpp_source_l00121}00121         \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{routine_8cpp_source_l00122}00122         \textcolor{keyword}{auto} next\_inst\_sym =}
+\DoxyCodeLine{\Hypertarget{routine_8cpp_source_l00123}00123             \mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t_a7c6dee036291ded334aa10d89293fc2a}{symbol\_t::name}}(m\_img, m\_sym)}
+\DoxyCodeLine{\Hypertarget{routine_8cpp_source_l00124}00124                 .append(\textcolor{stringliteral}{"{}@"{}})}
+\DoxyCodeLine{\Hypertarget{routine_8cpp_source_l00125}00125                 .append(std::to\_string(offset +}
+\DoxyCodeLine{\Hypertarget{routine_8cpp_source_l00126}00126                                        xed\_decoded\_inst\_get\_length(\&instr)));}
+\DoxyCodeLine{\Hypertarget{routine_8cpp_source_l00127}00127 }
+\DoxyCodeLine{\Hypertarget{routine_8cpp_source_l00128}00128         relocs.push\_back(\mbox{\hyperlink{classtheo_1_1recomp_1_1reloc__t}{recomp::reloc\_t}}(}
+\DoxyCodeLine{\Hypertarget{routine_8cpp_source_l00129}00129             0, \mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t_a8695d75670cc4d61d275464e9109ff06}{decomp::symbol\_t::hash}}(next\_inst\_sym), next\_inst\_sym.data()));}
+\DoxyCodeLine{\Hypertarget{routine_8cpp_source_l00130}00130 }
+\DoxyCodeLine{\Hypertarget{routine_8cpp_source_l00131}00131         \textcolor{comment}{// get the instructions bytes}}
+\DoxyCodeLine{\Hypertarget{routine_8cpp_source_l00132}00132         \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{routine_8cpp_source_l00133}00133         std::vector<std::uint8\_t> inst\_bytes(}
+\DoxyCodeLine{\Hypertarget{routine_8cpp_source_l00134}00134             m\_data.data() + offset,}
+\DoxyCodeLine{\Hypertarget{routine_8cpp_source_l00135}00135             m\_data.data() + offset + xed\_decoded\_inst\_get\_length(\&instr));}
+\DoxyCodeLine{\Hypertarget{routine_8cpp_source_l00136}00136 }
+\DoxyCodeLine{\Hypertarget{routine_8cpp_source_l00137}00137         result.push\_back(\mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t}{decomp::symbol\_t}}(m\_img, new\_sym\_name, offset,}
+\DoxyCodeLine{\Hypertarget{routine_8cpp_source_l00138}00138                                           inst\_bytes, m\_scn, m\_sym, relocs,}
+\DoxyCodeLine{\Hypertarget{routine_8cpp_source_l00139}00139                                           \mbox{\hyperlink{namespacetheo_1_1decomp_af96177687d0ad683c5897d8fa01135f9a4842f4c175b1ec87fc82ef3757d3a0e9}{sym\_type\_t::instruction}}));}
+\DoxyCodeLine{\Hypertarget{routine_8cpp_source_l00140}00140 }
+\DoxyCodeLine{\Hypertarget{routine_8cpp_source_l00141}00141         \textcolor{comment}{// after creating the symbol and dealing with relocs then print the}}
+\DoxyCodeLine{\Hypertarget{routine_8cpp_source_l00142}00142         \textcolor{comment}{// information we have concluded...}}
+\DoxyCodeLine{\Hypertarget{routine_8cpp_source_l00143}00143         \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{routine_8cpp_source_l00144}00144         \textcolor{keywordtype}{char} buff[255];}
+\DoxyCodeLine{\Hypertarget{routine_8cpp_source_l00145}00145         offset += xed\_decoded\_inst\_get\_length(\&instr);}
+\DoxyCodeLine{\Hypertarget{routine_8cpp_source_l00146}00146         xed\_format\_context(XED\_SYNTAX\_INTEL, \&instr, buff, \textcolor{keyword}{sizeof} buff, NULL,}
+\DoxyCodeLine{\Hypertarget{routine_8cpp_source_l00147}00147                            NULL, NULL);}
+\DoxyCodeLine{\Hypertarget{routine_8cpp_source_l00148}00148 }
+\DoxyCodeLine{\Hypertarget{routine_8cpp_source_l00149}00149         spdlog::info(\textcolor{stringliteral}{"{}\{\}: \{\}"{}}, new\_sym\_name, buff);}
+\DoxyCodeLine{\Hypertarget{routine_8cpp_source_l00150}00150         \textcolor{comment}{// need to set this so that instr can be used to decode again...}}
+\DoxyCodeLine{\Hypertarget{routine_8cpp_source_l00151}00151         xed\_decoded\_inst\_zero\_set\_mode(\&instr, \&istate);}
+\DoxyCodeLine{\Hypertarget{routine_8cpp_source_l00152}00152       \}}
+\DoxyCodeLine{\Hypertarget{routine_8cpp_source_l00153}00153 }
+\DoxyCodeLine{\Hypertarget{routine_8cpp_source_l00154}00154       \textcolor{comment}{// remove the relocation to the next symbol from the last instruction}}
+\DoxyCodeLine{\Hypertarget{routine_8cpp_source_l00155}00155       \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{routine_8cpp_source_l00156}00156       \textcolor{keyword}{auto}\& last\_inst = result.back();}
+\DoxyCodeLine{\Hypertarget{routine_8cpp_source_l00157}00157       \textcolor{keyword}{auto}\& last\_inst\_relocs = last\_inst.relocs();}
+\DoxyCodeLine{\Hypertarget{routine_8cpp_source_l00158}00158       last\_inst\_relocs.erase(last\_inst\_relocs.end() -\/ 1);}
+\DoxyCodeLine{\Hypertarget{routine_8cpp_source_l00159}00159       \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{routine_8cpp_source_l00160}00160     \}}
+\DoxyCodeLine{\Hypertarget{routine_8cpp_source_l00161}00161     \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{\Hypertarget{routine_8cpp_source_l00162}00162       \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{routine_8cpp_source_l00163}00163   \}}
+\DoxyCodeLine{\Hypertarget{routine_8cpp_source_l00164}00164 }
+\DoxyCodeLine{\Hypertarget{routine_8cpp_source_l00165}00165   \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{\Hypertarget{routine_8cpp_source_l00166}00166 \}}
+\DoxyCodeLine{\Hypertarget{routine_8cpp_source_l00167}00167 }
+\DoxyCodeLine{\Hypertarget{routine_8cpp_source_l00168}\mbox{\hyperlink{classtheo_1_1decomp_1_1routine__t_ad3a75cb97abbcd9b282772401b256f36}{00168}} coff::section\_header\_t* \mbox{\hyperlink{classtheo_1_1decomp_1_1routine__t_ad3a75cb97abbcd9b282772401b256f36}{routine\_t::scn}}() \{}
+\DoxyCodeLine{\Hypertarget{routine_8cpp_source_l00169}00169   \textcolor{keywordflow}{return} m\_scn;}
+\DoxyCodeLine{\Hypertarget{routine_8cpp_source_l00170}00170 \}}
+\DoxyCodeLine{\Hypertarget{routine_8cpp_source_l00171}00171 }
+\DoxyCodeLine{\Hypertarget{routine_8cpp_source_l00172}\mbox{\hyperlink{classtheo_1_1decomp_1_1routine__t_a605a2be669a10a5a45325a5dca04401a}{00172}} std::vector<std::uint8\_t> \mbox{\hyperlink{classtheo_1_1decomp_1_1routine__t_a605a2be669a10a5a45325a5dca04401a}{routine\_t::data}}() \{}
+\DoxyCodeLine{\Hypertarget{routine_8cpp_source_l00173}00173   \textcolor{keywordflow}{return} m\_data;}
+\DoxyCodeLine{\Hypertarget{routine_8cpp_source_l00174}00174 \}}
+\DoxyCodeLine{\Hypertarget{routine_8cpp_source_l00175}00175 \}  \textcolor{comment}{// namespace theo::decomp}}
+
+\end{DoxyCode}

@@ -1,0 +1,83 @@
+\hypertarget{reloc__transform__pass_8cpp_source}{}\doxysection{reloc\+\_\+transform\+\_\+pass.\+cpp}
+\label{reloc__transform__pass_8cpp_source}\index{src/obf/passes/reloc\_transform\_pass.cpp@{src/obf/passes/reloc\_transform\_pass.cpp}}
+\mbox{\hyperlink{reloc__transform__pass_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{reloc__transform__pass_8cpp_source_l00001}00001 \textcolor{comment}{// Copyright (c) 2022, \_xeroxz}}
+\DoxyCodeLine{\Hypertarget{reloc__transform__pass_8cpp_source_l00002}00002 \textcolor{comment}{// All rights reserved.}}
+\DoxyCodeLine{\Hypertarget{reloc__transform__pass_8cpp_source_l00003}00003 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{reloc__transform__pass_8cpp_source_l00004}00004 \textcolor{comment}{// Redistribution and use in source and binary forms, with or without}}
+\DoxyCodeLine{\Hypertarget{reloc__transform__pass_8cpp_source_l00005}00005 \textcolor{comment}{// modification, are permitted provided that the following conditions are met:}}
+\DoxyCodeLine{\Hypertarget{reloc__transform__pass_8cpp_source_l00006}00006 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{reloc__transform__pass_8cpp_source_l00007}00007 \textcolor{comment}{// 1. Redistributions of source code must retain the above copyright notice,}}
+\DoxyCodeLine{\Hypertarget{reloc__transform__pass_8cpp_source_l00008}00008 \textcolor{comment}{//    this list of conditions and the following disclaimer.}}
+\DoxyCodeLine{\Hypertarget{reloc__transform__pass_8cpp_source_l00009}00009 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{reloc__transform__pass_8cpp_source_l00010}00010 \textcolor{comment}{// 2. Redistributions in binary form must reproduce the above copyright notice,}}
+\DoxyCodeLine{\Hypertarget{reloc__transform__pass_8cpp_source_l00011}00011 \textcolor{comment}{//    this list of conditions and the following disclaimer in the documentation}}
+\DoxyCodeLine{\Hypertarget{reloc__transform__pass_8cpp_source_l00012}00012 \textcolor{comment}{//    and/or other materials provided with the distribution.}}
+\DoxyCodeLine{\Hypertarget{reloc__transform__pass_8cpp_source_l00013}00013 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{reloc__transform__pass_8cpp_source_l00014}00014 \textcolor{comment}{// 3. Neither the name of the copyright holder nor the names of its}}
+\DoxyCodeLine{\Hypertarget{reloc__transform__pass_8cpp_source_l00015}00015 \textcolor{comment}{//    contributors may be used to endorse or promote products derived from}}
+\DoxyCodeLine{\Hypertarget{reloc__transform__pass_8cpp_source_l00016}00016 \textcolor{comment}{//    this software without specific prior written permission.}}
+\DoxyCodeLine{\Hypertarget{reloc__transform__pass_8cpp_source_l00017}00017 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{reloc__transform__pass_8cpp_source_l00018}00018 \textcolor{comment}{// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "{}AS IS"{}}}
+\DoxyCodeLine{\Hypertarget{reloc__transform__pass_8cpp_source_l00019}00019 \textcolor{comment}{// AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE}}
+\DoxyCodeLine{\Hypertarget{reloc__transform__pass_8cpp_source_l00020}00020 \textcolor{comment}{// IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE}}
+\DoxyCodeLine{\Hypertarget{reloc__transform__pass_8cpp_source_l00021}00021 \textcolor{comment}{// ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE}}
+\DoxyCodeLine{\Hypertarget{reloc__transform__pass_8cpp_source_l00022}00022 \textcolor{comment}{// LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR}}
+\DoxyCodeLine{\Hypertarget{reloc__transform__pass_8cpp_source_l00023}00023 \textcolor{comment}{// CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF}}
+\DoxyCodeLine{\Hypertarget{reloc__transform__pass_8cpp_source_l00024}00024 \textcolor{comment}{// SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS}}
+\DoxyCodeLine{\Hypertarget{reloc__transform__pass_8cpp_source_l00025}00025 \textcolor{comment}{// INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN}}
+\DoxyCodeLine{\Hypertarget{reloc__transform__pass_8cpp_source_l00026}00026 \textcolor{comment}{// CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)}}
+\DoxyCodeLine{\Hypertarget{reloc__transform__pass_8cpp_source_l00027}00027 \textcolor{comment}{// ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE}}
+\DoxyCodeLine{\Hypertarget{reloc__transform__pass_8cpp_source_l00028}00028 \textcolor{comment}{// POSSIBILITY OF SUCH DAMAGE.}}
+\DoxyCodeLine{\Hypertarget{reloc__transform__pass_8cpp_source_l00029}00029 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{reloc__transform__pass_8cpp_source_l00030}00030 }
+\DoxyCodeLine{\Hypertarget{reloc__transform__pass_8cpp_source_l00031}00031 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{reloc__transform__pass_8hpp}{obf/passes/reloc\_transform\_pass.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{reloc__transform__pass_8cpp_source_l00032}00032 }
+\DoxyCodeLine{\Hypertarget{reloc__transform__pass_8cpp_source_l00033}00033 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespacetheo_1_1obf}{theo::obf}} \{}
+\DoxyCodeLine{\Hypertarget{reloc__transform__pass_8cpp_source_l00034}\mbox{\hyperlink{classtheo_1_1obf_1_1reloc__transform__pass__t_a89aa46da5f721057cd8cf5189207d464}{00034}} \mbox{\hyperlink{classtheo_1_1obf_1_1reloc__transform__pass__t}{reloc\_transform\_pass\_t}}* \mbox{\hyperlink{classtheo_1_1obf_1_1reloc__transform__pass__t_a89aa46da5f721057cd8cf5189207d464}{reloc\_transform\_pass\_t::get}}() \{}
+\DoxyCodeLine{\Hypertarget{reloc__transform__pass_8cpp_source_l00035}00035   \textcolor{keyword}{static} \mbox{\hyperlink{classtheo_1_1obf_1_1reloc__transform__pass__t}{reloc\_transform\_pass\_t}} obj;}
+\DoxyCodeLine{\Hypertarget{reloc__transform__pass_8cpp_source_l00036}00036   \textcolor{keywordflow}{return} \&obj;}
+\DoxyCodeLine{\Hypertarget{reloc__transform__pass_8cpp_source_l00037}00037 \}}
+\DoxyCodeLine{\Hypertarget{reloc__transform__pass_8cpp_source_l00038}00038 }
+\DoxyCodeLine{\Hypertarget{reloc__transform__pass_8cpp_source_l00039}\mbox{\hyperlink{classtheo_1_1obf_1_1reloc__transform__pass__t_a24e122f6be18a88ea1809252ab3ec0b9}{00039}} \textcolor{keywordtype}{void} \mbox{\hyperlink{classtheo_1_1obf_1_1reloc__transform__pass__t_a24e122f6be18a88ea1809252ab3ec0b9}{reloc\_transform\_pass\_t::run}}(\mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t}{decomp::symbol\_t}}* sym) \{}
+\DoxyCodeLine{\Hypertarget{reloc__transform__pass_8cpp_source_l00040}00040   std::optional<recomp::reloc\_t*> reloc;}
+\DoxyCodeLine{\Hypertarget{reloc__transform__pass_8cpp_source_l00041}00041   \textcolor{keywordflow}{if} (!(reloc = has\_legit\_reloc(sym)).has\_value())}
+\DoxyCodeLine{\Hypertarget{reloc__transform__pass_8cpp_source_l00042}00042     \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{reloc__transform__pass_8cpp_source_l00043}00043 }
+\DoxyCodeLine{\Hypertarget{reloc__transform__pass_8cpp_source_l00044}00044   spdlog::info(\textcolor{stringliteral}{"{}adding transformations to relocation in symbol: \{\}"{}},}
+\DoxyCodeLine{\Hypertarget{reloc__transform__pass_8cpp_source_l00045}00045                sym-\/>\mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t_a7c6dee036291ded334aa10d89293fc2a}{name}}());}
+\DoxyCodeLine{\Hypertarget{reloc__transform__pass_8cpp_source_l00046}00046 }
+\DoxyCodeLine{\Hypertarget{reloc__transform__pass_8cpp_source_l00047}00047   xed\_error\_enum\_t err;}
+\DoxyCodeLine{\Hypertarget{reloc__transform__pass_8cpp_source_l00048}00048   xed\_decoded\_inst\_t inst;}
+\DoxyCodeLine{\Hypertarget{reloc__transform__pass_8cpp_source_l00049}00049   xed\_state\_t istate\{XED\_MACHINE\_MODE\_LONG\_64, XED\_ADDRESS\_WIDTH\_64b\};}
+\DoxyCodeLine{\Hypertarget{reloc__transform__pass_8cpp_source_l00050}00050   xed\_decoded\_inst\_zero\_set\_mode(\&inst, \&istate);}
+\DoxyCodeLine{\Hypertarget{reloc__transform__pass_8cpp_source_l00051}00051 }
+\DoxyCodeLine{\Hypertarget{reloc__transform__pass_8cpp_source_l00052}00052   \textcolor{keywordflow}{if} ((err = xed\_decode(\&inst, sym-\/>\mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t_aa3ecf0b480d10bffe68812409c06d61b}{data}}().data(), sym-\/>\mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t_aa3ecf0b480d10bffe68812409c06d61b}{data}}().size())) !=}
+\DoxyCodeLine{\Hypertarget{reloc__transform__pass_8cpp_source_l00053}00053       XED\_ERROR\_NONE) \{}
+\DoxyCodeLine{\Hypertarget{reloc__transform__pass_8cpp_source_l00054}00054     spdlog::error(\textcolor{stringliteral}{"{}failed to decode instruction, reason: \{\} in symbol: \{\}"{}},}
+\DoxyCodeLine{\Hypertarget{reloc__transform__pass_8cpp_source_l00055}00055                   xed\_error\_enum\_t2str(err), sym-\/>\mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t_a7c6dee036291ded334aa10d89293fc2a}{name}}());}
+\DoxyCodeLine{\Hypertarget{reloc__transform__pass_8cpp_source_l00056}00056 }
+\DoxyCodeLine{\Hypertarget{reloc__transform__pass_8cpp_source_l00057}00057     assert(err == XED\_ERROR\_NONE);}
+\DoxyCodeLine{\Hypertarget{reloc__transform__pass_8cpp_source_l00058}00058   \}}
+\DoxyCodeLine{\Hypertarget{reloc__transform__pass_8cpp_source_l00059}00059 }
+\DoxyCodeLine{\Hypertarget{reloc__transform__pass_8cpp_source_l00060}00060   \textcolor{keyword}{auto} transforms\_bytes = \mbox{\hyperlink{namespacetheo_1_1obf_1_1transform_abb618f5ff8d88963dd77e682456ef982}{transform::generate}}(\&inst, reloc.value(), 3, 6);}
+\DoxyCodeLine{\Hypertarget{reloc__transform__pass_8cpp_source_l00061}00061   sym-\/>\mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t_aa3ecf0b480d10bffe68812409c06d61b}{data}}().insert(sym-\/>\mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t_aa3ecf0b480d10bffe68812409c06d61b}{data}}().end(), transforms\_bytes.begin(),}
+\DoxyCodeLine{\Hypertarget{reloc__transform__pass_8cpp_source_l00062}00062                      transforms\_bytes.end());}
+\DoxyCodeLine{\Hypertarget{reloc__transform__pass_8cpp_source_l00063}00063 \};}
+\DoxyCodeLine{\Hypertarget{reloc__transform__pass_8cpp_source_l00064}00064 }
+\DoxyCodeLine{\Hypertarget{reloc__transform__pass_8cpp_source_l00065}00065 std::optional<recomp::reloc\_t*> reloc\_transform\_pass\_t::has\_legit\_reloc(}
+\DoxyCodeLine{\Hypertarget{reloc__transform__pass_8cpp_source_l00066}00066     \mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t}{decomp::symbol\_t}}* sym) \{}
+\DoxyCodeLine{\Hypertarget{reloc__transform__pass_8cpp_source_l00067}00067   \textcolor{keyword}{auto} res =  \textcolor{comment}{// see if there are any relocations with offset not equal to}}
+\DoxyCodeLine{\Hypertarget{reloc__transform__pass_8cpp_source_l00068}00068               \textcolor{comment}{// zero... relocations with zero mean its a relocation to the next}}
+\DoxyCodeLine{\Hypertarget{reloc__transform__pass_8cpp_source_l00069}00069               \textcolor{comment}{// instruction...}}
+\DoxyCodeLine{\Hypertarget{reloc__transform__pass_8cpp_source_l00070}00070       std::find\_if(}
+\DoxyCodeLine{\Hypertarget{reloc__transform__pass_8cpp_source_l00071}00071           sym-\/>\mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t_abc158e1dc1567161f0a57ed15fc718f7}{relocs}}().begin(), sym-\/>\mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t_abc158e1dc1567161f0a57ed15fc718f7}{relocs}}().end(),}
+\DoxyCodeLine{\Hypertarget{reloc__transform__pass_8cpp_source_l00072}00072           [\&](\mbox{\hyperlink{classtheo_1_1recomp_1_1reloc__t}{recomp::reloc\_t}}\& reloc) -\/> \textcolor{keywordtype}{bool} \{ return reloc.offset(); \});}
+\DoxyCodeLine{\Hypertarget{reloc__transform__pass_8cpp_source_l00073}00073 }
+\DoxyCodeLine{\Hypertarget{reloc__transform__pass_8cpp_source_l00074}00074   \textcolor{keywordflow}{return} res != sym-\/>\mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t_abc158e1dc1567161f0a57ed15fc718f7}{relocs}}().end() ? \&(*res)}
+\DoxyCodeLine{\Hypertarget{reloc__transform__pass_8cpp_source_l00075}00075                                     : std::optional<recomp::reloc\_t*>();}
+\DoxyCodeLine{\Hypertarget{reloc__transform__pass_8cpp_source_l00076}00076 \}}
+\DoxyCodeLine{\Hypertarget{reloc__transform__pass_8cpp_source_l00077}00077 \}  \textcolor{comment}{// namespace theo::obf}}
+
+\end{DoxyCode}

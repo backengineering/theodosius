@@ -1,0 +1,116 @@
+\hypertarget{theo_8hpp_source}{}\doxysection{theo.\+hpp}
+\label{theo_8hpp_source}\index{include/theo.hpp@{include/theo.hpp}}
+\mbox{\hyperlink{theo_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{theo_8hpp_source_l00001}00001 \textcolor{comment}{// Copyright (c) 2022, \_xeroxz}}
+\DoxyCodeLine{\Hypertarget{theo_8hpp_source_l00002}00002 \textcolor{comment}{// All rights reserved.}}
+\DoxyCodeLine{\Hypertarget{theo_8hpp_source_l00003}00003 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{theo_8hpp_source_l00004}00004 \textcolor{comment}{// Redistribution and use in source and binary forms, with or without}}
+\DoxyCodeLine{\Hypertarget{theo_8hpp_source_l00005}00005 \textcolor{comment}{// modification, are permitted provided that the following conditions are met:}}
+\DoxyCodeLine{\Hypertarget{theo_8hpp_source_l00006}00006 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{theo_8hpp_source_l00007}00007 \textcolor{comment}{// 1. Redistributions of source code must retain the above copyright notice,}}
+\DoxyCodeLine{\Hypertarget{theo_8hpp_source_l00008}00008 \textcolor{comment}{//    this list of conditions and the following disclaimer.}}
+\DoxyCodeLine{\Hypertarget{theo_8hpp_source_l00009}00009 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{theo_8hpp_source_l00010}00010 \textcolor{comment}{// 2. Redistributions in binary form must reproduce the above copyright notice,}}
+\DoxyCodeLine{\Hypertarget{theo_8hpp_source_l00011}00011 \textcolor{comment}{//    this list of conditions and the following disclaimer in the documentation}}
+\DoxyCodeLine{\Hypertarget{theo_8hpp_source_l00012}00012 \textcolor{comment}{//    and/or other materials provided with the distribution.}}
+\DoxyCodeLine{\Hypertarget{theo_8hpp_source_l00013}00013 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{theo_8hpp_source_l00014}00014 \textcolor{comment}{// 3. Neither the name of the copyright holder nor the names of its}}
+\DoxyCodeLine{\Hypertarget{theo_8hpp_source_l00015}00015 \textcolor{comment}{//    contributors may be used to endorse or promote products derived from}}
+\DoxyCodeLine{\Hypertarget{theo_8hpp_source_l00016}00016 \textcolor{comment}{//    this software without specific prior written permission.}}
+\DoxyCodeLine{\Hypertarget{theo_8hpp_source_l00017}00017 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{theo_8hpp_source_l00018}00018 \textcolor{comment}{// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "{}AS IS"{}}}
+\DoxyCodeLine{\Hypertarget{theo_8hpp_source_l00019}00019 \textcolor{comment}{// AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE}}
+\DoxyCodeLine{\Hypertarget{theo_8hpp_source_l00020}00020 \textcolor{comment}{// IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE}}
+\DoxyCodeLine{\Hypertarget{theo_8hpp_source_l00021}00021 \textcolor{comment}{// ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE}}
+\DoxyCodeLine{\Hypertarget{theo_8hpp_source_l00022}00022 \textcolor{comment}{// LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR}}
+\DoxyCodeLine{\Hypertarget{theo_8hpp_source_l00023}00023 \textcolor{comment}{// CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF}}
+\DoxyCodeLine{\Hypertarget{theo_8hpp_source_l00024}00024 \textcolor{comment}{// SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS}}
+\DoxyCodeLine{\Hypertarget{theo_8hpp_source_l00025}00025 \textcolor{comment}{// INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN}}
+\DoxyCodeLine{\Hypertarget{theo_8hpp_source_l00026}00026 \textcolor{comment}{// CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)}}
+\DoxyCodeLine{\Hypertarget{theo_8hpp_source_l00027}00027 \textcolor{comment}{// ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE}}
+\DoxyCodeLine{\Hypertarget{theo_8hpp_source_l00028}00028 \textcolor{comment}{// POSSIBILITY OF SUCH DAMAGE.}}
+\DoxyCodeLine{\Hypertarget{theo_8hpp_source_l00029}00029 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{theo_8hpp_source_l00030}00030 }
+\DoxyCodeLine{\Hypertarget{theo_8hpp_source_l00031}00031 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{\Hypertarget{theo_8hpp_source_l00032}00032 \textcolor{preprocessor}{\#include <spdlog/spdlog.h>}}
+\DoxyCodeLine{\Hypertarget{theo_8hpp_source_l00033}00033 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{decomp_8hpp}{decomp/decomp.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{theo_8hpp_source_l00034}00034 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{engine_8hpp}{obf/engine.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{theo_8hpp_source_l00035}00035 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{recomp_8hpp}{recomp/recomp.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{theo_8hpp_source_l00036}00036 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{symbol__table_8hpp}{recomp/symbol\_table.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{theo_8hpp_source_l00037}00037 }
+\DoxyCodeLine{\Hypertarget{theo_8hpp_source_l00038}00038 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{jcc__rewrite__pass_8hpp}{obf/passes/jcc\_rewrite\_pass.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{theo_8hpp_source_l00039}00039 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{next__inst__pass_8hpp}{obf/passes/next\_inst\_pass.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{theo_8hpp_source_l00040}00040 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{reloc__transform__pass_8hpp}{obf/passes/reloc\_transform\_pass.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{theo_8hpp_source_l00041}00041 }
+\DoxyCodeLine{\Hypertarget{theo_8hpp_source_l00042}00042 \textcolor{preprocessor}{\#include <optional>}}
+\DoxyCodeLine{\Hypertarget{theo_8hpp_source_l00043}00043 \textcolor{preprocessor}{\#include <tuple>}}
+\DoxyCodeLine{\Hypertarget{theo_8hpp_source_l00044}00044 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{\Hypertarget{theo_8hpp_source_l00045}00045 }
+\DoxyCodeLine{\Hypertarget{theo_8hpp_source_l00046}\mbox{\hyperlink{theo_8hpp_a3925943d185a09ad9e32ed8637ccb533}{00046}} \textcolor{preprocessor}{\#define XED\_ENCODER}}
+\DoxyCodeLine{\Hypertarget{theo_8hpp_source_l00047}00047 \textcolor{keyword}{extern} \textcolor{stringliteral}{"{}C"{}} \{}
+\DoxyCodeLine{\Hypertarget{theo_8hpp_source_l00048}00048 \textcolor{preprocessor}{\#include <xed-\/decode.h>}}
+\DoxyCodeLine{\Hypertarget{theo_8hpp_source_l00049}00049 \textcolor{preprocessor}{\#include <xed-\/interface.h>}}
+\DoxyCodeLine{\Hypertarget{theo_8hpp_source_l00050}00050 \}}
+\DoxyCodeLine{\Hypertarget{theo_8hpp_source_l00051}00051 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{theo_8hpp_source_l00052}00052 \textcolor{comment}{/// <summary>}}
+\DoxyCodeLine{\Hypertarget{theo_8hpp_source_l00053}00053 \textcolor{comment}{/// The outer most encompassing namespace of this project.}}
+\DoxyCodeLine{\Hypertarget{theo_8hpp_source_l00054}00054 \textcolor{comment}{/// </summary>}}
+\DoxyCodeLine{\Hypertarget{theo_8hpp_source_l00055}00055 \textcolor{comment}{}\textcolor{keyword}{namespace }\mbox{\hyperlink{namespacetheo}{theo}} \{}
+\DoxyCodeLine{\Hypertarget{theo_8hpp_source_l00056}00056 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{theo_8hpp_source_l00057}00057 \textcolor{comment}{/// <summary>}}
+\DoxyCodeLine{\Hypertarget{theo_8hpp_source_l00058}00058 \textcolor{comment}{/// tuple of functions used by theo to allocate, copy, and resolve symbols.}}
+\DoxyCodeLine{\Hypertarget{theo_8hpp_source_l00059}00059 \textcolor{comment}{/// </summary>}}
+\DoxyCodeLine{\Hypertarget{theo_8hpp_source_l00060}\mbox{\hyperlink{namespacetheo_a66efe2c63e06764fb2d9a378c688c680}{00060}} \textcolor{comment}{}\textcolor{keyword}{using} \mbox{\hyperlink{namespacetheo_a66efe2c63e06764fb2d9a378c688c680}{lnk\_fns\_t}} =}
+\DoxyCodeLine{\Hypertarget{theo_8hpp_source_l00061}00061     std::tuple<recomp::allocator\_t, recomp::copier\_t, recomp::resolver\_t>;}
+\DoxyCodeLine{\Hypertarget{theo_8hpp_source_l00062}00062 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{theo_8hpp_source_l00063}00063 \textcolor{comment}{/// <summary>}}
+\DoxyCodeLine{\Hypertarget{theo_8hpp_source_l00064}00064 \textcolor{comment}{/// the main class which encapsulates a symbol table, decomp, and recomp}}
+\DoxyCodeLine{\Hypertarget{theo_8hpp_source_l00065}00065 \textcolor{comment}{/// objects. This class is a bridge that connects all three: decomp, obf,}}
+\DoxyCodeLine{\Hypertarget{theo_8hpp_source_l00066}00066 \textcolor{comment}{/// recomp.}}
+\DoxyCodeLine{\Hypertarget{theo_8hpp_source_l00067}00067 \textcolor{comment}{///}}
+\DoxyCodeLine{\Hypertarget{theo_8hpp_source_l00068}00068 \textcolor{comment}{/// You will create an object of this type when using theo.}}
+\DoxyCodeLine{\Hypertarget{theo_8hpp_source_l00069}00069 \textcolor{comment}{/// </summary>}}
+\DoxyCodeLine{\Hypertarget{theo_8hpp_source_l00070}\mbox{\hyperlink{classtheo_1_1theo__t}{00070}} \textcolor{comment}{}\textcolor{keyword}{class }\mbox{\hyperlink{classtheo_1_1theo__t}{theo\_t}} \{}
+\DoxyCodeLine{\Hypertarget{theo_8hpp_source_l00071}00071  \textcolor{keyword}{public}:\textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{theo_8hpp_source_l00072}00072 \textcolor{comment}{  /// <summary>}}
+\DoxyCodeLine{\Hypertarget{theo_8hpp_source_l00073}00073 \textcolor{comment}{  /// explicit constructor for theo class.}}
+\DoxyCodeLine{\Hypertarget{theo_8hpp_source_l00074}00074 \textcolor{comment}{  /// </summary>}}
+\DoxyCodeLine{\Hypertarget{theo_8hpp_source_l00075}00075 \textcolor{comment}{  /// <param name="{}lib"{}>a vector of bytes consisting of a lib</param>}}
+\DoxyCodeLine{\Hypertarget{theo_8hpp_source_l00076}00076 \textcolor{comment}{  /// <param name="{}lnkr\_fns"{}></param>}}
+\DoxyCodeLine{\Hypertarget{theo_8hpp_source_l00077}00077 \textcolor{comment}{  /// <param name="{}entry\_sym"{}>the name of the function which will be used as the}}
+\DoxyCodeLine{\Hypertarget{theo_8hpp_source_l00078}00078 \textcolor{comment}{  /// entry point</param>}}
+\DoxyCodeLine{\Hypertarget{theo_8hpp_source_l00079}00079 \textcolor{comment}{}  \textcolor{keyword}{explicit} \mbox{\hyperlink{classtheo_1_1theo__t_a0a9ae3322261b97cf1dc47c908ef3c6d}{theo\_t}}(std::vector<std::uint8\_t>\& lib,}
+\DoxyCodeLine{\Hypertarget{theo_8hpp_source_l00080}00080                   \mbox{\hyperlink{namespacetheo_a66efe2c63e06764fb2d9a378c688c680}{lnk\_fns\_t}} lnkr\_fns,}
+\DoxyCodeLine{\Hypertarget{theo_8hpp_source_l00081}00081                   \textcolor{keyword}{const} std::string\&\& entry\_sym);}
+\DoxyCodeLine{\Hypertarget{theo_8hpp_source_l00082}00082 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{theo_8hpp_source_l00083}00083 \textcolor{comment}{  /// <summary>}}
+\DoxyCodeLine{\Hypertarget{theo_8hpp_source_l00084}00084 \textcolor{comment}{  /// decomposes the lib file and return the number of symbols that are used.}}
+\DoxyCodeLine{\Hypertarget{theo_8hpp_source_l00085}00085 \textcolor{comment}{  /// </summary>}}
+\DoxyCodeLine{\Hypertarget{theo_8hpp_source_l00086}00086 \textcolor{comment}{  /// <returns>optional amount of symbols that are used. no value if}}
+\DoxyCodeLine{\Hypertarget{theo_8hpp_source_l00087}00087 \textcolor{comment}{  /// decomposition fails.</returns>}}
+\DoxyCodeLine{\Hypertarget{theo_8hpp_source_l00088}00088 \textcolor{comment}{}  std::optional<std::uint32\_t> \mbox{\hyperlink{classtheo_1_1theo__t_a66257ff5d9825483d85e58384a12760a}{decompose}}();}
+\DoxyCodeLine{\Hypertarget{theo_8hpp_source_l00089}00089 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{theo_8hpp_source_l00090}00090 \textcolor{comment}{  /// <summary>}}
+\DoxyCodeLine{\Hypertarget{theo_8hpp_source_l00091}00091 \textcolor{comment}{  /// compose the decomposed module. This will run obfuscation passes, the map}}
+\DoxyCodeLine{\Hypertarget{theo_8hpp_source_l00092}00092 \textcolor{comment}{  /// and resolve symbols to each other.}}
+\DoxyCodeLine{\Hypertarget{theo_8hpp_source_l00093}00093 \textcolor{comment}{  /// </summary>}}
+\DoxyCodeLine{\Hypertarget{theo_8hpp_source_l00094}00094 \textcolor{comment}{  /// <returns>returns the address of the entry point symbol</returns>}}
+\DoxyCodeLine{\Hypertarget{theo_8hpp_source_l00095}00095 \textcolor{comment}{}  std::uintptr\_t \mbox{\hyperlink{classtheo_1_1theo__t_a39e067dd71f82b437c6a418d41e38b27}{compose}}();}
+\DoxyCodeLine{\Hypertarget{theo_8hpp_source_l00096}00096 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{theo_8hpp_source_l00097}00097 \textcolor{comment}{  /// <summary>}}
+\DoxyCodeLine{\Hypertarget{theo_8hpp_source_l00098}00098 \textcolor{comment}{  /// given the name of a symbol, it returns the address of where its mapped.}}
+\DoxyCodeLine{\Hypertarget{theo_8hpp_source_l00099}00099 \textcolor{comment}{  /// </summary>}}
+\DoxyCodeLine{\Hypertarget{theo_8hpp_source_l00100}00100 \textcolor{comment}{  /// <param name="{}sym"{}>the name of the symbol</param>}}
+\DoxyCodeLine{\Hypertarget{theo_8hpp_source_l00101}00101 \textcolor{comment}{  /// <returns>the address of the symbol</returns>}}
+\DoxyCodeLine{\Hypertarget{theo_8hpp_source_l00102}00102 \textcolor{comment}{}  std::uintptr\_t \mbox{\hyperlink{classtheo_1_1theo__t_a97c52bda4b07a456ff1ea6f3c1cdbe24}{resolve}}(\textcolor{keyword}{const} std::string\&\& sym);}
+\DoxyCodeLine{\Hypertarget{theo_8hpp_source_l00103}00103 }
+\DoxyCodeLine{\Hypertarget{theo_8hpp_source_l00104}00104  \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{theo_8hpp_source_l00105}00105   std::string m\_entry\_sym;}
+\DoxyCodeLine{\Hypertarget{theo_8hpp_source_l00106}00106   \mbox{\hyperlink{classtheo_1_1decomp_1_1decomp__t}{decomp::decomp\_t}} m\_dcmp;}
+\DoxyCodeLine{\Hypertarget{theo_8hpp_source_l00107}00107   \mbox{\hyperlink{classtheo_1_1recomp_1_1recomp__t}{recomp::recomp\_t}} m\_recmp;}
+\DoxyCodeLine{\Hypertarget{theo_8hpp_source_l00108}00108   \mbox{\hyperlink{classtheo_1_1recomp_1_1symbol__table__t}{recomp::symbol\_table\_t}} m\_sym\_tbl;}
+\DoxyCodeLine{\Hypertarget{theo_8hpp_source_l00109}00109 \};}
+\DoxyCodeLine{\Hypertarget{theo_8hpp_source_l00110}00110 \}  \textcolor{comment}{// namespace theo}}
+
+\end{DoxyCode}

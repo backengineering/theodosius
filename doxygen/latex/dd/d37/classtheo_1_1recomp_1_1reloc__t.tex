@@ -1,0 +1,242 @@
+\hypertarget{classtheo_1_1recomp_1_1reloc__t}{}\doxysection{theo\+::recomp\+::reloc\+\_\+t Class Reference}
+\label{classtheo_1_1recomp_1_1reloc__t}\index{theo::recomp::reloc\_t@{theo::recomp::reloc\_t}}
+
+
+meta data about a relocation for a symbol  
+
+
+
+
+{\ttfamily \#include \char`\"{}reloc.\+hpp\char`\"{}}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classtheo_1_1recomp_1_1reloc__t_a7cb1cf1c58a6f3cdf7ae326d65948548}{reloc\+\_\+t}} (std\+::uint32\+\_\+t \mbox{\hyperlink{classtheo_1_1recomp_1_1reloc__t_a537836fcea3326e4269375a1486f0323}{offset}}, std\+::size\+\_\+t \mbox{\hyperlink{classtheo_1_1recomp_1_1reloc__t_aa340b2c2d5d1ac7f96a1dbee39f25461}{hash}}, const std\+::string \&\&sym\+\_\+name)
+\begin{DoxyCompactList}\small\item\em explicit constructor for this class. \end{DoxyCompactList}\item 
+std\+::size\+\_\+t \mbox{\hyperlink{classtheo_1_1recomp_1_1reloc__t_aa340b2c2d5d1ac7f96a1dbee39f25461}{hash}} ()
+\begin{DoxyCompactList}\small\item\em returns the hash of the relocation symbol. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classtheo_1_1recomp_1_1reloc__t_aa181755df50bc566b164072b21788fec}{name}} ()
+\begin{DoxyCompactList}\small\item\em returns the name of the relocation symbol. \end{DoxyCompactList}\item 
+std\+::uint32\+\_\+t \mbox{\hyperlink{classtheo_1_1recomp_1_1reloc__t_a537836fcea3326e4269375a1486f0323}{offset}} ()
+\begin{DoxyCompactList}\small\item\em returns the offset into the symbol to which the relocation will be applied. the offset is in bytes. zero based. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classtheo_1_1recomp_1_1reloc__t_a99e65270ace1ff4f080bd4040c8a43dd}{offset}} (std\+::uint32\+\_\+t offset)
+\begin{DoxyCompactList}\small\item\em sets the offset to which the relocation gets applied too. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classtheo_1_1recomp_1_1reloc__t_ab5214a9ff9135672e25f40406c37fb10}{add\+\_\+transform}} (std\+::pair$<$ \mbox{\hyperlink{namespacetheo_1_1obf_1_1transform_a875984c1ce09aa998fe48cca55270ecc}{obf\+::transform\+::transform\+\_\+t}} $\ast$, std\+::uint32\+\_\+t $>$ entry)
+\begin{DoxyCompactList}\small\item\em adds a transformation to be applied to the relocation prior to writing it into the symbol. \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::pair$<$ \mbox{\hyperlink{namespacetheo_1_1obf_1_1transform_a875984c1ce09aa998fe48cca55270ecc}{obf\+::transform\+::transform\+\_\+t}} $\ast$, std\+::uint32\+\_\+t $>$ $>$ \& \mbox{\hyperlink{classtheo_1_1recomp_1_1reloc__t_af8abfa7a4f1052308a233629faf39a78}{get\+\_\+transforms}} ()
+\begin{DoxyCompactList}\small\item\em gets the vector of transformation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+meta data about a relocation for a symbol 
+
+Definition at line \mbox{\hyperlink{reloc_8hpp_source_l00041}{41}} of file \mbox{\hyperlink{reloc_8hpp_source}{reloc.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classtheo_1_1recomp_1_1reloc__t_a7cb1cf1c58a6f3cdf7ae326d65948548}\label{classtheo_1_1recomp_1_1reloc__t_a7cb1cf1c58a6f3cdf7ae326d65948548}} 
+\index{theo::recomp::reloc\_t@{theo::recomp::reloc\_t}!reloc\_t@{reloc\_t}}
+\index{reloc\_t@{reloc\_t}!theo::recomp::reloc\_t@{theo::recomp::reloc\_t}}
+\doxysubsubsection{\texorpdfstring{reloc\_t()}{reloc\_t()}}
+{\footnotesize\ttfamily theo\+::recomp\+::reloc\+\_\+t\+::reloc\+\_\+t (\begin{DoxyParamCaption}\item[{std\+::uint32\+\_\+t}]{offset,  }\item[{std\+::size\+\_\+t}]{hash,  }\item[{const std\+::string \&\&}]{sym\+\_\+name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}
+
+
+
+explicit constructor for this class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em offset} & offset into the symbol data where the relocation is at. all relocations are assumed to be linear virtual addresses of the symbol.\\
+\hline
+{\em hash} & hash of the symbol to which the relocation is of.\\
+\hline
+{\em sym\+\_\+name} & the name of the symbol to which the relocation is of.\\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{reloc_8hpp_source_l00052}{52}} of file \mbox{\hyperlink{reloc_8hpp_source}{reloc.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00055       : m\_offset(\mbox{\hyperlink{classtheo_1_1recomp_1_1reloc__t_a537836fcea3326e4269375a1486f0323}{offset}}), m\_hash(\mbox{\hyperlink{classtheo_1_1recomp_1_1reloc__t_aa340b2c2d5d1ac7f96a1dbee39f25461}{hash}}), m\_sym\_name(sym\_name) \{\}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classtheo_1_1recomp_1_1reloc__t_ab5214a9ff9135672e25f40406c37fb10}\label{classtheo_1_1recomp_1_1reloc__t_ab5214a9ff9135672e25f40406c37fb10}} 
+\index{theo::recomp::reloc\_t@{theo::recomp::reloc\_t}!add\_transform@{add\_transform}}
+\index{add\_transform@{add\_transform}!theo::recomp::reloc\_t@{theo::recomp::reloc\_t}}
+\doxysubsubsection{\texorpdfstring{add\_transform()}{add\_transform()}}
+{\footnotesize\ttfamily void theo\+::recomp\+::reloc\+\_\+t\+::add\+\_\+transform (\begin{DoxyParamCaption}\item[{std\+::pair$<$ \mbox{\hyperlink{namespacetheo_1_1obf_1_1transform_a875984c1ce09aa998fe48cca55270ecc}{obf\+::transform\+::transform\+\_\+t}} $\ast$, std\+::uint32\+\_\+t $>$}]{entry }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+adds a transformation to be applied to the relocation prior to writing it into the symbol. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em entry} & a pair containing a lambda function that when executed transforms a relocation. the second value in the pair is a random value which is passed to the lambda.\\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{reloc_8hpp_source_l00091}{91}} of file \mbox{\hyperlink{reloc_8hpp_source}{reloc.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00092                                                             \{}
+\DoxyCodeLine{00093     m\_transforms.push\_back(entry);}
+\DoxyCodeLine{00094   \}}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{gen_8hpp_source_l00045}{theo\+::obf\+::transform\+::generate()}}.
+
+\mbox{\Hypertarget{classtheo_1_1recomp_1_1reloc__t_af8abfa7a4f1052308a233629faf39a78}\label{classtheo_1_1recomp_1_1reloc__t_af8abfa7a4f1052308a233629faf39a78}} 
+\index{theo::recomp::reloc\_t@{theo::recomp::reloc\_t}!get\_transforms@{get\_transforms}}
+\index{get\_transforms@{get\_transforms}!theo::recomp::reloc\_t@{theo::recomp::reloc\_t}}
+\doxysubsubsection{\texorpdfstring{get\_transforms()}{get\_transforms()}}
+{\footnotesize\ttfamily std\+::vector$<$ std\+::pair$<$ \mbox{\hyperlink{namespacetheo_1_1obf_1_1transform_a875984c1ce09aa998fe48cca55270ecc}{obf\+::transform\+::transform\+\_\+t}} $\ast$, std\+::uint32\+\_\+t $>$ $>$ \& theo\+::recomp\+::reloc\+\_\+t\+::get\+\_\+transforms (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+gets the vector of transformation. 
+
+\begin{DoxyReturn}{Returns}
+returns the vector of transformations.
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{reloc_8hpp_source_l00101}{101}} of file \mbox{\hyperlink{reloc_8hpp_source}{reloc.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00101                    \{}
+\DoxyCodeLine{00102     \textcolor{keywordflow}{return} m\_transforms;}
+\DoxyCodeLine{00103   \}}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{gen_8hpp_source_l00045}{theo\+::obf\+::transform\+::generate()}}, and \mbox{\hyperlink{recomp_8cpp_source_l00092}{theo\+::recomp\+::recomp\+\_\+t\+::resolve()}}.
+
+\mbox{\Hypertarget{classtheo_1_1recomp_1_1reloc__t_aa340b2c2d5d1ac7f96a1dbee39f25461}\label{classtheo_1_1recomp_1_1reloc__t_aa340b2c2d5d1ac7f96a1dbee39f25461}} 
+\index{theo::recomp::reloc\_t@{theo::recomp::reloc\_t}!hash@{hash}}
+\index{hash@{hash}!theo::recomp::reloc\_t@{theo::recomp::reloc\_t}}
+\doxysubsubsection{\texorpdfstring{hash()}{hash()}}
+{\footnotesize\ttfamily std\+::size\+\_\+t theo\+::recomp\+::reloc\+\_\+t\+::hash (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+returns the hash of the relocation symbol. 
+
+\begin{DoxyReturn}{Returns}
+hash of the relocation symbol
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{reloc_8hpp_source_l00061}{61}} of file \mbox{\hyperlink{reloc_8hpp_source}{reloc.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00061 \{ \textcolor{keywordflow}{return} m\_hash; \}}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{recomp_8cpp_source_l00092}{theo\+::recomp\+::recomp\+\_\+t\+::resolve()}}.
+
+\mbox{\Hypertarget{classtheo_1_1recomp_1_1reloc__t_aa181755df50bc566b164072b21788fec}\label{classtheo_1_1recomp_1_1reloc__t_aa181755df50bc566b164072b21788fec}} 
+\index{theo::recomp::reloc\_t@{theo::recomp::reloc\_t}!name@{name}}
+\index{name@{name}!theo::recomp::reloc\_t@{theo::recomp::reloc\_t}}
+\doxysubsubsection{\texorpdfstring{name()}{name()}}
+{\footnotesize\ttfamily std\+::string theo\+::recomp\+::reloc\+\_\+t\+::name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+returns the name of the relocation symbol. 
+
+\begin{DoxyReturn}{Returns}
+returns the name of the relocation symbol.
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{reloc_8hpp_source_l00067}{67}} of file \mbox{\hyperlink{reloc_8hpp_source}{reloc.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00067 \{ \textcolor{keywordflow}{return} m\_sym\_name; \}}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{recomp_8cpp_source_l00092}{theo\+::recomp\+::recomp\+\_\+t\+::resolve()}}.
+
+\mbox{\Hypertarget{classtheo_1_1recomp_1_1reloc__t_a537836fcea3326e4269375a1486f0323}\label{classtheo_1_1recomp_1_1reloc__t_a537836fcea3326e4269375a1486f0323}} 
+\index{theo::recomp::reloc\_t@{theo::recomp::reloc\_t}!offset@{offset}}
+\index{offset@{offset}!theo::recomp::reloc\_t@{theo::recomp::reloc\_t}}
+\doxysubsubsection{\texorpdfstring{offset()}{offset()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily std\+::uint32\+\_\+t theo\+::recomp\+::reloc\+\_\+t\+::offset (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+returns the offset into the symbol to which the relocation will be applied. the offset is in bytes. zero based. 
+
+\begin{DoxyReturn}{Returns}
+returns the offset into the symbol to which the relocation will be applied. the offset is in bytes. zero based.
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{reloc_8hpp_source_l00075}{75}} of file \mbox{\hyperlink{reloc_8hpp_source}{reloc.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00075 \{ \textcolor{keywordflow}{return} m\_offset; \}}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{recomp_8cpp_source_l00092}{theo\+::recomp\+::recomp\+\_\+t\+::resolve()}}.
+
+\mbox{\Hypertarget{classtheo_1_1recomp_1_1reloc__t_a99e65270ace1ff4f080bd4040c8a43dd}\label{classtheo_1_1recomp_1_1reloc__t_a99e65270ace1ff4f080bd4040c8a43dd}} 
+\index{theo::recomp::reloc\_t@{theo::recomp::reloc\_t}!offset@{offset}}
+\index{offset@{offset}!theo::recomp::reloc\_t@{theo::recomp::reloc\_t}}
+\doxysubsubsection{\texorpdfstring{offset()}{offset()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void theo\+::recomp\+::reloc\+\_\+t\+::offset (\begin{DoxyParamCaption}\item[{std\+::uint32\+\_\+t}]{offset }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+sets the offset to which the relocation gets applied too. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em offset} & offset to which the relocation gets applied too.\\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{reloc_8hpp_source_l00082}{82}} of file \mbox{\hyperlink{reloc_8hpp_source}{reloc.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00082 \{ m\_offset = \mbox{\hyperlink{classtheo_1_1recomp_1_1reloc__t_a537836fcea3326e4269375a1486f0323}{offset}}; \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{reloc_8hpp_source_l00082}{offset()}}.
+
+
+
+Referenced by \mbox{\hyperlink{reloc_8hpp_source_l00082}{offset()}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/recomp/\mbox{\hyperlink{reloc_8hpp}{reloc.\+hpp}}\end{DoxyCompactItemize}

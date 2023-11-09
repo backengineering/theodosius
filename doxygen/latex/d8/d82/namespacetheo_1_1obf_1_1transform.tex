@@ -1,0 +1,172 @@
+\hypertarget{namespacetheo_1_1obf_1_1transform}{}\doxysection{theo\+::obf\+::transform Namespace Reference}
+\label{namespacetheo_1_1obf_1_1transform}\index{theo::obf::transform@{theo::obf::transform}}
+
+
+this namespace encompasses the code for transforming relocations.  
+
+
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classtheo_1_1obf_1_1transform_1_1add__op__t}{add\+\_\+op\+\_\+t}}
+\item 
+class \mbox{\hyperlink{classtheo_1_1obf_1_1transform_1_1operation__t}{operation\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classtheo_1_1obf_1_1transform_1_1operation__t}{operation\+\_\+t}} is the base class for all types of transformations. classes that inherit this class are singleton and simply call the super constructor (\mbox{\hyperlink{classtheo_1_1obf_1_1transform_1_1operation__t_a3876ca1c7904aed54940e1519fc9fdf4}{operation\+\_\+t\+::operation\+\_\+t}}). \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classtheo_1_1obf_1_1transform_1_1rol__op__t}{rol\+\_\+op\+\_\+t}}
+\item 
+class \mbox{\hyperlink{classtheo_1_1obf_1_1transform_1_1ror__op__t}{ror\+\_\+op\+\_\+t}}
+\item 
+class \mbox{\hyperlink{classtheo_1_1obf_1_1transform_1_1sub__op__t}{sub\+\_\+op\+\_\+t}}
+\item 
+class \mbox{\hyperlink{classtheo_1_1obf_1_1transform_1_1xor__op__t}{xor\+\_\+op\+\_\+t}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{namespacetheo_1_1obf_1_1transform_a875984c1ce09aa998fe48cca55270ecc}{transform\+\_\+t}} = std\+::function$<$ std\+::size\+\_\+t(std\+::size\+\_\+t, std\+::uint32\+\_\+t)$>$
+\begin{DoxyCompactList}\small\item\em lambda function which takes in a 64bit value (relocation address) and a 32bit value (random value used in transformation). \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ std\+::uint8\+\_\+t $>$ \mbox{\hyperlink{namespacetheo_1_1obf_1_1transform_abb618f5ff8d88963dd77e682456ef982}{generate}} (xed\+\_\+decoded\+\_\+inst\+\_\+t $\ast$inst, \mbox{\hyperlink{classtheo_1_1recomp_1_1reloc__t}{recomp\+::reloc\+\_\+t}} $\ast$reloc, std\+::uint8\+\_\+t low, std\+::uint8\+\_\+t high)
+\begin{DoxyCompactList}\small\item\em generate a sequence of transformations given an instruction that has a relocation in it. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+std\+::map$<$ xed\+\_\+iclass\+\_\+enum\+\_\+t, \mbox{\hyperlink{classtheo_1_1obf_1_1transform_1_1operation__t}{operation\+\_\+t}} $\ast$ $>$ \mbox{\hyperlink{namespacetheo_1_1obf_1_1transform_a6a4b1d5c0c9c2ea1f0b4ec8f5aba48b0}{operations}}
+\begin{DoxyCompactList}\small\item\em map of all of the operations and their type. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+this namespace encompasses the code for transforming relocations. 
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{namespacetheo_1_1obf_1_1transform_a875984c1ce09aa998fe48cca55270ecc}\label{namespacetheo_1_1obf_1_1transform_a875984c1ce09aa998fe48cca55270ecc}} 
+\index{theo::obf::transform@{theo::obf::transform}!transform\_t@{transform\_t}}
+\index{transform\_t@{transform\_t}!theo::obf::transform@{theo::obf::transform}}
+\doxysubsubsection{\texorpdfstring{transform\_t}{transform\_t}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{namespacetheo_1_1obf_1_1transform_a875984c1ce09aa998fe48cca55270ecc}{theo\+::obf\+::transform\+::transform\+\_\+t}} = typedef std\+::function$<$std\+::size\+\_\+t(std\+::size\+\_\+t, std\+::uint32\+\_\+t)$>$}
+
+
+
+lambda function which takes in a 64bit value (relocation address) and a 32bit value (random value used in transformation). 
+
+
+
+Definition at line \mbox{\hyperlink{operation_8hpp_source_l00054}{54}} of file \mbox{\hyperlink{operation_8hpp_source}{operation.\+hpp}}.
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{namespacetheo_1_1obf_1_1transform_abb618f5ff8d88963dd77e682456ef982}\label{namespacetheo_1_1obf_1_1transform_abb618f5ff8d88963dd77e682456ef982}} 
+\index{theo::obf::transform@{theo::obf::transform}!generate@{generate}}
+\index{generate@{generate}!theo::obf::transform@{theo::obf::transform}}
+\doxysubsubsection{\texorpdfstring{generate()}{generate()}}
+{\footnotesize\ttfamily std\+::vector$<$ std\+::uint8\+\_\+t $>$ theo\+::obf\+::transform\+::generate (\begin{DoxyParamCaption}\item[{xed\+\_\+decoded\+\_\+inst\+\_\+t $\ast$}]{inst,  }\item[{\mbox{\hyperlink{classtheo_1_1recomp_1_1reloc__t}{recomp\+::reloc\+\_\+t}} $\ast$}]{reloc,  }\item[{std\+::uint8\+\_\+t}]{low,  }\item[{std\+::uint8\+\_\+t}]{high }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+generate a sequence of transformations given an instruction that has a relocation in it. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em inst} & instruction that has a relocation in it.\\
+\hline
+{\em reloc} & meta data relocation object for the instruction.\\
+\hline
+{\em low} & lowest number of transformations to generate.\\
+\hline
+{\em high} & highest number of transformations to generate.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{gen_8hpp_source_l00045}{45}} of file \mbox{\hyperlink{gen_8hpp_source}{gen.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00048                                                            \{}
+\DoxyCodeLine{00049   \textcolor{keyword}{auto} num\_transforms = transform::operation\_t::random(low, high);}
+\DoxyCodeLine{00050   \textcolor{keyword}{auto} num\_ops = \mbox{\hyperlink{namespacetheo_1_1obf_1_1transform_a6a4b1d5c0c9c2ea1f0b4ec8f5aba48b0}{transform::operations}}.size();}
+\DoxyCodeLine{00051   std::vector<std::uint8\_t> new\_inst\_bytes;}
+\DoxyCodeLine{00052 }
+\DoxyCodeLine{00053   std::uint32\_t inst\_len = \{\};}
+\DoxyCodeLine{00054   std::uint8\_t inst\_buff[XED\_MAX\_INSTRUCTION\_BYTES];}
+\DoxyCodeLine{00055   xed\_encoder\_request\_t req;}
+\DoxyCodeLine{00056 }
+\DoxyCodeLine{00057   xed\_state\_t istate\{XED\_MACHINE\_MODE\_LONG\_64, XED\_ADDRESS\_WIDTH\_64b\};}
+\DoxyCodeLine{00058   xed\_encoder\_request\_zero\_set\_mode(\&req, \&istate);}
+\DoxyCodeLine{00059   xed\_encoder\_request\_set\_effective\_operand\_width(\&req, 64);}
+\DoxyCodeLine{00060   xed\_encoder\_request\_set\_iclass(\&req, XED\_ICLASS\_PUSHFQ);}
+\DoxyCodeLine{00061   xed\_encode(\&req, inst\_buff, \textcolor{keyword}{sizeof}(inst\_buff), \&inst\_len);}
+\DoxyCodeLine{00062   new\_inst\_bytes.insert(new\_inst\_bytes.end(), inst\_buff, inst\_buff + inst\_len);}
+\DoxyCodeLine{00063 }
+\DoxyCodeLine{00064   \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} cnt = 0u; cnt < num\_transforms; ++cnt) \{}
+\DoxyCodeLine{00065     std::uint32\_t imm = transform::operation\_t::random(}
+\DoxyCodeLine{00066         0, std::numeric\_limits<std::int32\_t>::max());}
+\DoxyCodeLine{00067 }
+\DoxyCodeLine{00068     \textcolor{keyword}{auto} itr = \mbox{\hyperlink{namespacetheo_1_1obf_1_1transform_a6a4b1d5c0c9c2ea1f0b4ec8f5aba48b0}{transform::operations}}.begin();}
+\DoxyCodeLine{00069     std::advance(itr, transform::operation\_t::random(0, num\_ops -\/ 1));}
+\DoxyCodeLine{00070     \textcolor{keyword}{auto} transform\_bytes = itr-\/>second-\/>native(inst, imm);}
+\DoxyCodeLine{00071     new\_inst\_bytes.insert(new\_inst\_bytes.end(), transform\_bytes.begin(),}
+\DoxyCodeLine{00072                           transform\_bytes.end());}
+\DoxyCodeLine{00073 }
+\DoxyCodeLine{00074     reloc-\/>\mbox{\hyperlink{classtheo_1_1recomp_1_1reloc__t_ab5214a9ff9135672e25f40406c37fb10}{add\_transform}}(}
+\DoxyCodeLine{00075         \{\mbox{\hyperlink{namespacetheo_1_1obf_1_1transform_a6a4b1d5c0c9c2ea1f0b4ec8f5aba48b0}{transform::operations}}[itr-\/>second-\/>inverse()]-\/>get\_transform(), imm\});}
+\DoxyCodeLine{00076   \}}
+\DoxyCodeLine{00077 }
+\DoxyCodeLine{00078   xed\_encoder\_request\_zero\_set\_mode(\&req, \&istate);}
+\DoxyCodeLine{00079   xed\_encoder\_request\_set\_effective\_operand\_width(\&req, 64);}
+\DoxyCodeLine{00080   xed\_encoder\_request\_set\_iclass(\&req, XED\_ICLASS\_POPFQ);}
+\DoxyCodeLine{00081   xed\_encode(\&req, inst\_buff, \textcolor{keyword}{sizeof}(inst\_buff), \&inst\_len);}
+\DoxyCodeLine{00082   new\_inst\_bytes.insert(new\_inst\_bytes.end(), inst\_buff, inst\_buff + inst\_len);}
+\DoxyCodeLine{00083 }
+\DoxyCodeLine{00084   \textcolor{comment}{// inverse the order in which the transformations are executed...}}
+\DoxyCodeLine{00085   \textcolor{comment}{//}}
+\DoxyCodeLine{00086   std::reverse(reloc-\/>\mbox{\hyperlink{classtheo_1_1recomp_1_1reloc__t_af8abfa7a4f1052308a233629faf39a78}{get\_transforms}}().begin(), reloc-\/>\mbox{\hyperlink{classtheo_1_1recomp_1_1reloc__t_af8abfa7a4f1052308a233629faf39a78}{get\_transforms}}().end());}
+\DoxyCodeLine{00087   \textcolor{keywordflow}{return} new\_inst\_bytes;}
+\DoxyCodeLine{00088 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{reloc_8hpp_source_l00091}{theo\+::recomp\+::reloc\+\_\+t\+::add\+\_\+transform()}}, \mbox{\hyperlink{reloc_8hpp_source_l00101}{theo\+::recomp\+::reloc\+\_\+t\+::get\+\_\+transforms()}}, \mbox{\hyperlink{transform_8hpp_source_l00042}{operations}}, and \mbox{\hyperlink{operation_8hpp_source_l00148}{theo\+::obf\+::transform\+::operation\+\_\+t\+::random()}}.
+
+
+
+Referenced by \mbox{\hyperlink{next__inst__pass_8cpp_source_l00038}{theo\+::obf\+::next\+\_\+inst\+\_\+pass\+\_\+t\+::run()}}, and \mbox{\hyperlink{reloc__transform__pass_8cpp_source_l00039}{theo\+::obf\+::reloc\+\_\+transform\+\_\+pass\+\_\+t\+::run()}}.
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{namespacetheo_1_1obf_1_1transform_a6a4b1d5c0c9c2ea1f0b4ec8f5aba48b0}\label{namespacetheo_1_1obf_1_1transform_a6a4b1d5c0c9c2ea1f0b4ec8f5aba48b0}} 
+\index{theo::obf::transform@{theo::obf::transform}!operations@{operations}}
+\index{operations@{operations}!theo::obf::transform@{theo::obf::transform}}
+\doxysubsubsection{\texorpdfstring{operations}{operations}}
+{\footnotesize\ttfamily std\+::map$<$xed\+\_\+iclass\+\_\+enum\+\_\+t, \mbox{\hyperlink{classtheo_1_1obf_1_1transform_1_1operation__t}{operation\+\_\+t}}$\ast$$>$ theo\+::obf\+::transform\+::operations\hspace{0.3cm}{\ttfamily [inline]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= \{}
+\DoxyCodeLine{    \{XED\_ICLASS\_ADD, add\_op\_t::get()\},}
+\DoxyCodeLine{    \{XED\_ICLASS\_SUB, sub\_op\_t::get()\},}
+\DoxyCodeLine{    \{XED\_ICLASS\_ROL, rol\_op\_t::get()\},}
+\DoxyCodeLine{    \{XED\_ICLASS\_ROR, ror\_op\_t::get()\},}
+\DoxyCodeLine{    \{XED\_ICLASS\_XOR, xor\_op\_t::get()\}\}}
+
+\end{DoxyCode}
+
+
+map of all of the operations and their type. 
+
+
+
+Definition at line \mbox{\hyperlink{transform_8hpp_source_l00042}{42}} of file \mbox{\hyperlink{transform_8hpp_source}{transform.\+hpp}}.
+
+
+
+Referenced by \mbox{\hyperlink{gen_8hpp_source_l00045}{generate()}}.
+

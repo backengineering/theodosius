@@ -1,0 +1,73 @@
+\hypertarget{namespacetheo_1_1recomp}{}\doxysection{theo\+::recomp Namespace Reference}
+\label{namespacetheo_1_1recomp}\index{theo::recomp@{theo::recomp}}
+
+
+this namespace encompasses all recomposition related code.  
+
+
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classtheo_1_1recomp_1_1recomp__t}{recomp\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em the main class responsible for recomposition \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classtheo_1_1recomp_1_1reloc__t}{reloc\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em meta data about a relocation for a symbol \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classtheo_1_1recomp_1_1symbol__table__t}{symbol\+\_\+table\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em this class is a high level wrapper for a hashmap that contains \mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t}{decomp\+::symbol\+\_\+t}} values. the symbol values are references by a hashcode. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{namespacetheo_1_1recomp_a7364f8c94855a2a871a9d6e1057989f3}{resolver\+\_\+t}} = std\+::function$<$ std\+::uintptr\+\_\+t(std\+::string)$>$
+\begin{DoxyCompactList}\small\item\em a function which is called by \mbox{\hyperlink{classtheo_1_1recomp_1_1recomp__t}{recomp\+\_\+t}} to resolve external symbols \end{DoxyCompactList}\item 
+using \mbox{\hyperlink{namespacetheo_1_1recomp_a604e81450773453df676c3b573651adc}{copier\+\_\+t}} = std\+::function$<$ void(std\+::uintptr\+\_\+t, void $\ast$, std\+::uint32\+\_\+t)$>$
+\begin{DoxyCompactList}\small\item\em a function which is called by \mbox{\hyperlink{classtheo_1_1recomp_1_1recomp__t}{recomp\+\_\+t}} to copy symbols into memory. \end{DoxyCompactList}\item 
+using \mbox{\hyperlink{namespacetheo_1_1recomp_a96995cb0c5291dce945760c3d8f55241}{allocator\+\_\+t}} = std\+::function$<$ std\+::uintptr\+\_\+t(std\+::uint32\+\_\+t, coff\+::section\+\_\+characteristics\+\_\+t)$>$
+\begin{DoxyCompactList}\small\item\em a function which is called to allocate space for a symbol. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+this namespace encompasses all recomposition related code. 
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{namespacetheo_1_1recomp_a96995cb0c5291dce945760c3d8f55241}\label{namespacetheo_1_1recomp_a96995cb0c5291dce945760c3d8f55241}} 
+\index{theo::recomp@{theo::recomp}!allocator\_t@{allocator\_t}}
+\index{allocator\_t@{allocator\_t}!theo::recomp@{theo::recomp}}
+\doxysubsubsection{\texorpdfstring{allocator\_t}{allocator\_t}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{namespacetheo_1_1recomp_a96995cb0c5291dce945760c3d8f55241}{theo\+::recomp\+::allocator\+\_\+t}} = typedef std\+::function$<$std\+::uintptr\+\_\+t(std\+::uint32\+\_\+t, coff\+::section\+\_\+characteristics\+\_\+t)$>$}
+
+
+
+a function which is called to allocate space for a symbol. 
+
+the first param is the size of the symbol, the second param is the characteristics of the section which the symbol is allocated in. 
+
+Definition at line \mbox{\hyperlink{recomp_8hpp_source_l00057}{57}} of file \mbox{\hyperlink{recomp_8hpp_source}{recomp.\+hpp}}.
+
+\mbox{\Hypertarget{namespacetheo_1_1recomp_a604e81450773453df676c3b573651adc}\label{namespacetheo_1_1recomp_a604e81450773453df676c3b573651adc}} 
+\index{theo::recomp@{theo::recomp}!copier\_t@{copier\_t}}
+\index{copier\_t@{copier\_t}!theo::recomp@{theo::recomp}}
+\doxysubsubsection{\texorpdfstring{copier\_t}{copier\_t}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{namespacetheo_1_1recomp_a604e81450773453df676c3b573651adc}{theo\+::recomp\+::copier\+\_\+t}} = typedef std\+::function$<$void(std\+::uintptr\+\_\+t, void$\ast$, std\+::uint32\+\_\+t)$>$}
+
+
+
+a function which is called by \mbox{\hyperlink{classtheo_1_1recomp_1_1recomp__t}{recomp\+\_\+t}} to copy symbols into memory. 
+
+
+
+Definition at line \mbox{\hyperlink{recomp_8hpp_source_l00049}{49}} of file \mbox{\hyperlink{recomp_8hpp_source}{recomp.\+hpp}}.
+
+\mbox{\Hypertarget{namespacetheo_1_1recomp_a7364f8c94855a2a871a9d6e1057989f3}\label{namespacetheo_1_1recomp_a7364f8c94855a2a871a9d6e1057989f3}} 
+\index{theo::recomp@{theo::recomp}!resolver\_t@{resolver\_t}}
+\index{resolver\_t@{resolver\_t}!theo::recomp@{theo::recomp}}
+\doxysubsubsection{\texorpdfstring{resolver\_t}{resolver\_t}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{namespacetheo_1_1recomp_a7364f8c94855a2a871a9d6e1057989f3}{theo\+::recomp\+::resolver\+\_\+t}} = typedef std\+::function$<$std\+::uintptr\+\_\+t(std\+::string)$>$}
+
+
+
+a function which is called by \mbox{\hyperlink{classtheo_1_1recomp_1_1recomp__t}{recomp\+\_\+t}} to resolve external symbols 
+
+
+
+Definition at line \mbox{\hyperlink{recomp_8hpp_source_l00044}{44}} of file \mbox{\hyperlink{recomp_8hpp_source}{recomp.\+hpp}}.
+

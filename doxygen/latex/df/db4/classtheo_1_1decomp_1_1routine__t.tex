@@ -1,0 +1,276 @@
+\hypertarget{classtheo_1_1decomp_1_1routine__t}{}\doxysection{theo\+::decomp\+::routine\+\_\+t Class Reference}
+\label{classtheo_1_1decomp_1_1routine__t}\index{theo::decomp::routine\_t@{theo::decomp::routine\_t}}
+
+
+the routine class which is responsible for creating symbols for routines. if the routine is located inside a section with the name \char`\"{}.\+split\char`\"{} it will break functions into instruction symbols.  
+
+
+
+
+{\ttfamily \#include \char`\"{}routine.\+hpp\char`\"{}}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classtheo_1_1decomp_1_1routine__t_ab9f0693c5ec50954d953b28bebe4426b}{routine\+\_\+t}} (coff\+::symbol\+\_\+t $\ast$sym, coff\+::image\+\_\+t $\ast$img, coff\+::section\+\_\+header\+\_\+t $\ast$\mbox{\hyperlink{classtheo_1_1decomp_1_1routine__t_ad3a75cb97abbcd9b282772401b256f36}{scn}}, std\+::vector$<$ std\+::uint8\+\_\+t $>$ \&fn, \mbox{\hyperlink{namespacetheo_1_1decomp_af96177687d0ad683c5897d8fa01135f9}{sym\+\_\+type\+\_\+t}} dcmp\+\_\+type)
+\begin{DoxyCompactList}\small\item\em the explicit constructor for \mbox{\hyperlink{classtheo_1_1decomp_1_1routine__t}{routine\+\_\+t}}. \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t}{decomp\+::symbol\+\_\+t}} $>$ \mbox{\hyperlink{classtheo_1_1decomp_1_1routine__t_a1f790bd144badc71d6c4942cac8fc4e8}{decompose}} ()
+\begin{DoxyCompactList}\small\item\em decompose the function into symbol(s). \end{DoxyCompactList}\item 
+coff\+::section\+\_\+header\+\_\+t $\ast$ \mbox{\hyperlink{classtheo_1_1decomp_1_1routine__t_ad3a75cb97abbcd9b282772401b256f36}{scn}} ()
+\begin{DoxyCompactList}\small\item\em gets the section header of the section in which the symbol is located in. \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::uint8\+\_\+t $>$ \mbox{\hyperlink{classtheo_1_1decomp_1_1routine__t_a605a2be669a10a5a45325a5dca04401a}{data}} ()
+\begin{DoxyCompactList}\small\item\em gets the function bytes. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+the routine class which is responsible for creating symbols for routines. if the routine is located inside a section with the name \char`\"{}.\+split\char`\"{} it will break functions into instruction symbols. 
+
+Definition at line \mbox{\hyperlink{routine_8hpp_source_l00053}{53}} of file \mbox{\hyperlink{routine_8hpp_source}{routine.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classtheo_1_1decomp_1_1routine__t_ab9f0693c5ec50954d953b28bebe4426b}\label{classtheo_1_1decomp_1_1routine__t_ab9f0693c5ec50954d953b28bebe4426b}} 
+\index{theo::decomp::routine\_t@{theo::decomp::routine\_t}!routine\_t@{routine\_t}}
+\index{routine\_t@{routine\_t}!theo::decomp::routine\_t@{theo::decomp::routine\_t}}
+\doxysubsubsection{\texorpdfstring{routine\_t()}{routine\_t()}}
+{\footnotesize\ttfamily theo\+::decomp\+::routine\+\_\+t\+::routine\+\_\+t (\begin{DoxyParamCaption}\item[{coff\+::symbol\+\_\+t $\ast$}]{sym,  }\item[{coff\+::image\+\_\+t $\ast$}]{img,  }\item[{coff\+::section\+\_\+header\+\_\+t $\ast$}]{scn,  }\item[{std\+::vector$<$ std\+::uint8\+\_\+t $>$ \&}]{fn,  }\item[{\mbox{\hyperlink{namespacetheo_1_1decomp_af96177687d0ad683c5897d8fa01135f9}{sym\+\_\+type\+\_\+t}}}]{dcmp\+\_\+type }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+the explicit constructor for \mbox{\hyperlink{classtheo_1_1decomp_1_1routine__t}{routine\+\_\+t}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sym} & the coff symbol for the routine.\\
+\hline
+{\em img} & the coff image which contains the symbol.\\
+\hline
+{\em scn} & the section header of the section that contains the symbol.\\
+\hline
+{\em fn} & the data (bytes) of the function.\\
+\hline
+{\em dcmp\+\_\+type} & the type of decomp to do. if this is sym\+\_\+type\+\_\+t\+::function then this class wont split the function up into individual instructions.\\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{routine_8cpp_source_l00034}{34}} of file \mbox{\hyperlink{routine_8cpp_source}{routine.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00039     : m\_img(img), m\_scn(\mbox{\hyperlink{classtheo_1_1decomp_1_1routine__t_ad3a75cb97abbcd9b282772401b256f36}{scn}}), m\_data(fn), m\_dcmp\_type(dcmp\_type), m\_sym(sym) \{\}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classtheo_1_1decomp_1_1routine__t_a605a2be669a10a5a45325a5dca04401a}\label{classtheo_1_1decomp_1_1routine__t_a605a2be669a10a5a45325a5dca04401a}} 
+\index{theo::decomp::routine\_t@{theo::decomp::routine\_t}!data@{data}}
+\index{data@{data}!theo::decomp::routine\_t@{theo::decomp::routine\_t}}
+\doxysubsubsection{\texorpdfstring{data()}{data()}}
+{\footnotesize\ttfamily std\+::vector$<$ std\+::uint8\+\_\+t $>$ theo\+::decomp\+::routine\+\_\+t\+::data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+gets the function bytes. 
+
+\begin{DoxyReturn}{Returns}
+the function bytes.
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{routine_8cpp_source_l00172}{172}} of file \mbox{\hyperlink{routine_8cpp_source}{routine.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00172                                       \{}
+\DoxyCodeLine{00173   \textcolor{keywordflow}{return} m\_data;}
+\DoxyCodeLine{00174 \}}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{routine_8cpp_source_l00041}{decompose()}}.
+
+\mbox{\Hypertarget{classtheo_1_1decomp_1_1routine__t_a1f790bd144badc71d6c4942cac8fc4e8}\label{classtheo_1_1decomp_1_1routine__t_a1f790bd144badc71d6c4942cac8fc4e8}} 
+\index{theo::decomp::routine\_t@{theo::decomp::routine\_t}!decompose@{decompose}}
+\index{decompose@{decompose}!theo::decomp::routine\_t@{theo::decomp::routine\_t}}
+\doxysubsubsection{\texorpdfstring{decompose()}{decompose()}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t}{decomp\+::symbol\+\_\+t}} $>$ theo\+::decomp\+::routine\+\_\+t\+::decompose (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+decompose the function into symbol(s). 
+
+\begin{DoxyReturn}{Returns}
+symbol(s) of the function.
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{routine_8cpp_source_l00041}{41}} of file \mbox{\hyperlink{routine_8cpp_source}{routine.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00041                                                \{}
+\DoxyCodeLine{00042   std::vector<decomp::symbol\_t> result;}
+\DoxyCodeLine{00043 }
+\DoxyCodeLine{00044   \textcolor{keywordflow}{switch} (m\_dcmp\_type) \{}
+\DoxyCodeLine{00045     \textcolor{keywordflow}{case} \mbox{\hyperlink{namespacetheo_1_1decomp_af96177687d0ad683c5897d8fa01135f9acf6baee49c2ddb7e89724231bbd75d4a}{function}}: \{}
+\DoxyCodeLine{00046       std::vector<recomp::reloc\_t> relocs;}
+\DoxyCodeLine{00047       \textcolor{keyword}{auto} scn\_relocs = \textcolor{keyword}{reinterpret\_cast<}coff::reloc\_t*\textcolor{keyword}{>}(}
+\DoxyCodeLine{00048           m\_scn-\/>ptr\_relocs + \textcolor{keyword}{reinterpret\_cast<}std::uint8\_t*\textcolor{keyword}{>}(m\_img));}
+\DoxyCodeLine{00049 }
+\DoxyCodeLine{00050       \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} idx = 0u; idx < m\_scn-\/>num\_relocs; ++idx) \{}
+\DoxyCodeLine{00051         \textcolor{keyword}{auto} scn\_reloc = \&scn\_relocs[idx];}
+\DoxyCodeLine{00052         \textcolor{comment}{// if the reloc is in the current function...}}
+\DoxyCodeLine{00053         \textcolor{keywordflow}{if} (scn\_reloc-\/>virtual\_address >= m\_sym-\/>value \&\&}
+\DoxyCodeLine{00054             scn\_reloc-\/>virtual\_address < m\_sym-\/>value + m\_data.size()) \{}
+\DoxyCodeLine{00055           \textcolor{keyword}{auto} sym\_reloc = m\_img-\/>get\_symbol(scn\_relocs[idx].symbol\_index);}
+\DoxyCodeLine{00056           \textcolor{keyword}{auto} sym\_name = \mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t_a7c6dee036291ded334aa10d89293fc2a}{symbol\_t::name}}(m\_img, sym\_reloc);}
+\DoxyCodeLine{00057           \textcolor{keyword}{auto} sym\_hash = \mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t_a8695d75670cc4d61d275464e9109ff06}{decomp::symbol\_t::hash}}(sym\_name.data());}
+\DoxyCodeLine{00058           relocs.push\_back(}
+\DoxyCodeLine{00059               recomp::reloc\_t(scn\_reloc-\/>virtual\_address -\/ m\_sym-\/>value,}
+\DoxyCodeLine{00060                               sym\_hash, sym\_name.data()));}
+\DoxyCodeLine{00061         \}}
+\DoxyCodeLine{00062       \}}
+\DoxyCodeLine{00063 }
+\DoxyCodeLine{00064       result.push\_back(decomp::symbol\_t(}
+\DoxyCodeLine{00065           m\_img, \mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t_a7c6dee036291ded334aa10d89293fc2a}{symbol\_t::name}}(m\_img, m\_sym).\mbox{\hyperlink{classtheo_1_1decomp_1_1routine__t_a605a2be669a10a5a45325a5dca04401a}{data}}(), m\_sym-\/>value, m\_data,}
+\DoxyCodeLine{00066           m\_scn, m\_sym, relocs, \mbox{\hyperlink{namespacetheo_1_1decomp_af96177687d0ad683c5897d8fa01135f9acf6baee49c2ddb7e89724231bbd75d4a}{sym\_type\_t::function}}));}
+\DoxyCodeLine{00067       \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00068     \}}
+\DoxyCodeLine{00069     \textcolor{keywordflow}{case} \mbox{\hyperlink{namespacetheo_1_1decomp_af96177687d0ad683c5897d8fa01135f9a4842f4c175b1ec87fc82ef3757d3a0e9}{instruction}}: \{}
+\DoxyCodeLine{00070       std::uint32\_t offset = \{\};}
+\DoxyCodeLine{00071       xed\_error\_enum\_t err;}
+\DoxyCodeLine{00072 }
+\DoxyCodeLine{00073       xed\_decoded\_inst\_t instr;}
+\DoxyCodeLine{00074       xed\_state\_t istate\{XED\_MACHINE\_MODE\_LONG\_64, XED\_ADDRESS\_WIDTH\_64b\};}
+\DoxyCodeLine{00075       xed\_decoded\_inst\_zero\_set\_mode(\&instr, \&istate);}
+\DoxyCodeLine{00076 }
+\DoxyCodeLine{00077       \textcolor{comment}{// keep looping over the section, lower the number of bytes each time...}}
+\DoxyCodeLine{00078       \textcolor{comment}{//}}
+\DoxyCodeLine{00079       \textcolor{keywordflow}{while} ((err = xed\_decode(\&instr, m\_data.data() + offset,}
+\DoxyCodeLine{00080                                m\_data.size() -\/ offset)) == XED\_ERROR\_NONE) \{}
+\DoxyCodeLine{00081         \textcolor{comment}{// symbol name is of the format: symbol@instroffset, I.E: main@11...}}
+\DoxyCodeLine{00082         \textcolor{comment}{//}}
+\DoxyCodeLine{00083         \textcolor{keyword}{auto} new\_sym\_name = \mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t_a7c6dee036291ded334aa10d89293fc2a}{symbol\_t::name}}(m\_img, m\_sym);}
+\DoxyCodeLine{00084 }
+\DoxyCodeLine{00085         \textcolor{comment}{// first instruction doesnt need the @offset...}}
+\DoxyCodeLine{00086         \textcolor{comment}{//}}
+\DoxyCodeLine{00087         \textcolor{keywordflow}{if} (offset)}
+\DoxyCodeLine{00088           new\_sym\_name.append(\textcolor{stringliteral}{"{}@"{}}).append(std::to\_string(offset));}
+\DoxyCodeLine{00089 }
+\DoxyCodeLine{00090         std::vector<recomp::reloc\_t> relocs;}
+\DoxyCodeLine{00091         \textcolor{keyword}{auto} scn\_relocs = \textcolor{keyword}{reinterpret\_cast<}coff::reloc\_t*\textcolor{keyword}{>}(}
+\DoxyCodeLine{00092             m\_scn-\/>ptr\_relocs + \textcolor{keyword}{reinterpret\_cast<}std::uint8\_t*\textcolor{keyword}{>}(m\_img));}
+\DoxyCodeLine{00093 }
+\DoxyCodeLine{00094         \textcolor{comment}{// find if this instruction has a relocation or not...}}
+\DoxyCodeLine{00095         \textcolor{comment}{// if so, return the reloc\_t...}}
+\DoxyCodeLine{00096         \textcolor{comment}{//}}
+\DoxyCodeLine{00097         \textcolor{keyword}{auto} reloc = std::find\_if(}
+\DoxyCodeLine{00098             scn\_relocs, scn\_relocs + m\_scn-\/>num\_relocs,}
+\DoxyCodeLine{00099             [\&](coff::reloc\_t reloc) \{}
+\DoxyCodeLine{00100               return reloc.virtual\_address >= m\_sym-\/>value + offset \&\&}
+\DoxyCodeLine{00101                      reloc.virtual\_address <}
+\DoxyCodeLine{00102                          m\_sym-\/>value + offset +}
+\DoxyCodeLine{00103                              xed\_decoded\_inst\_get\_length(\&instr);}
+\DoxyCodeLine{00104             \});}
+\DoxyCodeLine{00105 }
+\DoxyCodeLine{00106         \textcolor{comment}{// if there is indeed a reloc for this instruction...}}
+\DoxyCodeLine{00107         \textcolor{comment}{//}}
+\DoxyCodeLine{00108         \textcolor{keywordflow}{if} (reloc != scn\_relocs + m\_scn-\/>num\_relocs) \{}
+\DoxyCodeLine{00109           \textcolor{keyword}{auto} sym\_reloc = m\_img-\/>get\_symbol(reloc-\/>symbol\_index);}
+\DoxyCodeLine{00110           \textcolor{keyword}{auto} sym\_name = \mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t_a7c6dee036291ded334aa10d89293fc2a}{symbol\_t::name}}(m\_img, sym\_reloc);}
+\DoxyCodeLine{00111           \textcolor{keyword}{auto} sym\_hash = \mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t_a8695d75670cc4d61d275464e9109ff06}{decomp::symbol\_t::hash}}(sym\_name.data());}
+\DoxyCodeLine{00112           \textcolor{keyword}{auto} reloc\_offset = reloc-\/>virtual\_address -\/ m\_sym-\/>value -\/ offset;}
+\DoxyCodeLine{00113 }
+\DoxyCodeLine{00114           relocs.push\_back(}
+\DoxyCodeLine{00115               recomp::reloc\_t(reloc\_offset, sym\_hash, sym\_name.data()));}
+\DoxyCodeLine{00116         \}}
+\DoxyCodeLine{00117 }
+\DoxyCodeLine{00118         \textcolor{comment}{// add a reloc to the next instruction...}}
+\DoxyCodeLine{00119         \textcolor{comment}{// note that the offset is ZERO... comp\_t will understand that}}
+\DoxyCodeLine{00120         \textcolor{comment}{// relocs with offset ZERO means the next instructions...}}
+\DoxyCodeLine{00121         \textcolor{comment}{//}}
+\DoxyCodeLine{00122         \textcolor{keyword}{auto} next\_inst\_sym =}
+\DoxyCodeLine{00123             \mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t_a7c6dee036291ded334aa10d89293fc2a}{symbol\_t::name}}(m\_img, m\_sym)}
+\DoxyCodeLine{00124                 .append(\textcolor{stringliteral}{"{}@"{}})}
+\DoxyCodeLine{00125                 .append(std::to\_string(offset +}
+\DoxyCodeLine{00126                                        xed\_decoded\_inst\_get\_length(\&instr)));}
+\DoxyCodeLine{00127 }
+\DoxyCodeLine{00128         relocs.push\_back(recomp::reloc\_t(}
+\DoxyCodeLine{00129             0, \mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t_a8695d75670cc4d61d275464e9109ff06}{decomp::symbol\_t::hash}}(next\_inst\_sym), next\_inst\_sym.data()));}
+\DoxyCodeLine{00130 }
+\DoxyCodeLine{00131         \textcolor{comment}{// get the instructions bytes}}
+\DoxyCodeLine{00132         \textcolor{comment}{//}}
+\DoxyCodeLine{00133         std::vector<std::uint8\_t> inst\_bytes(}
+\DoxyCodeLine{00134             m\_data.data() + offset,}
+\DoxyCodeLine{00135             m\_data.data() + offset + xed\_decoded\_inst\_get\_length(\&instr));}
+\DoxyCodeLine{00136 }
+\DoxyCodeLine{00137         result.push\_back(decomp::symbol\_t(m\_img, new\_sym\_name, offset,}
+\DoxyCodeLine{00138                                           inst\_bytes, m\_scn, m\_sym, relocs,}
+\DoxyCodeLine{00139                                           \mbox{\hyperlink{namespacetheo_1_1decomp_af96177687d0ad683c5897d8fa01135f9a4842f4c175b1ec87fc82ef3757d3a0e9}{sym\_type\_t::instruction}}));}
+\DoxyCodeLine{00140 }
+\DoxyCodeLine{00141         \textcolor{comment}{// after creating the symbol and dealing with relocs then print the}}
+\DoxyCodeLine{00142         \textcolor{comment}{// information we have concluded...}}
+\DoxyCodeLine{00143         \textcolor{comment}{//}}
+\DoxyCodeLine{00144         \textcolor{keywordtype}{char} buff[255];}
+\DoxyCodeLine{00145         offset += xed\_decoded\_inst\_get\_length(\&instr);}
+\DoxyCodeLine{00146         xed\_format\_context(XED\_SYNTAX\_INTEL, \&instr, buff, \textcolor{keyword}{sizeof} buff, NULL,}
+\DoxyCodeLine{00147                            NULL, NULL);}
+\DoxyCodeLine{00148 }
+\DoxyCodeLine{00149         spdlog::info(\textcolor{stringliteral}{"{}\{\}: \{\}"{}}, new\_sym\_name, buff);}
+\DoxyCodeLine{00150         \textcolor{comment}{// need to set this so that instr can be used to decode again...}}
+\DoxyCodeLine{00151         xed\_decoded\_inst\_zero\_set\_mode(\&instr, \&istate);}
+\DoxyCodeLine{00152       \}}
+\DoxyCodeLine{00153 }
+\DoxyCodeLine{00154       \textcolor{comment}{// remove the relocation to the next symbol from the last instruction}}
+\DoxyCodeLine{00155       \textcolor{comment}{//}}
+\DoxyCodeLine{00156       \textcolor{keyword}{auto}\& last\_inst = result.back();}
+\DoxyCodeLine{00157       \textcolor{keyword}{auto}\& last\_inst\_relocs = last\_inst.relocs();}
+\DoxyCodeLine{00158       last\_inst\_relocs.erase(last\_inst\_relocs.end() -\/ 1);}
+\DoxyCodeLine{00159       \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00160     \}}
+\DoxyCodeLine{00161     \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{00162       \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00163   \}}
+\DoxyCodeLine{00164 }
+\DoxyCodeLine{00165   \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{00166 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{routine_8cpp_source_l00172}{data()}}, \mbox{\hyperlink{symbol_8hpp_source_l00044}{theo\+::decomp\+::function}}, \mbox{\hyperlink{symbol_8cpp_source_l00088}{theo\+::decomp\+::symbol\+\_\+t\+::hash()}}, \mbox{\hyperlink{symbol_8hpp_source_l00045}{theo\+::decomp\+::instruction}}, and \mbox{\hyperlink{symbol_8cpp_source_l00052}{theo\+::decomp\+::symbol\+\_\+t\+::name()}}.
+
+\mbox{\Hypertarget{classtheo_1_1decomp_1_1routine__t_ad3a75cb97abbcd9b282772401b256f36}\label{classtheo_1_1decomp_1_1routine__t_ad3a75cb97abbcd9b282772401b256f36}} 
+\index{theo::decomp::routine\_t@{theo::decomp::routine\_t}!scn@{scn}}
+\index{scn@{scn}!theo::decomp::routine\_t@{theo::decomp::routine\_t}}
+\doxysubsubsection{\texorpdfstring{scn()}{scn()}}
+{\footnotesize\ttfamily coff\+::section\+\_\+header\+\_\+t $\ast$ theo\+::decomp\+::routine\+\_\+t\+::scn (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+gets the section header of the section in which the symbol is located in. 
+
+\begin{DoxyReturn}{Returns}
+the section header of the section in which the symbol is located in.
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{routine_8cpp_source_l00168}{168}} of file \mbox{\hyperlink{routine_8cpp_source}{routine.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00168                                      \{}
+\DoxyCodeLine{00169   \textcolor{keywordflow}{return} m\_scn;}
+\DoxyCodeLine{00170 \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/decomp/\mbox{\hyperlink{routine_8hpp}{routine.\+hpp}}\item 
+src/decomp/\mbox{\hyperlink{routine_8cpp}{routine.\+cpp}}\end{DoxyCompactItemize}

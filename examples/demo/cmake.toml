@@ -1,0 +1,8 @@
+[project]
+name = "demo"
+
+[target.demo]
+condition = "windows"
+type = "executable"
+sources = ["*.cpp", "*.hpp"]
+link-libraries = ["Theodosius", "spdlog"]

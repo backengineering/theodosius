@@ -1,0 +1,31 @@
+\hypertarget{symbol_8hpp}{}\doxysection{include/decomp/symbol.hpp File Reference}
+\label{symbol_8hpp}\index{include/decomp/symbol.hpp@{include/decomp/symbol.hpp}}
+{\ttfamily \#include $<$coff/image.\+hpp$>$}\newline
+{\ttfamily \#include $<$cstdint$>$}\newline
+{\ttfamily \#include $<$recomp/reloc.\+hpp$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t}{theo\+::decomp\+::symbol\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t}{symbol\+\_\+t}} is an abstraction upon the coff symbol. this allows for easier manipulation of the symbol. symbols can be different things, sections, functions, and even instructions (when functions are broken down). \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacetheo}{theo}}
+\begin{DoxyCompactList}\small\item\em The outer most encompassing namespace of this project. \end{DoxyCompactList}\item 
+namespace \mbox{\hyperlink{namespacetheo_1_1decomp}{theo\+::decomp}}
+\begin{DoxyCompactList}\small\item\em the namespace that contains all of the decomposition related code. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{namespacetheo_1_1decomp_af96177687d0ad683c5897d8fa01135f9}{theo\+::decomp\+::sym\+\_\+type\+\_\+t}} \{ \newline
+\mbox{\hyperlink{namespacetheo_1_1decomp_af96177687d0ad683c5897d8fa01135f9acf6baee49c2ddb7e89724231bbd75d4a}{theo\+::decomp\+::function}} = 0b00000001
+, \mbox{\hyperlink{namespacetheo_1_1decomp_af96177687d0ad683c5897d8fa01135f9a4842f4c175b1ec87fc82ef3757d3a0e9}{theo\+::decomp\+::instruction}} = 0b00000010
+, \mbox{\hyperlink{namespacetheo_1_1decomp_af96177687d0ad683c5897d8fa01135f9acdb885c0ea7f6b2874224487c69b8112}{theo\+::decomp\+::data}} = 0b00000100
+, \mbox{\hyperlink{namespacetheo_1_1decomp_af96177687d0ad683c5897d8fa01135f9a46b3b57c5d47e2818b2ea10b96b43cd6}{theo\+::decomp\+::section}} = 0b00001000
+, \newline
+\mbox{\hyperlink{namespacetheo_1_1decomp_af96177687d0ad683c5897d8fa01135f9a7d51179cde510c8a4070c51733aa9313}{theo\+::decomp\+::all}} = section $\vert$ data $\vert$ instruction $\vert$ function
+ \}
+\begin{DoxyCompactList}\small\item\em meta symbol type. this is an abstraction upon the coff symbol storage/class type. \end{DoxyCompactList}\end{DoxyCompactItemize}

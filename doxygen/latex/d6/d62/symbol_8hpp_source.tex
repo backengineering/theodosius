@@ -1,0 +1,205 @@
+\hypertarget{symbol_8hpp_source}{}\doxysection{symbol.\+hpp}
+\label{symbol_8hpp_source}\index{include/decomp/symbol.hpp@{include/decomp/symbol.hpp}}
+\mbox{\hyperlink{symbol_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00001}00001 \textcolor{comment}{// Copyright (c) 2022, \_xeroxz}}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00002}00002 \textcolor{comment}{// All rights reserved.}}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00003}00003 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00004}00004 \textcolor{comment}{// Redistribution and use in source and binary forms, with or without}}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00005}00005 \textcolor{comment}{// modification, are permitted provided that the following conditions are met:}}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00006}00006 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00007}00007 \textcolor{comment}{// 1. Redistributions of source code must retain the above copyright notice,}}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00008}00008 \textcolor{comment}{//    this list of conditions and the following disclaimer.}}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00009}00009 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00010}00010 \textcolor{comment}{// 2. Redistributions in binary form must reproduce the above copyright notice,}}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00011}00011 \textcolor{comment}{//    this list of conditions and the following disclaimer in the documentation}}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00012}00012 \textcolor{comment}{//    and/or other materials provided with the distribution.}}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00013}00013 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00014}00014 \textcolor{comment}{// 3. Neither the name of the copyright holder nor the names of its}}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00015}00015 \textcolor{comment}{//    contributors may be used to endorse or promote products derived from}}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00016}00016 \textcolor{comment}{//    this software without specific prior written permission.}}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00017}00017 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00018}00018 \textcolor{comment}{// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "{}AS IS"{}}}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00019}00019 \textcolor{comment}{// AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE}}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00020}00020 \textcolor{comment}{// IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE}}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00021}00021 \textcolor{comment}{// ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE}}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00022}00022 \textcolor{comment}{// LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR}}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00023}00023 \textcolor{comment}{// CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF}}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00024}00024 \textcolor{comment}{// SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS}}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00025}00025 \textcolor{comment}{// INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN}}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00026}00026 \textcolor{comment}{// CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)}}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00027}00027 \textcolor{comment}{// ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE}}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00028}00028 \textcolor{comment}{// POSSIBILITY OF SUCH DAMAGE.}}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00029}00029 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00030}00030 }
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00031}00031 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00032}00032 \textcolor{preprocessor}{\#include <coff/image.hpp>}}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00033}00033 \textcolor{preprocessor}{\#include <cstdint>}}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00034}00034 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{reloc_8hpp}{recomp/reloc.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00035}00035 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00036}00036 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00037}00037 }
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00038}00038 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespacetheo_1_1decomp}{theo::decomp}} \{\textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00039}00039 \textcolor{comment}{/// <summary>}}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00040}00040 \textcolor{comment}{/// meta symbol type. this is an abstraction upon the coff symbol storage/class}}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00041}00041 \textcolor{comment}{/// type.}}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00042}00042 \textcolor{comment}{/// </summary>}}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00043}\mbox{\hyperlink{namespacetheo_1_1decomp_af96177687d0ad683c5897d8fa01135f9}{00043}} \textcolor{comment}{}\textcolor{keyword}{enum} \mbox{\hyperlink{namespacetheo_1_1decomp_af96177687d0ad683c5897d8fa01135f9}{sym\_type\_t}} \{}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00044}\mbox{\hyperlink{namespacetheo_1_1decomp_af96177687d0ad683c5897d8fa01135f9acf6baee49c2ddb7e89724231bbd75d4a}{00044}}   \mbox{\hyperlink{namespacetheo_1_1decomp_af96177687d0ad683c5897d8fa01135f9acf6baee49c2ddb7e89724231bbd75d4a}{function}} = 0b00000001,}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00045}\mbox{\hyperlink{namespacetheo_1_1decomp_af96177687d0ad683c5897d8fa01135f9a4842f4c175b1ec87fc82ef3757d3a0e9}{00045}}   \mbox{\hyperlink{namespacetheo_1_1decomp_af96177687d0ad683c5897d8fa01135f9a4842f4c175b1ec87fc82ef3757d3a0e9}{instruction}} = 0b00000010,}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00046}\mbox{\hyperlink{namespacetheo_1_1decomp_af96177687d0ad683c5897d8fa01135f9acdb885c0ea7f6b2874224487c69b8112}{00046}}   \mbox{\hyperlink{namespacetheo_1_1decomp_af96177687d0ad683c5897d8fa01135f9acdb885c0ea7f6b2874224487c69b8112}{data}} = 0b00000100,}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00047}\mbox{\hyperlink{namespacetheo_1_1decomp_af96177687d0ad683c5897d8fa01135f9a46b3b57c5d47e2818b2ea10b96b43cd6}{00047}}   \mbox{\hyperlink{namespacetheo_1_1decomp_af96177687d0ad683c5897d8fa01135f9a46b3b57c5d47e2818b2ea10b96b43cd6}{section}} = 0b00001000,}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00048}00048   \mbox{\hyperlink{namespacetheo_1_1decomp_af96177687d0ad683c5897d8fa01135f9a7d51179cde510c8a4070c51733aa9313}{all}} = \mbox{\hyperlink{namespacetheo_1_1decomp_af96177687d0ad683c5897d8fa01135f9a46b3b57c5d47e2818b2ea10b96b43cd6}{section}} | \mbox{\hyperlink{namespacetheo_1_1decomp_af96177687d0ad683c5897d8fa01135f9acdb885c0ea7f6b2874224487c69b8112}{data}} | \mbox{\hyperlink{namespacetheo_1_1decomp_af96177687d0ad683c5897d8fa01135f9a4842f4c175b1ec87fc82ef3757d3a0e9}{instruction}} | \mbox{\hyperlink{namespacetheo_1_1decomp_af96177687d0ad683c5897d8fa01135f9acf6baee49c2ddb7e89724231bbd75d4a}{function}}}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00049}\mbox{\hyperlink{namespacetheo_1_1decomp_af96177687d0ad683c5897d8fa01135f9a7d51179cde510c8a4070c51733aa9313}{00049}} \};}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00050}00050 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00051}00051 \textcolor{comment}{/// <summary>}}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00052}00052 \textcolor{comment}{/// symbol\_t is an abstraction upon the coff symbol. this allows for easier}}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00053}00053 \textcolor{comment}{/// manipulation of the symbol. symbols can be different things, sections,}}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00054}00054 \textcolor{comment}{/// functions, and even instructions (when functions are broken down).}}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00055}00055 \textcolor{comment}{///}}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00056}00056 \textcolor{comment}{/// this class is used throughout theodosius and is a keystone of the project.}}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00057}00057 \textcolor{comment}{/// ensure you understand how this class works and what it contains.}}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00058}00058 \textcolor{comment}{/// </summary>}}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00059}\mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t}{00059}} \textcolor{comment}{}\textcolor{keyword}{class }\mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t}{symbol\_t}} \{}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00060}00060  \textcolor{keyword}{public}:\textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00061}00061 \textcolor{comment}{  /// <summary>}}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00062}00062 \textcolor{comment}{  /// the explicit constructor of this symbol.}}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00063}00063 \textcolor{comment}{  /// </summary>}}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00064}00064 \textcolor{comment}{  /// <param name="{}img"{}>the image in which the symbol is located in.</param>}}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00065}00065 \textcolor{comment}{  /// <param name="{}name"{}>the name of the symbol.</param>}}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00066}00066 \textcolor{comment}{  /// <param name="{}offset"{}>offset into the section where this symbol is}}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00067}00067 \textcolor{comment}{  /// located.</param>}}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00068}00068 \textcolor{comment}{  /// <param name="{}data"{}>the data of the symbol. there can be}}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00069}00069 \textcolor{comment}{  /// no data.</param>}}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00070}00070 \textcolor{comment}{  /// <param name="{}scn"{}>the section header describing the}}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00071}00071 \textcolor{comment}{  /// section which contains the symbol.</param>}}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00072}00072 \textcolor{comment}{  /// <param name="{}sym"{}>the coff symbol itself.</param>}}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00073}00073 \textcolor{comment}{  /// <param name="{}relocs"{}>a vector of relocations this symbol has (if}}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00074}00074 \textcolor{comment}{  /// any).</param>}}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00075}00075 \textcolor{comment}{  /// <param name="{}dcmp\_type"{}>the type of symbol</param>}}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00076}00076 \textcolor{comment}{}  \textcolor{keyword}{explicit} \mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t_aa7247dcb735176b6ed9246d035e7a215}{symbol\_t}}(coff::image\_t* \mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t_ad97ad0395e18dcfb42017fb7753e0665}{img}},}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00077}00077                     std::string \mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t_a7c6dee036291ded334aa10d89293fc2a}{name}},}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00078}00078                     std::uintptr\_t \mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t_a79759d343ddb6a62e4149aef92e2d70b}{offset}},}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00079}00079                     std::vector<std::uint8\_t> \mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t_aa3ecf0b480d10bffe68812409c06d61b}{data}},}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00080}00080                     coff::section\_header\_t* \mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t_a64d51dabe91687ed40c3942d106fd7dd}{scn}} = \{\},}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00081}00081                     coff::symbol\_t* \mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t_a0e6f850f25a51609fbe5dc0a61b27bc9}{sym}} = \{\},}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00082}00082                     std::vector<recomp::reloc\_t> \mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t_abc158e1dc1567161f0a57ed15fc718f7}{relocs}} = \{\},}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00083}00083                     \mbox{\hyperlink{namespacetheo_1_1decomp_af96177687d0ad683c5897d8fa01135f9}{sym\_type\_t}} dcmp\_type = \{\});}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00084}00084 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00085}00085 \textcolor{comment}{  /// <summary>}}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00086}00086 \textcolor{comment}{  /// gets the name of the symbol.}}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00087}00087 \textcolor{comment}{  /// </summary>}}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00088}00088 \textcolor{comment}{  /// <returns>the name of the symbol.</returns>}}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00089}00089 \textcolor{comment}{}  std::string \mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t_a7c6dee036291ded334aa10d89293fc2a}{name}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00090}00090 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00091}00091 \textcolor{comment}{  /// <summary>}}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00092}00092 \textcolor{comment}{  /// gets the offset into the section where the symbol is located.}}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00093}00093 \textcolor{comment}{  /// </summary>}}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00094}00094 \textcolor{comment}{  /// <returns>the offset into the section where the symbol is}}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00095}00095 \textcolor{comment}{  /// located.</returns>}}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00096}00096 \textcolor{comment}{}  std::uintptr\_t \mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t_a79759d343ddb6a62e4149aef92e2d70b}{offset}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00097}00097 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00098}00098 \textcolor{comment}{  /// <summary>}}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00099}00099 \textcolor{comment}{  /// returns the address where the symbol is allocated.}}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00100}00100 \textcolor{comment}{  /// </summary>}}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00101}00101 \textcolor{comment}{  /// <returns>the address where the symbol is allocated.</returns>}}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00102}00102 \textcolor{comment}{}  std::uintptr\_t \mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t_ae92f3e35fba82a1d16a58ad09b39fb47}{allocated\_at}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00103}00103 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00104}00104 \textcolor{comment}{  /// <summary>}}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00105}00105 \textcolor{comment}{  /// returns the size of the symbol.}}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00106}00106 \textcolor{comment}{  /// </summary>}}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00107}00107 \textcolor{comment}{  /// <returns>the size of the symbol.</returns>}}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00108}00108 \textcolor{comment}{}  std::uint32\_t \mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t_ae33f1452b01fe80f9c384241b9fe6286}{size}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00109}00109 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00110}00110 \textcolor{comment}{  /// <summary>}}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00111}00111 \textcolor{comment}{  /// gets the section header of the section in which the symbol is contained.}}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00112}00112 \textcolor{comment}{  /// </summary>}}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00113}00113 \textcolor{comment}{  /// <returns>the section header of the section in which the symbol is}}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00114}00114 \textcolor{comment}{  /// contained.</returns>}}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00115}00115 \textcolor{comment}{}  coff::section\_header\_t* \mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t_a64d51dabe91687ed40c3942d106fd7dd}{scn}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00116}00116 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00117}00117 \textcolor{comment}{  /// <summary>}}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00118}00118 \textcolor{comment}{  /// gets the imagine in which the symbol is located inside of.}}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00119}00119 \textcolor{comment}{  /// </summary>}}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00120}00120 \textcolor{comment}{  /// <returns>the imagine in which the symbol is located inside of.</returns>}}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00121}00121 \textcolor{comment}{}  coff::image\_t* \mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t_ad97ad0395e18dcfb42017fb7753e0665}{img}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00122}00122 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00123}00123 \textcolor{comment}{  /// <summary>}}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00124}00124 \textcolor{comment}{  /// returns a vector by reference of bytes containing the data of the symbol.}}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00125}00125 \textcolor{comment}{  /// </summary>}}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00126}00126 \textcolor{comment}{  /// <returns>a vector by reference of bytes containing the data of the}}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00127}00127 \textcolor{comment}{  /// symbol.</returns>}}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00128}00128 \textcolor{comment}{}  std::vector<std::uint8\_t>\& \mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t_aa3ecf0b480d10bffe68812409c06d61b}{data}}();}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00129}00129 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00130}00130 \textcolor{comment}{  /// <summary>}}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00131}00131 \textcolor{comment}{  /// returns a pointer to the coff symbol object.}}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00132}00132 \textcolor{comment}{  /// </summary>}}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00133}00133 \textcolor{comment}{  /// <returns>a pointer to the coff symbol object.</returns>}}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00134}00134 \textcolor{comment}{}  coff::symbol\_t* \mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t_a0e6f850f25a51609fbe5dc0a61b27bc9}{sym}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00135}00135 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00136}00136 \textcolor{comment}{  /// <summary>}}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00137}00137 \textcolor{comment}{  /// returns the type of the symbol.}}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00138}00138 \textcolor{comment}{  /// </summary>}}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00139}00139 \textcolor{comment}{  /// <returns>the type of the symbol.</returns>}}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00140}00140 \textcolor{comment}{}  \mbox{\hyperlink{namespacetheo_1_1decomp_af96177687d0ad683c5897d8fa01135f9}{sym\_type\_t}} \mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t_a16587cddd37cd45d9ec6cd25c229e8d1}{type}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00141}00141 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00142}00142 \textcolor{comment}{  /// <summary>}}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00143}00143 \textcolor{comment}{  /// returns a vector of relocations.}}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00144}00144 \textcolor{comment}{  /// </summary>}}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00145}00145 \textcolor{comment}{  /// <returns>a vector of relocations.</returns>}}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00146}00146 \textcolor{comment}{}  std::vector<recomp::reloc\_t>\& \mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t_abc158e1dc1567161f0a57ed15fc718f7}{relocs}}();}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00147}00147 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00148}00148 \textcolor{comment}{  /// <summary>}}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00149}00149 \textcolor{comment}{  /// set the address where the symbol is allocated at.}}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00150}00150 \textcolor{comment}{  /// </summary>}}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00151}00151 \textcolor{comment}{  /// <param name="{}allocated\_at"{}>where the symbol is allocated at.</param>}}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00152}00152 \textcolor{comment}{}  \textcolor{keywordtype}{void} \mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t_ae92f3e35fba82a1d16a58ad09b39fb47}{allocated\_at}}(std::uintptr\_t \mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t_ae92f3e35fba82a1d16a58ad09b39fb47}{allocated\_at}});}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00153}00153 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00154}00154 \textcolor{comment}{  /// <summary>}}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00155}00155 \textcolor{comment}{  /// gets the hash of the symbol name.}}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00156}00156 \textcolor{comment}{  /// </summary>}}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00157}00157 \textcolor{comment}{  /// <returns>the hash of the symbol name.</returns>}}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00158}00158 \textcolor{comment}{}  std::size\_t \mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t_a8695d75670cc4d61d275464e9109ff06}{hash}}();}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00159}00159 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00160}00160 \textcolor{comment}{  /// <summary>}}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00161}00161 \textcolor{comment}{  /// generate a hash given the name of the symbol.}}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00162}00162 \textcolor{comment}{  /// </summary>}}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00163}00163 \textcolor{comment}{  /// <param name="{}sym"{}>the symbol name to create a hash from.</param>}}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00164}00164 \textcolor{comment}{  /// <returns>the symbol name hash</returns>}}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00165}00165 \textcolor{comment}{}  \textcolor{keyword}{static} std::size\_t \mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t_a8695d75670cc4d61d275464e9109ff06}{hash}}(\textcolor{keyword}{const} std::string\& \mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t_a0e6f850f25a51609fbe5dc0a61b27bc9}{sym}});}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00166}00166 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00167}00167 \textcolor{comment}{  /// <summary>}}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00168}00168 \textcolor{comment}{  /// get the name of a symbol. this function will create a symbol name if the}}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00169}00169 \textcolor{comment}{  /// symbol is opaquely named.}}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00170}00170 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00171}00171 \textcolor{comment}{  /// for example in c++ if you define something like this:}}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00172}00172 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00173}00173 \textcolor{comment}{  ///   some\_struct\_t val = \{ value\_one, value\_two \};}}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00174}00174 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00175}00175 \textcolor{comment}{  /// "{}val"{} will be stored in the .data section of the coff file. however the}}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00176}00176 \textcolor{comment}{  /// symbol name will be opaque (the name of the symbol will be "{}.data"{}). this}}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00177}00177 \textcolor{comment}{  /// causes issues with theo since each symbol needs its own unqiue name to}}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00178}00178 \textcolor{comment}{  /// generate a unique symbol name hash. for symbols like this, theo will}}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00179}00179 \textcolor{comment}{  /// create a name for it with the following format:}}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00180}00180 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00181}00181 \textcolor{comment}{  ///   .data\#section\_index!coff\_file\_timestamp+offset\_into\_section}}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00182}00182 \textcolor{comment}{  ///}}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00183}00183 \textcolor{comment}{  /// </summary>}}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00184}00184 \textcolor{comment}{  /// <param name="{}img"{}>the coff file containing the symbol.</param>}}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00185}00185 \textcolor{comment}{  /// <param name="{}sym"{}>the coff symbol itself.</param>}}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00186}00186 \textcolor{comment}{  /// <returns>the name of the symbol, or a created one.</returns>}}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00187}00187 \textcolor{comment}{}  \textcolor{keyword}{static} std::string \mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t_a7c6dee036291ded334aa10d89293fc2a}{name}}(\textcolor{keyword}{const} coff::image\_t* \mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t_ad97ad0395e18dcfb42017fb7753e0665}{img}}, coff::symbol\_t* \mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t_a0e6f850f25a51609fbe5dc0a61b27bc9}{sym}});}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00188}00188 }
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00189}00189  \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00190}00190   std::string m\_name;}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00191}00191   std::uintptr\_t m\_offset, m\_allocated\_at;}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00192}00192   std::vector<std::uint8\_t> m\_data;}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00193}00193   coff::section\_header\_t* m\_scn;}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00194}00194   std::vector<recomp::reloc\_t> m\_relocs;}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00195}00195   \mbox{\hyperlink{namespacetheo_1_1decomp_af96177687d0ad683c5897d8fa01135f9}{sym\_type\_t}} m\_sym\_type;}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00196}00196   coff::symbol\_t* m\_sym;}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00197}00197   coff::image\_t* m\_img;}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00198}00198 \};}
+\DoxyCodeLine{\Hypertarget{symbol_8hpp_source_l00199}00199 \}  \textcolor{comment}{// namespace theo::decomp}}
+
+\end{DoxyCode}

@@ -1,0 +1,47 @@
+\hypertarget{operation_8hpp}{}\doxysection{include/obf/transform/operation.hpp File Reference}
+\label{operation_8hpp}\index{include/obf/transform/operation.hpp@{include/obf/transform/operation.hpp}}
+{\ttfamily \#include $<$spdlog/spdlog.\+h$>$}\newline
+{\ttfamily \#include $<$bit$>$}\newline
+{\ttfamily \#include $<$bitset$>$}\newline
+{\ttfamily \#include $<$functional$>$}\newline
+{\ttfamily \#include $<$map$>$}\newline
+{\ttfamily \#include $<$random$>$}\newline
+{\ttfamily \#include $<$xed-\/decode.\+h$>$}\newline
+{\ttfamily \#include $<$xed-\/interface.\+h$>$}\newline
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classtheo_1_1obf_1_1transform_1_1operation__t}{theo\+::obf\+::transform\+::operation\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classtheo_1_1obf_1_1transform_1_1operation__t}{operation\+\_\+t}} is the base class for all types of transformations. classes that inherit this class are singleton and simply call the super constructor (\mbox{\hyperlink{classtheo_1_1obf_1_1transform_1_1operation__t_a3876ca1c7904aed54940e1519fc9fdf4}{operation\+\_\+t\+::operation\+\_\+t}}). \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacetheo}{theo}}
+\begin{DoxyCompactList}\small\item\em The outer most encompassing namespace of this project. \end{DoxyCompactList}\item 
+namespace \mbox{\hyperlink{namespacetheo_1_1obf}{theo\+::obf}}
+\begin{DoxyCompactList}\small\item\em this is the main namespace for obfuscation related things. \end{DoxyCompactList}\item 
+namespace \mbox{\hyperlink{namespacetheo_1_1obf_1_1transform}{theo\+::obf\+::transform}}
+\begin{DoxyCompactList}\small\item\em this namespace encompasses the code for transforming relocations. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{operation_8hpp_a3925943d185a09ad9e32ed8637ccb533}{XED\+\_\+\+ENCODER}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{namespacetheo_1_1obf_1_1transform_a875984c1ce09aa998fe48cca55270ecc}{theo\+::obf\+::transform\+::transform\+\_\+t}} = std\+::function$<$ std\+::size\+\_\+t(std\+::size\+\_\+t, std\+::uint32\+\_\+t)$>$
+\begin{DoxyCompactList}\small\item\em lambda function which takes in a 64bit value (relocation address) and a 32bit value (random value used in transformation). \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{operation_8hpp_a3925943d185a09ad9e32ed8637ccb533}\label{operation_8hpp_a3925943d185a09ad9e32ed8637ccb533}} 
+\index{operation.hpp@{operation.hpp}!XED\_ENCODER@{XED\_ENCODER}}
+\index{XED\_ENCODER@{XED\_ENCODER}!operation.hpp@{operation.hpp}}
+\doxysubsubsection{\texorpdfstring{XED\_ENCODER}{XED\_ENCODER}}
+{\footnotesize\ttfamily \#define XED\+\_\+\+ENCODER}
+
+
+
+Definition at line \mbox{\hyperlink{operation_8hpp_source_l00039}{39}} of file \mbox{\hyperlink{operation_8hpp_source}{operation.\+hpp}}.
+

@@ -1,0 +1,95 @@
+\hypertarget{gen_8hpp_source}{}\doxysection{gen.\+hpp}
+\label{gen_8hpp_source}\index{include/obf/transform/gen.hpp@{include/obf/transform/gen.hpp}}
+\mbox{\hyperlink{gen_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{gen_8hpp_source_l00001}00001 \textcolor{comment}{// Copyright (c) 2022, \_xeroxz}}
+\DoxyCodeLine{\Hypertarget{gen_8hpp_source_l00002}00002 \textcolor{comment}{// All rights reserved.}}
+\DoxyCodeLine{\Hypertarget{gen_8hpp_source_l00003}00003 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{gen_8hpp_source_l00004}00004 \textcolor{comment}{// Redistribution and use in source and binary forms, with or without}}
+\DoxyCodeLine{\Hypertarget{gen_8hpp_source_l00005}00005 \textcolor{comment}{// modification, are permitted provided that the following conditions are met:}}
+\DoxyCodeLine{\Hypertarget{gen_8hpp_source_l00006}00006 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{gen_8hpp_source_l00007}00007 \textcolor{comment}{// 1. Redistributions of source code must retain the above copyright notice,}}
+\DoxyCodeLine{\Hypertarget{gen_8hpp_source_l00008}00008 \textcolor{comment}{//    this list of conditions and the following disclaimer.}}
+\DoxyCodeLine{\Hypertarget{gen_8hpp_source_l00009}00009 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{gen_8hpp_source_l00010}00010 \textcolor{comment}{// 2. Redistributions in binary form must reproduce the above copyright notice,}}
+\DoxyCodeLine{\Hypertarget{gen_8hpp_source_l00011}00011 \textcolor{comment}{//    this list of conditions and the following disclaimer in the documentation}}
+\DoxyCodeLine{\Hypertarget{gen_8hpp_source_l00012}00012 \textcolor{comment}{//    and/or other materials provided with the distribution.}}
+\DoxyCodeLine{\Hypertarget{gen_8hpp_source_l00013}00013 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{gen_8hpp_source_l00014}00014 \textcolor{comment}{// 3. Neither the name of the copyright holder nor the names of its}}
+\DoxyCodeLine{\Hypertarget{gen_8hpp_source_l00015}00015 \textcolor{comment}{//    contributors may be used to endorse or promote products derived from}}
+\DoxyCodeLine{\Hypertarget{gen_8hpp_source_l00016}00016 \textcolor{comment}{//    this software without specific prior written permission.}}
+\DoxyCodeLine{\Hypertarget{gen_8hpp_source_l00017}00017 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{gen_8hpp_source_l00018}00018 \textcolor{comment}{// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "{}AS IS"{}}}
+\DoxyCodeLine{\Hypertarget{gen_8hpp_source_l00019}00019 \textcolor{comment}{// AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE}}
+\DoxyCodeLine{\Hypertarget{gen_8hpp_source_l00020}00020 \textcolor{comment}{// IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE}}
+\DoxyCodeLine{\Hypertarget{gen_8hpp_source_l00021}00021 \textcolor{comment}{// ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE}}
+\DoxyCodeLine{\Hypertarget{gen_8hpp_source_l00022}00022 \textcolor{comment}{// LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR}}
+\DoxyCodeLine{\Hypertarget{gen_8hpp_source_l00023}00023 \textcolor{comment}{// CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF}}
+\DoxyCodeLine{\Hypertarget{gen_8hpp_source_l00024}00024 \textcolor{comment}{// SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS}}
+\DoxyCodeLine{\Hypertarget{gen_8hpp_source_l00025}00025 \textcolor{comment}{// INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN}}
+\DoxyCodeLine{\Hypertarget{gen_8hpp_source_l00026}00026 \textcolor{comment}{// CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)}}
+\DoxyCodeLine{\Hypertarget{gen_8hpp_source_l00027}00027 \textcolor{comment}{// ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE}}
+\DoxyCodeLine{\Hypertarget{gen_8hpp_source_l00028}00028 \textcolor{comment}{// POSSIBILITY OF SUCH DAMAGE.}}
+\DoxyCodeLine{\Hypertarget{gen_8hpp_source_l00029}00029 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{gen_8hpp_source_l00030}00030 }
+\DoxyCodeLine{\Hypertarget{gen_8hpp_source_l00031}00031 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{\Hypertarget{gen_8hpp_source_l00032}00032 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{transform_8hpp}{obf/transform/transform.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{gen_8hpp_source_l00033}00033 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{reloc_8hpp}{recomp/reloc.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{gen_8hpp_source_l00034}00034 }
+\DoxyCodeLine{\Hypertarget{gen_8hpp_source_l00035}00035 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespacetheo_1_1obf_1_1transform}{theo::obf::transform}} \{\textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{gen_8hpp_source_l00036}00036 \textcolor{comment}{/// <summary>}}
+\DoxyCodeLine{\Hypertarget{gen_8hpp_source_l00037}00037 \textcolor{comment}{/// generate a sequence of transformations given an instruction that has a}}
+\DoxyCodeLine{\Hypertarget{gen_8hpp_source_l00038}00038 \textcolor{comment}{/// relocation in it.}}
+\DoxyCodeLine{\Hypertarget{gen_8hpp_source_l00039}00039 \textcolor{comment}{/// </summary>}}
+\DoxyCodeLine{\Hypertarget{gen_8hpp_source_l00040}00040 \textcolor{comment}{/// <param name="{}inst"{}>instruction that has a relocation in it.</param>}}
+\DoxyCodeLine{\Hypertarget{gen_8hpp_source_l00041}00041 \textcolor{comment}{/// <param name="{}reloc"{}>meta data relocation object for the instruction.</param>}}
+\DoxyCodeLine{\Hypertarget{gen_8hpp_source_l00042}00042 \textcolor{comment}{/// <param name="{}low"{}>lowest number of transformations to generate.</param>}}
+\DoxyCodeLine{\Hypertarget{gen_8hpp_source_l00043}00043 \textcolor{comment}{/// <param name="{}high"{}>highest number of transformations to generate.</param>}}
+\DoxyCodeLine{\Hypertarget{gen_8hpp_source_l00044}00044 \textcolor{comment}{/// <returns></returns>}}
+\DoxyCodeLine{\Hypertarget{gen_8hpp_source_l00045}\mbox{\hyperlink{namespacetheo_1_1obf_1_1transform_abb618f5ff8d88963dd77e682456ef982}{00045}} \textcolor{comment}{}\textcolor{keyword}{inline} std::vector<std::uint8\_t> \mbox{\hyperlink{namespacetheo_1_1obf_1_1transform_abb618f5ff8d88963dd77e682456ef982}{generate}}(xed\_decoded\_inst\_t* inst,}
+\DoxyCodeLine{\Hypertarget{gen_8hpp_source_l00046}00046                                           \mbox{\hyperlink{classtheo_1_1recomp_1_1reloc__t}{recomp::reloc\_t}}* reloc,}
+\DoxyCodeLine{\Hypertarget{gen_8hpp_source_l00047}00047                                           std::uint8\_t low,}
+\DoxyCodeLine{\Hypertarget{gen_8hpp_source_l00048}00048                                           std::uint8\_t high) \{}
+\DoxyCodeLine{\Hypertarget{gen_8hpp_source_l00049}00049   \textcolor{keyword}{auto} num\_transforms = \mbox{\hyperlink{classtheo_1_1obf_1_1transform_1_1operation__t_aaa5859bc3c7f95d99d4d726289593488}{transform::operation\_t::random}}(low, high);}
+\DoxyCodeLine{\Hypertarget{gen_8hpp_source_l00050}00050   \textcolor{keyword}{auto} num\_ops = \mbox{\hyperlink{namespacetheo_1_1obf_1_1transform_a6a4b1d5c0c9c2ea1f0b4ec8f5aba48b0}{transform::operations}}.size();}
+\DoxyCodeLine{\Hypertarget{gen_8hpp_source_l00051}00051   std::vector<std::uint8\_t> new\_inst\_bytes;}
+\DoxyCodeLine{\Hypertarget{gen_8hpp_source_l00052}00052 }
+\DoxyCodeLine{\Hypertarget{gen_8hpp_source_l00053}00053   std::uint32\_t inst\_len = \{\};}
+\DoxyCodeLine{\Hypertarget{gen_8hpp_source_l00054}00054   std::uint8\_t inst\_buff[XED\_MAX\_INSTRUCTION\_BYTES];}
+\DoxyCodeLine{\Hypertarget{gen_8hpp_source_l00055}00055   xed\_encoder\_request\_t req;}
+\DoxyCodeLine{\Hypertarget{gen_8hpp_source_l00056}00056 }
+\DoxyCodeLine{\Hypertarget{gen_8hpp_source_l00057}00057   xed\_state\_t istate\{XED\_MACHINE\_MODE\_LONG\_64, XED\_ADDRESS\_WIDTH\_64b\};}
+\DoxyCodeLine{\Hypertarget{gen_8hpp_source_l00058}00058   xed\_encoder\_request\_zero\_set\_mode(\&req, \&istate);}
+\DoxyCodeLine{\Hypertarget{gen_8hpp_source_l00059}00059   xed\_encoder\_request\_set\_effective\_operand\_width(\&req, 64);}
+\DoxyCodeLine{\Hypertarget{gen_8hpp_source_l00060}00060   xed\_encoder\_request\_set\_iclass(\&req, XED\_ICLASS\_PUSHFQ);}
+\DoxyCodeLine{\Hypertarget{gen_8hpp_source_l00061}00061   xed\_encode(\&req, inst\_buff, \textcolor{keyword}{sizeof}(inst\_buff), \&inst\_len);}
+\DoxyCodeLine{\Hypertarget{gen_8hpp_source_l00062}00062   new\_inst\_bytes.insert(new\_inst\_bytes.end(), inst\_buff, inst\_buff + inst\_len);}
+\DoxyCodeLine{\Hypertarget{gen_8hpp_source_l00063}00063 }
+\DoxyCodeLine{\Hypertarget{gen_8hpp_source_l00064}00064   \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} cnt = 0u; cnt < num\_transforms; ++cnt) \{}
+\DoxyCodeLine{\Hypertarget{gen_8hpp_source_l00065}00065     std::uint32\_t imm = \mbox{\hyperlink{classtheo_1_1obf_1_1transform_1_1operation__t_aaa5859bc3c7f95d99d4d726289593488}{transform::operation\_t::random}}(}
+\DoxyCodeLine{\Hypertarget{gen_8hpp_source_l00066}00066         0, std::numeric\_limits<std::int32\_t>::max());}
+\DoxyCodeLine{\Hypertarget{gen_8hpp_source_l00067}00067 }
+\DoxyCodeLine{\Hypertarget{gen_8hpp_source_l00068}00068     \textcolor{keyword}{auto} itr = \mbox{\hyperlink{namespacetheo_1_1obf_1_1transform_a6a4b1d5c0c9c2ea1f0b4ec8f5aba48b0}{transform::operations}}.begin();}
+\DoxyCodeLine{\Hypertarget{gen_8hpp_source_l00069}00069     std::advance(itr, \mbox{\hyperlink{classtheo_1_1obf_1_1transform_1_1operation__t_aaa5859bc3c7f95d99d4d726289593488}{transform::operation\_t::random}}(0, num\_ops -\/ 1));}
+\DoxyCodeLine{\Hypertarget{gen_8hpp_source_l00070}00070     \textcolor{keyword}{auto} transform\_bytes = itr-\/>second-\/>native(inst, imm);}
+\DoxyCodeLine{\Hypertarget{gen_8hpp_source_l00071}00071     new\_inst\_bytes.insert(new\_inst\_bytes.end(), transform\_bytes.begin(),}
+\DoxyCodeLine{\Hypertarget{gen_8hpp_source_l00072}00072                           transform\_bytes.end());}
+\DoxyCodeLine{\Hypertarget{gen_8hpp_source_l00073}00073 }
+\DoxyCodeLine{\Hypertarget{gen_8hpp_source_l00074}00074     reloc-\/>\mbox{\hyperlink{classtheo_1_1recomp_1_1reloc__t_ab5214a9ff9135672e25f40406c37fb10}{add\_transform}}(}
+\DoxyCodeLine{\Hypertarget{gen_8hpp_source_l00075}00075         \{\mbox{\hyperlink{namespacetheo_1_1obf_1_1transform_a6a4b1d5c0c9c2ea1f0b4ec8f5aba48b0}{transform::operations}}[itr-\/>second-\/>inverse()]-\/>get\_transform(), imm\});}
+\DoxyCodeLine{\Hypertarget{gen_8hpp_source_l00076}00076   \}}
+\DoxyCodeLine{\Hypertarget{gen_8hpp_source_l00077}00077 }
+\DoxyCodeLine{\Hypertarget{gen_8hpp_source_l00078}00078   xed\_encoder\_request\_zero\_set\_mode(\&req, \&istate);}
+\DoxyCodeLine{\Hypertarget{gen_8hpp_source_l00079}00079   xed\_encoder\_request\_set\_effective\_operand\_width(\&req, 64);}
+\DoxyCodeLine{\Hypertarget{gen_8hpp_source_l00080}00080   xed\_encoder\_request\_set\_iclass(\&req, XED\_ICLASS\_POPFQ);}
+\DoxyCodeLine{\Hypertarget{gen_8hpp_source_l00081}00081   xed\_encode(\&req, inst\_buff, \textcolor{keyword}{sizeof}(inst\_buff), \&inst\_len);}
+\DoxyCodeLine{\Hypertarget{gen_8hpp_source_l00082}00082   new\_inst\_bytes.insert(new\_inst\_bytes.end(), inst\_buff, inst\_buff + inst\_len);}
+\DoxyCodeLine{\Hypertarget{gen_8hpp_source_l00083}00083 }
+\DoxyCodeLine{\Hypertarget{gen_8hpp_source_l00084}00084   \textcolor{comment}{// inverse the order in which the transformations are executed...}}
+\DoxyCodeLine{\Hypertarget{gen_8hpp_source_l00085}00085   \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{gen_8hpp_source_l00086}00086   std::reverse(reloc-\/>\mbox{\hyperlink{classtheo_1_1recomp_1_1reloc__t_af8abfa7a4f1052308a233629faf39a78}{get\_transforms}}().begin(), reloc-\/>\mbox{\hyperlink{classtheo_1_1recomp_1_1reloc__t_af8abfa7a4f1052308a233629faf39a78}{get\_transforms}}().end());}
+\DoxyCodeLine{\Hypertarget{gen_8hpp_source_l00087}00087   \textcolor{keywordflow}{return} new\_inst\_bytes;}
+\DoxyCodeLine{\Hypertarget{gen_8hpp_source_l00088}00088 \}}
+\DoxyCodeLine{\Hypertarget{gen_8hpp_source_l00089}00089 \}  \textcolor{comment}{// namespace theo::obf::transform}}
+
+\end{DoxyCode}

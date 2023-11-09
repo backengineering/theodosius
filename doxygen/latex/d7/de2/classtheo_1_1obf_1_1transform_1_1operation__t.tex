@@ -1,0 +1,248 @@
+\hypertarget{classtheo_1_1obf_1_1transform_1_1operation__t}{}\doxysection{theo\+::obf\+::transform\+::operation\+\_\+t Class Reference}
+\label{classtheo_1_1obf_1_1transform_1_1operation__t}\index{theo::obf::transform::operation\_t@{theo::obf::transform::operation\_t}}
+
+
+\mbox{\hyperlink{classtheo_1_1obf_1_1transform_1_1operation__t}{operation\+\_\+t}} is the base class for all types of transformations. classes that inherit this class are singleton and simply call the super constructor (\mbox{\hyperlink{classtheo_1_1obf_1_1transform_1_1operation__t_a3876ca1c7904aed54940e1519fc9fdf4}{operation\+\_\+t\+::operation\+\_\+t}}).  
+
+
+
+
+{\ttfamily \#include \char`\"{}operation.\+hpp\char`\"{}}
+
+Inheritance diagram for theo\+::obf\+::transform\+::operation\+\_\+t\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=1.142857cm]{d7/de2/classtheo_1_1obf_1_1transform_1_1operation__t}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classtheo_1_1obf_1_1transform_1_1operation__t_a3876ca1c7904aed54940e1519fc9fdf4}{operation\+\_\+t}} (\mbox{\hyperlink{namespacetheo_1_1obf_1_1transform_a875984c1ce09aa998fe48cca55270ecc}{transform\+\_\+t}} op, xed\+\_\+iclass\+\_\+enum\+\_\+t \mbox{\hyperlink{classtheo_1_1obf_1_1transform_1_1operation__t_a8558c2a8e78ef8da59674396bc76157f}{type}})
+\begin{DoxyCompactList}\small\item\em explicit constructor for \mbox{\hyperlink{classtheo_1_1obf_1_1transform_1_1operation__t}{operation\+\_\+t}} \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::uint8\+\_\+t $>$ \mbox{\hyperlink{classtheo_1_1obf_1_1transform_1_1operation__t_a30cad572f62baf0c10fdc7026d7cba44}{native}} (const xed\+\_\+decoded\+\_\+inst\+\_\+t $\ast$inst, std\+::uint32\+\_\+t imm)
+\begin{DoxyCompactList}\small\item\em generates a native transform instruction given an existing instruction. it works like so\+: \end{DoxyCompactList}\item 
+xed\+\_\+iclass\+\_\+enum\+\_\+t \mbox{\hyperlink{classtheo_1_1obf_1_1transform_1_1operation__t_a91f9b94436d49659aaabb291786b3c7b}{inverse}} ()
+\begin{DoxyCompactList}\small\item\em gets the inverse operation of the current operation. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespacetheo_1_1obf_1_1transform_a875984c1ce09aa998fe48cca55270ecc}{transform\+\_\+t}} $\ast$ \mbox{\hyperlink{classtheo_1_1obf_1_1transform_1_1operation__t_aed18bfd26da1a198f3b5f81525bcbb66}{get\+\_\+transform}} ()
+\begin{DoxyCompactList}\small\item\em gets a pointer to the lambda function which contains the transform logic. \end{DoxyCompactList}\item 
+xed\+\_\+iclass\+\_\+enum\+\_\+t \mbox{\hyperlink{classtheo_1_1obf_1_1transform_1_1operation__t_a8558c2a8e78ef8da59674396bc76157f}{type}} ()
+\begin{DoxyCompactList}\small\item\em gets the operation type. such as XED\+\_\+\+ICLASS\+\_\+\+ADD, XED\+\_\+\+ICLASS\+\_\+\+SUB, etc... \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static std\+::size\+\_\+t \mbox{\hyperlink{classtheo_1_1obf_1_1transform_1_1operation__t_aaa5859bc3c7f95d99d4d726289593488}{random}} (std\+::size\+\_\+t lowest, std\+::size\+\_\+t largest)
+\begin{DoxyCompactList}\small\item\em generate a random number in a range. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{classtheo_1_1obf_1_1transform_1_1operation__t}{operation\+\_\+t}} is the base class for all types of transformations. classes that inherit this class are singleton and simply call the super constructor (\mbox{\hyperlink{classtheo_1_1obf_1_1transform_1_1operation__t_a3876ca1c7904aed54940e1519fc9fdf4}{operation\+\_\+t\+::operation\+\_\+t}}). 
+
+Definition at line \mbox{\hyperlink{operation_8hpp_source_l00061}{61}} of file \mbox{\hyperlink{operation_8hpp_source}{operation.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classtheo_1_1obf_1_1transform_1_1operation__t_a3876ca1c7904aed54940e1519fc9fdf4}\label{classtheo_1_1obf_1_1transform_1_1operation__t_a3876ca1c7904aed54940e1519fc9fdf4}} 
+\index{theo::obf::transform::operation\_t@{theo::obf::transform::operation\_t}!operation\_t@{operation\_t}}
+\index{operation\_t@{operation\_t}!theo::obf::transform::operation\_t@{theo::obf::transform::operation\_t}}
+\doxysubsubsection{\texorpdfstring{operation\_t()}{operation\_t()}}
+{\footnotesize\ttfamily theo\+::obf\+::transform\+::operation\+\_\+t\+::operation\+\_\+t (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacetheo_1_1obf_1_1transform_a875984c1ce09aa998fe48cca55270ecc}{transform\+\_\+t}}}]{op,  }\item[{xed\+\_\+iclass\+\_\+enum\+\_\+t}]{type }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}
+
+
+
+explicit constructor for \mbox{\hyperlink{classtheo_1_1obf_1_1transform_1_1operation__t}{operation\+\_\+t}} 
+
+
+\begin{DoxyParams}{Parameters}
+{\em op} & lambda function when executed applies transformations.\\
+\hline
+{\em type} & type of transformation, such as XOR, ADD, SUB, etc...\\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{operation_8hpp_source_l00069}{69}} of file \mbox{\hyperlink{operation_8hpp_source}{operation.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00070       : m\_transform(op), m\_type(\mbox{\hyperlink{classtheo_1_1obf_1_1transform_1_1operation__t_a8558c2a8e78ef8da59674396bc76157f}{type}}) \{\}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classtheo_1_1obf_1_1transform_1_1operation__t_aed18bfd26da1a198f3b5f81525bcbb66}\label{classtheo_1_1obf_1_1transform_1_1operation__t_aed18bfd26da1a198f3b5f81525bcbb66}} 
+\index{theo::obf::transform::operation\_t@{theo::obf::transform::operation\_t}!get\_transform@{get\_transform}}
+\index{get\_transform@{get\_transform}!theo::obf::transform::operation\_t@{theo::obf::transform::operation\_t}}
+\doxysubsubsection{\texorpdfstring{get\_transform()}{get\_transform()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacetheo_1_1obf_1_1transform_a875984c1ce09aa998fe48cca55270ecc}{transform\+\_\+t}} $\ast$ theo\+::obf\+::transform\+::operation\+\_\+t\+::get\+\_\+transform (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+gets a pointer to the lambda function which contains the transform logic. 
+
+\begin{DoxyReturn}{Returns}
+a pointer to the lambda function which contains the transform logic.
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{operation_8hpp_source_l00133}{133}} of file \mbox{\hyperlink{operation_8hpp_source}{operation.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00133 \{ \textcolor{keywordflow}{return} \&m\_transform; \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classtheo_1_1obf_1_1transform_1_1operation__t_a91f9b94436d49659aaabb291786b3c7b}\label{classtheo_1_1obf_1_1transform_1_1operation__t_a91f9b94436d49659aaabb291786b3c7b}} 
+\index{theo::obf::transform::operation\_t@{theo::obf::transform::operation\_t}!inverse@{inverse}}
+\index{inverse@{inverse}!theo::obf::transform::operation\_t@{theo::obf::transform::operation\_t}}
+\doxysubsubsection{\texorpdfstring{inverse()}{inverse()}}
+{\footnotesize\ttfamily xed\+\_\+iclass\+\_\+enum\+\_\+t theo\+::obf\+::transform\+::operation\+\_\+t\+::inverse (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+gets the inverse operation of the current operation. 
+
+\begin{DoxyReturn}{Returns}
+the inverse operation of the current operation.
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{operation_8hpp_source_l00126}{126}} of file \mbox{\hyperlink{operation_8hpp_source}{operation.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00126 \{ \textcolor{keywordflow}{return} m\_inverse\_op[m\_type]; \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classtheo_1_1obf_1_1transform_1_1operation__t_a30cad572f62baf0c10fdc7026d7cba44}\label{classtheo_1_1obf_1_1transform_1_1operation__t_a30cad572f62baf0c10fdc7026d7cba44}} 
+\index{theo::obf::transform::operation\_t@{theo::obf::transform::operation\_t}!native@{native}}
+\index{native@{native}!theo::obf::transform::operation\_t@{theo::obf::transform::operation\_t}}
+\doxysubsubsection{\texorpdfstring{native()}{native()}}
+{\footnotesize\ttfamily std\+::vector$<$ std\+::uint8\+\_\+t $>$ theo\+::obf\+::transform\+::operation\+\_\+t\+::native (\begin{DoxyParamCaption}\item[{const xed\+\_\+decoded\+\_\+inst\+\_\+t $\ast$}]{inst,  }\item[{std\+::uint32\+\_\+t}]{imm }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+generates a native transform instruction given an existing instruction. it works like so\+: 
+
+mov rax, \&Message\+BoxA ; original instruction with relocation
+
+; this function takes the first operand and out of the original ; instruction and uses it to generate a transformation.
+
+xor rax, 0x39280928 ; this would be an example output for the xor ;operation.
+
+
+\begin{DoxyParams}{Parameters}
+{\em inst} & instruction with a relocation to generate a transformation for.\\
+\hline
+{\em imm} & random 32bit number used in the generate transform.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+returns the bytes of the native instruction that was encoded.
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{operation_8hpp_source_l00089}{89}} of file \mbox{\hyperlink{operation_8hpp_source}{operation.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00090                                                     \{}
+\DoxyCodeLine{00091     std::uint32\_t inst\_len = \{\};}
+\DoxyCodeLine{00092     std::uint8\_t inst\_buff[XED\_MAX\_INSTRUCTION\_BYTES];}
+\DoxyCodeLine{00093 }
+\DoxyCodeLine{00094     xed\_error\_enum\_t err;}
+\DoxyCodeLine{00095     xed\_encoder\_request\_init\_from\_decode((xed\_decoded\_inst\_s*)inst);}
+\DoxyCodeLine{00096     xed\_encoder\_request\_t* req = (xed\_encoder\_request\_t*)inst;}
+\DoxyCodeLine{00097 }
+\DoxyCodeLine{00098     \textcolor{keywordflow}{switch} (m\_type) \{}
+\DoxyCodeLine{00099       \textcolor{keywordflow}{case} XED\_ICLASS\_ROR:}
+\DoxyCodeLine{00100       \textcolor{keywordflow}{case} XED\_ICLASS\_ROL:}
+\DoxyCodeLine{00101         xed\_encoder\_request\_set\_uimm0(req, imm, 1);}
+\DoxyCodeLine{00102         \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00103       \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{00104         xed\_encoder\_request\_set\_uimm0(req, imm, 4);}
+\DoxyCodeLine{00105         \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00106     \}}
+\DoxyCodeLine{00107 }
+\DoxyCodeLine{00108     xed\_encoder\_request\_set\_iclass(req, m\_type);}
+\DoxyCodeLine{00109     xed\_encoder\_request\_set\_operand\_order(req, 1, XED\_OPERAND\_IMM0);}
+\DoxyCodeLine{00110 }
+\DoxyCodeLine{00111     \textcolor{keywordflow}{if} ((err = xed\_encode(req, inst\_buff, \textcolor{keyword}{sizeof}(inst\_buff), \&inst\_len)) !=}
+\DoxyCodeLine{00112         XED\_ERROR\_NONE) \{}
+\DoxyCodeLine{00113       spdlog::error(\textcolor{stringliteral}{"{}failed to encode instruction... reason: \{\}"{}},}
+\DoxyCodeLine{00114                     xed\_error\_enum\_t2str(err));}
+\DoxyCodeLine{00115 }
+\DoxyCodeLine{00116       assert(err == XED\_ERROR\_NONE);}
+\DoxyCodeLine{00117     \}}
+\DoxyCodeLine{00118 }
+\DoxyCodeLine{00119     \textcolor{keywordflow}{return} std::vector<std::uint8\_t>(inst\_buff, inst\_buff + inst\_len);}
+\DoxyCodeLine{00120   \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classtheo_1_1obf_1_1transform_1_1operation__t_aaa5859bc3c7f95d99d4d726289593488}\label{classtheo_1_1obf_1_1transform_1_1operation__t_aaa5859bc3c7f95d99d4d726289593488}} 
+\index{theo::obf::transform::operation\_t@{theo::obf::transform::operation\_t}!random@{random}}
+\index{random@{random}!theo::obf::transform::operation\_t@{theo::obf::transform::operation\_t}}
+\doxysubsubsection{\texorpdfstring{random()}{random()}}
+{\footnotesize\ttfamily static std\+::size\+\_\+t theo\+::obf\+::transform\+::operation\+\_\+t\+::random (\begin{DoxyParamCaption}\item[{std\+::size\+\_\+t}]{lowest,  }\item[{std\+::size\+\_\+t}]{largest }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+generate a random number in a range. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em lowest} & lowest value of the range.\\
+\hline
+{\em largest} & highest value of the range.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a random value in a range.
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{operation_8hpp_source_l00148}{148}} of file \mbox{\hyperlink{operation_8hpp_source}{operation.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00148                                                                \{}
+\DoxyCodeLine{00149     std::random\_device rd;}
+\DoxyCodeLine{00150     std::mt19937 gen(rd());}
+\DoxyCodeLine{00151     std::uniform\_int\_distribution<std::size\_t> distr(lowest, largest);}
+\DoxyCodeLine{00152     \textcolor{keywordflow}{return} distr(gen);}
+\DoxyCodeLine{00153   \}}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{gen_8hpp_source_l00045}{theo\+::obf\+::transform\+::generate()}}.
+
+\mbox{\Hypertarget{classtheo_1_1obf_1_1transform_1_1operation__t_a8558c2a8e78ef8da59674396bc76157f}\label{classtheo_1_1obf_1_1transform_1_1operation__t_a8558c2a8e78ef8da59674396bc76157f}} 
+\index{theo::obf::transform::operation\_t@{theo::obf::transform::operation\_t}!type@{type}}
+\index{type@{type}!theo::obf::transform::operation\_t@{theo::obf::transform::operation\_t}}
+\doxysubsubsection{\texorpdfstring{type()}{type()}}
+{\footnotesize\ttfamily xed\+\_\+iclass\+\_\+enum\+\_\+t theo\+::obf\+::transform\+::operation\+\_\+t\+::type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+gets the operation type. such as XED\+\_\+\+ICLASS\+\_\+\+ADD, XED\+\_\+\+ICLASS\+\_\+\+SUB, etc... 
+
+\begin{DoxyReturn}{Returns}
+the operation type. such as XED\+\_\+\+ICLASS\+\_\+\+ADD, XED\+\_\+\+ICLASS\+\_\+\+SUB, etc...
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{operation_8hpp_source_l00140}{140}} of file \mbox{\hyperlink{operation_8hpp_source}{operation.\+hpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00140 \{ \textcolor{keywordflow}{return} m\_type; \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/obf/transform/\mbox{\hyperlink{operation_8hpp}{operation.\+hpp}}\end{DoxyCompactItemize}

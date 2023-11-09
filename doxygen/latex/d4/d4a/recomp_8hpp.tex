@@ -1,0 +1,26 @@
+\hypertarget{recomp_8hpp}{}\doxysection{include/recomp/recomp.hpp File Reference}
+\label{recomp_8hpp}\index{include/recomp/recomp.hpp@{include/recomp/recomp.hpp}}
+{\ttfamily \#include $<$decomp/decomp.\+hpp$>$}\newline
+{\ttfamily \#include $<$obf/engine.\+hpp$>$}\newline
+{\ttfamily \#include $<$recomp/symbol\+\_\+table.\+hpp$>$}\newline
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classtheo_1_1recomp_1_1recomp__t}{theo\+::recomp\+::recomp\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em the main class responsible for recomposition \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacetheo}{theo}}
+\begin{DoxyCompactList}\small\item\em The outer most encompassing namespace of this project. \end{DoxyCompactList}\item 
+namespace \mbox{\hyperlink{namespacetheo_1_1recomp}{theo\+::recomp}}
+\begin{DoxyCompactList}\small\item\em this namespace encompasses all recomposition related code. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{namespacetheo_1_1recomp_a7364f8c94855a2a871a9d6e1057989f3}{theo\+::recomp\+::resolver\+\_\+t}} = std\+::function$<$ std\+::uintptr\+\_\+t(std\+::string)$>$
+\begin{DoxyCompactList}\small\item\em a function which is called by \mbox{\hyperlink{classtheo_1_1recomp_1_1recomp__t}{recomp\+\_\+t}} to resolve external symbols \end{DoxyCompactList}\item 
+using \mbox{\hyperlink{namespacetheo_1_1recomp_a604e81450773453df676c3b573651adc}{theo\+::recomp\+::copier\+\_\+t}} = std\+::function$<$ void(std\+::uintptr\+\_\+t, void $\ast$, std\+::uint32\+\_\+t)$>$
+\begin{DoxyCompactList}\small\item\em a function which is called by \mbox{\hyperlink{classtheo_1_1recomp_1_1recomp__t}{recomp\+\_\+t}} to copy symbols into memory. \end{DoxyCompactList}\item 
+using \mbox{\hyperlink{namespacetheo_1_1recomp_a96995cb0c5291dce945760c3d8f55241}{theo\+::recomp\+::allocator\+\_\+t}} = std\+::function$<$ std\+::uintptr\+\_\+t(std\+::uint32\+\_\+t, coff\+::section\+\_\+characteristics\+\_\+t)$>$
+\begin{DoxyCompactList}\small\item\em a function which is called to allocate space for a symbol. \end{DoxyCompactList}\end{DoxyCompactItemize}

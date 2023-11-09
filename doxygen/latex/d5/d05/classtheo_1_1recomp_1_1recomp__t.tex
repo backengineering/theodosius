@@ -1,0 +1,389 @@
+\hypertarget{classtheo_1_1recomp_1_1recomp__t}{}\doxysection{theo\+::recomp\+::recomp\+\_\+t Class Reference}
+\label{classtheo_1_1recomp_1_1recomp__t}\index{theo::recomp::recomp\_t@{theo::recomp::recomp\_t}}
+
+
+the main class responsible for recomposition  
+
+
+
+
+{\ttfamily \#include \char`\"{}recomp.\+hpp\char`\"{}}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classtheo_1_1recomp_1_1recomp__t_ac5f04297153c2e445330e5cc103e8589}{recomp\+\_\+t}} (\mbox{\hyperlink{classtheo_1_1decomp_1_1decomp__t}{decomp\+::decomp\+\_\+t}} $\ast$dcmp, \mbox{\hyperlink{namespacetheo_1_1recomp_a96995cb0c5291dce945760c3d8f55241}{allocator\+\_\+t}} alloc, \mbox{\hyperlink{namespacetheo_1_1recomp_a604e81450773453df676c3b573651adc}{copier\+\_\+t}} copy, \mbox{\hyperlink{namespacetheo_1_1recomp_a7364f8c94855a2a871a9d6e1057989f3}{resolver\+\_\+t}} \mbox{\hyperlink{classtheo_1_1recomp_1_1recomp__t_a299fbede378f04991df2e39293307094}{resolve}})
+\begin{DoxyCompactList}\small\item\em the explicit constructor for the \mbox{\hyperlink{classtheo_1_1recomp_1_1recomp__t}{recomp\+\_\+t}} class. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classtheo_1_1recomp_1_1recomp__t_a78502665e218d3addca9b1e5e3875f39}{allocate}} ()
+\begin{DoxyCompactList}\small\item\em when called, this function allocates space for every symbol. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classtheo_1_1recomp_1_1recomp__t_a299fbede378f04991df2e39293307094}{resolve}} ()
+\begin{DoxyCompactList}\small\item\em when called, this function resolves all relocations in every symbol. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classtheo_1_1recomp_1_1recomp__t_a080d88f122d12faf2e328c9bdd10be6e}{copy\+\_\+syms}} ()
+\begin{DoxyCompactList}\small\item\em when called, this function copies symbols into allocations. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classtheo_1_1recomp_1_1recomp__t_a0da9a904b0057c14190218592aff0f07}{allocator}} (\mbox{\hyperlink{namespacetheo_1_1recomp_a96995cb0c5291dce945760c3d8f55241}{allocator\+\_\+t}} alloc)
+\begin{DoxyCompactList}\small\item\em setter for the allocater lambda function. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classtheo_1_1recomp_1_1recomp__t_aa6fecf752d4c5bc211e164d8496724b1}{copier}} (\mbox{\hyperlink{namespacetheo_1_1recomp_a604e81450773453df676c3b573651adc}{copier\+\_\+t}} copy)
+\begin{DoxyCompactList}\small\item\em setter for the copier lambda function. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classtheo_1_1recomp_1_1recomp__t_a1be6d0cdb57565c31b138248c8b2d470}{resolver}} (\mbox{\hyperlink{namespacetheo_1_1recomp_a7364f8c94855a2a871a9d6e1057989f3}{resolver\+\_\+t}} \mbox{\hyperlink{classtheo_1_1recomp_1_1recomp__t_a299fbede378f04991df2e39293307094}{resolve}})
+\begin{DoxyCompactList}\small\item\em setter for the resolve lambda function. \end{DoxyCompactList}\item 
+std\+::uintptr\+\_\+t \mbox{\hyperlink{classtheo_1_1recomp_1_1recomp__t_ae0c56f0f8af33b390e4123509523602c}{resolve}} (const std\+::string \&\&sym)
+\begin{DoxyCompactList}\small\item\em resolves the address of a function given its name. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+the main class responsible for recomposition 
+
+Definition at line \mbox{\hyperlink{recomp_8hpp_source_l00064}{64}} of file \mbox{\hyperlink{recomp_8hpp_source}{recomp.\+hpp}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classtheo_1_1recomp_1_1recomp__t_ac5f04297153c2e445330e5cc103e8589}\label{classtheo_1_1recomp_1_1recomp__t_ac5f04297153c2e445330e5cc103e8589}} 
+\index{theo::recomp::recomp\_t@{theo::recomp::recomp\_t}!recomp\_t@{recomp\_t}}
+\index{recomp\_t@{recomp\_t}!theo::recomp::recomp\_t@{theo::recomp::recomp\_t}}
+\doxysubsubsection{\texorpdfstring{recomp\_t()}{recomp\_t()}}
+{\footnotesize\ttfamily theo\+::recomp\+::recomp\+\_\+t\+::recomp\+\_\+t (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classtheo_1_1decomp_1_1decomp__t}{decomp\+::decomp\+\_\+t}} $\ast$}]{dcmp,  }\item[{\mbox{\hyperlink{namespacetheo_1_1recomp_a96995cb0c5291dce945760c3d8f55241}{allocator\+\_\+t}}}]{alloc,  }\item[{\mbox{\hyperlink{namespacetheo_1_1recomp_a604e81450773453df676c3b573651adc}{copier\+\_\+t}}}]{copy,  }\item[{\mbox{\hyperlink{namespacetheo_1_1recomp_a7364f8c94855a2a871a9d6e1057989f3}{resolver\+\_\+t}}}]{resolve }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+the explicit constructor for the \mbox{\hyperlink{classtheo_1_1recomp_1_1recomp__t}{recomp\+\_\+t}} class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dcmp} & pointer to a decomp\+\_\+t class.\\
+\hline
+{\em alloc} & lambda function which is used to allocate memory for symbols.\\
+\hline
+{\em copy} & lambda function used to copy bytes into allocations.\\
+\hline
+{\em resolve} & lambda function used to resolve external symbols.\\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{recomp_8cpp_source_l00034}{34}} of file \mbox{\hyperlink{recomp_8cpp_source}{recomp.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00038     : m\_dcmp(dcmp), m\_allocator(alloc), m\_copier(copy), m\_resolver(\mbox{\hyperlink{classtheo_1_1recomp_1_1recomp__t_a299fbede378f04991df2e39293307094}{resolve}}) \{\}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classtheo_1_1recomp_1_1recomp__t_a78502665e218d3addca9b1e5e3875f39}\label{classtheo_1_1recomp_1_1recomp__t_a78502665e218d3addca9b1e5e3875f39}} 
+\index{theo::recomp::recomp\_t@{theo::recomp::recomp\_t}!allocate@{allocate}}
+\index{allocate@{allocate}!theo::recomp::recomp\_t@{theo::recomp::recomp\_t}}
+\doxysubsubsection{\texorpdfstring{allocate()}{allocate()}}
+{\footnotesize\ttfamily void theo\+::recomp\+::recomp\+\_\+t\+::allocate (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+when called, this function allocates space for every symbol. 
+
+
+
+Definition at line \mbox{\hyperlink{recomp_8cpp_source_l00040}{40}} of file \mbox{\hyperlink{recomp_8cpp_source}{recomp.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00040                         \{}
+\DoxyCodeLine{00041   \textcolor{comment}{// map code \& data/rdata/bss sections first...}}
+\DoxyCodeLine{00042   \textcolor{comment}{//}}
+\DoxyCodeLine{00043   m\_dcmp-\/>\mbox{\hyperlink{classtheo_1_1decomp_1_1decomp__t_a8630f2ee0f4fb9516f5b20014e4c6120}{syms}}()-\/>\mbox{\hyperlink{classtheo_1_1recomp_1_1symbol__table__t_a35008ba37814a94209cf979302e13e6d}{for\_each}}([\&](\mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t}{theo::decomp::symbol\_t}}\& sym) \{}
+\DoxyCodeLine{00044     \textcolor{keywordflow}{switch} (sym.\mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t_a16587cddd37cd45d9ec6cd25c229e8d1}{type}}()) \{}
+\DoxyCodeLine{00045       case decomp::sym\_type\_t::section:}
+\DoxyCodeLine{00046       case decomp::sym\_type\_t::function:}
+\DoxyCodeLine{00047       case decomp::sym\_type\_t::instruction: \{}
+\DoxyCodeLine{00048         sym.allocated\_at(m\_allocator(sym.size(), sym.scn()-\/>characteristics));}
+\DoxyCodeLine{00049         break;}
+\DoxyCodeLine{00050       \}}
+\DoxyCodeLine{00051       \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{00052         \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00053     \}}
+\DoxyCodeLine{00054   \});}
+\DoxyCodeLine{00055 }
+\DoxyCodeLine{00056   \textcolor{comment}{// then map data/rdata/bss symbols to the allocated sections...}}
+\DoxyCodeLine{00057   \textcolor{comment}{//}}
+\DoxyCodeLine{00058   m\_dcmp-\/>\mbox{\hyperlink{classtheo_1_1decomp_1_1decomp__t_a8630f2ee0f4fb9516f5b20014e4c6120}{syms}}()-\/>\mbox{\hyperlink{classtheo_1_1recomp_1_1symbol__table__t_a35008ba37814a94209cf979302e13e6d}{for\_each}}([\&](\mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t}{theo::decomp::symbol\_t}}\& sym) \{}
+\DoxyCodeLine{00059     \textcolor{keywordflow}{if} (sym.\mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t_a16587cddd37cd45d9ec6cd25c229e8d1}{type}}() == \mbox{\hyperlink{namespacetheo_1_1decomp_af96177687d0ad683c5897d8fa01135f9acdb885c0ea7f6b2874224487c69b8112}{decomp::sym\_type\_t::data}}) \{}
+\DoxyCodeLine{00060       \textcolor{comment}{// if the symbol has a section then we will refer to the allocation made}}
+\DoxyCodeLine{00061       \textcolor{comment}{// for that section...}}
+\DoxyCodeLine{00062       \textcolor{comment}{//}}
+\DoxyCodeLine{00063       if (sym.scn()) \{}
+\DoxyCodeLine{00064         auto scn\_sym =}
+\DoxyCodeLine{00065             m\_dcmp-\/>syms()-\/>sym\_from\_hash(m\_dcmp-\/>scn\_hash\_tbl()[sym.scn()]);}
+\DoxyCodeLine{00066 }
+\DoxyCodeLine{00067         if (!scn\_sym.has\_value()) \{}
+\DoxyCodeLine{00068           spdlog::error(\textcolor{stringliteral}{"{}failed to locate section: \{\} for symbol: \{\}"{}},}
+\DoxyCodeLine{00069                         sym.scn()-\/>name.to\_string(), sym.name());}
+\DoxyCodeLine{00070 }
+\DoxyCodeLine{00071           assert(scn\_sym.has\_value());}
+\DoxyCodeLine{00072         \}}
+\DoxyCodeLine{00073 }
+\DoxyCodeLine{00074         sym.allocated\_at(scn\_sym.value()-\/>allocated\_at() + sym.offset());}
+\DoxyCodeLine{00075       \} \textcolor{keywordflow}{else} \{  \textcolor{comment}{// else if there is no section then we allocate based upon the}}
+\DoxyCodeLine{00076                 \textcolor{comment}{// size of the symbol... this is only done for symbols that are}}
+\DoxyCodeLine{00077                 \textcolor{comment}{// bss...}}
+\DoxyCodeLine{00078                 \textcolor{comment}{//}}
+\DoxyCodeLine{00079 }
+\DoxyCodeLine{00080         \textcolor{comment}{// bss is read write...}}
+\DoxyCodeLine{00081         \textcolor{comment}{//}}
+\DoxyCodeLine{00082         coff::section\_characteristics\_t prot = \{\};}
+\DoxyCodeLine{00083         prot.mem\_read = \textcolor{keyword}{true};}
+\DoxyCodeLine{00084         prot.mem\_write = \textcolor{keyword}{true};}
+\DoxyCodeLine{00085 }
+\DoxyCodeLine{00086         sym.\mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t_ae92f3e35fba82a1d16a58ad09b39fb47}{allocated\_at}}(m\_allocator(sym.\mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t_ae33f1452b01fe80f9c384241b9fe6286}{size}}(), sym.\mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t_a64d51dabe91687ed40c3942d106fd7dd}{scn}}()-\/>characteristics));}
+\DoxyCodeLine{00087       \}}
+\DoxyCodeLine{00088     \}}
+\DoxyCodeLine{00089   \});}
+\DoxyCodeLine{00090 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{symbol__table_8cpp_source_l00049}{theo\+::recomp\+::symbol\+\_\+table\+\_\+t\+::for\+\_\+each()}}, \mbox{\hyperlink{decomp_8cpp_source_l00293}{theo\+::decomp\+::decomp\+\_\+t\+::syms()}}, and \mbox{\hyperlink{symbol_8cpp_source_l00080}{theo\+::decomp\+::symbol\+\_\+t\+::type()}}.
+
+
+
+Referenced by \mbox{\hyperlink{theo_8cpp_source_l00056}{theo\+::theo\+\_\+t\+::compose()}}.
+
+\mbox{\Hypertarget{classtheo_1_1recomp_1_1recomp__t_a0da9a904b0057c14190218592aff0f07}\label{classtheo_1_1recomp_1_1recomp__t_a0da9a904b0057c14190218592aff0f07}} 
+\index{theo::recomp::recomp\_t@{theo::recomp::recomp\_t}!allocator@{allocator}}
+\index{allocator@{allocator}!theo::recomp::recomp\_t@{theo::recomp::recomp\_t}}
+\doxysubsubsection{\texorpdfstring{allocator()}{allocator()}}
+{\footnotesize\ttfamily void theo\+::recomp\+::recomp\+\_\+t\+::allocator (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacetheo_1_1recomp_a96995cb0c5291dce945760c3d8f55241}{allocator\+\_\+t}}}]{alloc }\end{DoxyParamCaption})}
+
+
+
+setter for the allocater lambda function. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em alloc} & lambda function which allocates memory for symbols.\\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{recomp_8cpp_source_l00163}{163}} of file \mbox{\hyperlink{recomp_8cpp_source}{recomp.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00163                                           \{}
+\DoxyCodeLine{00164   m\_allocator = alloc;}
+\DoxyCodeLine{00165 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classtheo_1_1recomp_1_1recomp__t_aa6fecf752d4c5bc211e164d8496724b1}\label{classtheo_1_1recomp_1_1recomp__t_aa6fecf752d4c5bc211e164d8496724b1}} 
+\index{theo::recomp::recomp\_t@{theo::recomp::recomp\_t}!copier@{copier}}
+\index{copier@{copier}!theo::recomp::recomp\_t@{theo::recomp::recomp\_t}}
+\doxysubsubsection{\texorpdfstring{copier()}{copier()}}
+{\footnotesize\ttfamily void theo\+::recomp\+::recomp\+\_\+t\+::copier (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacetheo_1_1recomp_a604e81450773453df676c3b573651adc}{copier\+\_\+t}}}]{copy }\end{DoxyParamCaption})}
+
+
+
+setter for the copier lambda function. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em copy} & copier lambda function used to copy bytes into allocations made by the allocator.\\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{recomp_8cpp_source_l00167}{167}} of file \mbox{\hyperlink{recomp_8cpp_source}{recomp.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00167                                    \{}
+\DoxyCodeLine{00168   m\_copier = copy;}
+\DoxyCodeLine{00169 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classtheo_1_1recomp_1_1recomp__t_a080d88f122d12faf2e328c9bdd10be6e}\label{classtheo_1_1recomp_1_1recomp__t_a080d88f122d12faf2e328c9bdd10be6e}} 
+\index{theo::recomp::recomp\_t@{theo::recomp::recomp\_t}!copy\_syms@{copy\_syms}}
+\index{copy\_syms@{copy\_syms}!theo::recomp::recomp\_t@{theo::recomp::recomp\_t}}
+\doxysubsubsection{\texorpdfstring{copy\_syms()}{copy\_syms()}}
+{\footnotesize\ttfamily void theo\+::recomp\+::recomp\+\_\+t\+::copy\+\_\+syms (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+when called, this function copies symbols into allocations. 
+
+
+
+Definition at line \mbox{\hyperlink{recomp_8cpp_source_l00155}{155}} of file \mbox{\hyperlink{recomp_8cpp_source}{recomp.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00155                          \{}
+\DoxyCodeLine{00156   \textcolor{comment}{// copy symbols into memory using the copier supplied...}}
+\DoxyCodeLine{00157   \textcolor{comment}{//}}
+\DoxyCodeLine{00158   m\_dcmp-\/>\mbox{\hyperlink{classtheo_1_1decomp_1_1decomp__t_a8630f2ee0f4fb9516f5b20014e4c6120}{syms}}()-\/>\mbox{\hyperlink{classtheo_1_1recomp_1_1symbol__table__t_a35008ba37814a94209cf979302e13e6d}{for\_each}}([\&](\mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t}{theo::decomp::symbol\_t}}\& sym) \{}
+\DoxyCodeLine{00159     m\_copier(sym.\mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t_ae92f3e35fba82a1d16a58ad09b39fb47}{allocated\_at}}(), sym.\mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t_aa3ecf0b480d10bffe68812409c06d61b}{data}}().data(), sym.\mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t_aa3ecf0b480d10bffe68812409c06d61b}{data}}().size());}
+\DoxyCodeLine{00160   \});}
+\DoxyCodeLine{00161 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{symbol_8cpp_source_l00060}{theo\+::decomp\+::symbol\+\_\+t\+::allocated\+\_\+at()}}, and \mbox{\hyperlink{symbol_8cpp_source_l00076}{theo\+::decomp\+::symbol\+\_\+t\+::data()}}.
+
+
+
+Referenced by \mbox{\hyperlink{theo_8cpp_source_l00056}{theo\+::theo\+\_\+t\+::compose()}}.
+
+\mbox{\Hypertarget{classtheo_1_1recomp_1_1recomp__t_a299fbede378f04991df2e39293307094}\label{classtheo_1_1recomp_1_1recomp__t_a299fbede378f04991df2e39293307094}} 
+\index{theo::recomp::recomp\_t@{theo::recomp::recomp\_t}!resolve@{resolve}}
+\index{resolve@{resolve}!theo::recomp::recomp\_t@{theo::recomp::recomp\_t}}
+\doxysubsubsection{\texorpdfstring{resolve()}{resolve()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void theo\+::recomp\+::recomp\+\_\+t\+::resolve (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+when called, this function resolves all relocations in every symbol. 
+
+
+
+Definition at line \mbox{\hyperlink{recomp_8cpp_source_l00092}{92}} of file \mbox{\hyperlink{recomp_8cpp_source}{recomp.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00092                        \{}
+\DoxyCodeLine{00093   \textcolor{comment}{// resolve relocations in all symbols...}}
+\DoxyCodeLine{00094   \textcolor{comment}{//}}
+\DoxyCodeLine{00095   m\_dcmp-\/>\mbox{\hyperlink{classtheo_1_1decomp_1_1decomp__t_a8630f2ee0f4fb9516f5b20014e4c6120}{syms}}()-\/>\mbox{\hyperlink{classtheo_1_1recomp_1_1symbol__table__t_a35008ba37814a94209cf979302e13e6d}{for\_each}}([\&](\mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t}{theo::decomp::symbol\_t}}\& sym) \{}
+\DoxyCodeLine{00096     \textcolor{keyword}{auto}\& relocs = sym.\mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t_abc158e1dc1567161f0a57ed15fc718f7}{relocs}}();}
+\DoxyCodeLine{00097     std::for\_each(relocs.begin(), relocs.end(), [\&](reloc\_t\& reloc) \{}
+\DoxyCodeLine{00098       if (reloc.offset() > sym.data().size()) \{}
+\DoxyCodeLine{00099         spdlog::error(}
+\DoxyCodeLine{00100             \textcolor{stringliteral}{"{}invalid relocation... writing outside of symbol length... offset: "{}}}
+\DoxyCodeLine{00101             \textcolor{stringliteral}{"{}\{\} sym size: \{\}"{}},}
+\DoxyCodeLine{00102             sym.offset(), sym.data().size());}
+\DoxyCodeLine{00103 }
+\DoxyCodeLine{00104         assert(reloc.offset() > sym.data().size());}
+\DoxyCodeLine{00105       \}}
+\DoxyCodeLine{00106 }
+\DoxyCodeLine{00107       \textcolor{comment}{// try and resolve the symbol by refering to the internal symbol table}}
+\DoxyCodeLine{00108       \textcolor{comment}{// first... if there is no symbol then refer to the resolver...}}
+\DoxyCodeLine{00109       \textcolor{comment}{//}}
+\DoxyCodeLine{00110       \textcolor{keyword}{auto} reloc\_sym = m\_dcmp-\/>\mbox{\hyperlink{classtheo_1_1decomp_1_1decomp__t_a8630f2ee0f4fb9516f5b20014e4c6120}{syms}}()-\/>\mbox{\hyperlink{classtheo_1_1recomp_1_1symbol__table__t_a308c0dbcc4d569467e0986b32ef30db5}{sym\_from\_hash}}(reloc.hash());}
+\DoxyCodeLine{00111       \textcolor{keyword}{auto} allocated\_at = reloc\_sym.has\_value()}
+\DoxyCodeLine{00112                               ? reloc\_sym.value()-\/>allocated\_at()}
+\DoxyCodeLine{00113                               : m\_resolver(reloc.name());}
+\DoxyCodeLine{00114 }
+\DoxyCodeLine{00115       if (!allocated\_at) \{}
+\DoxyCodeLine{00116         spdlog::error(\textcolor{stringliteral}{"{}failed to resolve reloc from symbol: \{\} to symbol: \{\}"{}},}
+\DoxyCodeLine{00117                       sym.\mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t_a7c6dee036291ded334aa10d89293fc2a}{name}}(), reloc.name());}
+\DoxyCodeLine{00118 }
+\DoxyCodeLine{00119         assert(allocated\_at);}
+\DoxyCodeLine{00120       \}}
+\DoxyCodeLine{00121 }
+\DoxyCodeLine{00122       \textcolor{keywordflow}{switch} (sym.\mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t_a16587cddd37cd45d9ec6cd25c229e8d1}{type}}()) \{}
+\DoxyCodeLine{00123         \textcolor{keywordflow}{case} \mbox{\hyperlink{namespacetheo_1_1decomp_af96177687d0ad683c5897d8fa01135f9a46b3b57c5d47e2818b2ea10b96b43cd6}{decomp::sym\_type\_t::section}}: \{}
+\DoxyCodeLine{00124           \textcolor{keyword}{auto} scn\_sym =}
+\DoxyCodeLine{00125               m\_dcmp-\/>\mbox{\hyperlink{classtheo_1_1decomp_1_1decomp__t_a8630f2ee0f4fb9516f5b20014e4c6120}{syms}}()-\/>\mbox{\hyperlink{classtheo_1_1recomp_1_1symbol__table__t_a308c0dbcc4d569467e0986b32ef30db5}{sym\_from\_hash}}(m\_dcmp-\/>\mbox{\hyperlink{classtheo_1_1decomp_1_1decomp__t_a860dddc3a5d12231b685dbaa12a0db06}{scn\_hash\_tbl}}()[sym.\mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t_a64d51dabe91687ed40c3942d106fd7dd}{scn}}()]);}
+\DoxyCodeLine{00126 }
+\DoxyCodeLine{00127           *\textcolor{keyword}{reinterpret\_cast<}std::uintptr\_t*\textcolor{keyword}{>}(scn\_sym.value()-\/>data().data() +}
+\DoxyCodeLine{00128                                              reloc.offset()) = allocated\_at;}
+\DoxyCodeLine{00129           \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00130         \}}
+\DoxyCodeLine{00131         \textcolor{keywordflow}{case} \mbox{\hyperlink{namespacetheo_1_1decomp_af96177687d0ad683c5897d8fa01135f9acf6baee49c2ddb7e89724231bbd75d4a}{decomp::sym\_type\_t::function}}: \{}
+\DoxyCodeLine{00132           *\textcolor{keyword}{reinterpret\_cast<}std::uintptr\_t*\textcolor{keyword}{>}(sym.\mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t_aa3ecf0b480d10bffe68812409c06d61b}{data}}().data() +}
+\DoxyCodeLine{00133                                              reloc.offset()) = allocated\_at;}
+\DoxyCodeLine{00134           \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00135         \}}
+\DoxyCodeLine{00136         \textcolor{keywordflow}{case} \mbox{\hyperlink{namespacetheo_1_1decomp_af96177687d0ad683c5897d8fa01135f9a4842f4c175b1ec87fc82ef3757d3a0e9}{decomp::sym\_type\_t::instruction}}: \{}
+\DoxyCodeLine{00137           \textcolor{keyword}{auto}\& transforms = reloc.get\_transforms();}
+\DoxyCodeLine{00138           std::for\_each(}
+\DoxyCodeLine{00139               transforms.begin(), transforms.end(),}
+\DoxyCodeLine{00140               [\&](std::pair<obf::transform::transform\_t*, std::uint32\_t>\& t) \{}
+\DoxyCodeLine{00141                 allocated\_at = (*t.first)(allocated\_at, t.second);}
+\DoxyCodeLine{00142               \});}
+\DoxyCodeLine{00143 }
+\DoxyCodeLine{00144           *\textcolor{keyword}{reinterpret\_cast<}std::uintptr\_t*\textcolor{keyword}{>}(sym.\mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t_aa3ecf0b480d10bffe68812409c06d61b}{data}}().data() +}
+\DoxyCodeLine{00145                                              reloc.offset()) = allocated\_at;}
+\DoxyCodeLine{00146           \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00147         \}}
+\DoxyCodeLine{00148         \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{00149           \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00150       \}}
+\DoxyCodeLine{00151     \});}
+\DoxyCodeLine{00152   \});}
+\DoxyCodeLine{00153 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{symbol_8cpp_source_l00076}{theo\+::decomp\+::symbol\+\_\+t\+::data()}}, \mbox{\hyperlink{symbol_8hpp_source_l00044}{theo\+::decomp\+::function}}, \mbox{\hyperlink{reloc_8hpp_source_l00101}{theo\+::recomp\+::reloc\+\_\+t\+::get\+\_\+transforms()}}, \mbox{\hyperlink{reloc_8hpp_source_l00061}{theo\+::recomp\+::reloc\+\_\+t\+::hash()}}, \mbox{\hyperlink{symbol_8hpp_source_l00045}{theo\+::decomp\+::instruction}}, \mbox{\hyperlink{reloc_8hpp_source_l00067}{theo\+::recomp\+::reloc\+\_\+t\+::name()}}, \mbox{\hyperlink{symbol_8cpp_source_l00052}{theo\+::decomp\+::symbol\+\_\+t\+::name()}}, \mbox{\hyperlink{reloc_8hpp_source_l00075}{theo\+::recomp\+::reloc\+\_\+t\+::offset()}}, \mbox{\hyperlink{symbol_8cpp_source_l00096}{theo\+::decomp\+::symbol\+\_\+t\+::relocs()}}, \mbox{\hyperlink{symbol_8cpp_source_l00064}{theo\+::decomp\+::symbol\+\_\+t\+::scn()}}, \mbox{\hyperlink{symbol_8hpp_source_l00047}{theo\+::decomp\+::section}}, and \mbox{\hyperlink{symbol_8cpp_source_l00080}{theo\+::decomp\+::symbol\+\_\+t\+::type()}}.
+
+
+
+Referenced by \mbox{\hyperlink{theo_8cpp_source_l00056}{theo\+::theo\+\_\+t\+::compose()}}.
+
+\mbox{\Hypertarget{classtheo_1_1recomp_1_1recomp__t_ae0c56f0f8af33b390e4123509523602c}\label{classtheo_1_1recomp_1_1recomp__t_ae0c56f0f8af33b390e4123509523602c}} 
+\index{theo::recomp::recomp\_t@{theo::recomp::recomp\_t}!resolve@{resolve}}
+\index{resolve@{resolve}!theo::recomp::recomp\_t@{theo::recomp::recomp\_t}}
+\doxysubsubsection{\texorpdfstring{resolve()}{resolve()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily std\+::uintptr\+\_\+t theo\+::recomp\+::recomp\+\_\+t\+::resolve (\begin{DoxyParamCaption}\item[{const std\+::string \&\&}]{sym }\end{DoxyParamCaption})}
+
+
+
+resolves the address of a function given its name. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sym} & the name of the symbol to resolve the location of.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the address of the symbol.
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{recomp_8cpp_source_l00175}{175}} of file \mbox{\hyperlink{recomp_8cpp_source}{recomp.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00175                                                     \{}
+\DoxyCodeLine{00176   \textcolor{keyword}{auto} res = m\_dcmp-\/>\mbox{\hyperlink{classtheo_1_1decomp_1_1decomp__t_a8630f2ee0f4fb9516f5b20014e4c6120}{syms}}()-\/>\mbox{\hyperlink{classtheo_1_1recomp_1_1symbol__table__t_a308c0dbcc4d569467e0986b32ef30db5}{sym\_from\_hash}}(\mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t_a8695d75670cc4d61d275464e9109ff06}{decomp::symbol\_t::hash}}(sym));}
+\DoxyCodeLine{00177   \textcolor{keywordflow}{return} res.has\_value() ? res.value()-\/>allocated\_at() : 0;}
+\DoxyCodeLine{00178 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{symbol_8cpp_source_l00088}{theo\+::decomp\+::symbol\+\_\+t\+::hash()}}.
+
+\mbox{\Hypertarget{classtheo_1_1recomp_1_1recomp__t_a1be6d0cdb57565c31b138248c8b2d470}\label{classtheo_1_1recomp_1_1recomp__t_a1be6d0cdb57565c31b138248c8b2d470}} 
+\index{theo::recomp::recomp\_t@{theo::recomp::recomp\_t}!resolver@{resolver}}
+\index{resolver@{resolver}!theo::recomp::recomp\_t@{theo::recomp::recomp\_t}}
+\doxysubsubsection{\texorpdfstring{resolver()}{resolver()}}
+{\footnotesize\ttfamily void theo\+::recomp\+::recomp\+\_\+t\+::resolver (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacetheo_1_1recomp_a7364f8c94855a2a871a9d6e1057989f3}{resolver\+\_\+t}}}]{resolve }\end{DoxyParamCaption})}
+
+
+
+setter for the resolve lambda function. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em resolve} & lambda function to resolve external symbols.\\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{recomp_8cpp_source_l00171}{171}} of file \mbox{\hyperlink{recomp_8cpp_source}{recomp.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00171                                           \{}
+\DoxyCodeLine{00172   m\_resolver = \mbox{\hyperlink{classtheo_1_1recomp_1_1recomp__t_a299fbede378f04991df2e39293307094}{resolve}};}
+\DoxyCodeLine{00173 \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/recomp/\mbox{\hyperlink{recomp_8hpp}{recomp.\+hpp}}\item 
+src/recomp/\mbox{\hyperlink{recomp_8cpp}{recomp.\+cpp}}\end{DoxyCompactItemize}

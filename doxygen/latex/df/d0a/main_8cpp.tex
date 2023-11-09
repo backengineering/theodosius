@@ -1,0 +1,149 @@
+\hypertarget{main_8cpp}{}\doxysection{examples/demo/main.cpp File Reference}
+\label{main_8cpp}\index{examples/demo/main.cpp@{examples/demo/main.cpp}}
+{\ttfamily \#include $<$Windows.\+h$>$}\newline
+{\ttfamily \#include $<$psapi.\+h$>$}\newline
+{\ttfamily \#include $<$filesystem$>$}\newline
+{\ttfamily \#include $<$fstream$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$spdlog/spdlog.\+h$>$}\newline
+{\ttfamily \#include $<$theo.\+hpp$>$}\newline
+{\ttfamily \#include $<$obf/engine.\+hpp$>$}\newline
+{\ttfamily \#include $<$obf/passes/jcc\+\_\+rewrite\+\_\+pass.\+hpp$>$}\newline
+{\ttfamily \#include $<$obf/passes/next\+\_\+inst\+\_\+pass.\+hpp$>$}\newline
+{\ttfamily \#include $<$obf/passes/reloc\+\_\+transform\+\_\+pass.\+hpp$>$}\newline
+{\ttfamily \#include \char`\"{}hello\+\_\+world\+\_\+pass.\+hpp\char`\"{}}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{main_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{main}} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
+\begin{DoxyCompactList}\small\item\em example usage of how to interface with theo. please refer to the source code of this function for details. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{main_8cpp_a0ddf1224851353fc92bfbff6f499fa97}\label{main_8cpp_a0ddf1224851353fc92bfbff6f499fa97}} 
+\index{main.cpp@{main.cpp}!main@{main}}
+\index{main@{main}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char $\ast$}]{argv\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+example usage of how to interface with theo. please refer to the source code of this function for details. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em argc} & \\
+\hline
+{\em argv} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{main_8cpp_source_l00057}{57}} of file \mbox{\hyperlink{main_8cpp_source}{main.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00057                                  \{}
+\DoxyCodeLine{00058   \textcolor{keywordflow}{if} (argc < 2)}
+\DoxyCodeLine{00059     \textcolor{keywordflow}{return} -\/1;}
+\DoxyCodeLine{00060 }
+\DoxyCodeLine{00061   \textcolor{comment}{// read in lib file...}}
+\DoxyCodeLine{00062   std::ifstream f(argv[1], std::ios::binary);}
+\DoxyCodeLine{00063   \textcolor{keyword}{auto} fsize = fs::file\_size(fs::path(argv[1]));}
+\DoxyCodeLine{00064   std::vector<std::uint8\_t> fdata;}
+\DoxyCodeLine{00065   fdata.resize(fsize);}
+\DoxyCodeLine{00066   f.read((\textcolor{keywordtype}{char}*)fdata.data(), fsize);}
+\DoxyCodeLine{00067 }
+\DoxyCodeLine{00068   LoadLibraryA(\textcolor{stringliteral}{"{}user32.dll"{}});}
+\DoxyCodeLine{00069   LoadLibraryA(\textcolor{stringliteral}{"{}win32u.dll"{}});}
+\DoxyCodeLine{00070 }
+\DoxyCodeLine{00071   \textcolor{comment}{// declare your allocator, resolver, and copier lambda functions.}}
+\DoxyCodeLine{00072   \textcolor{comment}{//}}
+\DoxyCodeLine{00073 }
+\DoxyCodeLine{00074   \mbox{\hyperlink{namespacetheo_1_1recomp_a96995cb0c5291dce945760c3d8f55241}{theo::recomp::allocator\_t}} allocator =}
+\DoxyCodeLine{00075       [\&](std::uint32\_t size,}
+\DoxyCodeLine{00076           coff::section\_characteristics\_t section\_type) -\/> std::uintptr\_t \{}
+\DoxyCodeLine{00077     \textcolor{keywordflow}{return} \textcolor{keyword}{reinterpret\_cast<}std::uintptr\_t\textcolor{keyword}{>}(VirtualAlloc(}
+\DoxyCodeLine{00078         NULL, size, MEM\_COMMIT | MEM\_RESERVE,}
+\DoxyCodeLine{00079         section\_type.mem\_execute ? PAGE\_EXECUTE\_READWRITE : PAGE\_READWRITE));}
+\DoxyCodeLine{00080   \};}
+\DoxyCodeLine{00081 }
+\DoxyCodeLine{00082   \mbox{\hyperlink{namespacetheo_1_1recomp_a604e81450773453df676c3b573651adc}{theo::recomp::copier\_t}} copier = [\&](std::uintptr\_t ptr, \textcolor{keywordtype}{void}* buff,}
+\DoxyCodeLine{00083                                       std::uint32\_t size) \{}
+\DoxyCodeLine{00084     std::memcpy((\textcolor{keywordtype}{void}*)ptr, buff, size);}
+\DoxyCodeLine{00085   \};}
+\DoxyCodeLine{00086 }
+\DoxyCodeLine{00087   \mbox{\hyperlink{namespacetheo_1_1recomp_a7364f8c94855a2a871a9d6e1057989f3}{theo::recomp::resolver\_t}} resolver = [\&](std::string sym) -\/> std::uintptr\_t \{}
+\DoxyCodeLine{00088     \textcolor{keyword}{auto} loaded\_modules = std::make\_unique<HMODULE[]>(64);}
+\DoxyCodeLine{00089     std::uintptr\_t result = 0u, loaded\_module\_sz = 0u;}
+\DoxyCodeLine{00090     \textcolor{keywordflow}{if} (!EnumProcessModules(GetCurrentProcess(), loaded\_modules.get(), 512,}
+\DoxyCodeLine{00091                             (PDWORD)\&loaded\_module\_sz))}
+\DoxyCodeLine{00092       \textcolor{keywordflow}{return} \{\};}
+\DoxyCodeLine{00093 }
+\DoxyCodeLine{00094     \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} i = 0u; i < loaded\_module\_sz / 8u; i++) \{}
+\DoxyCodeLine{00095       \textcolor{keywordtype}{wchar\_t} file\_name[MAX\_PATH] = L\textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{00096       \textcolor{keywordflow}{if} (!GetModuleFileNameExW(GetCurrentProcess(), loaded\_modules.get()[i],}
+\DoxyCodeLine{00097                                 file\_name, \_countof(file\_name)))}
+\DoxyCodeLine{00098         \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{00099 }
+\DoxyCodeLine{00100       \textcolor{keywordflow}{if} ((result = \textcolor{keyword}{reinterpret\_cast<}std::uintptr\_t\textcolor{keyword}{>}(}
+\DoxyCodeLine{00101                GetProcAddress(LoadLibraryW(file\_name), sym.c\_str()))))}
+\DoxyCodeLine{00102         \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00103     \}}
+\DoxyCodeLine{00104     \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{00105   \};}
+\DoxyCodeLine{00106 }
+\DoxyCodeLine{00107   \textcolor{comment}{// init enc/dec tables only once... important that this is done before adding}}
+\DoxyCodeLine{00108   \textcolor{comment}{// obfuscation passes to the engine...}}
+\DoxyCodeLine{00109   \textcolor{comment}{//}}
+\DoxyCodeLine{00110   xed\_tables\_init();}
+\DoxyCodeLine{00111 }
+\DoxyCodeLine{00112   \textcolor{comment}{// order matters, the order in which the pass is added is the order they}}
+\DoxyCodeLine{00113   \textcolor{comment}{// will be executed!}}
+\DoxyCodeLine{00114   \textcolor{comment}{//}}
+\DoxyCodeLine{00115   \textcolor{keyword}{auto} engine = \mbox{\hyperlink{classtheo_1_1obf_1_1engine__t_a58715f5c3ade824a65e602aba570040e}{theo::obf::engine\_t::get}}();}
+\DoxyCodeLine{00116 }
+\DoxyCodeLine{00117   \textcolor{comment}{// add in our hello world pass here}}
+\DoxyCodeLine{00118   \textcolor{comment}{//}}
+\DoxyCodeLine{00119   engine-\/>add\_pass(\mbox{\hyperlink{classtheo_1_1obf_1_1hello__world__pass__t_aa556436f48335fe485d96ebc44ac2293}{theo::obf::hello\_world\_pass\_t::get}}());}
+\DoxyCodeLine{00120 }
+\DoxyCodeLine{00121   \textcolor{comment}{// add the rest of the passes in this order. this order is important.}}
+\DoxyCodeLine{00122   \textcolor{comment}{//}}
+\DoxyCodeLine{00123   engine-\/>add\_pass(\mbox{\hyperlink{classtheo_1_1obf_1_1reloc__transform__pass__t_a89aa46da5f721057cd8cf5189207d464}{theo::obf::reloc\_transform\_pass\_t::get}}());}
+\DoxyCodeLine{00124   engine-\/>add\_pass(\mbox{\hyperlink{classtheo_1_1obf_1_1next__inst__pass__t_a964e6f5291ccba0442519f2563b3a2e9}{theo::obf::next\_inst\_pass\_t::get}}());}
+\DoxyCodeLine{00125   engine-\/>add\_pass(\mbox{\hyperlink{classtheo_1_1obf_1_1jcc__rewrite__pass__t_afc17278f751fe3f5868c988faffb3c92}{theo::obf::jcc\_rewrite\_pass\_t::get}}());}
+\DoxyCodeLine{00126 }
+\DoxyCodeLine{00127   std::string entry\_name;}
+\DoxyCodeLine{00128   std::cout << \textcolor{stringliteral}{"{}enter the name of the entry point: "{}};}
+\DoxyCodeLine{00129   std::cin >> entry\_name;}
+\DoxyCodeLine{00130 }
+\DoxyCodeLine{00131   \textcolor{comment}{// create a theo object and pass in the lib, your allocator, copier, and}}
+\DoxyCodeLine{00132   \textcolor{comment}{// resolver functions, as well as the entry point symbol name.}}
+\DoxyCodeLine{00133   \textcolor{comment}{//}}
+\DoxyCodeLine{00134   \mbox{\hyperlink{classtheo_1_1theo__t}{theo::theo\_t}} t(fdata, \{allocator, copier, resolver\}, entry\_name.data());}
+\DoxyCodeLine{00135 }
+\DoxyCodeLine{00136   \textcolor{comment}{// call the decompose method to decompose the lib into coff files and extract}}
+\DoxyCodeLine{00137   \textcolor{comment}{// the symbols that are used. the result of this call will be an optional}}
+\DoxyCodeLine{00138   \textcolor{comment}{// value containing the number of symbols extracted.}}
+\DoxyCodeLine{00139   \textcolor{comment}{//}}
+\DoxyCodeLine{00140   \textcolor{keyword}{auto} res = t.decompose();}
+\DoxyCodeLine{00141 }
+\DoxyCodeLine{00142   \textcolor{keywordflow}{if} (!res.has\_value()) \{}
+\DoxyCodeLine{00143     spdlog::error(\textcolor{stringliteral}{"{}decomposition failed...\(\backslash\)n"{}});}
+\DoxyCodeLine{00144     \textcolor{keywordflow}{return} -\/1;}
+\DoxyCodeLine{00145   \}}
+\DoxyCodeLine{00146 }
+\DoxyCodeLine{00147   spdlog::info(\textcolor{stringliteral}{"{}decomposed \{\} symbols..."{}}, res.value());}
+\DoxyCodeLine{00148   \textcolor{keyword}{auto} entry\_pnt = t.compose();}
+\DoxyCodeLine{00149   spdlog::info(\textcolor{stringliteral}{"{}entry point address: \{:X\}"{}}, entry\_pnt);}
+\DoxyCodeLine{00150   \textcolor{keyword}{reinterpret\_cast<}\textcolor{keywordtype}{void} (*)()\textcolor{keyword}{>}(entry\_pnt)();}
+\DoxyCodeLine{00151 \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{theo_8cpp_source_l00056}{theo\+::theo\+\_\+t\+::compose()}}, \mbox{\hyperlink{theo_8cpp_source_l00045}{theo\+::theo\+\_\+t\+::decompose()}}, \mbox{\hyperlink{hello__world__pass_8hpp_source_l00045}{theo\+::obf\+::hello\+\_\+world\+\_\+pass\+\_\+t\+::get()}}, \mbox{\hyperlink{engine_8cpp_source_l00034}{theo\+::obf\+::engine\+\_\+t\+::get()}}, \mbox{\hyperlink{jcc__rewrite__pass_8cpp_source_l00035}{theo\+::obf\+::jcc\+\_\+rewrite\+\_\+pass\+\_\+t\+::get()}}, \mbox{\hyperlink{next__inst__pass_8cpp_source_l00034}{theo\+::obf\+::next\+\_\+inst\+\_\+pass\+\_\+t\+::get()}}, and \mbox{\hyperlink{reloc__transform__pass_8cpp_source_l00034}{theo\+::obf\+::reloc\+\_\+transform\+\_\+pass\+\_\+t\+::get()}}.
+

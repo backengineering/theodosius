@@ -1,0 +1,4 @@
+*.exe
+build/
+dependencies/llvm-obfuscator.rar
+resources/clang.zip

@@ -1,0 +1,127 @@
+\hypertarget{symbol_8cpp_source}{}\doxysection{symbol.\+cpp}
+\label{symbol_8cpp_source}\index{src/decomp/symbol.cpp@{src/decomp/symbol.cpp}}
+\mbox{\hyperlink{symbol_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{symbol_8cpp_source_l00001}00001 \textcolor{comment}{// Copyright (c) 2022, \_xeroxz}}
+\DoxyCodeLine{\Hypertarget{symbol_8cpp_source_l00002}00002 \textcolor{comment}{// All rights reserved.}}
+\DoxyCodeLine{\Hypertarget{symbol_8cpp_source_l00003}00003 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{symbol_8cpp_source_l00004}00004 \textcolor{comment}{// Redistribution and use in source and binary forms, with or without}}
+\DoxyCodeLine{\Hypertarget{symbol_8cpp_source_l00005}00005 \textcolor{comment}{// modification, are permitted provided that the following conditions are met:}}
+\DoxyCodeLine{\Hypertarget{symbol_8cpp_source_l00006}00006 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{symbol_8cpp_source_l00007}00007 \textcolor{comment}{// 1. Redistributions of source code must retain the above copyright notice,}}
+\DoxyCodeLine{\Hypertarget{symbol_8cpp_source_l00008}00008 \textcolor{comment}{//    this list of conditions and the following disclaimer.}}
+\DoxyCodeLine{\Hypertarget{symbol_8cpp_source_l00009}00009 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{symbol_8cpp_source_l00010}00010 \textcolor{comment}{// 2. Redistributions in binary form must reproduce the above copyright notice,}}
+\DoxyCodeLine{\Hypertarget{symbol_8cpp_source_l00011}00011 \textcolor{comment}{//    this list of conditions and the following disclaimer in the documentation}}
+\DoxyCodeLine{\Hypertarget{symbol_8cpp_source_l00012}00012 \textcolor{comment}{//    and/or other materials provided with the distribution.}}
+\DoxyCodeLine{\Hypertarget{symbol_8cpp_source_l00013}00013 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{symbol_8cpp_source_l00014}00014 \textcolor{comment}{// 3. Neither the name of the copyright holder nor the names of its}}
+\DoxyCodeLine{\Hypertarget{symbol_8cpp_source_l00015}00015 \textcolor{comment}{//    contributors may be used to endorse or promote products derived from}}
+\DoxyCodeLine{\Hypertarget{symbol_8cpp_source_l00016}00016 \textcolor{comment}{//    this software without specific prior written permission.}}
+\DoxyCodeLine{\Hypertarget{symbol_8cpp_source_l00017}00017 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{symbol_8cpp_source_l00018}00018 \textcolor{comment}{// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "{}AS IS"{}}}
+\DoxyCodeLine{\Hypertarget{symbol_8cpp_source_l00019}00019 \textcolor{comment}{// AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE}}
+\DoxyCodeLine{\Hypertarget{symbol_8cpp_source_l00020}00020 \textcolor{comment}{// IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE}}
+\DoxyCodeLine{\Hypertarget{symbol_8cpp_source_l00021}00021 \textcolor{comment}{// ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE}}
+\DoxyCodeLine{\Hypertarget{symbol_8cpp_source_l00022}00022 \textcolor{comment}{// LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR}}
+\DoxyCodeLine{\Hypertarget{symbol_8cpp_source_l00023}00023 \textcolor{comment}{// CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF}}
+\DoxyCodeLine{\Hypertarget{symbol_8cpp_source_l00024}00024 \textcolor{comment}{// SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS}}
+\DoxyCodeLine{\Hypertarget{symbol_8cpp_source_l00025}00025 \textcolor{comment}{// INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN}}
+\DoxyCodeLine{\Hypertarget{symbol_8cpp_source_l00026}00026 \textcolor{comment}{// CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)}}
+\DoxyCodeLine{\Hypertarget{symbol_8cpp_source_l00027}00027 \textcolor{comment}{// ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE}}
+\DoxyCodeLine{\Hypertarget{symbol_8cpp_source_l00028}00028 \textcolor{comment}{// POSSIBILITY OF SUCH DAMAGE.}}
+\DoxyCodeLine{\Hypertarget{symbol_8cpp_source_l00029}00029 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{symbol_8cpp_source_l00030}00030 }
+\DoxyCodeLine{\Hypertarget{symbol_8cpp_source_l00031}00031 \textcolor{preprocessor}{\#include <\mbox{\hyperlink{symbol_8hpp}{decomp/symbol.hpp}}>}}
+\DoxyCodeLine{\Hypertarget{symbol_8cpp_source_l00032}00032 }
+\DoxyCodeLine{\Hypertarget{symbol_8cpp_source_l00033}00033 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespacetheo_1_1decomp}{theo::decomp}} \{}
+\DoxyCodeLine{\Hypertarget{symbol_8cpp_source_l00034}\mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t_aa7247dcb735176b6ed9246d035e7a215}{00034}} \mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t_aa7247dcb735176b6ed9246d035e7a215}{symbol\_t::symbol\_t}}(coff::image\_t* img,}
+\DoxyCodeLine{\Hypertarget{symbol_8cpp_source_l00035}00035                    std::string name,}
+\DoxyCodeLine{\Hypertarget{symbol_8cpp_source_l00036}00036                    std::uintptr\_t offset,}
+\DoxyCodeLine{\Hypertarget{symbol_8cpp_source_l00037}00037                    std::vector<std::uint8\_t> \mbox{\hyperlink{namespacetheo_1_1decomp_af96177687d0ad683c5897d8fa01135f9acdb885c0ea7f6b2874224487c69b8112}{data}},}
+\DoxyCodeLine{\Hypertarget{symbol_8cpp_source_l00038}00038                    coff::section\_header\_t* scn,}
+\DoxyCodeLine{\Hypertarget{symbol_8cpp_source_l00039}00039                    coff::symbol\_t* sym,}
+\DoxyCodeLine{\Hypertarget{symbol_8cpp_source_l00040}00040                    std::vector<recomp::reloc\_t> relocs,}
+\DoxyCodeLine{\Hypertarget{symbol_8cpp_source_l00041}00041                    \mbox{\hyperlink{namespacetheo_1_1decomp_af96177687d0ad683c5897d8fa01135f9}{sym\_type\_t}} dcmp\_type)}
+\DoxyCodeLine{\Hypertarget{symbol_8cpp_source_l00042}00042     : m\_name(name),}
+\DoxyCodeLine{\Hypertarget{symbol_8cpp_source_l00043}00043       m\_offset(offset),}
+\DoxyCodeLine{\Hypertarget{symbol_8cpp_source_l00044}00044       m\_data(\mbox{\hyperlink{namespacetheo_1_1decomp_af96177687d0ad683c5897d8fa01135f9acdb885c0ea7f6b2874224487c69b8112}{data}}),}
+\DoxyCodeLine{\Hypertarget{symbol_8cpp_source_l00045}00045       m\_scn(scn),}
+\DoxyCodeLine{\Hypertarget{symbol_8cpp_source_l00046}00046       m\_relocs(relocs),}
+\DoxyCodeLine{\Hypertarget{symbol_8cpp_source_l00047}00047       m\_sym\_type(dcmp\_type),}
+\DoxyCodeLine{\Hypertarget{symbol_8cpp_source_l00048}00048       m\_sym(sym),}
+\DoxyCodeLine{\Hypertarget{symbol_8cpp_source_l00049}00049       m\_img(img),}
+\DoxyCodeLine{\Hypertarget{symbol_8cpp_source_l00050}00050       m\_allocated\_at(0) \{\}}
+\DoxyCodeLine{\Hypertarget{symbol_8cpp_source_l00051}00051 }
+\DoxyCodeLine{\Hypertarget{symbol_8cpp_source_l00052}\mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t_a7c6dee036291ded334aa10d89293fc2a}{00052}} std::string \mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t_a7c6dee036291ded334aa10d89293fc2a}{symbol\_t::name}}()\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{\Hypertarget{symbol_8cpp_source_l00053}00053   \textcolor{keywordflow}{return} m\_name;}
+\DoxyCodeLine{\Hypertarget{symbol_8cpp_source_l00054}00054 \}}
+\DoxyCodeLine{\Hypertarget{symbol_8cpp_source_l00055}00055 }
+\DoxyCodeLine{\Hypertarget{symbol_8cpp_source_l00056}\mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t_a79759d343ddb6a62e4149aef92e2d70b}{00056}} std::uintptr\_t \mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t_a79759d343ddb6a62e4149aef92e2d70b}{symbol\_t::offset}}()\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{\Hypertarget{symbol_8cpp_source_l00057}00057   \textcolor{keywordflow}{return} m\_offset;}
+\DoxyCodeLine{\Hypertarget{symbol_8cpp_source_l00058}00058 \}}
+\DoxyCodeLine{\Hypertarget{symbol_8cpp_source_l00059}00059 }
+\DoxyCodeLine{\Hypertarget{symbol_8cpp_source_l00060}\mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t_ae92f3e35fba82a1d16a58ad09b39fb47}{00060}} std::uintptr\_t \mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t_ae92f3e35fba82a1d16a58ad09b39fb47}{symbol\_t::allocated\_at}}()\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{\Hypertarget{symbol_8cpp_source_l00061}00061   \textcolor{keywordflow}{return} m\_allocated\_at;}
+\DoxyCodeLine{\Hypertarget{symbol_8cpp_source_l00062}00062 \}}
+\DoxyCodeLine{\Hypertarget{symbol_8cpp_source_l00063}00063 }
+\DoxyCodeLine{\Hypertarget{symbol_8cpp_source_l00064}\mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t_a64d51dabe91687ed40c3942d106fd7dd}{00064}} coff::section\_header\_t* \mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t_a64d51dabe91687ed40c3942d106fd7dd}{symbol\_t::scn}}()\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{\Hypertarget{symbol_8cpp_source_l00065}00065   \textcolor{keywordflow}{return} m\_scn;}
+\DoxyCodeLine{\Hypertarget{symbol_8cpp_source_l00066}00066 \}}
+\DoxyCodeLine{\Hypertarget{symbol_8cpp_source_l00067}00067 }
+\DoxyCodeLine{\Hypertarget{symbol_8cpp_source_l00068}\mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t_ad97ad0395e18dcfb42017fb7753e0665}{00068}} coff::image\_t* \mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t_ad97ad0395e18dcfb42017fb7753e0665}{symbol\_t::img}}()\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{\Hypertarget{symbol_8cpp_source_l00069}00069   \textcolor{keywordflow}{return} m\_img;}
+\DoxyCodeLine{\Hypertarget{symbol_8cpp_source_l00070}00070 \}}
+\DoxyCodeLine{\Hypertarget{symbol_8cpp_source_l00071}00071 }
+\DoxyCodeLine{\Hypertarget{symbol_8cpp_source_l00072}\mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t_ae33f1452b01fe80f9c384241b9fe6286}{00072}} std::uint32\_t \mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t_ae33f1452b01fe80f9c384241b9fe6286}{symbol\_t::size}}()\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{\Hypertarget{symbol_8cpp_source_l00073}00073   \textcolor{keywordflow}{return} m\_data.size();}
+\DoxyCodeLine{\Hypertarget{symbol_8cpp_source_l00074}00074 \}}
+\DoxyCodeLine{\Hypertarget{symbol_8cpp_source_l00075}00075 }
+\DoxyCodeLine{\Hypertarget{symbol_8cpp_source_l00076}\mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t_aa3ecf0b480d10bffe68812409c06d61b}{00076}} std::vector<std::uint8\_t>\& \mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t_aa3ecf0b480d10bffe68812409c06d61b}{symbol\_t::data}}() \{}
+\DoxyCodeLine{\Hypertarget{symbol_8cpp_source_l00077}00077   \textcolor{keywordflow}{return} m\_data;}
+\DoxyCodeLine{\Hypertarget{symbol_8cpp_source_l00078}00078 \}}
+\DoxyCodeLine{\Hypertarget{symbol_8cpp_source_l00079}00079 }
+\DoxyCodeLine{\Hypertarget{symbol_8cpp_source_l00080}\mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t_a16587cddd37cd45d9ec6cd25c229e8d1}{00080}} \mbox{\hyperlink{namespacetheo_1_1decomp_af96177687d0ad683c5897d8fa01135f9}{sym\_type\_t}} \mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t_a16587cddd37cd45d9ec6cd25c229e8d1}{symbol\_t::type}}()\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{\Hypertarget{symbol_8cpp_source_l00081}00081   \textcolor{keywordflow}{return} m\_sym\_type;}
+\DoxyCodeLine{\Hypertarget{symbol_8cpp_source_l00082}00082 \}}
+\DoxyCodeLine{\Hypertarget{symbol_8cpp_source_l00083}00083 }
+\DoxyCodeLine{\Hypertarget{symbol_8cpp_source_l00084}\mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t_a79bec0c7338f2c08739ea6547745cc3b}{00084}} \textcolor{keywordtype}{void} \mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t_ae92f3e35fba82a1d16a58ad09b39fb47}{symbol\_t::allocated\_at}}(std::uintptr\_t allocated\_at) \{}
+\DoxyCodeLine{\Hypertarget{symbol_8cpp_source_l00085}00085   m\_allocated\_at = \mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t_ae92f3e35fba82a1d16a58ad09b39fb47}{allocated\_at}};}
+\DoxyCodeLine{\Hypertarget{symbol_8cpp_source_l00086}00086 \}}
+\DoxyCodeLine{\Hypertarget{symbol_8cpp_source_l00087}00087 }
+\DoxyCodeLine{\Hypertarget{symbol_8cpp_source_l00088}\mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t_a8695d75670cc4d61d275464e9109ff06}{00088}} std::size\_t \mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t_a8695d75670cc4d61d275464e9109ff06}{symbol\_t::hash}}() \{}
+\DoxyCodeLine{\Hypertarget{symbol_8cpp_source_l00089}00089   \textcolor{keywordflow}{return} \mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t_a8695d75670cc4d61d275464e9109ff06}{hash}}(m\_name);}
+\DoxyCodeLine{\Hypertarget{symbol_8cpp_source_l00090}00090 \}}
+\DoxyCodeLine{\Hypertarget{symbol_8cpp_source_l00091}00091 }
+\DoxyCodeLine{\Hypertarget{symbol_8cpp_source_l00092}\mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t_a0e6f850f25a51609fbe5dc0a61b27bc9}{00092}} coff::symbol\_t* \mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t_a0e6f850f25a51609fbe5dc0a61b27bc9}{symbol\_t::sym}}()\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{\Hypertarget{symbol_8cpp_source_l00093}00093   \textcolor{keywordflow}{return} m\_sym;}
+\DoxyCodeLine{\Hypertarget{symbol_8cpp_source_l00094}00094 \}}
+\DoxyCodeLine{\Hypertarget{symbol_8cpp_source_l00095}00095 }
+\DoxyCodeLine{\Hypertarget{symbol_8cpp_source_l00096}\mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t_abc158e1dc1567161f0a57ed15fc718f7}{00096}} std::vector<recomp::reloc\_t>\& \mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t_abc158e1dc1567161f0a57ed15fc718f7}{symbol\_t::relocs}}() \{}
+\DoxyCodeLine{\Hypertarget{symbol_8cpp_source_l00097}00097   \textcolor{keywordflow}{return} m\_relocs;}
+\DoxyCodeLine{\Hypertarget{symbol_8cpp_source_l00098}00098 \}}
+\DoxyCodeLine{\Hypertarget{symbol_8cpp_source_l00099}00099 }
+\DoxyCodeLine{\Hypertarget{symbol_8cpp_source_l00100}\mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t_a88481ad95d28f9c54c349f0e43de8970}{00100}} std::size\_t \mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t_a8695d75670cc4d61d275464e9109ff06}{symbol\_t::hash}}(\textcolor{keyword}{const} std::string\& sym) \{}
+\DoxyCodeLine{\Hypertarget{symbol_8cpp_source_l00101}00101   \textcolor{keywordflow}{return} std::hash<std::string>\{\}(\mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t_a0e6f850f25a51609fbe5dc0a61b27bc9}{sym}});}
+\DoxyCodeLine{\Hypertarget{symbol_8cpp_source_l00102}00102 \}}
+\DoxyCodeLine{\Hypertarget{symbol_8cpp_source_l00103}00103 }
+\DoxyCodeLine{\Hypertarget{symbol_8cpp_source_l00104}\mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t_a2bef3a0869fee4979918405c5ed8f692}{00104}} std::string \mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t_a7c6dee036291ded334aa10d89293fc2a}{symbol\_t::name}}(\textcolor{keyword}{const} coff::image\_t* img, coff::symbol\_t* sym) \{}
+\DoxyCodeLine{\Hypertarget{symbol_8cpp_source_l00105}00105   \textcolor{keywordflow}{if} (\mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t_a0e6f850f25a51609fbe5dc0a61b27bc9}{sym}}-\/>has\_section() \&\&}
+\DoxyCodeLine{\Hypertarget{symbol_8cpp_source_l00106}00106       \mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t_a0e6f850f25a51609fbe5dc0a61b27bc9}{sym}}-\/>storage\_class == coff::storage\_class\_id::private\_symbol \&\&}
+\DoxyCodeLine{\Hypertarget{symbol_8cpp_source_l00107}00107       \mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t_a0e6f850f25a51609fbe5dc0a61b27bc9}{sym}}-\/>derived\_type == coff::derived\_type\_id::none) \{}
+\DoxyCodeLine{\Hypertarget{symbol_8cpp_source_l00108}00108     \textcolor{keyword}{auto} \mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t_a64d51dabe91687ed40c3942d106fd7dd}{scn}} = \mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t_ad97ad0395e18dcfb42017fb7753e0665}{img}}-\/>get\_section(\mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t_a0e6f850f25a51609fbe5dc0a61b27bc9}{sym}}-\/>section\_index -\/ 1);}
+\DoxyCodeLine{\Hypertarget{symbol_8cpp_source_l00109}00109     \textcolor{keyword}{auto} res = std::string(\mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t_a64d51dabe91687ed40c3942d106fd7dd}{scn}}-\/>name.to\_string(\mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t_ad97ad0395e18dcfb42017fb7753e0665}{img}}-\/>get\_strings()).data())}
+\DoxyCodeLine{\Hypertarget{symbol_8cpp_source_l00110}00110                    .append(\textcolor{stringliteral}{"{}\#"{}})}
+\DoxyCodeLine{\Hypertarget{symbol_8cpp_source_l00111}00111                    .append(std::to\_string(\mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t_a0e6f850f25a51609fbe5dc0a61b27bc9}{sym}}-\/>section\_index))}
+\DoxyCodeLine{\Hypertarget{symbol_8cpp_source_l00112}00112                    .append(\textcolor{stringliteral}{"{}!"{}})}
+\DoxyCodeLine{\Hypertarget{symbol_8cpp_source_l00113}00113                    .append(std::to\_string(\mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t_ad97ad0395e18dcfb42017fb7753e0665}{img}}-\/>file\_header.timedate\_stamp))}
+\DoxyCodeLine{\Hypertarget{symbol_8cpp_source_l00114}00114                    .append(\textcolor{stringliteral}{"{}+"{}})}
+\DoxyCodeLine{\Hypertarget{symbol_8cpp_source_l00115}00115                    .append(std::to\_string(\mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t_a0e6f850f25a51609fbe5dc0a61b27bc9}{sym}}-\/>value));}
+\DoxyCodeLine{\Hypertarget{symbol_8cpp_source_l00116}00116 }
+\DoxyCodeLine{\Hypertarget{symbol_8cpp_source_l00117}00117     \textcolor{keywordflow}{return} res;}
+\DoxyCodeLine{\Hypertarget{symbol_8cpp_source_l00118}00118   \}}
+\DoxyCodeLine{\Hypertarget{symbol_8cpp_source_l00119}00119   \textcolor{keywordflow}{return} std::string(\mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t_a0e6f850f25a51609fbe5dc0a61b27bc9}{sym}}-\/>name.to\_string(\mbox{\hyperlink{classtheo_1_1decomp_1_1symbol__t_ad97ad0395e18dcfb42017fb7753e0665}{img}}-\/>get\_strings()));}
+\DoxyCodeLine{\Hypertarget{symbol_8cpp_source_l00120}00120 \}}
+\DoxyCodeLine{\Hypertarget{symbol_8cpp_source_l00121}00121 \}  \textcolor{comment}{// namespace theo::decomp}}
+
+\end{DoxyCode}
